@@ -1,0 +1,363 @@
+=============================================================================
+RATHENA KB - COMPLETE FILE INVENTORY & RECOMMENDATIONS
+=============================================================================
+
+ABSOLUTE FILE PATHS & SUMMARY TABLE
+=============================================================================
+
+DOCUMENTATION FILES (/doc/ - 30 Files)
+---
+/home/user/rathena2/doc/script_commands.txt              424K  11,721 lines  [TIER 1] CRITICAL - 5% covered in KB
+/home/user/rathena2/doc/packet_interserv.txt             62K   3,068 lines   [TIER 3] Technical - 0% covered
+/home/user/rathena2/doc/status_change.txt                54K   2,920 lines   [TIER 1] COVERED - 26% in KB
+/home/user/rathena2/doc/atcommands.txt                   44K   1,931 lines   [TIER 1] CRITICAL - 0% covered - MISSING KB
+/home/user/rathena2/doc/effect_list.md                   39K   977 lines     [TIER 1] COVERED - 33% in KB
+/home/user/rathena2/doc/item_bonus.txt                   28K   512 lines     [TIER 1] COVERED - 54% in KB
+/home/user/rathena2/doc/source_doc.txt                   21K   432 lines     [TIER 1] CRITICAL - 0% covered - MISSING KB
+/home/user/rathena2/doc/skill_db.txt                     20K   933 lines     [TIER 1] CRITICAL - 0% covered - MISSING KB
+/home/user/rathena2/doc/status.txt                       14K   321 lines     [TIER 2] HIGH - Partial coverage
+/home/user/rathena2/doc/mapflags.txt                     14K   491 lines     [TIER 2] COVERED - 193% in KB
+/home/user/rathena2/doc/item_group.txt                   11K   256 lines     [TIER 2] HIGH - 0% covered - MISSING KB
+/home/user/rathena2/doc/ea_job_system.txt                9.3K  262 lines     [TIER 2] HIGH - 0% covered - MISSING KB
+/home/user/rathena2/doc/item_db.txt                      8K    294 lines     [TIER 2] HIGH - 0% covered - MISSING KB
+/home/user/rathena2/doc/mob_db.txt                       7.6K  260 lines     [TIER 2] HIGH - 0% covered - MISSING KB
+/home/user/rathena2/doc/mob_db_mode_list.txt             7.5K  181 lines     [TIER 2] HIGH - 0% covered - MISSING KB
+/home/user/rathena2/doc/permissions.txt                  6.2K  238 lines     [TIER 2] COVERED - 233% in KB
+/home/user/rathena2/doc/achievements.md                  5.6K  165 lines     [TIER 2] MEDIUM - 0% covered - MISSING KB
+/home/user/rathena2/doc/woe_time_explanation.txt         4.3K  102 lines     [TIER 3] Partial coverage
+/home/user/rathena2/doc/packet_struct_notation.md        4.2K  132 lines     [TIER 3] Technical - 0% covered
+/home/user/rathena2/doc/map_cache.txt                    4.2K  68 lines      [TIER 3] Low priority
+/home/user/rathena2/doc/quest_db.txt                     3.5K  76 lines      [TIER 2] HIGH - 0% covered - MISSING KB
+/home/user/rathena2/doc/quest_variables.txt              3.3K  108 lines     [TIER 2] MEDIUM - Partial coverage
+/home/user/rathena2/doc/mob_avail.txt                    2.7K  108 lines     [TIER 3] Low priority
+/home/user/rathena2/doc/md5_hashcheck.txt                2.5K  54 lines      [TIER 3] Low priority
+/home/user/rathena2/doc/mob_skill_db_powerskill.txt      2.3K  48 lines      [TIER 3] Low priority
+/home/user/rathena2/doc/captcha_db.txt                   1.8K  --            [TIER 3] Low priority
+/home/user/rathena2/doc/whisper_sys.txt                  1.7K  52 lines      [TIER 3] Low priority
+/home/user/rathena2/doc/mob_item_ratio.txt               1.7K  54 lines      [TIER 3] Low priority
+/home/user/rathena2/doc/packet_client.txt                552B  --            [TIER 3] Low priority
+/home/user/rathena2/doc/map_server_generator.md          587B  --            [TIER 3] Low priority
+
+SAMPLE NPC SCRIPTS (/doc/sample/ - 32 Files)
+---
+/home/user/rathena2/doc/sample/npc_test_pcre.txt         13K   402 lines     [HIGH VALUE] PARTIAL in KB
+/home/user/rathena2/doc/sample/getiteminfo.txt           7K    156 lines     [HIGH VALUE] PARTIAL in KB
+/home/user/rathena2/doc/sample/npc_shop_test.txt         5.8K  --            [HIGH VALUE] Not covered
+/home/user/rathena2/doc/sample/instancing.txt            5.8K  208 lines     [HIGH VALUE] Not covered
+/home/user/rathena2/doc/sample/npc_extend_shop.txt       4K    --            [HIGH VALUE] Not covered
+/home/user/rathena2/doc/sample/localized_npc.txt         4.6K  148 lines     [HIGH VALUE] Not covered
+/home/user/rathena2/doc/sample/inarray.txt               4K    114 lines     [HIGH VALUE] Not covered
+/home/user/rathena2/doc/sample/npc_dynamic_shop.txt      2.6K  93 lines      [HIGH VALUE] Not covered
+/home/user/rathena2/doc/sample/bank_test.txt             2K    80 lines      [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/npc_test_duplicate.txt    2.9K  104 lines     [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/getguildinfo.txt          1.7K  --            [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/npc_live_dialogues.txt    1.9K  53 lines      [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/navigate.txt              1.8K  59 lines      [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/npc_test_setitemx.txt     1.9K  --            [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/npc_test_quest.txt        1.5K  48 lines      [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/gstorage_test.txt         1.6K  51 lines      [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/randomopt.txt             1.6K  54 lines      [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/npc_test_skill.txt        1.1K  --            [MEDIUM VALUE] Not covered
+/home/user/rathena2/doc/sample/delitem2.txt              1.1K  --            [MEDIUM VALUE] Not covered
++ 12 more sample files (smaller, similar priority)
+
+DATABASE CONFIGURATION FILES (49 Main + Variants)
+---
+CRITICAL DATABASE FILES (Must Document):
+/home/user/rathena2/db/item_db.yml                       6.0K  [CRITICAL] Item database
+/home/user/rathena2/db/mob_db.yml                        5.1K  [CRITICAL] Monster database
+/home/user/rathena2/db/skill_db.yml                      8.8K  [CRITICAL] Skill database
+/home/user/rathena2/db/quest_db.yml                      --    [CRITICAL] Quest database
+/home/user/rathena2/db/const.yml                         2.1K  [CRITICAL] Game constants
+
+IMPORTANT DATABASE FILES:
+/home/user/rathena2/db/skill_tree.yml                    --    Job skill trees
+/home/user/rathena2/db/job_stats.yml                     --    Job statistics
+/home/user/rathena2/db/achievement_db.yml                2.5K  Achievements
+/home/user/rathena2/db/item_enchant.yml                  4.6K  Item enchantment
+/home/user/rathena2/db/item_group_db.yml                 3.2K  Item grouping
+/home/user/rathena2/db/pet_db.yml                        --    Pet database
+/home/user/rathena2/db/homunculus_db.yml                 3.2K  Homunculus database
+/home/user/rathena2/db/instance_db.yml                   2.4K  Instanced dungeons
+/home/user/rathena2/db/battleground_db.yml               7.6K  Battleground config
+/home/user/rathena2/db/castle_db.yml                     2.1K  WoE castle database
+/home/user/rathena2/db/elemental_db.yml                  3.6K  Elemental database
+/home/user/rathena2/db/mercenary_db.yml                  --    Mercenary database
++ 30+ more specialized databases
+
+VARIANTS:
+/home/user/rathena2/db/pre-re/                           32 files (Pre-renewal)
+/home/user/rathena2/db/re/                               47 files (Renewal)
+/home/user/rathena2/db/import-tmpl/                      65+ files (Import templates)
+
+CONFIGURATION FILES (43 Main + Templates)
+---
+BATTLE CONFIGURATION (18 files):
+/home/user/rathena2/conf/battle/battle.conf              Core battle settings
+/home/user/rathena2/conf/battle/exp.conf                 Experience rates
+/home/user/rathena2/conf/battle/drops.conf               Drop rates
+/home/user/rathena2/conf/battle/skill.conf               Skill mechanics
+/home/user/rathena2/conf/battle/player.conf              Player mechanics
+/home/user/rathena2/conf/battle/monster.conf             Monster mechanics
+/home/user/rathena2/conf/battle/pet.conf                 Pet mechanics
+/home/user/rathena2/conf/battle/homunc.conf              Homunculus mechanics
+/home/user/rathena2/conf/battle/party.conf               Party mechanics
+/home/user/rathena2/conf/battle/guild.conf               Guild mechanics
+/home/user/rathena2/conf/battle/battleground.conf        Battleground settings
+/home/user/rathena2/conf/battle/items.conf               Item mechanics
+/home/user/rathena2/conf/battle/misc.conf                Miscellaneous
+/home/user/rathena2/conf/battle/status.conf              Status effect rates
+/home/user/rathena2/conf/battle/instance.conf            Instance mechanics
+/home/user/rathena2/conf/battle/feature.conf             Feature toggles
+/home/user/rathena2/conf/battle/client.conf              Client settings
+/home/user/rathena2/conf/battle/gm.conf                  GM/Admin settings
+
+SERVER CORE CONFIGURATION (8 files):
+/home/user/rathena2/conf/login_athena.conf               Login server
+/home/user/rathena2/conf/char_athena.conf                Character server
+/home/user/rathena2/conf/inter_athena.conf               Inter-server
+/home/user/rathena2/conf/map_athena.conf                 Map server
+/home/user/rathena2/conf/battle_athena.conf              Battle settings
+/home/user/rathena2/conf/log_athena.conf                 Logging
+/home/user/rathena2/conf/channels.conf                   Channels
+/home/user/rathena2/conf/packet_athena.conf              Packet config
+
+MESSAGE CONFIGURATION (13 files):
+/home/user/rathena2/conf/msg_conf/map_msg.conf          English messages
+/home/user/rathena2/conf/msg_conf/char_msg.conf         Character messages
+/home/user/rathena2/conf/msg_conf/login_msg.conf        Login messages
++ 10 more localized message files
+
+IMPORT TEMPLATES (8 files):
+/home/user/rathena2/conf/import-tmpl/battle_conf.txt
+/home/user/rathena2/conf/import-tmpl/char_conf.txt
+/home/user/rathena2/conf/import-tmpl/inter_conf.txt
+/home/user/rathena2/conf/import-tmpl/log_conf.txt
+/home/user/rathena2/conf/import-tmpl/login_conf.txt
+/home/user/rathena2/conf/import-tmpl/map_conf.txt
+/home/user/rathena2/conf/import-tmpl/packet_conf.txt
+/home/user/rathena2/conf/import-tmpl/script_conf.txt
+
+SUPPORT FILES:
+/home/user/rathena2/conf/readme.md                       3.1K  Configuration guide
+/home/user/rathena2/conf/charhelp.txt                    --    Character help
+/home/user/rathena2/conf/motd.txt                        --    MOTD template
+/home/user/rathena2/conf/grf-files.txt                   --    GRF configuration
+
+README & DOCUMENTATION:
+/home/user/rathena2/README.md                            4.4K  Project overview
+/home/user/rathena2/db/readme.md                         3.4K  Database guide
+/home/user/rathena2/CODE_OF_CONDUCT.md                   --    Code of conduct
+/home/user/rathena2/.github/CONTRIBUTING.md              --    Contributing guide
+/home/user/rathena2/sql-files/README.md                  --    SQL setup
+
+=============================================================================
+EXISTING KB FILES (10 Files, ~168K Total)
+=============================================================================
+
+/home/user/rathena2/kb/references/KB_REF_ScriptCommands.md        21K   [5% coverage of script_commands.txt]
+/home/user/rathena2/kb/references/KB_REF_StatusEffects.md         14K   [26% coverage of status_change.txt]
+/home/user/rathena2/kb/references/KB_REF_VisualEffects.md         13K   [33% coverage of effect_list.md]
+/home/user/rathena2/kb/references/KB_REF_ItemBonuses.md           15K   [54% coverage of item_bonus.txt]
+/home/user/rathena2/kb/references/KB_REF_MapFlags.md              27K   [193% coverage - comprehensive]
+/home/user/rathena2/kb/references/KB_REF_QuestSystem.md           13K   [Adequate coverage]
+/home/user/rathena2/kb/references/KB_REF_Permissions.md           14K   [233% coverage - comprehensive]
+/home/user/rathena2/kb/references/KB_REF_BattleConfig.md          15K   [83% coverage of battle/*.conf]
+/home/user/rathena2/kb/references/KB_REF_ConfigSystem.md          22K   [Comprehensive system overview]
+/home/user/rathena2/kb/references/KB_REF_NPCExamples.md           16K   [23% coverage of sample files]
+
+=============================================================================
+CRITICAL GAPS - FILES NEEDED IMMEDIATELY (TIER 1)
+=============================================================================
+
+1. KB_REF_AtCommands.md
+   Source: /home/user/rathena2/doc/atcommands.txt (44K, 1931 lines)
+   Coverage Needed: 100% of admin commands documentation
+   Estimated Output: 20-25K
+   Importance: CRITICAL - Required for admin/GM functionality
+   Current Status: 0% - MISSING FILE
+
+2. KB_REF_DatabaseStructure.md
+   Sources: 
+     - /home/user/rathena2/doc/item_db.txt (8K, 294 lines)
+     - /home/user/rathena2/doc/mob_db.txt (7.6K, 260 lines)
+     - /home/user/rathena2/doc/quest_db.txt (3.5K, 76 lines)
+   Coverage Needed: 100% of database format documentation
+   Estimated Output: 25-30K
+   Importance: CRITICAL - Required for custom database setup
+   Current Status: 0% - MISSING FILE
+
+3. KB_REF_SkillSystem.md
+   Sources:
+     - /home/user/rathena2/doc/skill_db.txt (20K, 933 lines)
+     - /home/user/rathena2/db/skill_db.yml (8.8K)
+     - /home/user/rathena2/db/skill_tree.yml (various sizes)
+   Coverage Needed: 100% of skill mechanics
+   Estimated Output: 20-25K
+   Importance: CRITICAL - Required for game mechanics understanding
+   Current Status: 0% - MISSING FILE
+
+4. KB_REF_JobSystem.md
+   Sources:
+     - /home/user/rathena2/doc/ea_job_system.txt (9.3K, 262 lines)
+     - /home/user/rathena2/db/job_stats.yml
+     - /home/user/rathena2/db/job_basepoints.yml (pre-re variants)
+   Coverage Needed: 100% of job/character system
+   Estimated Output: 15-20K
+   Importance: CRITICAL - Required for character creation systems
+   Current Status: 0% - MISSING FILE
+
+5. KB_REF_ItemSystem.md
+   Sources:
+     - /home/user/rathena2/doc/item_db.txt (8K)
+     - /home/user/rathena2/db/item_db.yml (6.0K)
+     - /home/user/rathena2/db/item_enchant.yml (4.6K)
+     - /home/user/rathena2/db/item_cash.yml (1.5K)
+     - /home/user/rathena2/db/item_combos.yml (1.7K)
+   Coverage Needed: 100% of item system mechanics
+   Estimated Output: 20-25K
+   Importance: HIGH - Required for item creation and management
+   Current Status: 0% - MISSING FILE
+
+6. KB_REF_MonsterSystem.md
+   Sources:
+     - /home/user/rathena2/doc/mob_db.txt (7.6K, 260 lines)
+     - /home/user/rathena2/doc/mob_db_mode_list.txt (7.5K, 181 lines)
+     - /home/user/rathena2/db/mob_db.yml (5.1K)
+     - /home/user/rathena2/db/mob_chat_db.yml
+     - /home/user/rathena2/db/mob_summon.yml
+   Coverage Needed: 100% of monster/mob system
+   Estimated Output: 18-22K
+   Importance: HIGH - Required for mob creation and mechanics
+   Current Status: 0% - MISSING FILE
+
+=============================================================================
+HIGH PRIORITY GAPS (TIER 2) - Create Next
+=============================================================================
+
+7. KB_REF_AdvancedScripting.md
+   Sources: /home/user/rathena2/doc/sample/ (32 files)
+   Key Examples:
+     - npc_test_pcre.txt (402 lines) - Regular expressions
+     - instancing.txt (208 lines) - Instanced dungeons
+     - getiteminfo.txt (156 lines) - Item info retrieval
+     - localized_npc.txt (148 lines) - Localization
+   Estimated Output: 20-25K
+   Importance: HIGH - Essential for script developers
+   Current Status: 10% (partial coverage in NPCExamples.md)
+
+8. KB_REF_BattleConfigReference.md
+   Sources: /home/user/rathena2/conf/battle/*.conf (18 files)
+   Coverage Needed: 100% of battle configuration options
+   Estimated Output: 25-30K
+   Importance: HIGH - Required for server setup/customization
+   Current Status: 30% (partial in BattleConfig.md)
+
+9. KB_REF_AchievementSystem.md
+   Sources:
+     - /home/user/rathena2/doc/achievements.md (5.6K, 165 lines)
+     - /home/user/rathena2/db/achievement_db.yml (2.5K)
+     - /home/user/rathena2/db/achievement_level_db.yml (1.5K)
+   Estimated Output: 12-15K
+   Importance: MEDIUM - Required for achievement implementation
+   Current Status: 0% - MISSING FILE
+
+10. KB_REF_ItemGroupsAndGroups.md
+    Sources:
+      - /home/user/rathena2/doc/item_group.txt (11K, 256 lines)
+      - /home/user/rathena2/db/item_group_db.yml (3.2K)
+    Estimated Output: 10-12K
+    Importance: MEDIUM - Required for item grouping mechanics
+    Current Status: 0% - MISSING FILE
+
+=============================================================================
+MEDIUM PRIORITY GAPS (TIER 3) - Create in Next Phase
+=============================================================================
+
+11. KB_REF_SourceCodeArchitecture.md
+    Source: /home/user/rathena2/doc/source_doc.txt (21K, 432 lines)
+    Estimated Output: 15-18K
+    Importance: MEDIUM - For developers understanding code structure
+    Current Status: 0% - MISSING FILE
+
+12. KB_REF_ConstantsAndEnums.md
+    Sources:
+      - /home/user/rathena2/db/const.yml (2.1K)
+      - Source code header files with enums
+    Estimated Output: 18-22K
+    Importance: MEDIUM - Required for advanced scripting
+    Current Status: 0% - MISSING FILE
+
+13. KB_REF_InstanceingSystem.md
+    Sources:
+      - /home/user/rathena2/doc/sample/instancing.txt (5.8K, 208 lines)
+      - /home/user/rathena2/db/instance_db.yml (2.4K)
+    Estimated Output: 12-15K
+    Importance: MEDIUM - Required for instanced dungeon implementation
+    Current Status: 0% - MISSING FILE
+
+14. KB_REF_QuestAdvanced.md
+    Sources:
+      - /home/user/rathena2/doc/quest_variables.txt (3.3K, 108 lines)
+      - Quest examples from samples
+    Estimated Output: 12-15K
+    Importance: MEDIUM - Required for advanced quest scripting
+    Current Status: ~20% (partial in QuestSystem.md)
+
+15. KB_REF_PacketStructures.md
+    Source: /home/user/rathena2/doc/packet_interserv.txt (62K, 3068 lines)
+    Estimated Output: 15-20K
+    Importance: LOW-MEDIUM (developers only)
+    Current Status: 0% - MISSING FILE
+
+=============================================================================
+OPTIONAL/FUTURE GAPS (TIER 4) - Create Eventually
+=============================================================================
+
+16. KB_REF_WoESystem.md - War of Emperium mechanics
+17. KB_REF_GuildSystem.md - Guild management and mechanics
+18. KB_REF_PvPSystem.md - PvP mechanics and rules
+19. KB_REF_PetHomunculus.md - Pets and Homunculus systems
+20. KB_REF_BattlegroundSystem.md - Battleground configuration
+
+=============================================================================
+EXPANSION PRIORITIES FOR EXISTING KB FILES
+=============================================================================
+
+NEEDS SIGNIFICANT EXPANSION (5K → 50K+):
+- KB_REF_ScriptCommands.md: Currently 21K, needs to expand to 50K+ to cover all 424K of documentation
+
+NEEDS MODERATE EXPANSION (15K → 25K):
+- KB_REF_NPCExamples.md: Needs to expand from 16K to 25K with more examples
+- KB_REF_BattleConfig.md: Expand from 15K to 25K with complete option listings
+
+ADEQUATE - MINIMAL EXPANSION:
+- KB_REF_MapFlags.md: 27K - Comprehensive
+- KB_REF_Permissions.md: 14K - Comprehensive
+- KB_REF_ConfigSystem.md: 22K - Adequate
+- KB_REF_VisualEffects.md: 13K - Adequate
+
+=============================================================================
+SUMMARY OF RECOMMENDATIONS
+=============================================================================
+
+TO REACH 60% COVERAGE (6 Weeks):
+Create files: 1, 2, 3, 4, 5, 6, 7, 8, 9
+Total new KB files: 9 (~180K total output)
+
+TO REACH 80% COVERAGE (3 Months):
+Add files: 10, 11, 12, 13, 14
+Total additional: 5 (~70K)
+
+TO REACH 95%+ COVERAGE (4-5 Months):
+Add files: 15, 16, 17, 18, 19, 20
+Plus expand existing ScriptCommands.md to 50K
+Total additional: 6+ files (~100K+)
+
+TOTAL ESTIMATED EFFORT FOR 100% COVERAGE:
+- 20 new KB files
+- 5 significantly expanded existing KB files
+- Total output: ~500K+ of documentation
+- Time estimate: 4-5 months with dedicated effort
+
+=============================================================================

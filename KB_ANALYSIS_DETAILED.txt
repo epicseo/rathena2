@@ -1,0 +1,663 @@
+=============================================================================
+RATHENA KNOWLEDGE BASE ANALYSIS - COMPLETE REPOSITORY DOCUMENTATION AUDIT
+=============================================================================
+
+EXECUTIVE SUMMARY:
+- Total Documentation Files Found: 30 in /doc/ + 32 samples = 62 total
+- Database Files: 49 main + 32 pre-re + 47 re = 128 total database files
+- Configuration Files: 43 .conf files + 8 templates + various txt files
+- Already Created KB Files: 10 comprehensive reference files
+- Coverage: ~16% of critical documentation
+
+=============================================================================
+SECTION 1: DOCUMENTATION DIRECTORY (/doc/) - COMPLETE INVENTORY
+=============================================================================
+
+TIER 1 - ABSOLUTELY CRITICAL (MUST HAVE) - 8 Files
+---
+1. script_commands.txt (11,721 lines, 424K)
+   - Complete NPC scripting function reference
+   - All available script commands and syntax
+   - COVERED: Partially in KB_REF_ScriptCommands.md (21K) - INCOMPLETE
+   - STATUS: NEEDS EXPANSION - Missing ~50% of commands
+
+2. status_change.txt (2,920 lines, 54K)
+   - Status effects, state information
+   - COVERED: Yes in KB_REF_StatusEffects.md (14K) - ADEQUATE
+   - STATUS: COMPLETE
+
+3. effect_list.md (977 lines, 39K)
+   - Visual effects and their IDs
+   - COVERED: Yes in KB_REF_VisualEffects.md (13K) - ADEQUATE
+   - STATUS: COMPLETE
+
+4. item_bonus.txt (512 lines, 28K)
+   - Item bonuses, stat adjustments, card effects
+   - COVERED: Yes in KB_REF_ItemBonuses.md (15K) - ADEQUATE
+   - STATUS: COMPLETE
+
+5. atcommands.txt (1,931 lines, 44K)
+   - Administrator commands and syntax
+   - COVERED: No dedicated KB file - MISSING
+   - PRIORITY: HIGH - Needed for admin/GM functionality
+
+6. status.txt (321 lines, 14K)
+   - Server status effects and constants
+   - COVERED: Partially covered in KB_REF_StatusEffects.md
+   - STATUS: NEEDS DEDICATED FILE
+
+7. skill_db.txt (933 lines, 20K)
+   - Skill database structure and format
+   - COVERED: Partially in documentation
+   - STATUS: NEEDS DEDICATED FILE for skill mechanics
+
+8. source_doc.txt (432 lines, 21K)
+   - Source code structure and architecture
+   - COVERED: No - MISSING
+   - PRIORITY: MEDIUM - For developers understanding code
+
+TIER 2 - IMPORTANT (HIGH PRIORITY) - 9 Files
+---
+9. item_db.txt (294 lines, 8K) - Item database structure
+10. mob_db.txt (260 lines, 7.6K) - Monster database structure
+11. mob_db_mode_list.txt (181 lines, 7.5K) - Monster AI modes
+12. mapflags.txt (491 lines, 14K)
+   - Map flags (PvP, WoE, safety, etc.)
+   - COVERED: Yes in KB_REF_MapFlags.md (27K) - COMPREHENSIVE
+   - STATUS: COMPLETE
+
+13. quest_db.txt (76 lines, 3.5K) - Quest database structure
+14. quest_variables.txt (108 lines, 3.3K) - Quest variables and tracking
+15. achievements.md (165 lines, 5.6K)
+    - COVERED: No dedicated KB file - MISSING
+    - PRIORITY: MEDIUM
+
+16. permissions.txt (238 lines, 6.2K)
+    - COVERED: Yes in KB_REF_Permissions.md (14K) - ADEQUATE
+    - STATUS: COMPLETE
+
+17. ea_job_system.txt (262 lines, 9.3K)
+    - Job classes, advancement, stats
+    - COVERED: No - MISSING
+    - PRIORITY: MEDIUM - Essential for character creation
+
+TIER 3 - SUPPORTING/REFERENCE (MEDIUM PRIORITY) - 13 Files
+---
+18. mob_avail.txt (108 lines, 2.7K) - Mobster availability/spawning
+19. mob_item_ratio.txt (54 lines, 1.7K) - Item drop ratios
+20. mob_skill_db_powerskill.txt (48 lines, 2.3K) - Power skill mechanics
+21. packet_interserv.txt (3,068 lines, 62K)
+    - Inter-server packet structures
+    - COVERED: No - MISSING
+    - PRIORITY: LOW (for developers/server coders)
+
+22. packet_client.txt (552 bytes) - Client packet structure
+23. packet_struct_notation.md (132 lines, 4.2K)
+    - COVERED: No - MISSING
+    - PRIORITY: LOW
+
+24. woe_time_explanation.txt (102 lines, 4.3K)
+    - War of Emperium timing
+    - COVERED: Partially in KB_REF_MapFlags.md
+    - STATUS: COMPLETE in context
+
+25. item_group.txt (256 lines, 11K)
+    - Item grouping system
+    - COVERED: No - MISSING
+    - PRIORITY: MEDIUM
+
+26. map_cache.txt (68 lines, 4.2K) - Map caching system
+27. captcha_db.txt (1.8K) - CAPTCHA system
+28. whisper_sys.txt (52 lines, 1.7K) - Whisper system
+29. md5_hashcheck.txt (54 lines, 2.5K) - MD5 hash verification
+30. map_server_generator.md (587 bytes) - Map server generation
+
+=============================================================================
+SECTION 2: SAMPLE NPC SCRIPTS (/doc/sample/) - 32 EXAMPLE FILES
+=============================================================================
+
+Examples provide real-world scripting patterns:
+
+ADVANCED EXAMPLES (High Value):
+- instancing.txt (208 lines, 5.8K) - Instanced dungeons
+- npc_test_pcre.txt (402 lines, 13K) - Regular expressions in scripts
+- getiteminfo.txt (156 lines, 7K) - Item information retrieval
+- npc_extend_shop.txt (4K) - Advanced shop mechanics
+- npc_dynamic_shop.txt (93 lines, 2.6K) - Dynamic shops
+- localized_npc.txt (148 lines, 4.6K) - Localization examples
+- npc_shop_test.txt (5.8K) - Shop system
+- inarray.txt (114 lines, 4K) - Array operations
+
+FUNCTION/FEATURE EXAMPLES:
+- npc_test_quest.txt - Quest implementation
+- npc_test_skill.txt - Skill system
+- npc_test_array.txt - Array operations
+- npc_test_func.txt - Functions
+- npc_test_duplicate.txt - NPC duplication
+- npc_test_chat.txt - Chat systems
+- npc_test_time.txt - Time functions
+- npc_test_npctimer.txt - Timer functions
+- npc_test_getunits.txt - Unit manipulation
+
+INFORMATION RETRIEVAL:
+- getequipid.txt - Equipment queries
+- getequipcardid.txt - Card slot queries
+- getguildinfo.txt - Guild information
+- getmonsterinfo.txt - Monster information
+
+OTHER:
+- bank_test.txt - Banking system
+- basejob_baseclass_upper.txt - Job classes
+- checkoption.txt - Option flags
+- delitem2.txt - Item deletion
+- gstorage_test.txt - Guild storage
+- navigate.txt - Navigation/pathfinding
+- npc_live_dialogues.txt - Dialogue systems
+- npc_test_setitemx.txt - Item setting
+- npc_test_setmapflag.txt - Map flags
+- randomopt.txt - Random item options
+
+STATUS: PARTIALLY COVERED in KB_REF_NPCExamples.md (16K) - NEEDS EXPANSION
+
+=============================================================================
+SECTION 3: DATABASE FILES (/db/) - COMPLETE INVENTORY
+=============================================================================
+
+TIER 1 - CORE DATABASE FILES (49 main files)
+---
+ITEM DATABASES:
+- item_db.yml (6.0K)
+- item_db_equip.yml (exists in pre-re: size varies)
+- item_enchant.yml (4.6K) - Enchantment system
+- item_cash.yml (1.5K) - Cash shop items
+- item_combos.yml (1.7K) - Item combination effects
+- item_group_db.yml (3.2K) - Item grouping
+- item_packages.yml (2.0K) - Item packages/bundles
+- item_randomopt_db.yml (1.5K) - Random item options
+- item_randomopt_group.yml (2.6K) - Random option grouping
+- item_reform.yml - Item reformation
+- create_arrow_db.yml (17K) - Arrow creation
+
+MONSTER/CREATURE DATABASES:
+- mob_db.yml (5.1K) - Monster definitions
+- mob_chat_db.yml - Monster chat
+- mob_summon.yml - Monster summoning
+- mob_item_ratio.yml - Drop ratios
+- mob_avail.yml (pre-re/re versions exist)
+
+NPC/DUNGEON/INSTANCE:
+- instance_db.yml (2.4K) - Instanced dungeons
+- quest_db.yml - Quest database
+- castle_db.yml (2.1K) - WoE castles
+- battleground_db.yml (7.6K) - Battleground settings
+
+SKILL SYSTEMS:
+- skill_db.yml (8.8K) - Skill definitions
+- skill_tree.yml - Job skill trees
+- spellbook_db.yml - Spellbook skills
+- abra_db.yml (7.9K) - Abracadabra skill
+- guild_skill_tree.yml (1.8K) - Guild skills
+- laphine_synthesis.yml - Synthesis recipes
+- laphine_upgrade.yml - Upgrade recipes
+
+JOB/CHARACTER SYSTEMS:
+- job_stats.yml - Job statistics
+- statpoint.yml - Stat point allocation
+- exp_guild.yml (1.4K) - Guild experience curves
+- exp_homun.yml (1.4K) - Homunculus experience
+
+SUPPORT SYSTEMS:
+- achievement_db.yml (2.5K) - Achievement definitions
+- achievement_level_db.yml (1.5K) - Achievement levels
+- attendance.yml (1.6K) - Attendance rewards
+- pet_db.yml - Pet database
+- homunculus_db.yml (3.2K) - Homunculus database
+- mercenary_db.yml - Mercenary database
+- elemental_db.yml (3.6K) - Elemental database
+
+GAMEPLAY MECHANICS:
+- status.yml - Status effects
+- refine.yml - Item refinement
+- const.yml (2.1K) - Game constants
+- enchantgrade.yml (3.2K) - Enchantment grades
+- size_fix.yml - Size penalties
+- attr_fix.yml (1.6K) - Attribute defenses
+- level_penalty.yml - Level penalties
+- magicmushroom_db.yml - Magic mushroom effects
+- map_drops.yml - Map-specific drops
+- reputation.yml - Reputation system
+- reputation_group.yml - Reputation groups
+- captcha_db.yml (1.5K) - CAPTCHA database
+
+TIER 2 - TEXT/TXT DATABASE FILES (in /db/):
+- map_index.txt - Map indexing
+- skill_changematerial_db.txt - Skill material changes
+- skill_damage_db.txt - Skill damage modifications
+- status_disabled.txt - Disabled statuses
+- produce_db.txt (pre-re/re) - Production/crafting
+- mob_skill_db.txt (pre-re/re) - Monster skill definitions
+- skill_nocast_db.txt (pre-re/re) - Skill restrictions
+- item_noequip.txt (pre-re/re) - Equipment restrictions
+- job_noenter_map.txt (pre-re/re) - Job map restrictions
+
+TIER 3 - VARIANT VERSIONS:
+- pre-re/ folder: 32 files - Pre-renewal database versions
+- re/ folder: 47 files - Renewal database versions
+- import-tmpl/ folder: Template files for customization
+
+STATUS: PARTIALLY DOCUMENTED
+- No dedicated KB files for database structure documentation
+- NEEDS: Comprehensive guide to main databases
+
+=============================================================================
+SECTION 4: CONFIGURATION FILES (/conf/) - COMPLETE INVENTORY
+=============================================================================
+
+TIER 1 - BATTLE CONFIGURATION (18 files in /conf/battle/)
+---
+- battle.conf - Core battle settings
+- exp.conf - Experience rates
+- drops.conf - Drop rates
+- skill.conf - Skill mechanics
+- player.conf - Player mechanics
+- monster.conf - Monster mechanics
+- pet.conf - Pet mechanics
+- homunc.conf - Homunculus mechanics
+- party.conf - Party mechanics
+- guild.conf - Guild mechanics
+- battleground.conf - Battleground settings
+- items.conf - Item mechanics
+- misc.conf - Miscellaneous
+- status.conf - Status effect rates
+- instance.conf - Instance mechanics
+- feature.conf - Feature toggles
+- client.conf - Client-specific settings
+- gm.conf - GM/Admin settings
+
+COVERED: Yes in KB_REF_BattleConfig.md (15K) - PARTIAL
+STATUS: NEEDS EXPANSION with detailed option listings
+
+TIER 2 - SERVER CORE CONFIGURATION (8 files):
+- login_athena.conf - Login server settings
+- char_athena.conf - Character server settings
+- inter_athena.conf - Inter-server settings
+- map_athena.conf - Map server settings
+- battle_athena.conf - Battle settings entry point
+- log_athena.conf - Logging configuration
+- channels.conf - Channel settings
+- packet_athena.conf - Packet configuration
+
+TIER 3 - MESSAGE CONFIGURATION (13 files in /conf/msg_conf/):
+- map_msg.conf (English)
+- char_msg.conf
+- login_msg.conf
+- web_msg.conf
+- map_msg_chn.conf (Chinese)
+- map_msg_frn.conf (French)
+- map_msg_grm.conf (German)
+- map_msg_idn.conf (Indonesian)
+- map_msg_tha.conf (Thai)
+- map_msg_spn.conf (Spanish)
+- map_msg_por.conf (Portuguese)
+- map_msg_mal.conf (Malay)
+- map_msg_rus.conf (Russian)
+
+TIER 4 - SUPPORT FILES:
+- charhelp.txt - Character help
+- motd.txt - Message of the day template
+- grf-files.txt - GRF file configuration
+- readme.md - Configuration directory guide
+
+COVERED: Yes in KB_REF_ConfigSystem.md (22K) - ADEQUATE
+STATUS: COMPLETE for primary configs
+
+TIER 5 - IMPORT TEMPLATES (/conf/import-tmpl/) - 8 templates:
+- battle_conf.txt
+- char_conf.txt
+- inter_conf.txt
+- log_conf.txt
+- login_conf.txt
+- map_conf.txt
+- packet_conf.txt
+- script_conf.txt
+
+=============================================================================
+SECTION 5: SUPPORTING README FILES
+=============================================================================
+
+MAIN REPOSITORY:
+- /home/user/rathena2/README.md (4.4K)
+  - Project overview, installation, prerequisites
+  - COVERAGE: Basic information only
+
+DATABASE README:
+- /home/user/rathena2/db/readme.md (3.4K)
+  - Database structure, import directories
+  - COVERAGE: Explains import system but not individual databases
+
+CONFIGURATION README:
+- /home/user/rathena2/conf/readme.md (3.1K)
+  - Configuration structure, import system
+  - COVERAGE: Explains import system and basic concepts
+
+SQL FILES:
+- /home/user/rathena2/sql-files/README.md
+  - SQL database setup
+
+TOOLS:
+- /home/user/rathena2/src/tool/readme.md
+  - Tool documentation
+
+CONTRIBUTION:
+- /home/user/rathena2/.github/CONTRIBUTING.md
+- /home/user/rathena2/.github/PULL_REQUEST_TEMPLATE.md
+
+=============================================================================
+SECTION 6: ALREADY CREATED KB FILES (10 files, ~168K total)
+=============================================================================
+
+1. KB_REF_ScriptCommands.md (21K)
+   - Covers script functions and syntax
+   - COVERAGE: ~40% of script_commands.txt
+   - GAPS: Many commands missing, advanced features
+
+2. KB_REF_StatusEffects.md (14K)
+   - Status effects and states
+   - COVERAGE: Good
+   - GAPS: Source code constants not documented
+
+3. KB_REF_VisualEffects.md (13K)
+   - Visual effects and IDs
+   - COVERAGE: Adequate
+   - STATUS: Complete
+
+4. KB_REF_ItemBonuses.md (15K)
+   - Item stat bonuses
+   - COVERAGE: Good
+   - STATUS: Complete
+
+5. KB_REF_MapFlags.md (27K)
+   - Map flags (PvP, WoE, etc.)
+   - COVERAGE: Comprehensive
+   - STATUS: Complete
+
+6. KB_REF_QuestSystem.md (13K)
+   - Quest mechanics and variables
+   - COVERAGE: Adequate
+   - GAPS: Advanced quest features
+
+7. KB_REF_Permissions.md (14K)
+   - Permission and role system
+   - COVERAGE: Good
+   - STATUS: Complete
+
+8. KB_REF_BattleConfig.md (15K)
+   - Battle configuration
+   - COVERAGE: ~30% of available options
+   - GAPS: Many battle configs not documented
+
+9. KB_REF_ConfigSystem.md (22K)
+   - Configuration system overview
+   - COVERAGE: Good
+   - STATUS: Adequate
+
+10. KB_REF_NPCExamples.md (16K)
+    - NPC scripting examples
+    - COVERAGE: ~10% of available samples
+    - GAPS: Only 6-8 major examples covered
+
+=============================================================================
+SECTION 7: CRITICAL GAPS & MISSING KB FILES
+=============================================================================
+
+TIER 1 - MUST CREATE IMMEDIATELY (9 files):
+---
+1. KB_REF_AtCommands.md (Admin Command Reference)
+   - Source: /doc/atcommands.txt (1931 lines, 44K)
+   - Importance: CRITICAL for admin/GM functionality
+   - Estimated Size: 20-25K
+
+2. KB_REF_DatabaseStructure.md (Database Format Guide)
+   - Source: /doc/item_db.txt, /doc/mob_db.txt, /doc/quest_db.txt
+   - Importance: CRITICAL for custom database setup
+   - Estimated Size: 25-30K
+
+3. KB_REF_SkillSystem.md (Skill Mechanics & Database)
+   - Source: /doc/skill_db.txt, db/skill_db.yml
+   - Importance: CRITICAL for game mechanics
+   - Estimated Size: 20-25K
+
+4. KB_REF_JobSystem.md (Job Classes & Advancement)
+   - Source: /doc/ea_job_system.txt, db/job_stats.yml, job_basepoints.yml
+   - Importance: CRITICAL for character systems
+   - Estimated Size: 15-20K
+
+5. KB_REF_ItemSystem.md (Comprehensive Item Guide)
+   - Source: /doc/item_db.txt, db/item_db.yml, item_enchant.yml, etc.
+   - Importance: HIGH for content creation
+   - Estimated Size: 20-25K
+
+6. KB_REF_MonsterSystem.md (Monster & AI Guide)
+   - Source: /doc/mob_db.txt, /doc/mob_db_mode_list.txt, db/mob_db.yml
+   - Importance: HIGH for content creation
+   - Estimated Size: 18-22K
+
+7. KB_REF_AchievementSystem.md (Achievements Guide)
+   - Source: /doc/achievements.md, db/achievement_db.yml
+   - Importance: MEDIUM for feature implementation
+   - Estimated Size: 12-15K
+
+8. KB_REF_ItemGroupsAndGroups.md (Item Grouping System)
+   - Source: /doc/item_group.txt, db/item_group_db.yml
+   - Importance: MEDIUM for item mechanics
+   - Estimated Size: 10-12K
+
+9. KB_REF_SourceCodeArchitecture.md (Developer Guide)
+   - Source: /doc/source_doc.txt
+   - Importance: MEDIUM for developers
+   - Estimated Size: 15-18K
+
+TIER 2 - CREATE NEXT (6 files):
+---
+10. KB_REF_AdvancedScripting.md (Advanced NPC Features)
+    - Source: /doc/sample/ (instancing, pcre, advanced shops, etc.)
+    - Importance: HIGH for script developers
+    - Estimated Size: 20-25K
+
+11. KB_REF_PacketStructures.md (Developer Reference)
+    - Source: /doc/packet_interserv.txt, /doc/packet_struct_notation.md
+    - Importance: LOW-MEDIUM (developers only)
+    - Estimated Size: 15-20K
+
+12. KB_REF_ConstantsAndEnums.md (Game Constants Reference)
+    - Source: db/const.yml + header files with enums
+    - Importance: MEDIUM for scripting
+    - Estimated Size: 18-22K
+
+13. KB_REF_BattleConfigReference.md (Complete Battle Configs)
+    - Source: /conf/battle/*.conf files + documentation
+    - Importance: HIGH for server setup
+    - Estimated Size: 25-30K
+
+14. KB_REF_InstanceingSystem.md (Instanced Dungeons Guide)
+    - Source: /doc/sample/instancing.txt, db/instance_db.yml
+    - Importance: MEDIUM for content creation
+    - Estimated Size: 12-15K
+
+15. KB_REF_QuestAdvanced.md (Advanced Quest Features)
+    - Source: /doc/quest_variables.txt + quest examples
+    - Importance: MEDIUM for scripters
+    - Estimated Size: 12-15K
+
+TIER 3 - CREATE EVENTUALLY (5 files):
+---
+16. KB_REF_WoESystem.md (War of Emperium)
+17. KB_REF_GuildSystem.md (Guild Management)
+18. KB_REF_PvPSystem.md (PvP Mechanics)
+19. KB_REF_PetHomunculus.md (Pets & Homunculi)
+20. KB_REF_BattlegroundSystem.md (Battleground Mechanics)
+
+=============================================================================
+SECTION 8: DETAILED RECOMMENDATIONS FOR 100% COVERAGE
+=============================================================================
+
+PRIORITY 1 - CREATE IN THIS PHASE (Will reach ~60% coverage):
+1. KB_REF_AtCommands.md - Essential for admin/content creators
+2. KB_REF_DatabaseStructure.md - Essential for custom databases
+3. KB_REF_SkillSystem.md - Essential for mechanics
+4. KB_REF_JobSystem.md - Essential for character systems
+5. KB_REF_ItemSystem.md - Essential for item creation
+6. KB_REF_MonsterSystem.md - Essential for mob creation
+7. KB_REF_AdvancedScripting.md - Essential for script developers
+8. KB_REF_BattleConfigReference.md - Essential for server setup
+9. KB_REF_AchievementSystem.md - Good-to-have for features
+
+PRIORITY 2 - CREATE NEXT PHASE (Will reach ~80% coverage):
+10. KB_REF_SourceCodeArchitecture.md
+11. KB_REF_ConstantsAndEnums.md
+12. KB_REF_InstanceingSystem.md
+13. KB_REF_ItemGroupsAndGroups.md
+14. KB_REF_QuestAdvanced.md
+
+PRIORITY 3 - CREATE FINAL PHASE (Will reach ~95% coverage):
+15. KB_REF_PacketStructures.md
+16. KB_REF_WoESystem.md
+17. KB_REF_GuildSystem.md
+18. KB_REF_PvPSystem.md
+19. KB_REF_PetHomunculus.md
+
+=============================================================================
+SECTION 9: ORGANIZATION STRATEGY FOR AI/RAG OPTIMIZATION
+=============================================================================
+
+RECOMMENDED KNOWLEDGE BASE ORGANIZATION:
+
+1. CORE SYSTEMS (5 files):
+   - JobSystem.md
+   - SkillSystem.md
+   - ItemSystem.md
+   - MonsterSystem.md
+   - AchievementSystem.md
+
+2. SERVER SETUP & CONFIGURATION (4 files):
+   - BattleConfigReference.md
+   - DatabaseStructure.md
+   - ConfigSystem.md (existing + expand)
+   - AtCommands.md
+
+3. SCRIPTING & DEVELOPMENT (4 files):
+   - ScriptCommands.md (existing, expand to 100%)
+   - AdvancedScripting.md
+   - SourceCodeArchitecture.md
+   - ConstantsAndEnums.md
+
+4. GAMEPLAY SYSTEMS (5 files):
+   - MapFlags.md (existing)
+   - QuestSystem.md (existing + expand)
+   - InstanceingSystem.md
+   - WoESystem.md
+   - PvPSystem.md
+
+5. ITEM & EQUIPMENT (3 files):
+   - ItemBonuses.md (existing)
+   - ItemGroups.md
+   - EquipmentSystem.md
+
+6. TECHNICAL REFERENCE (3 files):
+   - PacketStructures.md
+   - StatusEffects.md (existing)
+   - VisualEffects.md (existing)
+
+7. NPC & EXAMPLES (2 files):
+   - NPCExamples.md (existing, expand)
+   - SampleScripts.md
+
+Total Recommended: 26 comprehensive KB files for 95%+ coverage
+
+=============================================================================
+SECTION 10: FILE SIZE & COMPLEXITY ANALYSIS
+=============================================================================
+
+LARGE DOCUMENTATION FILES (>15K):
+- script_commands.txt (424K) - EXPANSIVE, needs 2-3 KB files
+- packet_interserv.txt (62K) - Technical, for developers
+- status_change.txt (54K) - Well organized, can fit in 1 KB file
+- atcommands.txt (44K) - Large, needs 1 comprehensive KB file
+- effect_list.md (39K) - Well organized, fits in 1 KB file
+
+MEDIUM FILES (5K-15K):
+- item_bonus.txt, skill_db.txt, source_doc.txt, item_db.txt, mob_db.txt
+- These map well to single KB files (15-25K output)
+
+SMALL FILES (<5K):
+- These should be combined into category KB files
+- Example: Multiple small database files → one DatabaseStructure.md
+
+RECOMMENDATION:
+- Expand script_commands.md to 50K+ for comprehensive coverage
+- Create dedicated KB files for each major system
+- Use samples for real-world examples throughout
+- Create index/cross-reference file for navigation
+
+=============================================================================
+SECTION 11: CURRENT KB COVERAGE ANALYSIS
+=============================================================================
+
+COVERAGE MATRIX:
+
+Topic                    | Current KB | Lines/Content | Coverage % | Gaps
+-------------------------+----------+--------+-----+----------
+Script Commands         | KB_REF_009 | 21K/424K | 5% | Missing 400K of commands
+Status Effects          | KB_REF_008 | 14K/54K  | 26% | Some effects missing
+Visual Effects          | KB_REF_010 | 13K/39K  | 33% | Complete for main effects
+Item Bonuses            | KB_REF_007 | 15K/28K  | 54% | Good coverage
+Map Flags               | KB_REF_004 | 27K/14K  | 193%| Comprehensive
+Quest System            | KB_REF_006 | 13K/7K   | 186%| Good coverage
+Permissions             | KB_REF_005 | 14K/6K   | 233%| Comprehensive
+Battle Config           | KB_REF_009 | 15K/18K* | 83% | Missing specific config options
+Config System           | KB_REF_001 | 22K/8K   | 275%| Comprehensive
+NPC Examples            | KB_REF_003 | 16K/70K  | 23% | Missing many examples
+Admin Commands          | NONE       | 0K/44K   | 0%  | CRITICAL GAP
+Database Structure      | NONE       | 0K/30K+  | 0%  | CRITICAL GAP
+Skills System           | NONE       | 0K/20K   | 0%  | CRITICAL GAP
+Jobs System             | NONE       | 0K/9K    | 0%  | CRITICAL GAP
+Item System             | NONE       | 0K/8K    | 0%  | CRITICAL GAP
+Monster System          | NONE       | 0K/8K    | 0%  | CRITICAL GAP
+
+OVERALL COVERAGE: ~16% of critical documentation
+
+=============================================================================
+SECTION 12: ACTION ITEMS & NEXT STEPS
+=============================================================================
+
+IMMEDIATE (This Week):
+1. Create KB_REF_AtCommands.md - 20-25K file
+2. Create KB_REF_DatabaseStructure.md - 25-30K file
+3. Create KB_REF_SkillSystem.md - 20-25K file
+4. Expand KB_REF_ScriptCommands.md to 50K+ coverage
+
+SHORT TERM (Next 2 Weeks):
+5. Create KB_REF_JobSystem.md
+6. Create KB_REF_ItemSystem.md
+7. Create KB_REF_MonsterSystem.md
+8. Create KB_REF_AdvancedScripting.md
+9. Create KB_REF_BattleConfigReference.md
+
+MEDIUM TERM (Next Month):
+10. Create KB_REF_SourceCodeArchitecture.md
+11. Create KB_REF_ConstantsAndEnums.md
+12. Create KB_REF_InstanceingSystem.md
+13. Create KB_REF_ItemGroupsAndGroups.md
+14. Create KB_REF_QuestAdvanced.md
+15. Expand all existing KB files to 20-30K each
+
+LONG TERM (Next 2 Months):
+16-20. Create remaining specialized system files
+
+FINAL PHASE:
+- Create master index/navigation KB file
+- Add cross-references between all files
+- Add FAQ and troubleshooting sections
+- Add performance tips and best practices
+
+=============================================================================
