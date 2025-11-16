@@ -1293,6 +1293,141 @@ OnInstanceDestroy:
 
 ---
 
+## ⚠️ Critical Pitfall: Global Events in Instances
+
+### Issue: OnPCLogoutEvent Registers Globally (Duplicates)
+
+**Problem**: OnPC* events (OnPCLoginEvent, OnPCLogoutEvent, OnPCDieEvent, etc.) are **GLOBAL server events**. When placed inside instance NPCs, they register for EVERY instance copy, causing:
+- Duplicate event warnings in console
+- Event triggers multiple times (performance issues)
+- Unexpected behavior
+
+**Why**: These events are not instance-specific. Each instance copy registers the event globally.
+
+**Events That Are GLOBAL (Never Use in Instance NPCs)**:
+```c
+OnPCLoginEvent       // Player login
+OnPCLogoutEvent      // Player logout
+OnPCBaseLvUpEvent    // Base level up
+OnPCJobLvUpEvent     // Job level up
+OnPCDieEvent         // Player death
+OnPCKillEvent        // Player kills player
+OnNPCKillEvent       // Player kills monster
+OnClock****          // Time events
+OnTimer****          // Global timers (use initnpctimer instead)
+OnInit               // Server start
+OnAgitStart/End      // WoE events
+```
+
+**Solution**: Use separate global NPC for these events:
+
+```c
+// ❌ WRONG - Inside instance NPC
+1@tower,50,50,0	script	Controller	-1,{
+OnInstanceInit:
+	'floor = 1;
+	end;
+
+OnPCLogoutEvent:  // ❌ Registers globally for each instance!
+	// Save progress
+	end;
+}
+
+// ✅ CORRECT - Separate global NPC
+-	script	Global_Instance_Events	-1,{
+OnPCLogoutEvent:
+	// Check if player is in instance
+	.@map$ = strcharinfo(3);
+
+	if (preg_match("^[0-9]+@tower$", .@map$)) {
+		.@instance_id = instance_id(IM_PARTY);
+
+		if (.@instance_id >= 0) {
+			// Access instance variables from global handler
+			.@floor = getinstancevar('floor, .@instance_id);
+			#saved_floor = .@floor;  // Save to character variable
+			dispbottom "Progress saved: Floor " + .@floor;
+		}
+	}
+	end;
+}
+```
+
+**Key Points**:
+1. Global events trigger for ALL players on server
+2. Use `strcharinfo(3)` to check if player is in instance map
+3. Use `instance_id()` to get player's instance
+4. Use `getinstancevar()` to access instance data from global handler
+5. Pattern match instance maps: `preg_match("^[0-9]+@mapname$", .@map$)`
+
+**Events Safe for Instance NPCs**:
+```c
+OnInstanceInit       // Instance creation (safe)
+OnInstanceDestroy    // Instance destruction (safe)
+OnTouch / OnTouch_   // Player touches NPC (safe)
+OnTouchNPC           // Monster touches NPC (safe)
+Custom labels        // OnBossDead, OnWaveComplete, etc. (safe)
+OnTimer**** via initnpctimer  // Instance-scoped timers (safe)
+```
+
+**Complete Example**:
+
+```c
+//==============================================
+// Instance NPC (no global events!)
+//==============================================
+1@instance,50,50,0	script	Instance_NPC	-1,{
+OnInstanceInit:
+	'progress = 0;
+	'start_time = gettimetick(2);
+	end;
+
+OnInstanceDestroy:
+	// Cleanup
+	stopnpctimer;
+	end;
+
+// Custom instance-specific labels only
+OnBossDead:
+	'progress = 100;
+	end;
+}
+
+//==============================================
+// Global event handler (separate NPC)
+//==============================================
+-	script	Instance_Global_Handler	-1,{
+OnPCLogoutEvent:
+	.@map$ = strcharinfo(3);
+
+	// Check if in instance
+	if (preg_match("^[0-9]+@instance$", .@map$)) {
+		.@instance_id = instance_id(IM_PARTY);
+
+		if (.@instance_id >= 0) {
+			// Save progress using getinstancevar()
+			.@progress = getinstancevar('progress, .@instance_id);
+			.@time = getinstancevar('start_time, .@instance_id);
+
+			#instance_progress = .@progress;
+			#instance_time = .@time;
+		}
+	}
+	end;
+
+OnPCLoginEvent:
+	// Restore progress notification
+	if (#instance_progress > 0) {
+		dispbottom "You have saved instance progress: " + #instance_progress + "%";
+	}
+	end;
+}
+```
+
+**Related**: See INSTANCE_EVENT_FIX.md for detailed solutions and migration guide.
+
+---
+
 ## Troubleshooting
 
 ### Issue: "Instance already exists"
