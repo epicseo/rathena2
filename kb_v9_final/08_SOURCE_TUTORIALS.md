@@ -8,6 +8,7 @@
 ---
 
 <!-- RAG_CHUNK: overview -->
+<!-- RAG_CHUNK:  -->
 ## 📦 What's in This File
 
 > **🎯 Context Box: Expert Source Code Reference**
@@ -25,6 +26,7 @@
 ---
 
 <!-- RAG_CHUNK: quick_reference -->
+<!-- RAG_CHUNK:  -->
 ## 🔍 Quick Reference
 
 | Topic | Coverage |
@@ -60,6 +62,7 @@ optimized_lines: ~28900
 ---
 
 
+<!-- RAG_CHUNK: @go -->
 ## @go
 
 A lot of people like to change the @go command so that they can add in any new Custom Maps they like or even change the coordinates for old maps. This guide will show you how to add new maps to @go. However, it's extremely easy to change the coordinates of an existing map as well.
@@ -373,6 +376,7 @@ go:Â "Params:Â `<number/city_name>`\n"Â "WarpsÂ youÂ toÂ aÂ city.\n"
 ============================================================
 ====
 
+<!-- RAG_CHUNK: @go_delay_when_hit -->
 ## @go_delay_when_hit
 
 **This source snippet is for putting a delay in @go when a player receives a damage.**
@@ -433,6 +437,7 @@ return 0;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: @warp_Modification -->
 ## @warp_Modification
 
 In rAthena, warp system is meant for Game Masters by default. You can change this by heading over to your .../conf/[groups.conf](https://rathena.svn.sourceforge.net/svnroot/rathena/trunk/conf/groups.conf). What this guide is for is to help you put a message that says "Please click: Return to Save Point" when players are dead so that they can't use @go or @warp when they've died.
@@ -516,6 +521,7 @@ memset(atcmd_output,Â '\0',Â sizeof(atcmd_output));
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Activatepset -->
 ## Activatepset
 
 Syntax
@@ -546,6 +552,7 @@ This makes the NPC heal everyone in it's vicinity, who says "heal plz".
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Adding_a_Script -->
 ## Adding_a_Script
 
 Adding and Activating Scripts
@@ -612,6 +619,7 @@ Tips & Hints
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Adding_new_bonuses -->
 ## Adding_new_bonuses
 
 Introduction
@@ -773,6 +781,7 @@ Using this article as a guide-line, you should be able to understand the basic c
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Adding_new_mapflag -->
 ## Adding_new_mapflag
 
 Introduction
@@ -857,6 +866,7 @@ Recompile and you can now set "mymapflag" to any value. Remember, you can rename
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Adding_new_skills -->
 ## Adding_new_skills
 
 Introduction
@@ -1203,6 +1213,7 @@ You can add the rest of the information in skillnametable.txt, skilldesctable2.t
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Adding_new_statuses -->
 ## Adding_new_statuses
 
 Information
@@ -1312,6 +1323,7 @@ This will start SC_CUSTOMSTATUS, it will last for 60 seconds and it will remove 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Addrid -->
 ## Addrid
 
 Syntax
@@ -1350,6 +1362,7 @@ To be more exact, this command will run the succeeding code for each player atta
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Addtoskill -->
 ## Addtoskill
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1392,6 +1405,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Adopt -->
 ## Adopt
 
 Syntax
@@ -1414,6 +1428,7 @@ Nothing will happen (and nothing will be returned either) if either future paren
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Agitcheck -->
 ## Agitcheck
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1438,6 +1453,7 @@ Return Values
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Agitcheck2 -->
 ## Agitcheck2
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1462,6 +1478,7 @@ Return Values
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Agitstart2 -->
 ## Agitstart2
 
 Syntax
@@ -1501,6 +1518,7 @@ A basic WoE:SE controller script, which resumes the siege, even when the server 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Alternate_Palette_Guide -->
 ## Alternate_Palette_Guide
 
 ***Tools***
@@ -1533,6 +1551,7 @@ Please send any questions to me. (Carebearkiller001@yahoo.com)
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Announce -->
 ## Announce
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1584,6 +1603,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Areamobuseskill -->
 ## Areamobuseskill
 
 Syntax
@@ -1620,6 +1640,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Areamonster -->
 ## Areamonster
 
 Syntax
@@ -1666,6 +1687,7 @@ This populates an area considered as an Poring Garden with 20 Porings. If one of
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Areapercentheal -->
 ## Areapercentheal
 
 Syntax
@@ -1689,6 +1711,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Areawarp -->
 ## Areawarp
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1718,6 +1741,7 @@ Like '[warp](/warp "wikilink")', areawarp will also explicitly warp characters r
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Atcommand -->
 ## Atcommand
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1744,6 +1768,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Atoi -->
 ## Atoi
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1775,6 +1800,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Attachnpctimer -->
 ## Attachnpctimer
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -1798,6 +1824,7 @@ Description
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Attachrid -->
 ## Attachrid
 
 Syntax
@@ -1854,6 +1881,7 @@ This will allow one player to specify the name of an another, which is then gree
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Autobonus -->
 ## Autobonus
 
 Syntax
@@ -1918,6 +1946,7 @@ autobonusÂ "{Â `[`bonus`](/bonus "wikilink")`Â bAllStats,10;Â }",10,10000,BF
 ============================================================
 ====
 
+<!-- RAG_CHUNK: A_brief_look_at_RagExe -->
 ## A_brief_look_at_RagExe
 
 *Game Framework Class* (GFC) is Gravity's own name for the game engine or application architecture used in Ragnarok Online. With the Ragnarok beta release in 2001, Gravity announced the finalization of GFC 2.0. But what exactly is GFC, and where did it come from? Most game developers use commercial proprietary engines for their games, while GFC is an in-house product by Gravity's RND-1 development division. In truth, it's misleading to call it a game engine, as GFC in its current form has been used in exactly one game and is tightly coupled to it. In all likelyhood the name GFC and the notion of a game engine are just buzzwords Gravity used in an attempt at impressing investors in their early days. However, my client is strictly based on Gravity's RagExe implementation, and I guess it can therefore be said to be a clone of GFC. Here's a brief look at its history.
@@ -1954,6 +1983,7 @@ Source
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Back_Up_SQL -->
 ## Back_Up_SQL
 
 ### Creating A Backup
@@ -1976,6 +2006,7 @@ All databases:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Basicskillcheck -->
 ## Basicskillcheck
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2000,6 +2031,7 @@ Return Values
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Basic_Scripting -->
 ## Basic_Scripting
 
 The Basics
@@ -2247,6 +2279,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Bg_get_data -->
 ## Bg_get_data
 
 
@@ -2262,6 +2295,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Bg_monster_set_team -->
 ## Bg_monster_set_team
 
 
@@ -2277,6 +2311,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Bindatcmd -->
 ## Bindatcmd
 
 Syntax
@@ -2311,6 +2346,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Bonus_script -->
 ## Bonus_script
 
 Syntax
@@ -2351,6 +2387,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Break -->
 ## Break
 
 Syntax
@@ -2387,6 +2424,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: BrowEdit -->
 ## BrowEdit
 
 **BrowEdit** is a Ragnarok Online map editor made by Borf.
@@ -2453,6 +2491,7 @@ BrowEdit Tutorials
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Callfunc -->
 ## Callfunc
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2503,6 +2542,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Callshop -->
 ## Callshop
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2542,6 +2582,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Callsub -->
 ## Callsub
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2571,6 +2612,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Cardscnt -->
 ## Cardscnt
 
 Syntax
@@ -2593,6 +2635,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Changebase -->
 ## Changebase
 
 Syntax
@@ -2631,6 +2674,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Changelook -->
 ## Changelook
 
 Syntax
@@ -2675,6 +2719,7 @@ As **changelook** is only a client-side visual change, it doesn't send any chang
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Changerace -->
 ## Changerace
 
 Introduction
@@ -2737,6 +2782,7 @@ The script will be ready to go after a re-compile. Simply use `bonus` `bChangeRa
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Charat -->
 ## Charat
 
 Syntax
@@ -2760,6 +2806,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Charcommand -->
 ## Charcommand
 
 Syntax
@@ -2797,6 +2844,7 @@ Newer Trunk version:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Charisalpha -->
 ## Charisalpha
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2821,6 +2869,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkcell -->
 ## Checkcell
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2875,6 +2924,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkchatting -->
 ## Checkchatting
 
 Syntax
@@ -2910,6 +2960,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkequipedcard -->
 ## Checkequipedcard
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2934,6 +2985,7 @@ Return Values
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkfalcon -->
 ## Checkfalcon
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -2961,6 +3013,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkhomcall -->
 ## Checkhomcall
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -2986,6 +3039,7 @@ This function checks if the attached player's Homunculus is active, and will ret
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkoption -->
 ## Checkoption
 
 Syntax
@@ -3056,6 +3110,7 @@ Return Values
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkquest -->
 ## Checkquest
 
 Syntax
@@ -3227,6 +3282,7 @@ Related commands: [setquest](/setquest "wikilink"), [erasequest](/erasequest "wi
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkre -->
 ## Checkre
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -3266,6 +3322,7 @@ You can use as well the following links as references:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkriding -->
 ## Checkriding
 
 Syntax
@@ -3292,6 +3349,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Checkweight -->
 ## Checkweight
 
 Syntax
@@ -3355,6 +3413,7 @@ Since r19841:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: CID -->
 ## CID
 
 A **character ID** uniquely identifies a character, not only inside the database, but also in inter-server communication and association of data with a character, such as [character variables](/Variables "wikilink") or [status ailments](/Status_List "wikilink"). The character ID fulfills the same role as a combination of [account ID](/AID "wikilink") and character's slot ID, which means, if two character ids match their account IDs are automatically the same as well.
@@ -3367,6 +3426,7 @@ The Character ID typically increments starting from 150000 and going up.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Cleararray -->
 ## Cleararray
 
 Syntax
@@ -3401,6 +3461,7 @@ Results in array { 1, 2, 0, 0, 5, 6 }.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clearitem -->
 ## Clearitem
 
 Syntax
@@ -3424,6 +3485,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clientinfo -->
 ## Clientinfo.xml
 
 *sclientinfo.xml* is a file that configures your modified Sakray client so that it may connect to rAthena Servers, for non-Sakray and Renewal clients this file is usually called *clientinfo.xml*.
@@ -3536,6 +3598,7 @@ Explanation
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif -->
 ## Clif
 
 All functions inside clif.c and clif.h will go here. This is where most packet handling codes goes.
@@ -3563,6 +3626,7 @@ All functions inside clif.c and clif.h will go here. This is where most packet h
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_authok -->
 ## Clif_authok
 
 Syntax
@@ -3586,6 +3650,7 @@ Provides client with player position and facing direction as well.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_charselectok -->
 ## Clif_charselectok
 
 Syntax
@@ -3618,6 +3683,7 @@ The client of the player id 2000001 would be able to connect to select a charact
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_dropflooritem -->
 ## Clif_dropflooritem
 
 Syntax
@@ -3635,6 +3701,7 @@ It's better to use [map_addflooritem](/map_addflooritem "wikilink") (map.c) to m
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_Emotion -->
 ## Clif_Emotion
 
 Syntax
@@ -3656,6 +3723,7 @@ This would show a (...) emotion above the head of given player. All players in h
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_getip -->
 ## Clif_getip
 
 Syntax
@@ -3677,6 +3745,7 @@ a_ip would have been defined with the server's IP Address.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_getport -->
 ## Clif_getport
 
 Syntax
@@ -3698,6 +3767,7 @@ See [Clif_setport](/Clif_setport "wikilink") for more info on how to change the 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_refresh_ip -->
 ## Clif_refresh_ip
 
 Syntax
@@ -3733,6 +3803,7 @@ From
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_setbindip -->
 ## Clif_setbindip
 
 Syntax
@@ -3756,6 +3827,7 @@ A new Bind IP would be set for the Map-Server using a parameter from 'bind_ip'.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_setip -->
 ## Clif_setip
 
 Syntax
@@ -3779,6 +3851,7 @@ A new IP would be set for the Map-Server using a parameter from 'map_ip'.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clif_setport -->
 ## Clif_setport
 
 Syntax
@@ -3807,6 +3880,7 @@ A new port would be set for the Map-Server using a parameter from 'map_port'.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Clone -->
 ## Clone
 
 Syntax
@@ -3841,6 +3915,7 @@ or
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Close -->
 ## Close
 
 Syntax
@@ -3867,6 +3942,7 @@ mesÂ "ThisÂ commandÂ willÂ notÂ runÂ atÂ all,Â causeÂ theÂ scriptÂ ha
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Close2 -->
 ## Close2
 
 Syntax
@@ -3902,6 +3978,7 @@ Probably the most common usage of this command. Removing a previously set cutin,
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Comments -->
 ## Comments
 
 A comment is something that is not read by the compiler or interpreter.
@@ -3936,6 +4013,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Compare -->
 ## Compare
 
 Syntax
@@ -3970,6 +4048,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Completequest -->
 ## Completequest
 
 Syntax
@@ -4013,6 +4092,7 @@ This is an excerpt from
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Configure -->
 ## Configure
 
 Using **configure** script is a method to generate makefiles before compilation in Unix systems.
@@ -4120,6 +4200,7 @@ If you are using a 64-bit OS you have to use `--enable-64bit` switch.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Connecting -->
 ## Connecting
 
 This article covers taking the configuration steps to ensure a successful connection to your servers. You are required to know the in and outs of your OS, as well as what a [LAN IP](/wikipedia:Local_area_network "wikilink") and a [WAN IP](/wikipedia:Wide_area_network "wikilink") are.
@@ -4359,6 +4440,7 @@ So if my client was 2011-10-25aRagexeRE it would look like:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Countitem -->
 ## Countitem
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -4389,6 +4471,7 @@ Will print out the number of Apples the char holds...
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Countstr -->
 ## Countstr
 
 Syntax
@@ -4411,6 +4494,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Crash_Logging -->
 ## Crash_Logging
 
 rAthena can crash in various places and due to various reasons. However, all of them ultimately involve some sort of problem in the source code. There's not much you can do about the crashed server, but what you *can* do is gather information about the crash. The info can then be provided to the [developers](/developers "wikilink") in a bugreport or by private communication.
@@ -4448,6 +4532,7 @@ Some info at [How to use Coredump/Stackdump](http://www.eathena.ws/board/index.p
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Custom_Books -->
 ## Custom_Books
 
 Introduction
@@ -4540,6 +4625,7 @@ After that patch up your client, reload your item_db and your book is ready to r
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Custom_Items -->
 ## Custom_Items
 
 Structure
@@ -5266,6 +5352,7 @@ With this your weapon sprite will become visible while attacking.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Custom_Jobs -->
 ## Custom_Jobs
 
 \[Guide\] Add Custom Job
@@ -5677,6 +5764,7 @@ Female:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Custom_Maps -->
 ## Custom_Maps
 
 Adding Custom Maps
@@ -5757,6 +5845,7 @@ Black squares and flashing spots on the map are the result of saving the map in 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Custom_Pets -->
 ## Custom_Pets
 
 To be able to use this guide, one must have basic understanding on how to edit rAthena databases, specifically the item DB. I will not be explaining much on editing those
@@ -5873,6 +5962,7 @@ A. This is caused by the egg being spawned via an @item command (or equivalent).
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Custom_weapons -->
 ## Custom_weapons
 
 The ID
@@ -5977,6 +6067,7 @@ A: Re-check file/folder names and placement.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Cutin -->
 ## Cutin
 
 Syntax
@@ -6019,6 +6110,7 @@ Typical way to end a script, which displayed an illustration during a dialog wit
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Cutincard -->
 ## Cutincard
 
 Syntax
@@ -6046,6 +6138,7 @@ Displays card illustration for a Poring Card.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Data-Folder -->
 ## Data-Folder
 
 C
@@ -6064,6 +6157,7 @@ Weather without using mapflag
 ============================================================
 ====
 
+<!-- RAG_CHUNK: DATA -->
 ## DATA.INI
 
 **DATA.INI** is a client-side file, which is used to specify multiple [GRF](/GRF "wikilink") archives to be loaded by the client. It is only supported by [hexed](/Hexing "wikilink") clients, which have been diffed with the option *\[Data\] Enable Multiple GRFs*. Official clients for main servers and [Sakray](/Sakray "wikilink") read data.grf, and rdata.grf or sdata.grf respectively.
@@ -6130,6 +6224,7 @@ The first mark shows the old position of the name, which is no longer used, the 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Database-Configuration -->
 ## Database-Configuration
 
 Database are files that being used by [[Map Server]].
@@ -6160,6 +6255,7 @@ Database files are used for:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Data_Folder_Structure -->
 ## Data_Folder_Structure
 
 [Category:Client Configuration](/Category:Client_Configuration "wikilink") [Category:Data](/Category:Data "wikilink")
@@ -6278,6 +6374,7 @@ All the game sounds for skills.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Day -->
 ## Day
 
 Syntax
@@ -6314,6 +6411,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Deactivatepset -->
 ## Deactivatepset
 
 Syntax
@@ -6340,6 +6438,7 @@ Disables all currently enabled pattern sets and enables only pattern set 2 (assu
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Death_penalty_type -->
 ## Death_penalty_type
 
 Death penalty refers to a penalty that should be applied to a player who has died. This death penalty can be applied to players who die in a specific map or if they die anywhere (this applies for the EXP loss). Some of these penalties can be **EXP**, **Zeny**, and even **Item** loss. You can find configuration for **EXP** and **Zeny** loss through .../conf/battles/[exp.conf](https://raw.githubusercontent.com/rathena/rathena/master/conf/battle/exp.conf) while **Items** can be configured through .../npc/mapflag/[nightmare.txt](https://raw.githubusercontent.com/rathena/rathena/master/npc/mapflag/nightmare.txt)
@@ -6388,6 +6487,7 @@ See Also..
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Debugmes -->
 ## Debugmes
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -6413,6 +6513,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Defining_Warp_Points -->
 ## Defining_Warp_Points
 
 These kind of [scripts](/Scripting "wikilink") are used to show a warp in-game and define where to warp a player.
@@ -6438,6 +6539,7 @@ When we have completed defining our warp, we can add it to a existing warp file 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Defpattern -->
 ## Defpattern
 
 Syntax
@@ -6479,6 +6581,7 @@ See also , which extensively demonstrates the usage of PCRE commands.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Deletearray -->
 ## Deletearray
 
 Syntax
@@ -6509,6 +6612,7 @@ Assuming *@array* has 100 elements, this achieves the same effect as the example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Deletepset -->
 ## Deletepset
 
 Syntax
@@ -6533,6 +6637,7 @@ Deletes previously defined pattern set 1, to set up a new one.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Delitem -->
 ## Delitem
 
 Syntax
@@ -6564,6 +6669,7 @@ Removes 1 Old Violet Box from an online player on account 2000110.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Detachnpctimer -->
 ## Detachnpctimer
 
 Syntax
@@ -6611,6 +6717,7 @@ OnTimer10000:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Diff -->
 ## Diff
 
 Diff files
@@ -6714,6 +6821,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Disablenpc -->
 ## Disablenpc
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -6745,6 +6853,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Disable_GM_monster_drops -->
 ## Disable_GM_monster_drops
 
 Introduction
@@ -6809,6 +6918,7 @@ Open /conf/battle/gm.conf
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Dispbottom -->
 ## Dispbottom
 
 Syntax
@@ -6829,6 +6939,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Divorce -->
 ## Divorce
 
 Syntax
@@ -6871,6 +6982,7 @@ L_Divorce:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Doevent -->
 ## Doevent
 
 Syntax
@@ -6905,6 +7017,7 @@ Every time a player talks to NPC1, NPC2 will scream into it's area, what the pla
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Donpcevent -->
 ## Donpcevent
 
 Syntax
@@ -6948,6 +7061,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: DragonNPCHandle -->
 ## DragonNPCHandle
 
 Rune Knight Dragon : NPC Handle
@@ -6992,6 +7106,7 @@ Changelog
 ============================================================
 ====
 
+<!-- RAG_CHUNK: DynDNS_Guide -->
 ## DynDNS_Guide
 
 Disclaimer
@@ -7137,6 +7252,7 @@ Useful Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Eaclass -->
 ## Eaclass
 
 Syntax
@@ -7162,6 +7278,7 @@ If you want to use this system in his best you also need this command: [roclass(
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Editing_the_wiki -->
 ## Editing_the_wiki
 
 Welcome to the rAthena wiki!
@@ -7229,6 +7346,7 @@ ThisÂ commandÂ doesÂ thisÂ andÂ that,Â andÂ argumentsÂ meanÂ thatÂ and
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Edit_Max_Level -->
 ## Edit_Max_Level
 
 One of the most common issues during server configurations is setting the max base and job levels. The process involves a 2-part editing--the source code and the configuration files.
@@ -7282,6 +7400,7 @@ Edit the Max Level values to your desired values. You can also set the maximum J
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Emotion -->
 ## Emotion
 
 Syntax
@@ -7304,6 +7423,7 @@ Target name parameter allows displaying emotion on top of other NPC/PC. If the s
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Enablewaitingroomevent -->
 ## Enablewaitingroomevent
 
 Syntax
@@ -7337,6 +7457,7 @@ This would disable warping to the merchant area from 7.00pm to 8.00pm (ex. restr
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Enable_items -->
 ## Enable_items
 
 Syntax
@@ -7377,6 +7498,7 @@ else
 ============================================================
 ====
 
+<!-- RAG_CHUNK: End -->
 ## End
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -7411,6 +7533,7 @@ Without the use of 'end' it would travel through all the if's until the end of t
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Equip -->
 ## Equip
 
 Syntax
@@ -7435,6 +7558,7 @@ autoequipÂ 1104,0;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Equipment_Leveling -->
 ## Equipment_Leveling
 
 Introduction and Important Notices
@@ -7530,6 +7654,7 @@ Thanks!
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Ergo_patcher -->
 ## Ergo_patcher
 
 [Category:Patchers](/Category:Patchers "wikilink")
@@ -8074,6 +8199,7 @@ Now upload the Patches.XML on your server. The path should be set here: <HTTPLin
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Escape_sql -->
 ## Escape_sql
 
 Syntax
@@ -8093,6 +8219,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Explode -->
 ## Explode
 
 Syntax
@@ -8117,6 +8244,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Favorite_tab -->
 ## Favorite_tab
 
 The new Favorite Item Tab addition allows players to move items into the new tab which then gets saved. It acts like any other tab in your inventory, but it's meant for you to keep items you find to be "personal", "productive" or even your "favorite" in there. This new addition to rAthena has been introduced in [r16518](http://trac.rathena.org/changeset/16518/rathena).
@@ -8156,6 +8284,7 @@ Further updates to the Favorite Tab functionality has been introduced in:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Flagemblem -->
 ## Flagemblem
 
 Syntax
@@ -8178,6 +8307,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: FM_HelloWorld -->
 ## FM_HelloWorld
 
 <div style="clear: both;">
@@ -8522,6 +8652,7 @@ In order to test to see if your NPC now loads, simply run your server and login.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Folder_Structure -->
 ## Folder_Structure
 
 | Location                     | Description                                                                                                                                               |
@@ -8583,6 +8714,7 @@ In order to test to see if your NPC now loads, simply run your server and login.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Freeloop -->
 ## Freeloop
 
 Syntax
@@ -8603,6 +8735,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Function -->
 ## Function
 
 Syntax
@@ -8627,6 +8760,7 @@ return;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: GDB -->
 ## GDB
 
 GDB stands for GNU DeBugger. It is a program for \*nix related systems that allows you to view stacktrace and coredumps of your servers if/when they crash.
@@ -8696,6 +8830,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: General_Shop_creation -->
 ## General_Shop_creation
 
 Shops are very similar to [Basic Scripting](/Basic_Scripting "wikilink"), although since there is only one line to find errors on, it's recommended to understand basic scripts first.
@@ -8767,6 +8902,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getarg -->
 ## Getarg
 
 Syntax
@@ -8799,6 +8935,7 @@ This results in message *\*does something with a toast\**. If "toast" were not p
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getargcount -->
 ## Getargcount
 
 Syntax
@@ -8841,6 +8978,7 @@ In **callfunc**:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getarraysize -->
 ## Getarraysize
 
 Syntax
@@ -8865,6 +9003,7 @@ This will make @arraysize == 6. But if you try this:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getbrokenid -->
 ## Getbrokenid
 
 Syntax
@@ -8888,6 +9027,7 @@ Skip:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getcastledata -->
 ## Getcastledata
 
 Syntax
@@ -8932,6 +9072,7 @@ Changing Guild ID or Castle Defense will trigger additional actions, like recalc
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getcharid -->
 ## Getcharid
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -8963,6 +9104,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getcharip -->
 ## Getcharip
 
 Syntax
@@ -8983,6 +9125,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getd -->
 ## Getd
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -9004,6 +9147,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getelementofarray -->
 ## Getelementofarray
 
 Syntax
@@ -9032,6 +9176,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getequipid -->
 ## Getequipid
 
 Syntax
@@ -9092,6 +9237,7 @@ This makes players being able to warp into given place only, if they have neithe
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getequipisequiped -->
 ## Getequipisequiped
 
 Syntax
@@ -9118,6 +9264,7 @@ L_equipped:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getequipname -->
 ## Getequipname
 
 Syntax
@@ -9155,6 +9302,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getequippedon -->
 ## Getequippedon
 
 Introduction
@@ -9226,6 +9374,7 @@ To use this command now, perhaps for the aformentioned card, use it as follows:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getequiprefinerycnt -->
 ## Getequiprefinerycnt
 
 Syntax
@@ -9263,6 +9412,7 @@ This can be used to check if you have reached a maximum refine value, default fo
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getequipweaponlv -->
 ## Getequipweaponlv
 
 Syntax
@@ -9332,6 +9482,7 @@ L_NothingEquiped:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getexp -->
 ## Getexp
 
 Syntax
@@ -9363,6 +9514,7 @@ You can also reduce the amount of experience points:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getguildmaster -->
 ## Getguildmaster
 
 Syntax
@@ -9386,6 +9538,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getguildmasterid -->
 ## Getguildmasterid
 
 Syntax
@@ -9413,6 +9566,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getguildmember -->
 ## Getguildmember
 
 Syntax
@@ -9441,6 +9595,7 @@ For usage examples, see '[getpartymember](/getpartymember "wikilink")'.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getguildname -->
 ## Getguildname
 
 Syntax
@@ -9465,6 +9620,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Gethominfo -->
 ## Gethominfo
 
 Syntax
@@ -9500,6 +9656,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getinventorylist -->
 ## Getinventorylist
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -9547,6 +9704,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getitem -->
 ## Getitem
 
 Syntax
@@ -9585,6 +9743,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getitem2 -->
 ## Getitem2
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -9666,6 +9825,7 @@ You can, apparently, even create duplicates of the same pet egg with this comman
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getitembound -->
 ## Getitembound
 
 Syntax
@@ -9698,6 +9858,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getitembound2 -->
 ## Getitembound2
 
 Syntax
@@ -9718,6 +9879,7 @@ Bound_CharÂ Â Â Â :Â CharacterÂ BoundÂ item
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getiteminfo -->
 ## Getiteminfo
 
 Syntax
@@ -9753,6 +9915,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getitemname -->
 ## Getitemname
 
 Syntax
@@ -9775,6 +9938,7 @@ Since there is usually no item with ID 12, this will turn into: "See? Whenever y
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getitemslots -->
 ## Getitemslots
 
 Syntax
@@ -9792,6 +9956,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getmapguildusers -->
 ## Getmapguildusers
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -9809,6 +9974,7 @@ Example 1
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getmapusers -->
 ## Getmapusers
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -9830,6 +9996,7 @@ Example 1
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getmapxy -->
 ## Getmapxy
 
 Syntax
@@ -9876,6 +10043,7 @@ Notice that NPC objects disabled with '[disablenpc](/disablenpc "wikilink")' wil
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getmercinfo -->
 ## Getmercinfo
 
 Syntax
@@ -9919,6 +10087,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getnameditem -->
 ## Getnameditem
 
 Syntax
@@ -9944,6 +10113,7 @@ Gives the character 1 arrow with it's own name.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getnpcid -->
 ## Getnpcid
 
 Syntax
@@ -9979,6 +10149,7 @@ close;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getnpctimer -->
 ## Getnpctimer
 
 Syntax
@@ -10012,6 +10183,7 @@ mesÂ "IÂ haveÂ beenÂ waitingÂ "+(getnpctimer(0)/1000)+"Â secondsÂ forÂ y
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getpartnerid -->
 ## Getpartnerid
 
 Syntax
@@ -10052,6 +10224,7 @@ close;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getpartyleader -->
 ## Getpartyleader
 
 Syntax
@@ -10076,6 +10249,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getpartymember -->
 ## Getpartymember
 
 Syntax
@@ -10178,6 +10352,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getpartyname -->
 ## Getpartyname
 
 Syntax
@@ -10197,6 +10372,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getrandgroupitem -->
 ## Getrandgroupitem
 
 Syntax
@@ -10243,6 +10419,7 @@ See also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getrevision -->
 ## Getrevision
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -10262,6 +10439,7 @@ Here is a sample script which might be a help to you:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getscrate -->
 ## Getscrate
 
 Syntax
@@ -10280,6 +10458,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getserverdef -->
 ## Getserverdef
 
 Syntax
@@ -10306,6 +10485,7 @@ VAR_MAX_BG_MEMBERSÂ 9
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getskilllv -->
 ## Getskilllv
 
 Syntax
@@ -10348,6 +10528,7 @@ Example 2:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getstrlen -->
 ## Getstrlen
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -10365,6 +10546,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Gettime -->
 ## Gettime
 
 Syntax
@@ -10400,6 +10582,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Gettimestr -->
 ## Gettimestr
 
 Syntax
@@ -10420,6 +10603,7 @@ Would print out the full current date and time, ex. "2010-10/30 07:48:37".
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getvariableofnpc -->
 ## Getvariableofnpc
 
 Syntax
@@ -10448,6 +10632,7 @@ Will change the variable *.mynpcnamecopy$* to "Sleeping Tom", but keep the varia
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Getwaitingroomstate -->
 ## Getwaitingroomstate
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -10485,6 +10670,7 @@ Here is a sample script which might be a help to you:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Get_monster_gid -->
 ## Get_monster_gid
 
 Introduction
@@ -10531,6 +10717,7 @@ Please note, that this only works when **one monster is summoned**. If you wish 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: GID -->
 ## GID
 
 The **GID** stands for game id or game object id. It uniquely identifies each and every dynamic object ([NPC](/NPC "wikilink"), [monster](/mob "wikilink"), player, item, skill unit) inside the game. For the players a GID is their [account id](/AID "wikilink"), for all other objects it is a server-generated id, that changes each time the object is created.
@@ -10545,6 +10732,7 @@ You can view the id in-game by right-clicking on a object, when your account has
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Goto -->
 ## Goto
 
 Syntax
@@ -10568,6 +10756,7 @@ L_riding:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: GRF -->
 ## GRF
 
 A [GRF](/GRF "wikilink") is a compressed file archive used by [Ragnarok Online](/Ragnarok_Online "wikilink"). It contains all the compressed graphics, sprites, sound effects, map files, etc. used by the Ragnarok client. The main GRF is usually named "data.grf" or "sdata.grf".
@@ -10605,6 +10794,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Groupranditem -->
 ## Groupranditem
 
 Syntax
@@ -10641,6 +10831,7 @@ See also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Group_Permissions -->
 ## Group_Permissions
 
 What are Group Permissions
@@ -10717,6 +10908,7 @@ disable_pvp:Â AbilityÂ toÂ disableÂ PlayerÂ v.s.Â Player.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Guardian -->
 ## Guardian
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -10734,6 +10926,7 @@ Temporary guardians are not saved with the castle and can't be accessed by '[gua
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Guardianinfo -->
 ## Guardianinfo
 
 Syntax
@@ -10779,6 +10972,7 @@ In this code, [strnpcinfo](/strnpcinfo "wikilink")(2) is the hidden part of the 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Guildchangegm -->
 ## Guildchangegm
 
 Syntax
@@ -10832,6 +11026,7 @@ L_NotExist:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Guildgetexp -->
 ## Guildgetexp
 
 Syntax
@@ -10849,6 +11044,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Guildopenstorage -->
 ## Guildopenstorage
 
 Syntax
@@ -10876,6 +11072,7 @@ ifÂ (`[`guildopenstorage`](/guildopenstorage "wikilink")`()Â ==Â 1)Â {
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Guildskill -->
 ## Guildskill
 
 Syntax
@@ -10898,6 +11095,7 @@ This would give your character's guild one level of Approval (GD_APPROVAL ID 100
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Hasquest -->
 ## Hasquest
 
 Syntax
@@ -10923,6 +11121,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Heal -->
 ## Heal
 
 Syntax
@@ -10941,6 +11140,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Hexing -->
 ## Hexing
 
 As **hexing** is considered the process of modifying raw contents of a file on byte-level with a [hex editor](/Hex_Editor "wikilink"), regardless of the actual purpose of the file (text, image or another application). Such modifications may require exact knowledge of the files' format for the modification to succeed, as opposed to a high-level editing application such as an image editor.
@@ -11103,6 +11303,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Hex_Editor -->
 ## Hex_Editor
 
 [thumb|Typical hex editor: HxD](/Image:Hxd-main.png "wikilink")
@@ -11132,6 +11333,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: History_of_Ragnarok_Emulation -->
 ## History_of_Ragnarok_Emulation
 
 [<File:1550.gif>](/File:1550.gif "wikilink")Â A book documenting the history of rAthena. There's a whole chapter dedicated to rAthena Users.
@@ -11793,6 +11995,7 @@ Credits
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Home -->
 ## Home
 
 # Welcome to rAthena
@@ -11803,18 +12006,21 @@ rAthena runs on most common [Operating Systems](http://en.wikipedia.org/wiki/Ope
 
 [Help & Support](http://rathena.org/board/forum/3-support-releases/) 
 
+<!-- RAG_CHUNK: Getting -->
 ## Getting Started
 * [Installation](installations) instructions
 * [Transitioning from SVN to GIT](http://rathena.org/board/topic/87120-transitioning-from-svn-to-git/)
 * [Compiling](compiling) on your OS
 * [Connecting](connecting) & Starting rAthena
 
+<!-- RAG_CHUNK: Configure -->
 ## Configure your Server
 * [Scripting](scripting) like a pro!
 * Server [Modifications](Server_Modifications) and what to expect
 * [Database configuration](Ddatabase-Configuration)
 * [Customize](customizing) your server!
 
+<!-- RAG_CHUNK: Setup -->
 ## Setup the Client
 * [Data folder](Data-Folder)
 * [Spriting](spriting), pixel by pixel
@@ -11826,6 +12032,7 @@ rAthena runs on most common [Operating Systems](http://en.wikipedia.org/wiki/Ope
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Hommutate -->
 ## Hommutate
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -11859,6 +12066,7 @@ Here is a sample script which might be a help to you:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: If -->
 ## If
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -11992,6 +12200,7 @@ See '[strcharinfo](/strcharinfo "wikilink")' for explanation of what this functi
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Implode -->
 ## Implode
 
 Syntax
@@ -12009,6 +12218,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Import_folder -->
 ## Import_folder
 
 What is import folder?
@@ -12026,6 +12236,7 @@ Import for database files
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Initnpctimer -->
 ## Initnpctimer
 
 Syntax
@@ -12092,6 +12303,7 @@ OnTimerQuit:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Input -->
 ## Input
 
 Syntax
@@ -12150,6 +12362,7 @@ if(.@pwd$!="s3cr3t")
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Install-MySQL -->
 ## Install-MySQL
 
 Introduction
@@ -12367,6 +12580,7 @@ Note: Afterwards issue this command lines, please have your password prepared si
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Install-on-Centos -->
 ## Install-on-Centos
 
 This guide covers how to install rAthena on [CentOS](http://en.wikipedia.org/wiki/CentOS) and other [versions of Linux](http://en.wikipedia.org/wiki/List_of_Linux_distributions#RPM-based) that use [yum](http://en.wikipedia.org/wiki/Yellowdog_Updater,_Modified).
@@ -12379,6 +12593,7 @@ This guide covers how to install rAthena on [CentOS](http://en.wikipedia.org/wik
 
 # Prerequisites
 All of these commands will be typed at the [command-line interface](http://en.wikipedia.org/wiki/Command-line_interface).
+<!-- RAG_CHUNK: Install -->
 ## Install Prerequisites
 * Login to your server via [SSH](http://en.wikipedia.org/wiki/Secure_Shell), or if you are already logged into a [GUI](wikipedia:http://en.wikipedia.org/wiki/Graphical_user_interface) press Ctrl+Alt+T to open a terminal window.
 * Type the following command (this will install GCC, Make, MySQL, MySQL header files, MySQL Server, PCRE header files, and Zlib header files)
@@ -12388,6 +12603,7 @@ All of these commands will be typed at the [command-line interface](http://en.wi
 
  `yum -y install dos2unix gdb nano screen unzip wget zip`
 
+<!-- RAG_CHUNK: Now -->
 ## Now Install GIT
 Add additional repository so yum can find GIT:
 
@@ -12402,6 +12618,7 @@ To work around Missing Dependency: perl(Git) errors:
 ` yum install --enablerepo=webtatic --disableexcludes=main  git-all`
 
 
+<!-- RAG_CHUNK: Create -->
 ## Create a non-root Linux user
 By the [principle of least privilege](http://en.wikipedia.org/wiki/Principle_of_least_privilege), it is recommended you do **NOT** run rAthena as root. 
 Type the following command to create a non-root Linux account:
@@ -12420,6 +12637,7 @@ Type the following command to create a non-root Linux account:
 
 `passwd rathena4444`
 
+<!-- RAG_CHUNK: Configure -->
 ## Configure MySQL
 
 ### Set a root password
@@ -12469,16 +12687,19 @@ The default MySQL Server install creates a MySQL user 'root'@'localhost' with NO
 (note the [escaped underscore](http://dev.mysql.com/doc/refman/5.5/en/string-literals.html#character-escape-sequences))
 
 # Install rAthena
+<!-- RAG_CHUNK: Login -->
 ## Login as your non-root Linux user
 The rest of the setup is done as rathena4444 (the Linux user you created in step 2.2)
 * Logout from root SSH (or minimize the window).
 * Login to your server via SSH as the rathena4444 Linux user.
 
+<!-- RAG_CHUNK: Cloning -->
 ## Cloning The Repository
 You can obtain the latest version of rAthena by typing the following command. This will place rAthena in a folder called rAthena, but you are free to change it to whatever you like:
 
 `git clone https://github.com/rathena/rathena.git ~/rAthena`
 
+<!-- RAG_CHUNK:  -->
 ## [Import](http://dev.mysql.com/doc/refman/5.5/en/batch-commands.html) MySQL Tables
 * Change directory to the '''sql-files''' folder.
 
@@ -12504,6 +12725,7 @@ NOTE: if you want to use different SQL DBs for login/char/map servers this is th
 * char-server: everything else + global_reg_value once again
 Note that global_reg_value tables are needed by both login-server and char-server (though it may be different tables)
 
+<!-- RAG_CHUNK: Compile -->
 ## Compile Source Code
 
 ` cd trunk`
@@ -12551,6 +12773,7 @@ In the future (after you update or edit any file in /src) to recompile, add ''ma
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Install-on-Debian -->
 ## Install-on-Debian
 
 Basic DEB Installation guide
@@ -12687,6 +12910,7 @@ and done. Now all you have to do is edit your configuration files etc.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Installation -->
 ## Installation
 
 This article is aimed at downloading RAthena and any dependancies required to run it. In this article, you are expected to know basic file and program management of the OS you are attempting to run RAthena on. (Or use Google to search for the answers)
@@ -12750,6 +12974,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Installations -->
 ## Installations
 
 These guides are OS specific:
@@ -12764,6 +12989,7 @@ Or are you just looking for the [SQL Installation](Install-SQL) guide?
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Installation_ -->
 ## Installation_(CentOS)
 
 This guide covers how to install [rAthena](/rAthena "wikilink") on [CentOS](/wikipedia:CentOS "wikilink") and other [versions of Linux](/wikipedia:List_of_Linux_distributions#RPM-based "wikilink") that use [yum](/wikipedia:Yellowdog_Updater,_Modified "wikilink").
@@ -12962,6 +13188,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Installation_ -->
 ## Installation_(Debian)
 
 [Debian](/Category:Installation_Guides "wikilink")
@@ -13110,6 +13337,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Installation_ -->
 ## Installation_(Debian)_with_MariaDB
 
 [Debian](/Category:Installation_Guides "wikilink")
@@ -13253,6 +13481,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Installation_ -->
 ## Installation_(FreeBSD)
 
 This article is aimed at installing and getting [rAthena](/rAthena "wikilink") to run successfully on a machine running [FreeBSD](/wikipedia:FreeBSD "wikilink") 7.1-RELEASE. It is assumed that FreeBSD was installed with the ports collection and enabled Linux Threading on install. This guide will NOT teach you how to network FreeBSD, install FreeBSD or configure any additional system settings (besides the ones needed to run rAthena and its dependancies).
@@ -13375,6 +13604,7 @@ And that should be it! You should now have a running rAthena on your FreeBSD mac
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Installation_on_Windows -->
 ## Installation_on_Windows
 
 Things You Will Need
@@ -13452,6 +13682,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Instance_check_party -->
 ## Instance_check_party
 
 
@@ -13467,6 +13698,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Instance_create -->
 ## Instance_create
 
 
@@ -13482,6 +13714,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Instance_enter -->
 ## Instance_enter
 
 
@@ -13497,6 +13730,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Ipbanlist -->
 ## Ipbanlist
 
 The \`ipbanlist\` table is used in SQL servers to permanently ban a specific IP or a range of IPs.
@@ -13557,6 +13791,7 @@ To unban the IP just execute this
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Irc -->
 ## Irc
 
 IRC?
@@ -13631,6 +13866,7 @@ The \*NIX clients differ. you need to grab the one that best suits your \*nix op
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Isbegin_quest -->
 ## Isbegin_quest
 
 Syntax
@@ -13652,6 +13888,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Isday -->
 ## Isday
 
 Syntax
@@ -13684,6 +13921,7 @@ These two script fragments achieve the same effect.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Isequipped -->
 ## Isequipped
 
 Syntax
@@ -13715,6 +13953,7 @@ You can also have the checks in an item script:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Isequippedcnt -->
 ## Isequippedcnt
 
 Syntax
@@ -13733,6 +13972,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Isloggedin -->
 ## Isloggedin
 
 Syntax
@@ -13762,6 +14002,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Ispartneron -->
 ## Ispartneron
 
 Syntax
@@ -13787,6 +14028,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Is_clientver -->
 ## Is_clientver
 
 Syntax
@@ -13805,6 +14047,7 @@ Available types are:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Jobchange -->
 ## Jobchange
 
 Syntax
@@ -13848,6 +14091,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Jobname -->
 ## Jobname
 
 Syntax
@@ -13868,6 +14112,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Killerrid -->
 ## Killerrid
 
 Syntax
@@ -13895,6 +14140,7 @@ This will announce the KillerName and the name of player that has been killed.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Killmonster -->
 ## Killmonster
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -13912,6 +14158,7 @@ As of r12876 [killmonster](/killmonster "wikilink") now supports an optional arg
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Loops -->
 ## Loops
 
 What are loops?
@@ -14066,6 +14313,7 @@ One note by me: when your loop has only one line (aside from the command word/s)
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Lua -->
 ## Lua
 
 Lua Background Information
@@ -14126,6 +14374,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Main_Page -->
 ## Main_Page
 
 <table>
@@ -14217,6 +14466,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Map -->
 ## Map
 
 All functions inside map.c and map.h will go here. this deals with how the map compiling will work
@@ -14233,6 +14483,7 @@ All functions inside map.c and map.h will go here. this deals with how the map c
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Mapflag -->
 ## Mapflag
 
 A Map Flag describes restrictions, properties, and behaviors of a certain map. The map flags alter the behavior of the map regarding teleporting, storing location when disconnected, dead branch usage, penalties upon death, PVP behaviour, WoE behavior, ability to use skills or open up trade deals, current weather effects, and whether day/night will be in effect on this map.
@@ -14479,6 +14730,7 @@ The zone number is set in and
 ============================================================
 ====
 
+<!-- RAG_CHUNK: MapRespawnGuildID -->
 ## MapRespawnGuildID
 
 Syntax
@@ -14506,6 +14758,7 @@ For examples, check the WoE scripts in the distribution.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Marriage -->
 ## Marriage
 
 Syntax
@@ -14538,6 +14791,7 @@ The core part of the marriage script, where the actual marriage takes place.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Md5 -->
 ## Md5
 
 Syntax
@@ -14561,6 +14815,7 @@ Outputs "187a99080cdf39f6d1f2b3f5f2f2105f".
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Menu -->
 ## Menu
 
 Syntax
@@ -14679,6 +14934,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Menus -->
 ## Menus
 
 Menus
@@ -14817,6 +15073,7 @@ The prompt command works exactly like the select command however a value of 255 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Mes -->
 ## Mes
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -14866,6 +15123,7 @@ Hello Charname, how are you?
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Mmo -->
 ## Mmo.h
 
 This source file holds global declarations and hard-coded settings, that are used by the login, char and map server. If you modify anything, you have to recompile all three servers, otherwise you may run into errors.
@@ -15028,6 +15286,7 @@ Maximum character length of guild message body.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Mob -->
 ## Mob
 
 A [Mob](/Mob "wikilink") is basically a monster. Mobs range from Poring to Baphomet. Most commonly, the word 'mob' is used to refer to an enemy summoned by a [MVP](/MVP "wikilink").
@@ -15044,6 +15303,7 @@ This page will contain all functions on mob.c and mob.h
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Mobcount -->
 ## Mobcount
 
 Syntax
@@ -15072,6 +15332,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Mob_event_variables -->
 ## Mob_event_variables
 
 Introduction
@@ -15153,6 +15414,7 @@ Following this article, you should be able to customise what information gets pa
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Monster -->
 ## Monster
 
 Syntax
@@ -15199,6 +15461,7 @@ This will spawn 5 Porings randomly distributed on the map of the invoking charac
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Monster_death_timer -->
 ## Monster_death_timer
 
 Introduction
@@ -15318,6 +15581,7 @@ The alternative (through basic scripts) is this:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Morphembryo -->
 ## Morphembryo
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -15335,6 +15599,7 @@ Returns 1 upon success and 0 for all failures.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: MountingNPCHandle -->
 ## MountingNPCHandle
 
 New Mounts : NPC Scripting Support
@@ -15380,6 +15645,7 @@ Changelog
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Movenpc -->
 ## Movenpc
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -15402,6 +15668,7 @@ movenpcÂ "Bugga",100,20;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Msg_txt -->
 ## Msg_txt
 
 Syntax
@@ -15423,6 +15690,7 @@ This would pass pointer to the message "Character not found." to the function cl
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Multiple_Servers -->
 ## Multiple_Servers
 
 Description
@@ -15453,6 +15721,7 @@ Scheme
 ============================================================
 ====
 
+<!-- RAG_CHUNK: NeonCube -->
 ## NeonCube
 
 To use this guide you must have a basic understanding of [rAthena](/rAthena "wikilink"), a [Web Server](/wikipedia:Web_Server "wikilink") and how to edit, upload and manipulate files. You also need to be versatile in making [GRF](/GRF "wikilink") and [RAR](/wikipedia:RAR_(file_format) "wikilink") files.
@@ -15593,6 +15862,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: New_Classes -->
 ## New_Classes
 
 This is a placeholder for the updated version of the new job classes guide. I will be back to update it once I have tested and documented the setup on the newer svns and the new wiki structure is fully implemented and layed out.
@@ -16105,6 +16375,7 @@ Note: anyone can ammend this guide if they choose too as long as credit is given
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Next -->
 ## Next
 
 Syntax
@@ -16129,6 +16400,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Npcshopdelitem -->
 ## Npcshopdelitem
 
 Syntax
@@ -16164,6 +16436,7 @@ Related Commands: [npcshopitem](/npcshopitem "wikilink"), [npcshopadditem](/npcs
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Npcshopitem -->
 ## Npcshopitem
 
 Syntax
@@ -16192,6 +16465,7 @@ The code below will replace the price of Red Potion to 5000z and Orange Potion t
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Npcskill -->
 ## Npcskill
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -16214,6 +16488,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Npcskilleffect -->
 ## Npcskilleffect
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -16240,6 +16515,7 @@ Here are some samples which might be a help to you:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Npcspeed -->
 ## Npcspeed
 
 Syntax
@@ -16261,6 +16537,7 @@ Only a few NPC sprites have walking animations, and those that do, do not get th
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Npctalk -->
 ## Npctalk
 
 Syntax
@@ -16279,6 +16556,7 @@ This will make everyone in the area see the NPC greet the character, who just in
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Nude -->
 ## Nude
 
 Syntax
@@ -16304,6 +16582,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: OnBuyItem -->
 ## OnBuyItem
 
 Syntax
@@ -16330,6 +16609,7 @@ This will display a player's current zeny whenever they buy an item from any sho
 ============================================================
 ====
 
+<!-- RAG_CHUNK: OnPCDieEvent -->
 ## OnPCDieEvent
 
 Syntax
@@ -16360,6 +16640,7 @@ This will display a message to players who die on guild_vs1, and also announce a
 ============================================================
 ====
 
+<!-- RAG_CHUNK: OnPCKillEvent -->
 ## OnPCKillEvent
 
 Syntax
@@ -16390,6 +16671,7 @@ This will display a message to players who kill other players on guild_vs1, and 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: OnPCLoadMapEvent -->
 ## OnPCLoadMapEvent
 
 Description
@@ -16412,6 +16694,7 @@ The script means that anyone who will go/warp to prontera, will receive item ID 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: OnSellItem -->
 ## OnSellItem
 
 Syntax
@@ -16438,6 +16721,7 @@ This will display a player's current zeny whenever they sell an item from any sh
 ============================================================
 ====
 
+<!-- RAG_CHUNK: OnTouch -->
 ## OnTouch
 
 Syntax
@@ -16466,6 +16750,7 @@ OnTouch:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: OnWhisperGlobal -->
 ## OnWhisperGlobal
 
 Syntax
@@ -16494,6 +16779,7 @@ This will broadcast the first word the message that you whispered to the NPC(whi
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Openauction -->
 ## Openauction
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -16513,6 +16799,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Openmail -->
 ## Openmail
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -16532,6 +16819,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Openstorage -->
 ## Openstorage
 
 Syntax
@@ -16553,6 +16841,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Overview_of_Errors -->
 ## Overview_of_Errors
 
 This article will, in the end, contain all possible script related errors, what their causes are and what you should do to fix them.
@@ -18848,6 +19137,7 @@ Correct code:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Packets -->
 ## Packets
 
 __NOTOC__
@@ -27378,6 +27668,7 @@ structÂ PACKET_ZC_MAPPROPERTY_R2Â {
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Packet_DB_Rewrite -->
 ## Packet_DB_Rewrite
 
 Motivation
@@ -27397,6 +27688,7 @@ A new format would be required for what right now is present in comment form abo
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Page_format -->
 ## Page_format
 
 __FORCETOC__
@@ -27413,6 +27705,7 @@ Each page format (different sections) should be listed below. Seperate each 'sec
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Palettes -->
 ## Palettes
 
 What you need
@@ -27461,6 +27754,7 @@ Technical Support, or FAQs
 ============================================================
 ====
 
+<!-- RAG_CHUNK: PC -->
 ## PC
 
 All functions from pc.c and pc.h will go here. This part of the source handle several functions related to how characters work, like exp, heal, base and job lvs, falcon/cart/peco checks, etc.
@@ -27483,6 +27777,7 @@ All functions from pc.c and pc.h will go here. This part of the source handle se
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Pcblockmove -->
 ## Pcblockmove
 
 Syntax
@@ -27503,6 +27798,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: PCRE -->
 ## PCRE
 
 What is PCRE
@@ -27563,6 +27859,7 @@ It's done, now you recompiled your server with PCRE support enabled!
 ============================================================
 ====
 
+<!-- RAG_CHUNK: PC_Readglobalreg -->
 ## PC_Readglobalreg
 
 Check a variable in the source
@@ -27578,6 +27875,7 @@ Note: This only works for numeric variables, strings check [pc_readglobalreg_str
 ============================================================
 ====
 
+<!-- RAG_CHUNK: PC_Search_Inventory -->
 ## PC_Search_Inventory
 
 Check for a Item on Inventory/Equiped
@@ -27602,6 +27900,7 @@ It is important that you understand that \*0\* is a valid return value. Therefor
 ============================================================
 ====
 
+<!-- RAG_CHUNK: PC_Setglobalreg -->
 ## PC_Setglobalreg
 
 Set player integer variable from source
@@ -27617,6 +27916,7 @@ This only works for numeric variables, strings check [pc_setglobalreg_str](/pc_s
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Pc_setglobalreg_str -->
 ## Pc_setglobalreg_str
 
 Define a string variable in the source
@@ -27632,6 +27932,7 @@ This only works for string variables, for numbers check [PC_Setglobalreg](/PC_Se
 ============================================================
 ====
 
+<!-- RAG_CHUNK: PC_Setpos -->
 ## PC_Setpos
 
 Syntax
@@ -27661,6 +27962,7 @@ Warps the player *sd* to payon on random coordinates without a warp-out effect. 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Percentheal -->
 ## Percentheal
 
 Syntax
@@ -27685,6 +27987,7 @@ percenthealÂ -100,Â 0;Â Â //Â DrainsÂ allÂ HPÂ andÂ killsÂ theÂ playe
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Petskillattack -->
 ## Petskillattack
 
 Syntax
@@ -27720,6 +28023,7 @@ It gives pet Spiral Pierce skill with 10 hits, each hit will deals 100 damage.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Pixeling -->
 ## Pixeling
 
 Ragnarok Pixel Art
@@ -27758,6 +28062,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Playerattached -->
 ## Playerattached
 
 Syntax
@@ -27785,6 +28090,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Precompiled_Installation -->
 ## Precompiled_Installation
 
 Pre-Compiled Versions
@@ -27809,6 +28115,7 @@ Setup a [client](/:Category:Client_Configuration "wikilink") and you're all set 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Produce -->
 ## Produce
 
 Syntax
@@ -27843,6 +28150,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Progressbar -->
 ## Progressbar
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -27868,6 +28176,7 @@ end;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Pushpc -->
 ## Pushpc
 
 Syntax
@@ -27887,6 +28196,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Query_sql -->
 ## Query_sql
 
 Syntax
@@ -27908,6 +28218,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Racial_Group -->
 ## Racial_Group
 
 Intro
@@ -27937,6 +28248,7 @@ For additional info, read [Goblin Leader Card](http://ratemyserver.net/index.php
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Ragnarok_Online -->
 ## Ragnarok_Online
 
 |                                                                    |
@@ -28224,6 +28536,7 @@ GNU
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Rand -->
 ## Rand
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -28241,6 +28554,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Random_item_reward -->
 ## Random_item_reward
 
 Description
@@ -28305,6 +28619,7 @@ functionÂ Â Â scriptÂ Â F_RandÂ Â {
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Readparam -->
 ## Readparam
 
 Syntax
@@ -28344,6 +28659,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Recovery -->
 ## Recovery
 
 Syntax
@@ -28389,6 +28705,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Reference_Sheet -->
 ## Reference_Sheet
 
 Â¸Ã¶ - Body palette folder Â¸Ã“Â¸Â® - Head palette folder
@@ -28499,6 +28816,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Removing_skill_level_requirements -->
 ## Removing_skill_level_requirements
 
 If you want to remove the skill level requirements from a skill, so that you don't need to level other skills up to get into it, then here's what you need to do:
@@ -28533,6 +28851,7 @@ There! No more requirements to learn Safety Wall! It can be learned as soon as y
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Rentitem -->
 ## Rentitem
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -28550,6 +28869,7 @@ To rent out a red potion for 7 days you would use the following
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Repair -->
 ## Repair
 
 Syntax
@@ -28570,6 +28890,7 @@ See [getbrokenid](/getbrokenid "wikilink") for a more in-depth example on usage 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Replacestr -->
 ## Replacestr
 
 Syntax
@@ -28588,6 +28909,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Resetlvl -->
 ## Resetlvl
 
 Syntax
@@ -28612,6 +28934,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Resnametable -->
 ## Resnametable
 
 The **resource name table** or resnametable, is responsible for creating pathname aliases for client-side files, regardless of whether inside or outside a [GRF](/GRF "wikilink") archive. The server can also read this file when [using GRFs for map data](/:Category:Configuration#Overriding_map-cache "wikilink"), as well. It is stored in `data\resnametable.txt`, typically inside the archive.
@@ -28648,6 +28971,7 @@ Known Base Paths
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Restoring_SQL -->
 ## Restoring_SQL
 
 Restoring a Backup
@@ -28665,6 +28989,7 @@ Multiple Databases in one dump to a Single Database:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Return -->
 ## Return
 
 Syntax
@@ -28711,6 +29036,7 @@ L_scream:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: RGZ -->
 ## RGZ
 
 An RGZ file is a proprietary compressed archive format used for [Ragnarok Online](/Ragnarok_Online "wikilink"), developed by [Gravity](http://en.wikipedia.org/wiki/Gravity_(company)). It is used for patching the local file system directory, the game client resides in. The archive mostly contains updated game executable or new background music files. The extension is always **.rgz** and might be an abbreviation for **ragnarok+gzip**.
@@ -28799,6 +29125,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: RID -->
 ## RID
 
 Most scripting commands and functions will want to request data about a character, store variables referenced to that character, send stuff to the client connected to that specific character. Whenever a script is invoked by a character, it is passed a so-called RID - this is the account ID number of a character that caused the code to execute by clicking on it, walking into it's [OnTouch](/OnTouch "wikilink") zone, or otherwise.
@@ -28814,6 +29141,7 @@ Whenever is stated *invoking character* or *currently attached character*, it ac
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Rid2name -->
 ## Rid2name
 
 Syntax
@@ -28840,6 +29168,7 @@ This will announce to each player, whenever they get killed, who did the finishi
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Roclass -->
 ## Roclass
 
 Syntax
@@ -28873,6 +29202,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: RO_Pixeling_Colors -->
 ## RO_Pixeling_Colors
 
 RO Common Colors
@@ -28898,6 +29228,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Sakray -->
 ## Sakray
 
 **Sakray** is what official [Ragnarok Online](/Ragnarok_Online "wikilink") test servers are usually referred to. They are used to test new content and features, before they get installed on the normal servers. When the name "Sakray" is used alone, it typically refers to the kRO Sakray server. Sakray servers are always accessible via a separate client, which is available through a separate download.
@@ -28918,6 +29249,7 @@ Usage
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Savepoint -->
 ## Savepoint
 
 Syntax
@@ -28945,6 +29277,7 @@ savepointÂ "payon",Â 257,Â 242;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Screen -->
 ## Screen
 
 **Screen** is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells. Each virtual terminal provides the functions of the DEC VT100 terminal and, in addition, several control functions from the ANSI X3.64 (ISO 6429) and ISO 2022 standards (e.g., insert/delete line and support for multiple character sets). There is a scrollback history buffer for each virtual terminal and a copy-and-paste mechanism that allows the user to move text regions between windows. When screen is called, it creates a single window with a shell in it (or the specified command) and then gets out of your way so that you can use the program as you normally would. Then, at any time, you can create new (full-screen) windows with other programs in them (including more shells), kill the current window, view a list of the active windows, turn output logging on and off, copy text between windows, view the scrollback history, switch between windows, etc. All windows run their programs completely independent of each other. Programs continue to run when their window is currently not visible and even when the whole screen session is detached from the users terminal.
@@ -29161,6 +29494,7 @@ This guide also conforms with XHTML and WC3 standards.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Script_header -->
 ## Script_header
 
 The [script header](/script_header "wikilink") is the first 15 or so lines of a script file that contain information identifying the script.
@@ -29262,6 +29596,7 @@ Other Guidelines
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Scr_logo -->
 ## Scr_logo.bmp
 
 [frame|Default kRO screen-shot watermark.](/Image:scr_logo.png "wikilink")**scr_logo.bmp** is the branding/watermark image in the bottom-right corner in screen-shots taken inside the Ragnarok Online client, typically displaying the RO server's homepage address on official servers.
@@ -29275,6 +29610,7 @@ The file is stored in **data\\texture\\scr_logo.bmp** and can be either 8-bit or
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Sc_start -->
 ## Sc_start
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -29309,6 +29645,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Searchitem -->
 ## Searchitem
 
 Syntax
@@ -29333,6 +29670,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Select -->
 ## Select
 
 Syntax
@@ -29359,6 +29697,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Server_Modification -->
 ## Server_Modification
 
 You can find here some information to start making server-side source modifications.
@@ -29392,6 +29731,7 @@ Also can take a look at modifications made by other users.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Server_Monitoring_and_Protection -->
 ## Server_Monitoring_and_Protection
 
 Following tips are intended to point out important tasks while running your server, to avoid 3rd-party disturbances, including but not limited to hacking, cheating and service outage.
@@ -29426,6 +29766,7 @@ Updating is a good way to protect your system. The updates usually contains secu
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Server_Time_Configuration_Linux -->
 ## Server_Time_Configuration_Linux
 
 We'll get straight to the point. The information below will help you configure your **Server Time** according to different parts of the world. You will be prompted to select several time zone options. For this example, we'll be using Pacific Time.
@@ -29547,6 +29888,7 @@ Confirm your choice:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Set -->
 ## Set
 
 As of the usage of [set](/set "wikilink") has become obsolete and is no longer a requirement.
@@ -29576,6 +29918,7 @@ For more information read: [r15982: Script Engine Update](http://rathena.org/boa
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setarray -->
 ## Setarray
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -29599,6 +29942,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setbattleflag -->
 ## Setbattleflag
 
 Syntax
@@ -29621,6 +29965,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setcart -->
 ## Setcart
 
 Syntax
@@ -29647,6 +29992,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setcell -->
 ## Setcell
 
 Syntax
@@ -29681,6 +30027,7 @@ OnBarricadeBreak:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setchar -->
 ## Setchar
 
 Syntax
@@ -29699,6 +30046,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setd -->
 ## Setd
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -29720,6 +30068,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setfont -->
 ## Setfont
 
 Syntax
@@ -29751,6 +30100,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setiteminfo -->
 ## Setiteminfo
 
 Syntax
@@ -29838,6 +30188,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setitemscript -->
 ## Setitemscript
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -29866,6 +30217,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setmadogear -->
 ## Setmadogear
 
 [Category:Script Command](/Category:Script_Command "wikilink")
@@ -29912,6 +30264,7 @@ You can check as well the official rAthena Universal NPC ([trunk/npc/custom/bree
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setmapflag -->
 ## Setmapflag
 
 Syntax
@@ -29935,6 +30288,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setnpctimer -->
 ## Setnpctimer
 
 Syntax
@@ -29979,6 +30333,7 @@ if($quoteÂ ==Â 4)Â gotoÂ Lquote4;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setriding -->
 ## Setriding
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -30006,6 +30361,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setup_LAMP_on_CentOS -->
 ## Setup_LAMP_on_CentOS
 
 Setup LAMP on CentOS
@@ -30204,6 +30560,7 @@ That's all folks, I hope that this helps to make Web Server for RO up and runnin
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Setwall -->
 ## Setwall
 
 Syntax
@@ -30229,6 +30586,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Sex -->
 ## Sex
 
 Syntax
@@ -30251,6 +30609,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Show_item_SP_heal -->
 ## Show_item_SP_heal
 
 Introduction
@@ -30285,6 +30644,7 @@ Now, when you use a healing item, it should display the amount of SP you recover
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Skill-Cooldown -->
 ## Skill-Cooldown
 
 This page describes how skill cooldowns (not delays) work.
@@ -30305,6 +30665,7 @@ All skill cooldowns are stored in , its **cooldown** column defines how many *mi
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Skilleffect -->
 ## Skilleffect
 
 Syntax
@@ -30332,6 +30693,7 @@ This will heal the character with 2000 HP, buff it with Blessing Lv 10 and Incre
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Skillpointcount -->
 ## Skillpointcount
 
 Syntax
@@ -30357,6 +30719,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Soundeffect -->
 ## Soundeffect
 
 Syntax
@@ -30416,6 +30779,7 @@ If a script plays a soundeffect play while another one is playing, the previous 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Specialeffect -->
 ## Specialeffect
 
 Syntax
@@ -30458,6 +30822,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Sprintf -->
 ## Sprintf
 
 Syntax
@@ -30476,6 +30841,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Sprite_Recolors -->
 ## Sprite_Recolors
 
 Recolors
@@ -30501,6 +30867,7 @@ See also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Spriting -->
 ## Spriting
 
 Creating Your Own Frames
@@ -30542,6 +30909,7 @@ See also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: SQL_Installation -->
 ## SQL_Installation
 
 Introduction
@@ -30759,6 +31127,7 @@ Note: Afterwards issue this command lines, please have your password prepared si
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Sqrt -->
 ## Sqrt
 
 Syntax
@@ -30778,6 +31147,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Sscanf -->
 ## Sscanf
 
 Syntax
@@ -30795,6 +31165,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Staff -->
 ## Staff
 
 Here is a \[<http://chart.googleapis.com/chart?cht=gv:dot&chl=graph%7Ba1%5Blabel=%22Administrators%22,fontcolor=%22%230000FF%22%5D;m1%5Blabel=%22Forum+Manager%22,fontcolor=%22%23001188%22%5D;m2%5Blabel=%22Core+Dev+Manager%22,fontcolor=%22%23001188%22%5D;m3%5Blabel=%22Script/DB+Dev+Manager%22,fontcolor=%22%23001188%22%5D;a1--m1;a1--m2;a1--m3;d2%5Blabel=%22Core+Developers%22,fontcolor=%22%23008000%22%5D;d3%5Blabel=%22Supporting+Developers%22,fontcolor=%22%23008000%22%5D;d4%5Blabel=%22Script/DB+Developers%22,fontcolor=%22%23FF0000%22%5D;d5%5Blabel=%22Document+Developer%22,fontcolor=%22%23DC3AFF%22%5D;t1%5Blabel=%22Translators%22,fontcolor=%22%23D16886%22%5D;m2--d2;m2--d3;m2--d5;m3--d4;m3--d5;m3--t1;f1%5Blabel=%22Global+Mods%22,fontcolor=%22%23A91143%22%5D;f2%5Blabel=%22Support+Leaders%22,fontcolor=%22%2300A0FF%22%5D;f3%5Blabel=%22Scripting+Mods%22,fontcolor=%22%23FF7200%22%5D;f4%5Blabel=%22Graphics+Mods%22,fontcolor=%22%239300D0%22%5D;f5%5Blabel=%22International+Mods%22,fontcolor=%22%2300D784%22%5D;m1--f1;f1--f2;f1--f3;f1--f4;f1--f5>;} flowchart of staff positions\].
@@ -30979,6 +31350,7 @@ Our Ex-Developers and others who contributed a great amount to the development o
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Startnpctimer -->
 ## Startnpctimer
 
 Syntax
@@ -31012,6 +31384,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Status -->
 ## Status
 
 All functions inside status.c and status.h will go here. This is where all passive and positive/negative status codes are stored.
@@ -31032,6 +31405,7 @@ All functions inside status.c and status.h will go here. This is where all passi
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Statusup2 -->
 ## Statusup2
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -31049,6 +31423,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Status_List -->
 ## Status_List
 
 Status effects can affect a character through an item's effect, a skill's effect, or called from an NPC. Below is the list of all the possible status effects a character can have (taken from .
@@ -31555,6 +31930,7 @@ Status Effects
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Stopnpctimer -->
 ## Stopnpctimer
 
 Syntax
@@ -31583,6 +31959,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Strcharinfo -->
 ## Strcharinfo
 
 Syntax
@@ -31616,6 +31993,7 @@ mesÂ "YouÂ areÂ standingÂ onÂ theÂ mapÂ "Â +Â strcharinfo(3)Â +Â ".";
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Strcmp -->
 ## Strcmp
 
 Syntax
@@ -31635,6 +32013,7 @@ This command compares two strings are returns a value:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Strmobinfo -->
 ## Strmobinfo
 
 Syntax
@@ -31661,6 +32040,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Strnpcinfo -->
 ## Strnpcinfo
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -31695,6 +32075,7 @@ monk_test,306,151,5Â Â Â Â scriptÂ Â SealedÂ Shrine#1::SS_1Â Â Â 111,{
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Strpos -->
 ## Strpos
 
 Syntax
@@ -31713,6 +32094,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Substr -->
 ## Substr
 
 Syntax
@@ -31731,6 +32113,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Subversion -->
 ## Subversion
 
 Preface
@@ -31803,6 +32186,7 @@ So in the file, we're to remove line 241 and replace it with the line that has t
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Summon -->
 ## Summon
 
 Syntax
@@ -31824,6 +32208,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Switch -->
 ## Switch
 
 Syntax
@@ -31879,6 +32264,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Template_EntirePage -->
 ## Template_EntirePage
 
 <includeonly>
@@ -31904,6 +32290,7 @@ turns into
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Template_Mergebox -->
 ## Template_Mergebox
 
 |                                                                    |     |
@@ -31916,6 +32303,7 @@ turns into
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Template_OtherUse -->
 ## Template_OtherUse
 
 <includeonly>
@@ -31941,6 +32329,7 @@ turns into
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Template_User -->
 ## Template_User
 
 [}}}:User:}}}|}}}}}}](/:{{{2 "wikilink")Â ([}}}:User talk:}}}|talk](/:{{{2 "wikilink") | [}}}:Special:Contributions/}}}|contribs](/:{{{2 "wikilink"))<noinclude>
@@ -31956,6 +32345,7 @@ This template provides an easy way to link to a user page and associated informa
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Texture -->
 ## Texture
 
 Texture Editing
@@ -31981,6 +32371,7 @@ With Browedit replacing a model's texture is as easy as pie. Load browedit and u
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Timers_ -->
 ## Timers_(Scripting)
 
 Here I will try to better explain timers. To understand half of what's going on here, I suggest you already know how the basics of [scripting](/scripting "wikilink").
@@ -32440,6 +32831,7 @@ Disadvantages:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Tips_and_Tricks_ -->
 ## Tips_and_Tricks_(Scripting)
 
 Introduction
@@ -32664,6 +33056,7 @@ After:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Tip_of_the_day -->
 ## Tip_of_the_day
 
 [thumb|280x180px|Typical tip of the day window](/Image:Tipoftheday.gif "wikilink") A window that contains various game related shortcuts, commands and usability tips for beginners. It appears on every game start, unless disabled, and after entering **/tip** in the chat window.
@@ -32684,6 +33077,7 @@ in value **SHOWTIPSATSTARTUP** (DWORD) where **0** means disabled and **1** mean
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Token_Text_Table -->
 ## Token_Text_Table
 
 A text table format used for the [Ragnarok Online](/Ragnarok_Online "wikilink") client. It is used for organizing text data into columns and rows, mostly for id-description relations. It usually has the file extension **.txt** and can be found inside and outside the [GRF](/GRF "wikilink").
@@ -32782,6 +33176,7 @@ You may insert comments inside the file by putting **//** at the beginning of a 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Transition_from_SVN_to_GIT -->
 ## Transition_from_SVN_to_GIT
 
 Transitioning from SVN to GIT
@@ -32922,6 +33317,7 @@ References
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Triad_Patcher -->
 ## Triad_Patcher
 
 **Triad Patcher** is a Ragnarok Online auto-patcher, written in Borland Delphi 6 and currently available in French and English. It is divided into the patcher executable itself and tools for creating configuration and patches. Works on all 32-bit Windows versions, Windows Vista and Windows 7 may require running as administrator, though.
@@ -33291,6 +33687,7 @@ External Links
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Unequip -->
 ## Unequip
 
 Syntax
@@ -33336,6 +33733,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Unitwalk -->
 ## Unitwalk
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -33368,6 +33766,7 @@ Examples
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Using_rAsql -->
 ## Using_rAsql
 
 **rAsql** is "an easy to use one-click installer for a local SQL testing environment on Windows." <sup>[\[2\]](http://rathena.org/board/user/441-sirius-white/)</sup> It automatically starts a MySQL instance by creating a virtual drive on the computer and also provides a management tool in the form of [HeidiSQL](http://www.heidisql.com/). rAsql is based on [Uniform Mini Server](https://sourceforge.net/projects/miniserver/).
@@ -33423,6 +33822,7 @@ To change the default password for the user `ragnarok` you will need to:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Variables -->
 ## Variables
 
 Introduction
@@ -34275,6 +34675,7 @@ A new scripter often types this when he/she wants to put the String "Patrick" in
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Viewpoint -->
 ## Viewpoint
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -34309,6 +34710,7 @@ And this is how you remove them:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Vip_status -->
 ## Vip_status
 
 Syntax
@@ -34335,6 +34737,7 @@ vip_status(1)
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Vip_time -->
 ## Vip_time
 
 Syntax
@@ -34355,6 +34758,7 @@ Changes a player's VIP time 60 minutes
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Waitingroom -->
 ## Waitingroom
 
 Syntax
@@ -34395,6 +34799,7 @@ OnFull:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Waitingroom2bg -->
 ## Waitingroom2bg
 
 Syntax
@@ -34450,6 +34855,7 @@ Create the teams:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Waitingroom2bg_single -->
 ## Waitingroom2bg_single
 
 Syntax
@@ -34476,6 +34882,7 @@ OnStart:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Warp -->
 ## Warp
 
 Syntax
@@ -34509,6 +34916,7 @@ Will warp the player to Prontera at coordinates 150,150. Note, that anything pas
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Warpguild -->
 ## Warpguild
 
 Syntax
@@ -34536,6 +34944,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Warppartner -->
 ## Warppartner
 
 Syntax
@@ -34555,6 +34964,7 @@ The code below will warp your partner to your location when triggered.
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Warpparty -->
 ## Warpparty
 
 [Category:Script_Command](/Category:Script_Command "wikilink")
@@ -34582,6 +34992,7 @@ Example
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Warpportal -->
 ## Warpportal
 
 Syntax
@@ -34602,6 +35013,7 @@ warpportalÂ 150,150,"prontera",150,180;
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Warpwaitingpc -->
 ## Warpwaitingpc
 
 Syntax
@@ -34626,6 +35038,7 @@ The obvious way of using this effectively would be to set up a waiting room for 
 ============================================================
 ====
 
+<!-- RAG_CHUNK: War_of_Emperium -->
 ## War_of_Emperium
 
 The **War of Emperium** is a battle between guilds for castles (5 castles in each of 4 towns, for a total of 20). Guilds fight against each other and the guild that owns the castle at the end of WoE has access to dungeons and treasures that are not accessible to people who are not in the residing guild.
@@ -34789,6 +35202,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Weather_without_using_mapflag -->
 ## Weather_without_using_mapflag
 
 [Category:Data](/Category:Data "wikilink") [Category:Client Configuration](/Category:Client_Configuration "wikilink")
@@ -34834,6 +35248,7 @@ OnInit:
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Wedding -->
 ## Wedding
 
 Syntax
@@ -34869,6 +35284,7 @@ ifÂ (`[`marriage`](/marriage "wikilink")`($wed_groom$))Â {
 ============================================================
 ====
 
+<!-- RAG_CHUNK: While -->
 ## While
 
 Syntax
@@ -34921,6 +35337,7 @@ See Also
 ============================================================
 ====
 
+<!-- RAG_CHUNK: XAMPP_Installation -->
 ## XAMPP_Installation
 
 What is 'XAMPP'
@@ -34958,6 +35375,7 @@ After you're done, your phpmyadmin is setup and will accept root and your establ
 ============================================================
 ====
 
+<!-- RAG_CHUNK: Zeny -->
 ## Zeny
 
 [Zeny](Zeny) is the in-game currency used in [Ragnarok Online](Ragnarok-Online), which can be used for buying and selling items from and to [NPC](NPC) shops and other players.
@@ -34990,21 +35408,25 @@ The name *Zeny* is recognized by the script engine as a [parameter constant](par
 ============================================================
 ====
 
+<!-- RAG_CHUNK: _Sidebar -->
 ## _Sidebar
 
 [Home](home)
+<!-- RAG_CHUNK: Getting -->
 ## Getting Started
 * [Installation](installations) instructions
 * [Transitioning from SVN to GIT](http://rathena.org/board/topic/87120-transitioning-from-svn-to-git/)
 * [Compiling](compiling) on your OS
 * [Connecting](connecting) & Starting rAthena
 
+<!-- RAG_CHUNK: Configure -->
 ## Configure your Server
 * [Scripting](scripting) like a pro!
 * Server [Modifications](modifications) and what to expect
 * [Database Configuration](Database-Configuration)
 * [Customize](customizing) your server!
 
+<!-- RAG_CHUNK: Setup -->
 ## Setup the Client
 * [Data folder](Data-Folder)
 * [Spriting](spriting), pixel by pixel

@@ -8,6 +8,7 @@
 ---
 
 <!-- RAG_CHUNK: overview -->
+<!-- RAG_CHUNK:  -->
 ## 📦 What's in This File
 
 > **🎯 Context Box: Complete Content Creator Toolkit**
@@ -31,6 +32,7 @@
 ---
 
 <!-- RAG_CHUNK: quick_reference -->
+<!-- RAG_CHUNK:  -->
 ## 🔍 Quick Reference
 
 ### Find What You Need Fast
@@ -85,6 +87,7 @@ NPC Patterns (12):
 ---
 
 <!-- RAG_CHUNK: usage_guide -->
+<!-- RAG_CHUNK:  -->
 ## 📖 How to Use This File
 
 ### For Content Creators
@@ -115,6 +118,7 @@ Step 4: Add constants if needed (03_GAME_MECHANICS)
 ---
 
 <!-- RAG_CHUNK: file_structure -->
+<!-- RAG_CHUNK:  -->
 ## 📂 File Structure
 
 ```
@@ -156,6 +160,7 @@ Step 4: Add constants if needed (03_GAME_MECHANICS)
 ---
 
 <!-- RAG_CHUNK: key_takeaways -->
+<!-- RAG_CHUNK:  -->
 ## 🎯 Key Takeaways
 
 ### Why This File Exists
@@ -190,6 +195,7 @@ Then: 02_SCRIPTING_COMPLETE.md (syntax reference)
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📊 Statistics
 
 - **Item Group Examples:** 10+ complete gacha systems
@@ -225,6 +231,7 @@ last_updated: 2024-01-15
 
 # rAthena Item Groups & Random Box System
 
+<!-- RAG_CHUNK: Table -->
 ## Table of Contents
 1. [System Overview](#system-overview)
 2. [Database Structure](#database-structure)
@@ -239,6 +246,7 @@ last_updated: 2024-01-15
 
 ---
 
+<!-- RAG_CHUNK: System -->
 ## System Overview
 
 The **Item Group System** allows you to create pools of items with configurable probabilities and behaviors. Used for:
@@ -278,6 +286,7 @@ getgroupitem(IG_BLUEBOX);
 
 ---
 
+<!-- RAG_CHUNK: Database -->
 ## Database Structure
 
 ### Basic YAML Format
@@ -322,6 +331,7 @@ Body:
 
 ---
 
+<!-- RAG_CHUNK: Algorithm -->
 ## Algorithm Types
 
 ### 1. Random Algorithm
@@ -426,6 +436,7 @@ Dagger chance = 2/7 = 28.6%
 
 ---
 
+<!-- RAG_CHUNK: SubGroup -->
 ## SubGroup System
 
 ### SubGroup Numbering
@@ -498,6 +509,7 @@ getrandgroupitem(IG_ComplexRewardBox, 0, 2);
 
 ---
 
+<!-- RAG_CHUNK: Script -->
 ## Script Commands
 
 ### 1. groupranditem()
@@ -653,6 +665,7 @@ When calling `getgroupitem(IG_MultiRewardBox)`:
 
 ---
 
+<!-- RAG_CHUNK: Advanced -->
 ## Advanced Features
 
 ### 1. Announced Items
@@ -824,6 +837,7 @@ See `db/re/item_randomopt_group.yml` for random option groups.
 
 ---
 
+<!-- RAG_CHUNK: Complete -->
 ## Complete Examples
 
 ### Example 1: Simple Random Box
@@ -1037,6 +1051,7 @@ prontera,155,185,4	script	Gacha Machine	844,{
 
 ---
 
+<!-- RAG_CHUNK: Common -->
 ## Common Item Boxes
 
 ### Old Blue Box (IG_BLUEBOX)
@@ -1093,6 +1108,7 @@ getgroupitem(IG_ValentineBox);
 
 ---
 
+<!-- RAG_CHUNK: Creating -->
 ## Creating Custom Groups
 
 ### Step 1: Design Your Group
@@ -1184,6 +1200,7 @@ prontera,150,150,4	script	Daily Reward	123,{
 
 ---
 
+<!-- RAG_CHUNK: Best -->
 ## Best Practices
 
 ### 1. Rate Calculation
@@ -1364,6 +1381,7 @@ Body:
 
 ---
 
+<!-- RAG_CHUNK: Troubleshooting -->
 ## Troubleshooting
 
 ### Issue: Items not dropping
@@ -1413,6 +1431,7 @@ getgroupitem(IG_MyGroup, 1);   // 1 = identified
 
 ---
 
+<!-- RAG_CHUNK: Related -->
 ## Related References
 
 - **Script Commands**: [KB_REF_ScriptCommandsCore.md], [KB_REF_ScriptCommandsExpanded.md]
@@ -1448,6 +1467,7 @@ kb_use_case: [quest_creation, content_creation, quest_scripting]
 
 Complete reference for the quest database structure in `/db/(pre-)re/quest_db.yml`.
 
+<!-- RAG_CHUNK: Overview -->
 ## Overview
 
 The quest database defines all quests available in rAthena, including their objectives, time limits, drop rates, and rewards. Quests are configured using YAML format.
@@ -1456,6 +1476,7 @@ The quest database defines all quests available in rAthena, including their obje
 
 ---
 
+<!-- RAG_CHUNK: QUEST -->
 ## QUEST STRUCTURE
 
 ### Basic Quest Format
@@ -1470,6 +1491,7 @@ The quest database defines all quests available in rAthena, including their obje
 
 ---
 
+<!-- RAG_CHUNK: FIELD -->
 ## FIELD REFERENCE
 
 ### Id (Required)
@@ -1778,6 +1800,7 @@ Targets:
 
 ---
 
+<!-- RAG_CHUNK: DROPS -->
 ## DROPS
 
 **Type:** Array
@@ -1821,6 +1844,7 @@ Drops:
 
 ---
 
+<!-- RAG_CHUNK: COMPLETE -->
 ## COMPLETE QUEST EXAMPLES
 
 ### Example 1: Simple Kill Quest
@@ -1954,6 +1978,7 @@ Drops:
 
 ---
 
+<!-- RAG_CHUNK: QUEST -->
 ## QUEST SCRIPT COMMANDS
 
 Use these script commands to interact with quests:
@@ -2014,6 +2039,7 @@ Alias for `questprogress()`.
 
 ---
 
+<!-- RAG_CHUNK: QUEST -->
 ## QUEST STATUS VALUES
 
 | Value | Constant | Meaning |
@@ -2024,6 +2050,7 @@ Alias for `questprogress()`.
 
 ---
 
+<!-- RAG_CHUNK: BEST -->
 ## BEST PRACTICES
 
 1. **Unique IDs:** Always use unique quest IDs (avoid conflicts)
@@ -2036,6 +2063,7 @@ Alias for `questprogress()`.
 
 ---
 
+<!-- RAG_CHUNK: COMMON -->
 ## COMMON MISTAKES
 
 ### ❌ Wrong:
@@ -2060,6 +2088,7 @@ Alias for `questprogress()`.
 
 ---
 
+<!-- RAG_CHUNK: RELATED -->
 ## RELATED FILES
 
 - `/db/(pre-)re/quest_db.yml` - Quest database
@@ -2069,6 +2098,7 @@ Alias for `questprogress()`.
 
 ---
 
+<!-- RAG_CHUNK: SEE -->
 ## SEE ALSO
 
 - **KB_EXAMPLE_005:** Quest Implementation Examples
@@ -2108,6 +2138,7 @@ last_updated: 2024-01-15
 
 # Advanced NPC Scripting Patterns & Best Practices
 
+<!-- RAG_CHUNK:  -->
 ## 🎯 Purpose
 
 This document provides **production-ready** patterns for advanced NPC scripting systems. Each pattern includes:
@@ -2119,6 +2150,7 @@ This document provides **production-ready** patterns for advanced NPC scripting 
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📋 Table of Contents
 
 1. [State Machine Pattern](#state-machine-pattern)
@@ -2136,6 +2168,7 @@ This document provides **production-ready** patterns for advanced NPC scripting 
 
 ---
 
+<!-- RAG_CHUNK: 1 -->
 ## 1. State Machine Pattern {#state-machine-pattern}
 
 ### Use Cases
@@ -2364,6 +2397,7 @@ function	script	F_ResetQuest	{
 
 ---
 
+<!-- RAG_CHUNK: 2 -->
 ## 2. Cooldown Systems {#cooldown-systems}
 
 ### Pattern Types
@@ -2612,6 +2646,7 @@ if (!callfunc("F_CheckCooldown", #DAILY_REWARD_TIME, 86400, "Daily reward alread
 
 ---
 
+<!-- RAG_CHUNK: 3 -->
 ## 3. Point Accumulation Systems {#point-systems}
 
 ### Use Cases
@@ -2850,6 +2885,7 @@ OnCheckDecay:
 
 ---
 
+<!-- RAG_CHUNK: 4 -->
 ## 4. Instanced Event Pattern {#instanced-events}
 
 ### Party Dungeon Instance
@@ -3106,6 +3142,7 @@ OnTouch:
 
 ---
 
+<!-- RAG_CHUNK: 5 -->
 ## 5. Dynamic Shop Systems {#dynamic-shops}
 
 ### Price Adjustment Based on Stock
@@ -3357,6 +3394,7 @@ OnFindItem:
 
 ---
 
+<!-- RAG_CHUNK: 6 -->
 ## 6. Mini-Game Implementations {#mini-games}
 
 ### Dice Game
@@ -3651,6 +3689,7 @@ prontera,200,180,4	script	Number Guesser	4_F_YUNYANG,{
 
 ---
 
+<!-- RAG_CHUNK: 7 -->
 ## 7. Auction System Pattern {#auction-system}
 
 ### Item Auction System
@@ -3946,6 +3985,7 @@ OnInit:
 
 ---
 
+<!-- RAG_CHUNK: 8 -->
 ## 8. Guild Contribution Systems {#guild-systems}
 
 ### Guild Point System
@@ -4192,6 +4232,7 @@ OnNPCKillEvent:
 
 ---
 
+<!-- RAG_CHUNK: 9 -->
 ## 9. Achievement Tracking {#achievement-tracking}
 
 ### Achievement System
@@ -4421,6 +4462,7 @@ function	script	F_ClaimAchievements	{
 
 ---
 
+<!-- RAG_CHUNK: 10 -->
 ## 10. Random World Event Pattern {#random-events}
 
 ### World Boss Spawn System
@@ -4643,6 +4685,7 @@ OnDespawn:
 
 ---
 
+<!-- RAG_CHUNK: 11 -->
 ## 11. Anti-Cheat Patterns {#anti-cheat-patterns}
 
 ### Common Exploit Prevention
@@ -4898,6 +4941,7 @@ OnPCMoveEvent:
 
 ---
 
+<!-- RAG_CHUNK: 12 -->
 ## 12. Performance Optimization {#performance-optimization}
 
 ### Memory-Efficient Patterns
@@ -4991,6 +5035,7 @@ function	script	F_CleanupExample	{
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📊 Pattern Comparison Table
 
 | Pattern | Memory | CPU | Complexity | Security | Best For |
@@ -5008,6 +5053,7 @@ function	script	F_CleanupExample	{
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🔗 Cross-References
 
 ### Related Documentation
@@ -5034,6 +5080,7 @@ function	script	F_CleanupExample	{
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🎯 Key Takeaways
 
 1. **Always validate input** - Never trust player data

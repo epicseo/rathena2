@@ -119,6 +119,7 @@ Used with bAddEff, bResEff, etc.
 
 <!-- RAG_CHUNK: 1_basic_bonuses -->
 
+<!-- RAG_CHUNK: bStr -->
 ### bStr
 
 **Syntax:** `bonus bStr,n;`
@@ -137,6 +138,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAgi -->
 ### bAgi
 
 **Syntax:** `bonus bAgi,n;`
@@ -155,6 +157,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bVit -->
 ### bVit
 
 **Syntax:** `bonus bVit,n;`
@@ -173,6 +176,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bInt -->
 ### bInt
 
 **Syntax:** `bonus bInt,n;`
@@ -191,6 +195,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDex -->
 ### bDex
 
 **Syntax:** `bonus bDex,n;`
@@ -209,6 +214,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bLuk -->
 ### bLuk
 
 **Syntax:** `bonus bLuk,n;`
@@ -227,6 +233,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAllStats -->
 ### bAllStats
 
 **Syntax:** `bonus bAllStats,n;`
@@ -245,6 +252,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAgiVit -->
 ### bAgiVit
 
 **Syntax:** `bonus bAgiVit,n;`
@@ -263,6 +271,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAgiDexStr -->
 ### bAgiDexStr
 
 **Syntax:** `bonus bAgiDexStr,n;`
@@ -281,6 +290,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bPow -->
 ### bPow
 
 **Syntax:** `bonus bPow,n;`
@@ -299,6 +309,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSta -->
 ### bSta
 
 **Syntax:** `bonus bSta,n;`
@@ -317,6 +328,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWis -->
 ### bWis
 
 **Syntax:** `bonus bWis,n;`
@@ -335,6 +347,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSpl -->
 ### bSpl
 
 **Syntax:** `bonus bSpl,n;`
@@ -353,6 +366,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCon -->
 ### bCon
 
 **Syntax:** `bonus bCon,n;`
@@ -371,6 +385,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCrt -->
 ### bCrt
 
 **Syntax:** `bonus bCrt,n;`
@@ -389,6 +404,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMaxHP -->
 ### bMaxHP
 
 **Syntax:** `bonus bMaxHP,n;`
@@ -407,6 +423,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMaxHPrate -->
 ### bMaxHPrate
 
 **Syntax:** `bonus bMaxHPrate,n;`
@@ -425,6 +442,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMaxSP -->
 ### bMaxSP
 
 **Syntax:** `bonus bMaxSP,n;`
@@ -443,6 +461,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMaxSPrate -->
 ### bMaxSPrate
 
 **Syntax:** `bonus bMaxSPrate,n;`
@@ -461,6 +480,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMaxAP -->
 ### bMaxAP
 
 **Syntax:** `bonus bMaxAP,n;`
@@ -479,6 +499,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMaxAPrate -->
 ### bMaxAPrate
 
 **Syntax:** `bonus bMaxAPrate,n;`
@@ -497,6 +518,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bBaseAtk -->
 ### bBaseAtk
 
 **Syntax:** `bonus bBaseAtk,n;`
@@ -515,6 +537,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAtk -->
 ### bAtk
 
 **Syntax:** `bonus bAtk,n;`
@@ -533,6 +556,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAtk2 -->
 ### bAtk2
 
 **Syntax:** `bonus bAtk2,n;`
@@ -551,6 +575,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAtkRate -->
 ### bAtkRate
 
 **Syntax:** `bonus bAtkRate,n;`
@@ -569,6 +594,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMatk -->
 ### bMatk
 
 **Syntax:** `bonus bMatk,n;`
@@ -587,6 +613,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMatk2 -->
 ### bMatk2
 
 **Syntax:** `bonus bMatk2,n;`
@@ -605,6 +632,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMatkRate -->
 ### bMatkRate
 
 **Syntax:** `bonus bMatkRate,n;`
@@ -623,6 +651,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDef -->
 ### bDef
 
 **Syntax:** `bonus bDef,n;`
@@ -641,6 +670,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDefRate -->
 ### bDefRate
 
 **Syntax:** `bonus bDefRate,n;`
@@ -659,6 +689,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDef2 -->
 ### bDef2
 
 **Syntax:** `bonus bDef2,n;`
@@ -677,6 +708,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDef2Rate -->
 ### bDef2Rate
 
 **Syntax:** `bonus bDef2Rate,n;`
@@ -695,6 +727,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMdef -->
 ### bMdef
 
 **Syntax:** `bonus bMdef,n;`
@@ -713,6 +746,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMdefRate -->
 ### bMdefRate
 
 **Syntax:** `bonus bMdefRate,n;`
@@ -731,6 +765,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMdef2 -->
 ### bMdef2
 
 **Syntax:** `bonus bMdef2,n;`
@@ -749,6 +784,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMdef2Rate -->
 ### bMdef2Rate
 
 **Syntax:** `bonus bMdef2Rate,n;`
@@ -767,6 +803,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHit -->
 ### bHit
 
 **Syntax:** `bonus bHit,n;`
@@ -785,6 +822,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHitRate -->
 ### bHitRate
 
 **Syntax:** `bonus bHitRate,n;`
@@ -803,6 +841,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCritical -->
 ### bCritical
 
 **Syntax:** `bonus bCritical,n;`
@@ -821,6 +860,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCriticalLong -->
 ### bCriticalLong
 
 **Syntax:** `bonus bCriticalLong,n;`
@@ -839,6 +879,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCriticalAddRace -->
 ### bCriticalAddRace
 
 **Syntax:** `bonus2 bCriticalAddRace,r,n;`
@@ -858,6 +899,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCriticalRate -->
 ### bCriticalRate
 
 **Syntax:** `bonus bCriticalRate,n;`
@@ -876,6 +918,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bFlee -->
 ### bFlee
 
 **Syntax:** `bonus bFlee,n;`
@@ -894,6 +937,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bFleeRate -->
 ### bFleeRate
 
 **Syntax:** `bonus bFleeRate,n;`
@@ -912,6 +956,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bFlee2 -->
 ### bFlee2
 
 **Syntax:** `bonus bFlee2,n;`
@@ -930,6 +975,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bFlee2Rate -->
 ### bFlee2Rate
 
 **Syntax:** `bonus bFlee2Rate,n;`
@@ -948,6 +994,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAspd -->
 ### bAspd
 
 **Syntax:** `bonus bAspd,n;`
@@ -966,6 +1013,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAspdRate -->
 ### bAspdRate
 
 **Syntax:** `bonus bAspdRate,n;`
@@ -984,6 +1032,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAtkRange -->
 ### bAtkRange
 
 **Syntax:** `bonus bAtkRange,n;`
@@ -1002,6 +1051,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bPAtk -->
 ### bPAtk
 
 **Syntax:** `bonus bPAtk,n;`
@@ -1020,6 +1070,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bPAtkRate -->
 ### bPAtkRate
 
 **Syntax:** `bonus bPAtkRate,n;`
@@ -1038,6 +1089,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSMatk -->
 ### bSMatk
 
 **Syntax:** `bonus bSMatk,n;`
@@ -1056,6 +1108,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSMatkRate -->
 ### bSMatkRate
 
 **Syntax:** `bonus bSMatkRate,n;`
@@ -1074,6 +1127,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bRes -->
 ### bRes
 
 **Syntax:** `bonus bRes,n;`
@@ -1092,6 +1146,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bResRate -->
 ### bResRate
 
 **Syntax:** `bonus bResRate,n;`
@@ -1110,6 +1165,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMRes -->
 ### bMRes
 
 **Syntax:** `bonus bMRes,n;`
@@ -1128,6 +1184,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMResRate -->
 ### bMResRate
 
 **Syntax:** `bonus bMResRate,n;`
@@ -1146,6 +1203,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPlus -->
 ### bHPlus
 
 **Syntax:** `bonus bHPlus,n;`
@@ -1164,6 +1222,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPlusRate -->
 ### bHPlusRate
 
 **Syntax:** `bonus bHPlusRate,n;`
@@ -1182,6 +1241,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCRate -->
 ### bCRate
 
 **Syntax:** `bonus bCRate,n;`
@@ -1200,6 +1260,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCRateRate -->
 ### bCRateRate
 
 **Syntax:** `bonus bCRateRate,n;`
@@ -1218,6 +1279,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCriticalDef -->
 ### bCriticalDef
 
 **Syntax:** `bonus bCriticalDef,n;`
@@ -1236,6 +1298,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAtkEle -->
 ### bAtkEle
 
 **Syntax:** `bonus bAtkEle,e;`
@@ -1254,6 +1317,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDefEle -->
 ### bDefEle
 
 **Syntax:** `bonus bDefEle,e;`
@@ -1272,6 +1336,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDefRatioAtkRace -->
 ### bDefRatioAtkRace
 
 **Syntax:** `bonus bDefRatioAtkRace,r;`
@@ -1290,6 +1355,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDefRatioAtkEle -->
 ### bDefRatioAtkEle
 
 **Syntax:** `bonus bDefRatioAtkEle,e;`
@@ -1308,6 +1374,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDefRatioAtkClass -->
 ### bDefRatioAtkClass
 
 **Syntax:** `bonus bDefRatioAtkClass,c;`
@@ -1326,6 +1393,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bResEff -->
 ### bResEff
 
 **Syntax:** `bonus2 bResEff,eff,n;`
@@ -1345,6 +1413,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bStateNoRecoverRace -->
 ### bStateNoRecoverRace
 
 **Syntax:** `bonus3 bStateNoRecoverRace,r,x,t;`
@@ -1365,6 +1434,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSplashRange -->
 ### bSplashRange
 
 **Syntax:** `bonus bSplashRange,n;`
@@ -1383,6 +1453,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSplashAddRange -->
 ### bSplashAddRange
 
 **Syntax:** `bonus bSplashAddRange,n;`
@@ -1401,6 +1472,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIntravision -->
 ### bIntravision
 
 **Syntax:** `bonus bIntravision,Always see Hiding and Cloaking players/mobs;`
@@ -1417,6 +1489,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bRestartFullRecover -->
 ### bRestartFullRecover
 
 **Syntax:** `bonus bRestartFullRecover,When reviving, HP and SP are fully healed;`
@@ -1439,6 +1512,7 @@ Script: |
 
 <!-- RAG_CHUNK: 2_extended_bonuses -->
 
+<!-- RAG_CHUNK: bHPrecovRate -->
 ### bHPrecovRate
 
 **Syntax:** `bonus bHPrecovRate,n;`
@@ -1457,6 +1531,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPrecovRate -->
 ### bSPrecovRate
 
 **Syntax:** `bonus bSPrecovRate,n;`
@@ -1475,6 +1550,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPRegenRate -->
 ### bHPRegenRate
 
 **Syntax:** `bonus2 bHPRegenRate,n,t;`
@@ -1494,6 +1570,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPLossRate -->
 ### bHPLossRate
 
 **Syntax:** `bonus2 bHPLossRate,n,t;`
@@ -1513,6 +1590,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPRegenRate -->
 ### bSPRegenRate
 
 **Syntax:** `bonus2 bSPRegenRate,n,t;`
@@ -1532,6 +1610,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPLossRate -->
 ### bSPLossRate
 
 **Syntax:** `bonus2 bSPLossRate,n,t;`
@@ -1551,6 +1630,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUseSPrate -->
 ### bUseSPrate
 
 **Syntax:** `bonus bUseSPrate,n;`
@@ -1569,6 +1649,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillUseSP -->
 ### bSkillUseSP
 
 **Syntax:** `bonus2 bSkillUseSP,sk,n;`
@@ -1588,6 +1669,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillUseSPrate -->
 ### bSkillUseSPrate
 
 **Syntax:** `bonus2 bSkillUseSPrate,sk,n;`
@@ -1607,6 +1689,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillAtk -->
 ### bSkillAtk
 
 **Syntax:** `bonus2 bSkillAtk,sk,n;`
@@ -1626,6 +1709,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bShortAtkRate -->
 ### bShortAtkRate
 
 **Syntax:** `bonus bShortAtkRate,n;`
@@ -1644,6 +1728,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bLongAtkRate -->
 ### bLongAtkRate
 
 **Syntax:** `bonus bLongAtkRate,n;`
@@ -1662,6 +1747,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCritAtkRate -->
 ### bCritAtkRate
 
 **Syntax:** `bonus bCritAtkRate,n;`
@@ -1680,6 +1766,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHealPower -->
 ### bHealPower
 
 **Syntax:** `bonus bHealPower,n;`
@@ -1698,6 +1785,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHealPower2 -->
 ### bHealPower2
 
 **Syntax:** `bonus bHealPower2,n;`
@@ -1716,6 +1804,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddItemHealRate -->
 ### bAddItemHealRate
 
 **Syntax:** `bonus bAddItemHealRate,n;`
@@ -1734,6 +1823,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddItemHealRate -->
 ### bAddItemHealRate
 
 **Syntax:** `bonus2 bAddItemHealRate,iid,n;`
@@ -1753,6 +1843,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCastrate -->
 ### bCastrate
 
 **Syntax:** `bonus bCastrate,n;`
@@ -1771,6 +1862,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCastrate -->
 ### bCastrate
 
 **Syntax:** `bonus2 bCastrate,sk,n;`
@@ -1790,6 +1882,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bFixedCastrate -->
 ### bFixedCastrate
 
 **Syntax:** `bonus bFixedCastrate,n;`
@@ -1808,6 +1901,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bFixedCastrate -->
 ### bFixedCastrate
 
 **Syntax:** `bonus2 bFixedCastrate,sk,n;`
@@ -1827,6 +1921,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bVariableCastrate -->
 ### bVariableCastrate
 
 **Syntax:** `bonus bVariableCastrate,n;`
@@ -1845,6 +1940,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bVariableCastrate -->
 ### bVariableCastrate
 
 **Syntax:** `bonus2 bVariableCastrate,sk,n;`
@@ -1864,6 +1960,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bFixedCast -->
 ### bFixedCast
 
 **Syntax:** `bonus bFixedCast,t;`
@@ -1882,6 +1979,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bVariableCast -->
 ### bVariableCast
 
 **Syntax:** `bonus bVariableCast,t;`
@@ -1900,6 +1998,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoCastCancel -->
 ### bNoCastCancel
 
 **Syntax:** `bonus bNoCastCancel,Prevents casting from being interrupted when hit (does not work in GvG);`
@@ -1916,6 +2015,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoCastCancel2 -->
 ### bNoCastCancel2
 
 **Syntax:** `bonus bNoCastCancel2,Prevents casting from being interrupted when hit (works even in GvG);`
@@ -1932,6 +2032,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDelayrate -->
 ### bDelayrate
 
 **Syntax:** `bonus bDelayrate,n;`
@@ -1955,6 +2056,7 @@ Script: |
 
 <!-- RAG_CHUNK: 3_group-specific_bonuses -->
 
+<!-- RAG_CHUNK: bAddEle -->
 ### bAddEle
 
 **Syntax:** `bonus2 bAddEle,e,x;`
@@ -1974,6 +2076,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEle -->
 ### bAddEle
 
 **Syntax:** `bonus3 bAddEle,e,x,bf;`
@@ -1994,6 +2097,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicAddEle -->
 ### bMagicAddEle
 
 **Syntax:** `bonus2 bMagicAddEle,e,x;`
@@ -2013,6 +2117,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubEle -->
 ### bSubEle
 
 **Syntax:** `bonus2 bSubEle,e,x;`
@@ -2032,6 +2137,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubEle -->
 ### bSubEle
 
 **Syntax:** `bonus3 bSubEle,e,x,bf;`
@@ -2052,6 +2158,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddRace -->
 ### bAddRace
 
 **Syntax:** `bonus2 bAddRace,r,x;`
@@ -2071,6 +2178,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicAddRace -->
 ### bMagicAddRace
 
 **Syntax:** `bonus2 bMagicAddRace,r,x;`
@@ -2090,6 +2198,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubRace -->
 ### bSubRace
 
 **Syntax:** `bonus2 bSubRace,r,x;`
@@ -2109,6 +2218,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubRace -->
 ### bSubRace
 
 **Syntax:** `bonus3 bSubRace,r,x,bf;`
@@ -2129,6 +2239,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddClass -->
 ### bAddClass
 
 **Syntax:** `bonus2 bAddClass,c,x;`
@@ -2148,6 +2259,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubClass -->
 ### bSubClass
 
 **Syntax:** `bonus2 bSubClass,c,x;`
@@ -2167,6 +2279,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddSize -->
 ### bAddSize
 
 **Syntax:** `bonus2 bAddSize,s,x;`
@@ -2186,6 +2299,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubSize -->
 ### bSubSize
 
 **Syntax:** `bonus2 bSubSize,s,x;`
@@ -2205,6 +2319,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddRace2 -->
 ### bAddRace2
 
 **Syntax:** `bonus2 bAddRace2,mr,x;`
@@ -2224,6 +2339,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubRace2 -->
 ### bSubRace2
 
 **Syntax:** `bonus2 bSubRace2,mr,x;`
@@ -2243,6 +2359,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicAddRace2 -->
 ### bMagicAddRace2
 
 **Syntax:** `bonus2 bMagicAddRace2,mr,x;`
@@ -2262,6 +2379,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreDefEle -->
 ### bIgnoreDefEle
 
 **Syntax:** `bonus bIgnoreDefEle,e;`
@@ -2280,6 +2398,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreDefRace -->
 ### bIgnoreDefRace
 
 **Syntax:** `bonus bIgnoreDefRace,r;`
@@ -2298,6 +2417,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreDefClass -->
 ### bIgnoreDefClass
 
 **Syntax:** `bonus bIgnoreDefClass,c;`
@@ -2316,6 +2436,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreDefRaceRate -->
 ### bIgnoreDefRaceRate
 
 **Syntax:** `bonus2 bIgnoreDefRaceRate,r,n;`
@@ -2335,6 +2456,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreDefClassRate -->
 ### bIgnoreDefClassRate
 
 **Syntax:** `bonus2 bIgnoreDefClassRate,c,n;`
@@ -2354,6 +2476,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bExpAddRace -->
 ### bExpAddRace
 
 **Syntax:** `bonus2 bExpAddRace,r,x;`
@@ -2373,6 +2496,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bExpAddClass -->
 ### bExpAddClass
 
 **Syntax:** `bonus2 bExpAddClass,c,x;`
@@ -2392,6 +2516,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddClassDropItem -->
 ### bAddClassDropItem
 
 **Syntax:** `bonus3 bAddClassDropItem,iid,c,n;`
@@ -2412,6 +2537,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddClassDropItemGroup -->
 ### bAddClassDropItemGroup
 
 **Syntax:** `bonus3 bAddClassDropItemGroup,ig,c,n;`
@@ -2437,6 +2563,7 @@ Script: |
 
 <!-- RAG_CHUNK: 4_status-related_bonuses -->
 
+<!-- RAG_CHUNK: bAddEff -->
 ### bAddEff
 
 **Syntax:** `bonus2 bAddEff,eff,n;`
@@ -2456,6 +2583,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEff2 -->
 ### bAddEff2
 
 **Syntax:** `bonus2 bAddEff2,eff,n;`
@@ -2475,6 +2603,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEffWhenHit -->
 ### bAddEffWhenHit
 
 **Syntax:** `bonus2 bAddEffWhenHit,eff,n;`
@@ -2494,6 +2623,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEff -->
 ### bAddEff
 
 **Syntax:** `bonus3 bAddEff,eff,n,atf;`
@@ -2514,6 +2644,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEff -->
 ### bAddEff
 
 **Syntax:** `bonus4 bAddEff,eff,n,atf,t;`
@@ -2535,6 +2666,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEffWhenHit -->
 ### bAddEffWhenHit
 
 **Syntax:** `bonus3 bAddEffWhenHit,eff,n,atf;`
@@ -2555,6 +2687,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEffWhenHit -->
 ### bAddEffWhenHit
 
 **Syntax:** `bonus4 bAddEffWhenHit,eff,n,atf,t;`
@@ -2576,6 +2709,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEffOnSkill -->
 ### bAddEffOnSkill
 
 **Syntax:** `bonus3 bAddEffOnSkill,sk,eff,n;`
@@ -2596,6 +2730,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEffOnSkill -->
 ### bAddEffOnSkill
 
 **Syntax:** `bonus4 bAddEffOnSkill,sk,eff,n,atf;`
@@ -2617,6 +2752,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddEffOnSkill -->
 ### bAddEffOnSkill
 
 **Syntax:** `bonus5 bAddEffOnSkill,sk,eff,n,atf,t;`
@@ -2639,6 +2775,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bComaClass -->
 ### bComaClass
 
 **Syntax:** `bonus2 bComaClass,c,n;`
@@ -2658,6 +2795,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bComaRace -->
 ### bComaRace
 
 **Syntax:** `bonus2 bComaRace,r,n;`
@@ -2677,6 +2815,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponComaEle -->
 ### bWeaponComaEle
 
 **Syntax:** `bonus2 bWeaponComaEle,e,n;`
@@ -2696,6 +2835,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponComaClass -->
 ### bWeaponComaClass
 
 **Syntax:** `bonus2 bWeaponComaClass,c,n;`
@@ -2715,6 +2855,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponComaRace -->
 ### bWeaponComaRace
 
 **Syntax:** `bonus2 bWeaponComaRace,r,n;`
@@ -2739,6 +2880,7 @@ Script: |
 
 <!-- RAG_CHUNK: 5_autospell_bonuses -->
 
+<!-- RAG_CHUNK: bAutoSpell -->
 ### bAutoSpell
 
 **Syntax:** `bonus3 bAutoSpell,sk,y,n;`
@@ -2759,6 +2901,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAutoSpellWhenHit -->
 ### bAutoSpellWhenHit
 
 **Syntax:** `bonus3 bAutoSpellWhenHit,sk,y,n;`
@@ -2779,6 +2922,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAutoSpell -->
 ### bAutoSpell
 
 **Syntax:** `bonus4 bAutoSpell,sk,y,n,i;`
@@ -2800,6 +2944,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAutoSpell -->
 ### bAutoSpell
 
 **Syntax:** `bonus5 bAutoSpell,sk,y,n,bf,i;`
@@ -2822,6 +2967,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAutoSpellWhenHit -->
 ### bAutoSpellWhenHit
 
 **Syntax:** `bonus4 bAutoSpellWhenHit,sk,y,n,i;`
@@ -2843,6 +2989,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAutoSpellWhenHit -->
 ### bAutoSpellWhenHit
 
 **Syntax:** `bonus5 bAutoSpellWhenHit,sk,y,n,bf,i;`
@@ -2865,6 +3012,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAutoSpellOnSkill -->
 ### bAutoSpellOnSkill
 
 **Syntax:** `bonus4 bAutoSpellOnSkill,sk,x,y,n;`
@@ -2886,6 +3034,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAutoSpellOnSkill -->
 ### bAutoSpellOnSkill
 
 **Syntax:** `bonus5 bAutoSpellOnSkill,sk,x,y,n,i;`
@@ -2913,6 +3062,7 @@ Script: |
 
 <!-- RAG_CHUNK: 6_misc_bonuses -->
 
+<!-- RAG_CHUNK: bAllTraitStats -->
 ### bAllTraitStats
 
 **Syntax:** `bonus bAllTraitStats,n;`
@@ -2931,6 +3081,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponAtkRate -->
 ### bWeaponAtkRate
 
 **Syntax:** `bonus bWeaponAtkRate,n;`
@@ -2949,6 +3100,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponMatkRate -->
 ### bWeaponMatkRate
 
 **Syntax:** `bonus bWeaponMatkRate,n;`
@@ -2967,6 +3119,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bPerfectHitRate -->
 ### bPerfectHitRate
 
 **Syntax:** `bonus bPerfectHitRate,n;`
@@ -2985,6 +3138,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bPerfectHitAddRate -->
 ### bPerfectHitAddRate
 
 **Syntax:** `bonus bPerfectHitAddRate,n;`
@@ -3003,6 +3157,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSpeedRate -->
 ### bSpeedRate
 
 **Syntax:** `bonus bSpeedRate,n;`
@@ -3021,6 +3176,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSpeedAddRate -->
 ### bSpeedAddRate
 
 **Syntax:** `bonus bSpeedAddRate,n;`
@@ -3039,6 +3195,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMaxWeight -->
 ### bAddMaxWeight
 
 **Syntax:** `bonus bAddMaxWeight,n;`
@@ -3057,6 +3214,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bRegenPercentHP -->
 ### bRegenPercentHP
 
 **Syntax:** `bonus2 bRegenPercentHP,n,t;`
@@ -3076,6 +3234,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bRegenPercentSP -->
 ### bRegenPercentSP
 
 **Syntax:** `bonus2 bRegenPercentSP,n,t;`
@@ -3095,6 +3254,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoRegen -->
 ### bNoRegen
 
 **Syntax:** `bonus bNoRegen,x;`
@@ -3113,6 +3273,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillRatio -->
 ### bSkillRatio
 
 **Syntax:** `bonus bSkillRatio,n;`
@@ -3131,6 +3292,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bCritDefRate -->
 ### bCritDefRate
 
 **Syntax:** `bonus bCritDefRate,n;`
@@ -3149,6 +3311,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponAtk -->
 ### bWeaponAtk
 
 **Syntax:** `bonus2 bWeaponAtk,w,n;`
@@ -3168,6 +3331,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponDamageRate -->
 ### bWeaponDamageRate
 
 **Syntax:** `bonus2 bWeaponDamageRate,w,n;`
@@ -3187,6 +3351,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNearAtkDef -->
 ### bNearAtkDef
 
 **Syntax:** `bonus bNearAtkDef,n;`
@@ -3205,6 +3370,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bLongAtkDef -->
 ### bLongAtkDef
 
 **Syntax:** `bonus bLongAtkDef,n;`
@@ -3223,6 +3389,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicAtkDef -->
 ### bMagicAtkDef
 
 **Syntax:** `bonus bMagicAtkDef,n;`
@@ -3241,6 +3408,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMiscAtkDef -->
 ### bMiscAtkDef
 
 **Syntax:** `bonus bMiscAtkDef,n;`
@@ -3259,6 +3427,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoWeaponDamage -->
 ### bNoWeaponDamage
 
 **Syntax:** `bonus bNoWeaponDamage,n;`
@@ -3277,6 +3446,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoMagicDamage -->
 ### bNoMagicDamage
 
 **Syntax:** `bonus bNoMagicDamage,n;`
@@ -3295,6 +3465,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoMiscDamage -->
 ### bNoMiscDamage
 
 **Syntax:** `bonus bNoMiscDamage,n;`
@@ -3313,6 +3484,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillHeal -->
 ### bSkillHeal
 
 **Syntax:** `bonus2 bSkillHeal,sk,n;`
@@ -3332,6 +3504,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillHeal2 -->
 ### bSkillHeal2
 
 **Syntax:** `bonus2 bSkillHeal2,sk,n;`
@@ -3351,6 +3524,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddItemGroupHealRate -->
 ### bAddItemGroupHealRate
 
 **Syntax:** `bonus2 bAddItemGroupHealRate,ig,n;`
@@ -3370,6 +3544,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddItemSPHealRate -->
 ### bAddItemSPHealRate
 
 **Syntax:** `bonus bAddItemSPHealRate,n;`
@@ -3388,6 +3563,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddItemSPHealRate -->
 ### bAddItemSPHealRate
 
 **Syntax:** `bonus2 bAddItemSPHealRate,iid,n;`
@@ -3407,6 +3583,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddItemGroupSPHealRate -->
 ### bAddItemGroupSPHealRate
 
 **Syntax:** `bonus2 bAddItemGroupSPHealRate,ig,n;`
@@ -3426,6 +3603,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillFixedCast -->
 ### bSkillFixedCast
 
 **Syntax:** `bonus2 bSkillFixedCast,sk,t;`
@@ -3445,6 +3623,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillVariableCast -->
 ### bSkillVariableCast
 
 **Syntax:** `bonus2 bSkillVariableCast,sk,t;`
@@ -3464,6 +3643,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillDelay -->
 ### bSkillDelay
 
 **Syntax:** `bonus2 bSkillDelay,sk,t;`
@@ -3483,6 +3663,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSkillCooldown -->
 ### bSkillCooldown
 
 **Syntax:** `bonus2 bSkillCooldown,sk,t;`
@@ -3502,6 +3683,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubDefEle -->
 ### bSubDefEle
 
 **Syntax:** `bonus2 bSubDefEle,e,x;`
@@ -3521,6 +3703,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicSubDefEle -->
 ### bMagicSubDefEle
 
 **Syntax:** `bonus2 bMagicSubDefEle,e,x;`
@@ -3540,6 +3723,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicAddClass -->
 ### bMagicAddClass
 
 **Syntax:** `bonus2 bMagicAddClass,c,x;`
@@ -3559,6 +3743,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicAddSize -->
 ### bMagicAddSize
 
 **Syntax:** `bonus2 bMagicAddSize,s,x;`
@@ -3578,6 +3763,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bWeaponSubSize -->
 ### bWeaponSubSize
 
 **Syntax:** `bonus2 bWeaponSubSize,s,x;`
@@ -3597,6 +3783,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicSubSize -->
 ### bMagicSubSize
 
 **Syntax:** `bonus2 bMagicSubSize,s,x;`
@@ -3616,6 +3803,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoSizeFix -->
 ### bNoSizeFix
 
 **Syntax:** `bonus bNoSizeFix,Ignores the size modifier when calculating damage;`
@@ -3632,6 +3820,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddDamageClass -->
 ### bAddDamageClass
 
 **Syntax:** `bonus2 bAddDamageClass,mid,x;`
@@ -3651,6 +3840,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMagicDamageClass -->
 ### bAddMagicDamageClass
 
 **Syntax:** `bonus2 bAddMagicDamageClass,mid,x;`
@@ -3670,6 +3860,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddDefMonster -->
 ### bAddDefMonster
 
 **Syntax:** `bonus2 bAddDefMonster,mid,x;`
@@ -3689,6 +3880,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMDefMonster -->
 ### bAddMDefMonster
 
 **Syntax:** `bonus2 bAddMDefMonster,mid,x;`
@@ -3708,6 +3900,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSubSkill -->
 ### bSubSkill
 
 **Syntax:** `bonus2 bSubSkill,sk,n;`
@@ -3727,6 +3920,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAbsorbDmgMaxHP -->
 ### bAbsorbDmgMaxHP
 
 **Syntax:** `bonus bAbsorbDmgMaxHP,n;`
@@ -3745,6 +3939,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAbsorbDmgMaxHP2 -->
 ### bAbsorbDmgMaxHP2
 
 **Syntax:** `bonus bAbsorbDmgMaxHP2,n;`
@@ -3763,6 +3958,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicAtkEle -->
 ### bMagicAtkEle
 
 **Syntax:** `bonus2 bMagicAtkEle,e,x;`
@@ -3782,6 +3978,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSetDefRace -->
 ### bSetDefRace
 
 **Syntax:** `bonus4 bSetDefRace,r,n,t,y;`
@@ -3803,6 +4000,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSetMDefRace -->
 ### bSetMDefRace
 
 **Syntax:** `bonus4 bSetMDefRace,r,n,t,y;`
@@ -3824,6 +4022,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreMDefRace -->
 ### bIgnoreMDefRace
 
 **Syntax:** `bonus bIgnoreMDefRace,r;`
@@ -3842,6 +4041,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreMdefRaceRate -->
 ### bIgnoreMdefRaceRate
 
 **Syntax:** `bonus2 bIgnoreMdefRaceRate,r,n;`
@@ -3861,6 +4061,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreMdefRace2Rate -->
 ### bIgnoreMdefRace2Rate
 
 **Syntax:** `bonus2 bIgnoreMdefRace2Rate,mr,n;`
@@ -3880,6 +4081,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreMDefEle -->
 ### bIgnoreMDefEle
 
 **Syntax:** `bonus bIgnoreMDefEle,e;`
@@ -3898,6 +4100,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreMdefClassRate -->
 ### bIgnoreMdefClassRate
 
 **Syntax:** `bonus2 bIgnoreMdefClassRate,c,n;`
@@ -3917,6 +4120,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreResRaceRate -->
 ### bIgnoreResRaceRate
 
 **Syntax:** `bonus2 bIgnoreResRaceRate,r,n;`
@@ -3936,6 +4140,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bIgnoreMResRaceRate -->
 ### bIgnoreMResRaceRate
 
 **Syntax:** `bonus2 bIgnoreMResRaceRate,r,n;`
@@ -3955,6 +4160,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPDrainValue -->
 ### bHPDrainValue
 
 **Syntax:** `bonus bHPDrainValue,n;`
@@ -3973,6 +4179,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPDrainValueRace -->
 ### bHPDrainValueRace
 
 **Syntax:** `bonus2 bHPDrainValueRace,r,n;`
@@ -3992,6 +4199,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHpDrainValueClass -->
 ### bHpDrainValueClass
 
 **Syntax:** `bonus2 bHpDrainValueClass,c,n;`
@@ -4011,6 +4219,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPDrainValue -->
 ### bSPDrainValue
 
 **Syntax:** `bonus bSPDrainValue,n;`
@@ -4029,6 +4238,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPDrainValueRace -->
 ### bSPDrainValueRace
 
 **Syntax:** `bonus2 bSPDrainValueRace,r,n;`
@@ -4048,6 +4258,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSpDrainValueClass -->
 ### bSpDrainValueClass
 
 **Syntax:** `bonus2 bSpDrainValueClass,c,n;`
@@ -4067,6 +4278,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPDrainRate -->
 ### bHPDrainRate
 
 **Syntax:** `bonus2 bHPDrainRate,x,n;`
@@ -4086,6 +4298,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPDrainRate -->
 ### bSPDrainRate
 
 **Syntax:** `bonus2 bSPDrainRate,x,n;`
@@ -4105,6 +4318,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPVanishRate -->
 ### bHPVanishRate
 
 **Syntax:** `bonus2 bHPVanishRate,x,n;`
@@ -4124,6 +4338,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPVanishRaceRate -->
 ### bHPVanishRaceRate
 
 **Syntax:** `bonus3 bHPVanishRaceRate,r,x,n;`
@@ -4144,6 +4359,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPVanishRate -->
 ### bHPVanishRate
 
 **Syntax:** `bonus3 bHPVanishRate,x,n,bf;`
@@ -4164,6 +4380,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPVanishRate -->
 ### bSPVanishRate
 
 **Syntax:** `bonus2 bSPVanishRate,x,n;`
@@ -4183,6 +4400,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPVanishRaceRate -->
 ### bSPVanishRaceRate
 
 **Syntax:** `bonus3 bSPVanishRaceRate,r,x,n;`
@@ -4203,6 +4421,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPVanishRate -->
 ### bSPVanishRate
 
 **Syntax:** `bonus3 bSPVanishRate,x,n,bf;`
@@ -4223,6 +4442,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bHPGainValue -->
 ### bHPGainValue
 
 **Syntax:** `bonus bHPGainValue,n;`
@@ -4241,6 +4461,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPGainValue -->
 ### bSPGainValue
 
 **Syntax:** `bonus bSPGainValue,n;`
@@ -4259,6 +4480,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bSPGainRace -->
 ### bSPGainRace
 
 **Syntax:** `bonus2 bSPGainRace,r,n;`
@@ -4278,6 +4500,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bLongHPGainValue -->
 ### bLongHPGainValue
 
 **Syntax:** `bonus bLongHPGainValue,n;`
@@ -4296,6 +4519,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bLongSPGainValue -->
 ### bLongSPGainValue
 
 **Syntax:** `bonus bLongSPGainValue,n;`
@@ -4314,6 +4538,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicHPGainValue -->
 ### bMagicHPGainValue
 
 **Syntax:** `bonus bMagicHPGainValue,n;`
@@ -4332,6 +4557,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicSPGainValue -->
 ### bMagicSPGainValue
 
 **Syntax:** `bonus bMagicSPGainValue,n;`
@@ -4350,6 +4576,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bShortWeaponDamageReturn -->
 ### bShortWeaponDamageReturn
 
 **Syntax:** `bonus bShortWeaponDamageReturn,n;`
@@ -4368,6 +4595,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bLongWeaponDamageReturn -->
 ### bLongWeaponDamageReturn
 
 **Syntax:** `bonus bLongWeaponDamageReturn,n;`
@@ -4386,6 +4614,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bMagicDamageReturn -->
 ### bMagicDamageReturn
 
 **Syntax:** `bonus bMagicDamageReturn,n;`
@@ -4404,6 +4633,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bReduceDamageReturn -->
 ### bReduceDamageReturn
 
 **Syntax:** `bonus bReduceDamageReturn,n;`
@@ -4422,6 +4652,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnstripableWeapon -->
 ### bUnstripableWeapon
 
 **Syntax:** `bonus bUnstripableWeapon,Weapon cannot be taken off via Strip skills;`
@@ -4438,6 +4669,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnstripableArmor -->
 ### bUnstripableArmor
 
 **Syntax:** `bonus bUnstripableArmor,Armor cannot be taken off via Strip skills;`
@@ -4454,6 +4686,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnstripableHelm -->
 ### bUnstripableHelm
 
 **Syntax:** `bonus bUnstripableHelm,Helm cannot be taken off via Strip skills;`
@@ -4470,6 +4703,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnstripableShield -->
 ### bUnstripableShield
 
 **Syntax:** `bonus bUnstripableShield,Shield cannot be taken off via Strip skills;`
@@ -4486,6 +4720,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnstripable -->
 ### bUnstripable
 
 **Syntax:** `bonus bUnstripable,All equipment cannot be taken off via strip skills;`
@@ -4502,6 +4737,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnbreakableGarment -->
 ### bUnbreakableGarment
 
 **Syntax:** `bonus bUnbreakableGarment,Garment cannot be damaged/broken by any means;`
@@ -4518,6 +4754,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnbreakableWeapon -->
 ### bUnbreakableWeapon
 
 **Syntax:** `bonus bUnbreakableWeapon,Weapon cannot be damaged/broken by any means;`
@@ -4534,6 +4771,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnbreakableArmor -->
 ### bUnbreakableArmor
 
 **Syntax:** `bonus bUnbreakableArmor,Armor cannot be damaged/broken by any means;`
@@ -4550,6 +4788,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnbreakableHelm -->
 ### bUnbreakableHelm
 
 **Syntax:** `bonus bUnbreakableHelm,Helm cannot be damaged/broken by any means;`
@@ -4566,6 +4805,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnbreakableShield -->
 ### bUnbreakableShield
 
 **Syntax:** `bonus bUnbreakableShield,Shield cannot be damaged/broken by any means;`
@@ -4582,6 +4822,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnbreakableShoes -->
 ### bUnbreakableShoes
 
 **Syntax:** `bonus bUnbreakableShoes,Shoes cannot be damaged/broken by any means;`
@@ -4598,6 +4839,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bUnbreakable -->
 ### bUnbreakable
 
 **Syntax:** `bonus bUnbreakable,n;`
@@ -4616,6 +4858,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bBreakWeaponRate -->
 ### bBreakWeaponRate
 
 **Syntax:** `bonus bBreakWeaponRate,n;`
@@ -4634,6 +4877,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bBreakArmorRate -->
 ### bBreakArmorRate
 
 **Syntax:** `bonus bBreakArmorRate,n;`
@@ -4652,6 +4896,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDropAddRace -->
 ### bDropAddRace
 
 **Syntax:** `bonus2 bDropAddRace,r,x;`
@@ -4671,6 +4916,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDropAddClass -->
 ### bDropAddClass
 
 **Syntax:** `bonus2 bDropAddClass,c,x;`
@@ -4690,6 +4936,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMonsterIdDropItem -->
 ### bAddMonsterIdDropItem
 
 **Syntax:** `bonus3 bAddMonsterIdDropItem,iid,mid,n;`
@@ -4710,6 +4957,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMonsterDropItem -->
 ### bAddMonsterDropItem
 
 **Syntax:** `bonus2 bAddMonsterDropItem,iid,n;`
@@ -4729,6 +4977,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMonsterDropItem -->
 ### bAddMonsterDropItem
 
 **Syntax:** `bonus3 bAddMonsterDropItem,iid,r,n;`
@@ -4749,6 +4998,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMonsterDropItemGroup -->
 ### bAddMonsterDropItemGroup
 
 **Syntax:** `bonus2 bAddMonsterDropItemGroup,ig,n;`
@@ -4768,6 +5018,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddMonsterDropItemGroup -->
 ### bAddMonsterDropItemGroup
 
 **Syntax:** `bonus3 bAddMonsterDropItemGroup,ig,r,n;`
@@ -4788,6 +5039,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bGetZenyNum -->
 ### bGetZenyNum
 
 **Syntax:** `bonus2 bGetZenyNum,x,n;`
@@ -4807,6 +5059,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddGetZenyNum -->
 ### bAddGetZenyNum
 
 **Syntax:** `bonus2 bAddGetZenyNum,x,n;`
@@ -4826,6 +5079,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDoubleRate -->
 ### bDoubleRate
 
 **Syntax:** `bonus bDoubleRate,n;`
@@ -4844,6 +5098,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bDoubleAddRate -->
 ### bDoubleAddRate
 
 **Syntax:** `bonus bDoubleAddRate,n;`
@@ -4862,6 +5117,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddSkillBlow -->
 ### bAddSkillBlow
 
 **Syntax:** `bonus2 bAddSkillBlow,sk,n;`
@@ -4881,6 +5137,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoKnockback -->
 ### bNoKnockback
 
 **Syntax:** `bonus bNoKnockback,Character is no longer knocked back by enemy skills with such effect;`
@@ -4897,6 +5154,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoGemStone -->
 ### bNoGemStone
 
 **Syntax:** `bonus bNoGemStone,Skills requiring Gemstones do not require them;`
@@ -4913,6 +5171,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bPerfectHide -->
 ### bPerfectHide
 
 **Syntax:** `bonus bPerfectHide,Hidden/cloaked character is no longer detected by monsters with 'detector' mode;`
@@ -4929,6 +5188,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bClassChange -->
 ### bClassChange
 
 **Syntax:** `bonus bClassChange,n;`
@@ -4947,6 +5207,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bAddStealRate -->
 ### bAddStealRate
 
 **Syntax:** `bonus bAddStealRate,n;`
@@ -4965,6 +5226,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoMadoFuel -->
 ### bNoMadoFuel
 
 **Syntax:** `bonus bNoMadoFuel,Nullify Magic Gear Fuel requirement for skills.;`
@@ -4981,6 +5243,7 @@ Script: |
 
 ---
 
+<!-- RAG_CHUNK: bNoWalkDelay -->
 ### bNoWalkDelay
 
 **Syntax:** `bonus bNoWalkDelay,Give infinite Endure.;`

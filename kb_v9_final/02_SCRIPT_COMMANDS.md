@@ -1139,6 +1139,7 @@ Quick navigation to all 767+ script commands:
 
 ---
 
+<!-- RAG_CHUNK: section_1. -->
 ## 1. Basic commands.
 
 =====================
@@ -2561,6 +2562,7 @@ if(countinarray(.@array[0], .@array3[0]) == countinarray(.@array3[0], .@array[0]
 ```
 For more details, see the sample in 'doc/sample/inarray.txt'.
 
+<!-- RAG_CHUNK: section_2. -->
 ## 2. Information-retrieving commands.
 
 ### `strcharinfo(<type>{,<char_id>})`
@@ -4119,6 +4121,7 @@ if (rand(100) > getscrate(Eff_Blind, 50)) goto BlindHimNow;
 
 ========================
 
+<!-- RAG_CHUNK: section_3. -->
 ## 3. Checking commands.
 
 ========================
@@ -4563,6 +4566,7 @@ not.
 
 ==============================
 
+<!-- RAG_CHUNK: section_4. -->
 ## 4. Player-related commands.
 
 ==============================
@@ -7373,6 +7377,7 @@ Examples:
 	// preventing them from joining or creating parties.
 	permission_remove(PC_PERM_PARTY);
 
+<!-- RAG_CHUNK: section_5. -->
 ## 5. Mob / NPC -related commands.
 
 ### `monster     "<map name>",<x>,<y>,"<name to show>",<mob id>,<amount>{,"<event label>",<size>,<ai>};`
@@ -8862,6 +8867,7 @@ Example:
 
 =====================
 
+<!-- RAG_CHUNK: section_6. -->
 ## 6. Other commands.
 
 =====================
@@ -10609,6 +10615,7 @@ this npc in the navigation generation.
 
 ========================
 
+<!-- RAG_CHUNK: section_7. -->
 ## 7. Instance commands.
 
 ========================
@@ -11029,6 +11036,7 @@ end;
 
 
 
+<!-- RAG_CHUNK: section_8. -->
 ## 8. Quest Log commands.
 
 =========================
@@ -11195,6 +11203,7 @@ Opens the quest UI for the attached player or the given character ID.
 
 ============================
 
+<!-- RAG_CHUNK: section_9. -->
 ## 9. Battleground commands.
 
 ============================
@@ -11591,6 +11600,7 @@ end;
 
 
 
+<!-- RAG_CHUNK: section_10. -->
 ## 10. Pet commands.
 
 ====================
@@ -11694,6 +11704,7 @@ close;
 ```
 =============================
 
+<!-- RAG_CHUNK: section_10. -->
 ## 10.1. The Pet AI commands.
 
 =============================
@@ -11810,6 +11821,7 @@ See 'autobonus' for more details.
 
 ===========================
 
+<!-- RAG_CHUNK: section_11. -->
 ## 11. Homunculus commands.
 
 ===========================
@@ -11894,6 +11906,7 @@ Fails silently when no players are attached or if the player has no homunculus.
 
 ==========================
 
+<!-- RAG_CHUNK: section_12. -->
 ## 12. Mercenary commands.
 
 ==========================
@@ -11975,6 +11988,7 @@ for name and 0 for all other types.
 
 ======================
 
+<!-- RAG_CHUNK: section_13. -->
 ## 13. Party commands.
 
 ======================
@@ -12405,6 +12419,7 @@ mes mesitemicon( "Knife" ); // Will display a Knife icon and will be clickable. 
 ```
 ========================
 
+<!-- RAG_CHUNK: section_14. -->
 ## 14. Channel commands.
 
 ========================
@@ -12596,6 +12611,7 @@ Returns 0 on success.
 
 ============================
 
+<!-- RAG_CHUNK: section_15. -->
 ## 15. Achievement commands.
 
 ============================

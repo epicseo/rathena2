@@ -8,6 +8,7 @@
 ---
 
 <!-- RAG_CHUNK: overview -->
+<!-- RAG_CHUNK:  -->
 ## 📦 What's in This File
 
 > **🎯 Context Box: Complete C++ Development + Security**
@@ -31,6 +32,7 @@
 ---
 
 <!-- RAG_CHUNK: quick_reference -->
+<!-- RAG_CHUNK:  -->
 ## 🔍 Quick Reference
 
 | I need to... | Go to section |
@@ -60,6 +62,7 @@
 ---
 
 <!-- RAG_CHUNK: overview -->
+<!-- RAG_CHUNK:  -->
 ## 📦 What's in This File
 
 > **🎯 Context Box: Complete C++ Development Toolkit**
@@ -74,6 +77,7 @@
 ---
 
 <!-- RAG_CHUNK: quick_reference -->
+<!-- RAG_CHUNK:  -->
 ## 🔍 Quick Reference
 
 | I need to... | Go to section |
@@ -118,6 +122,7 @@ last_updated: 2024-01-15
 
 # rAthena Plugin & Custom System Complete Guide
 
+<!-- RAG_CHUNK:  -->
 ## 🎯 Critical Understanding
 
 **WHY THIS SYSTEM EXISTS:**
@@ -138,6 +143,7 @@ last_updated: 2024-01-15
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📋 Table of Contents
 
 1. [Directory Structure](#directory-structure)
@@ -153,6 +159,7 @@ last_updated: 2024-01-15
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📁 Directory Structure {#directory-structure}
 
 ### The src/custom/ Directory
@@ -212,6 +219,7 @@ These `.inc` files are NOT compiled separately - they are **literally injected**
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🔧 How the Custom System Works {#how-the-system-works}
 
 ### The Include Pattern
@@ -258,6 +266,7 @@ atcommand_def.inc  →  Tells rAthena "@mycommand exists and maps to function X"
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🎮 Creating Custom @Commands {#custom-atcommands}
 
 ### Understanding ACMD_FUNC
@@ -490,6 +499,7 @@ ACMD_FUNC(safecmd)
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📜 Creating Custom Script Commands {#custom-script-commands}
 
 ### Understanding BUILDIN_FUNC
@@ -818,6 +828,7 @@ script_pushnil(st);                         // Push nothing (void)
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🔧 Adding Custom Defines {#custom-defines}
 
 ### defines_pre.hpp vs defines_post.hpp
@@ -977,6 +988,7 @@ Use `defines_post.hpp` when you need to:
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## ⚙️ Adding Custom Battle Config {#custom-battle-config}
 
 Battle config allows you to add **configurable options** to `conf/battle/battle.conf`.
@@ -1125,6 +1137,7 @@ if (battle_config.enable_custom_damage_formula) {
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 💡 Complete Working Examples {#working-examples}
 
 ### Example 1: Custom Daily Reward System
@@ -1312,6 +1325,7 @@ ACMD_FUNC(pvpinfo)
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## ⚠️ Common Mistakes & Solutions {#common-mistakes}
 
 ### Mistake 1: Forgetting Trailing Commas
@@ -1492,6 +1506,7 @@ BUILDIN_FUNC(safe)
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🔨 Build System Integration {#build-integration}
 
 ### How src/custom/ Integrates with Build
@@ -1585,6 +1600,7 @@ Error: expected ';' before '}' token in atcommand.inc:50
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🤔 When to Edit Core vs Custom {#core-vs-custom}
 
 ### Use src/custom/ When:
@@ -1670,6 +1686,7 @@ if (battle_config.enable_custom_exp_formula) {
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📚 Cross-References & Resources
 
 ### Related KB Files
@@ -1732,6 +1749,7 @@ clif_specialeffect(bl, effect, target);     // Play visual effect
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🎓 Summary
 
 ### Key Takeaways
@@ -1799,6 +1817,7 @@ clif_specialeffect(bl, effect, target);     // Play visual effect
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📖 Final Notes
 
 ### Safety Checklist
@@ -1875,6 +1894,7 @@ last_updated: 2024-01-15
 
 # rAthena Source Code Best Practices Guide
 
+<!-- RAG_CHUNK: Table -->
 ## Table of Contents
 
 1. [Code Style & Formatting](#code-style)
@@ -1892,6 +1912,7 @@ last_updated: 2024-01-15
 
 ---
 
+<!-- RAG_CHUNK: 1 -->
 ## 1. Code Style & Formatting {#code-style}
 
 ### Naming Conventions
@@ -2008,6 +2029,7 @@ if (!sd) {
 
 ---
 
+<!-- RAG_CHUNK: 2 -->
 ## 2. Safety Patterns {#safety-patterns}
 
 ### NULL/nullptr Checks - ALWAYS
@@ -2135,6 +2157,7 @@ int32 new_zeny = rathena::util::safe_addition_cap(sd->status.zeny, amount, MAX_Z
 
 ---
 
+<!-- RAG_CHUNK: 3 -->
 ## 3. Memory Management {#memory-management}
 
 ### Use aMalloc/aFree, NOT malloc/free
@@ -2273,6 +2296,7 @@ return 1;
 
 ---
 
+<!-- RAG_CHUNK: 4 -->
 ## 4. Performance Optimization {#performance}
 
 ### Cache Lookups
@@ -2418,6 +2442,7 @@ char *trimmed = trim(input_string);
 
 ---
 
+<!-- RAG_CHUNK: 5 -->
 ## 5. Error Handling {#error-handling}
 
 ### Use Proper Error Reporting Functions
@@ -2523,6 +2548,7 @@ struct item_data *itemdb_search(t_itemid nameid) {
 
 ---
 
+<!-- RAG_CHUNK: 6 -->
 ## 6. Testing & Debugging {#testing}
 
 ### Debug Builds
@@ -2638,6 +2664,7 @@ ShowInfo("Memory usage: %zu bytes\n", memory_used);
 
 ---
 
+<!-- RAG_CHUNK: 7 -->
 ## 7. Common Mistakes {#common-mistakes}
 
 ### Off-by-One Errors
@@ -2785,6 +2812,7 @@ struct item_data {
 
 ---
 
+<!-- RAG_CHUNK: 8 -->
 ## 8. Documentation Standards {#documentation}
 
 ### Comment What WHY, Not WHAT
@@ -2898,6 +2926,7 @@ if (target->type == BL_MOB && ((mob_data*)target)->status.mode & MD_BOSS)
 
 ---
 
+<!-- RAG_CHUNK: 9 -->
 ## 9. Git Best Practices {#git-practices}
 
 ### Commit Messages
@@ -2999,6 +3028,7 @@ git diff --check
 
 ---
 
+<!-- RAG_CHUNK: 10 -->
 ## 10. Code Review Checklist {#code-review}
 
 ### Security Review
@@ -3049,6 +3079,7 @@ git diff --check
 
 ---
 
+<!-- RAG_CHUNK: 11 -->
 ## 11. Refactoring Guidelines {#refactoring}
 
 ### When to Refactor
@@ -3191,6 +3222,7 @@ if (can_become_super_novice(sd)) {
 
 ---
 
+<!-- RAG_CHUNK: 12 -->
 ## 12. Real Anti-Patterns from rAthena {#anti-patterns}
 
 ### Anti-Pattern 1: Not Checking Map Coordinates
@@ -3442,6 +3474,7 @@ void use_combo_skill(map_session_data *sd, uint16 skill_id) {
 
 ---
 
+<!-- RAG_CHUNK: Summary -->
 ## Summary: Golden Rules
 
 ### The Seven Commandments of rAthena Development
@@ -3471,6 +3504,7 @@ void use_combo_skill(map_session_data *sd, uint16 skill_id) {
 
 ---
 
+<!-- RAG_CHUNK: Additional -->
 ## Additional Resources
 
 - **KB_REF_CompilationDebugging.md** - GDB debugging, build flags
@@ -3510,6 +3544,7 @@ last_updated: 2024-01-15
 
 # Memory Management & Crash Prevention Patterns
 
+<!-- RAG_CHUNK:  -->
 ## 🎯 Critical Understanding
 
 **WHY THIS MATTERS:**
@@ -3524,6 +3559,7 @@ last_updated: 2024-01-15
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📋 Table of Contents
 
 1. [ERS System Deep-Dive](#ers-system)
@@ -3534,6 +3570,7 @@ last_updated: 2024-01-15
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🔧 ERS System (Entry Reusage System)
 
 ### What It Is
@@ -3616,6 +3653,7 @@ dd = NULL;  // Prevent accidental use
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🗺️ Map Block Object System
 
 ### What It Is
@@ -3718,6 +3756,7 @@ if (bl->prev == NULL)  // Object removed from map OR about to be deleted
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 💥 Common Crash Patterns
 
 ### Pattern 1: Null Pointer Dereference
@@ -3835,6 +3874,7 @@ my_struct->event_label = aStrdup(event);
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📝 Script Memory Management
 
 ### Script Stack System
@@ -3912,6 +3952,7 @@ BUILDIN_FUNC(safe_multi_string) {
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## ✅ Prevention Checklist
 
 ### Before Using Any Pointer
@@ -3999,6 +4040,7 @@ void my_damage_function(struct block_list *src, struct block_list *target) {
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🔍 Debugging Tools
 
 ### Memory Leak Detection
@@ -4059,6 +4101,7 @@ void my_damage_function(struct block_list *src, struct block_list *target) {
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🎓 Expert Tips
 
 ### Tip 1: The "Guard Pattern"
@@ -4129,6 +4172,7 @@ map_freeblock_unlock();
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📚 Real-World Examples
 
 ### Example 1: Safe Skill Damage
@@ -4201,6 +4245,7 @@ TIMER_FUNC(timer_func) {
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 🎯 Key Takeaways
 
 1. **ALWAYS check bl->prev** before using game objects
@@ -4216,6 +4261,7 @@ TIMER_FUNC(timer_func) {
 
 ---
 
+<!-- RAG_CHUNK:  -->
 ## 📖 Related Knowledge Base Files
 
 - **KB_REF_ScriptTimerInternals.md** - Script execution and timer systems
@@ -4235,6 +4281,7 @@ TIMER_FUNC(timer_func) {
 
 # rAthena Source Code Structure Reference
 
+<!-- RAG_CHUNK: Table -->
 ## Table of Contents
 1. [Directory Structure Overview](#directory-structure-overview)
 2. [Core Directories Deep Dive](#core-directories-deep-dive)
@@ -4249,6 +4296,7 @@ TIMER_FUNC(timer_func) {
 
 ---
 
+<!-- RAG_CHUNK: Directory -->
 ## Directory Structure Overview
 
 ```
@@ -4281,6 +4329,7 @@ rathena2/
 
 ---
 
+<!-- RAG_CHUNK: Core -->
 ## Core Directories Deep Dive
 
 ### 1. src/map/ - Map Server (Game Logic Core)
@@ -4413,6 +4462,7 @@ skills/
 
 ---
 
+<!-- RAG_CHUNK: Essential -->
 ## Essential Data Structures
 
 ### 1. block_list - Universal Object Base
@@ -4710,6 +4760,7 @@ struct unit_data {
 
 ---
 
+<!-- RAG_CHUNK: File -->
 ## File Responsibilities
 
 ### Combat & Battle System
@@ -5093,6 +5144,7 @@ map_foreachincell(function, m, x, y, type, ...args);
 
 ---
 
+<!-- RAG_CHUNK: Data -->
 ## Data Flow Between Systems
 
 ### Player Login Sequence
@@ -5276,6 +5328,7 @@ Monster Death → Calculate EXP → Distribute to Party → Update Members
 
 ---
 
+<!-- RAG_CHUNK: Include -->
 ## Include Hierarchy
 
 ### Common Include Pattern
@@ -5369,6 +5422,7 @@ This allows including `map.hpp` without pulling in all dependent headers.
 
 ---
 
+<!-- RAG_CHUNK: Build -->
 ## Build System (CMake)
 
 ### Root CMakeLists.txt
@@ -5498,6 +5552,7 @@ make all            # Build everything
 
 ---
 
+<!-- RAG_CHUNK: Feature -->
 ## Feature Location Guide
 
 ### Where to Find Specific Features
@@ -5615,6 +5670,7 @@ make all            # Build everything
 
 ---
 
+<!-- RAG_CHUNK: Navigation -->
 ## Navigation Quick Reference
 
 ### Finding Code by Feature
@@ -5732,6 +5788,7 @@ run_script(script, 0, sd->bl.id, 0);
 
 ---
 
+<!-- RAG_CHUNK: Code -->
 ## Code Examples
 
 ### Example 1: Player Stats Calculation Flow
@@ -6018,6 +6075,7 @@ int status_change_start(block_list *src, block_list *bl,
 
 ---
 
+<!-- RAG_CHUNK: Quick -->
 ## Quick Reference Tables
 
 ### Object Type Conversion Functions
@@ -6076,6 +6134,7 @@ Common settings:
 
 ---
 
+<!-- RAG_CHUNK: Summary -->
 ## Summary
 
 This document provides a comprehensive reference for navigating the rAthena source code. Key takeaways:
@@ -6129,6 +6188,7 @@ This document provides a comprehensive reference for navigating the rAthena sour
 ---
 
 <!-- RAG_CHUNK: overview -->
+<!-- RAG_CHUNK:  -->
 ## 📦 What's in This File
 
 > **🎯 Context Box: Complete Security Reference**
@@ -6167,6 +6227,7 @@ last_updated: 2024-01-15
 
 # Security Exploits & Vulnerability Prevention Guide
 
+<!-- RAG_CHUNK: Critical -->
 ## Critical Security Principle
 
 **NEVER TRUST THE CLIENT**
@@ -6175,6 +6236,7 @@ The client is controlled by the player. Every packet, every value, every request
 
 ---
 
+<!-- RAG_CHUNK: Table -->
 ## Table of Contents
 
 1. [Item Duplication Exploits](#item-duplication)
@@ -6195,6 +6257,7 @@ The client is controlled by the player. Every packet, every value, every request
 
 ---
 
+<!-- RAG_CHUNK: 1 -->
 ## 1. Item Duplication Exploits {#item-duplication}
 
 ### Common Duplication Vectors
@@ -6361,6 +6424,7 @@ storage_additem(sd, &sd->inventory.u.items_inventory[index], amount);
 
 ---
 
+<!-- RAG_CHUNK: 2 -->
 ## 2. Stat Manipulation {#stat-manipulation}
 
 ### Attack Vector
@@ -6445,6 +6509,7 @@ void pc_checkitem(map_session_data *sd) {
 
 ---
 
+<!-- RAG_CHUNK: 3 -->
 ## 3. Packet Injection & Tampering {#packet-injection}
 
 ### Understanding Packet Structure
@@ -6561,6 +6626,7 @@ void clif_parse_UseSkillToId(int32 fd, map_session_data *sd) {
 
 ---
 
+<!-- RAG_CHUNK: 4 -->
 ## 4. SQL Injection {#sql-injection}
 
 ### The Vulnerability
@@ -6685,6 +6751,7 @@ bool validate_character_name(const char *name) {
 
 ---
 
+<!-- RAG_CHUNK: 5 -->
 ## 5. Skill & Combat Exploits {#skill-exploits}
 
 ### Common Exploits
@@ -6766,6 +6833,7 @@ struct Damage battle_calc_attack(int32 attack_type, block_list *src, block_list 
 
 ---
 
+<!-- RAG_CHUNK: 6 -->
 ## 6. Zeny Exploits {#zeny-exploits}
 
 ### Integer Overflow Exploits
@@ -6877,6 +6945,7 @@ int32 trade_check(map_session_data *sd, map_session_data *tsd)
 
 ---
 
+<!-- RAG_CHUNK: 7 -->
 ## 7. Buffer Overflow Prevention {#buffer-overflow}
 
 ### The Vulnerability
@@ -6989,6 +7058,7 @@ memcpy(dest, src, user_provided_length);
 
 ---
 
+<!-- RAG_CHUNK: 8 -->
 ## 8. Integer Overflow & Underflow {#integer-overflow}
 
 ### Common Vulnerabilities
@@ -7099,6 +7169,7 @@ if( !safe_add(sd->status.zeny, reward, MAX_ZENY) ) {
 
 ---
 
+<!-- RAG_CHUNK: 9 -->
 ## 9. Race Conditions {#race-conditions}
 
 ### The Problem
@@ -7202,6 +7273,7 @@ void trade_tradecommit(map_session_data *sd) {
 
 ---
 
+<!-- RAG_CHUNK: 10 -->
 ## 10. Memory Safety Vulnerabilities {#memory-safety}
 
 ### Use-After-Free
@@ -7300,6 +7372,7 @@ clif_displaymessage(*sd, "Hello");
 
 ---
 
+<!-- RAG_CHUNK: 11 -->
 ## 11. Script Security {#script-security}
 
 ### Command Injection
@@ -7411,6 +7484,7 @@ if( st->op2ref && *st->op2ref >= MAX_SCRIPT_LABEL_OPS ) {
 
 ---
 
+<!-- RAG_CHUNK: 12 -->
 ## 12. Authentication Bypasses {#authentication-bypasses}
 
 ### Session Hijacking
@@ -7486,6 +7560,7 @@ if( sd->m >= 0 && map_getmapflag(sd->m, MF_NOWARP) &&
 
 ---
 
+<!-- RAG_CHUNK: 13 -->
 ## 13. GM Command Abuse Prevention {#gm-command-abuse}
 
 ### Permission Levels
@@ -7600,6 +7675,7 @@ ACMD_FUNC(reloadscript) {
 
 ---
 
+<!-- RAG_CHUNK: 14 -->
 ## 14. Input Validation Patterns {#input-validation}
 
 ### Universal Validation Checklist
@@ -7730,6 +7806,7 @@ if( !validate_numeric_range(amount, 1, MAX_AMOUNT) ) {
 
 ---
 
+<!-- RAG_CHUNK: 15 -->
 ## 15. Security Audit Checklist {#audit-checklist}
 
 ### For New Features
@@ -7822,6 +7899,7 @@ grep -r "map_id2sd.*->" src/ | grep -v "if.*NULL\|nullpo"
 
 ---
 
+<!-- RAG_CHUNK: Real-World -->
 ## Real-World Exploit Examples
 
 ### Example 1: The Classic Vending Dupe (Fixed)
@@ -7897,6 +7975,7 @@ if( price == 0 ) {
 
 ---
 
+<!-- RAG_CHUNK: Summary -->
 ## Summary: The Golden Rules
 
 1. **NEVER TRUST THE CLIENT** - All validation server-side
@@ -7912,6 +7991,7 @@ if( price == 0 ) {
 
 ---
 
+<!-- RAG_CHUNK: Additional -->
 ## Additional Resources
 
 - `/doc/permissions.md` - Permission system documentation
@@ -7945,6 +8025,7 @@ if( price == 0 ) {
 ---
 
 <!-- RAG_CHUNK: overview -->
+<!-- RAG_CHUNK:  -->
 ## 📦 What's in This File
 
 > **🎯 Context Box: Low-Level Systems Reference**
@@ -7958,6 +8039,7 @@ if( price == 0 ) {
 ---
 
 <!-- RAG_CHUNK: quick_reference -->
+<!-- RAG_CHUNK:  -->
 ## 🔍 Quick Reference
 
 | I need to... | Go to section |
@@ -7982,6 +8064,7 @@ if( price == 0 ) {
 
 ---
 
+<!-- RAG_CHUNK: Table -->
 ## Table of Contents
 
 1. [Overview](#overview)
@@ -8000,6 +8083,7 @@ if( price == 0 ) {
 
 ---
 
+<!-- RAG_CHUNK: Overview -->
 ## Overview
 
 rAthena uses two primary database systems:
@@ -8023,6 +8107,7 @@ rAthena uses two primary database systems:
 
 ---
 
+<!-- RAG_CHUNK: Database -->
 ## Database Class Hierarchy
 
 ### Class Structure
@@ -8184,6 +8269,7 @@ public:
 
 ---
 
+<!-- RAG_CHUNK: TypesafeCachedYamlDatabase -->
 ## TypesafeCachedYamlDatabase Template Pattern
 
 ### Database Implementations in rAthena
@@ -8273,6 +8359,7 @@ public:
 
 ---
 
+<!-- RAG_CHUNK: Accessing -->
 ## Accessing Databases
 
 ### Basic Access Pattern: find() Method
@@ -8421,6 +8508,7 @@ if (item != nullptr) {
 
 ---
 
+<!-- RAG_CHUNK: YAML -->
 ## YAML Parsing Fundamentals
 
 ### parseBodyNode() - Core Parsing Method
@@ -8688,6 +8776,7 @@ if (this->nodeExists(node, "RaceGroups")) {
 
 ---
 
+<!-- RAG_CHUNK: Adding -->
 ## Adding Custom Fields to Structs
 
 ### Step-by-Step Process
@@ -8824,6 +8913,7 @@ int32 effective_rate = (base_rate * mob->drop_rate_multiplier) / 10000;
 
 ---
 
+<!-- RAG_CHUNK: Validation -->
 ## Validation and Error Handling
 
 ### Common Validation Patterns
@@ -8979,6 +9069,7 @@ bool validate_item_usage(map_session_data* sd, t_itemid item_id) {
 
 ---
 
+<!-- RAG_CHUNK: Caching -->
 ## Caching and Performance
 
 ### TypesafeCachedYamlDatabase Internals
@@ -9104,6 +9195,7 @@ for (auto& item : item_db) {  // GOOD: Reference, no copy
 
 ---
 
+<!-- RAG_CHUNK: Iterating -->
 ## Iterating Databases
 
 ### Basic Iteration Pattern
@@ -9265,6 +9357,7 @@ ShowStatus("Loaded %zu items\n", item_db.size());
 
 ---
 
+<!-- RAG_CHUNK: Reloading -->
 ## Reloading Databases
 
 ### Reload Commands
@@ -9412,6 +9505,7 @@ void update_mob_after_reload(mob_data* md) {
 
 ---
 
+<!-- RAG_CHUNK: SQL -->
 ## SQL Database Access
 
 ### SQL vs YAML Databases
@@ -9664,6 +9758,7 @@ if (error) {
 
 ---
 
+<!-- RAG_CHUNK: Real-World -->
 ## Real-World Examples
 
 ### Example 1: Complete Item Database Implementation
@@ -10069,6 +10164,7 @@ if (rep != nullptr) {
 
 ---
 
+<!-- RAG_CHUNK: Common -->
 ## Common Patterns and Best Practices
 
 ### Pattern 1: Null Check Everything
@@ -10298,6 +10394,7 @@ stmt.Execute();
 
 ---
 
+<!-- RAG_CHUNK: Quick -->
 ## Quick Reference Cheat Sheet
 
 ### YAML Database Operations
@@ -10369,6 +10466,7 @@ stmt.FreeResult();
 
 ---
 
+<!-- RAG_CHUNK: Summary -->
 ## Summary
 
 This document covers:
@@ -10406,6 +10504,7 @@ This document covers:
 
 ---
 
+<!-- RAG_CHUNK: Table -->
 ## Table of Contents
 
 1. [Introduction to Packet System](#1-introduction-to-packet-system)
@@ -10423,6 +10522,7 @@ This document covers:
 
 ---
 
+<!-- RAG_CHUNK: 1 -->
 ## 1. Introduction to Packet System
 
 The packet system in rAthena handles all client-server communication. Every action in the game—from player movement to chatting, trading, and combat—is transmitted via packets.
@@ -10447,6 +10547,7 @@ src/common/socket.hpp         # Socket and FIFO macros
 
 ---
 
+<!-- RAG_CHUNK: 2 -->
 ## 2. Packet Naming Conventions
 
 rAthena uses a standardized naming convention for packets based on their direction and purpose.
@@ -10490,6 +10591,7 @@ struct PACKET_HC_ACCEPT_ENTER { ... };           // Char server accepts connecti
 
 ---
 
+<!-- RAG_CHUNK: 3 -->
 ## 3. CLIF Structure and Functions
 
 The `clif` (Client Interface) module handles all packet transmission and reception for the map server.
@@ -10604,6 +10706,7 @@ void clif_parse_WalkToXY(int32 fd, map_session_data *sd)
 
 ---
 
+<!-- RAG_CHUNK: 4 -->
 ## 4. Packet Structure Definition
 
 Packet structures in rAthena are defined using C structs with specific attributes to ensure proper memory layout.
@@ -10712,6 +10815,7 @@ struct PACKET_CZ_REQ_BANKING_DEPOSIT {
 
 ---
 
+<!-- RAG_CHUNK: 5 -->
 ## 5. PACKETVER System
 
 The PACKETVER system allows rAthena to support multiple client versions with different packet structures.
@@ -10832,6 +10936,7 @@ DEFINE_PACKET_HEADER(ZC_ACCEPT_ENTER, 0xa18)
 
 ---
 
+<!-- RAG_CHUNK: 6 -->
 ## 6. Packet Registration System
 
 Packets are registered in `clif_packetdb.hpp` to link packet IDs to their handler functions.
@@ -10970,6 +11075,7 @@ parseable_packet(0x0108, -1, clif_parse_PartyMessage, 2, 4);
 
 ---
 
+<!-- RAG_CHUNK: 7 -->
 ## 7. WFIFO/RFIF Macros
 
 Socket I/O macros for reading from and writing to network buffers.
@@ -11153,6 +11259,7 @@ void clif_displaymessage(const int32 fd, const char* mes)
 
 ---
 
+<!-- RAG_CHUNK: 8 -->
 ## 8. Creating Custom Packets
 
 Step-by-step guide to creating new packets for custom features.
@@ -11368,6 +11475,7 @@ void clif_custom_item_list(map_session_data *sd, uint32 *item_ids, uint16 count)
 
 ---
 
+<!-- RAG_CHUNK: 9 -->
 ## 9. Common Packet Patterns
 
 ### Player Data Packets
@@ -11557,6 +11665,7 @@ void clif_parse_WalkToXY(int32 fd, map_session_data *sd)
 
 ---
 
+<!-- RAG_CHUNK: 10 -->
 ## 10. Security and Validation
 
 Critical security practices for packet handling to prevent exploits and crashes.
@@ -11815,6 +11924,7 @@ void clif_example_send(map_session_data *sd)
 
 ---
 
+<!-- RAG_CHUNK: 11 -->
 ## 11. Debugging Packets
 
 ### Enable Packet Logging
@@ -12001,6 +12111,7 @@ ACMD_FUNC(testpacket)
 
 ---
 
+<!-- RAG_CHUNK: 12 -->
 ## 12. Real-World Examples
 
 ### Example 1: Item Drop System
@@ -12312,6 +12423,7 @@ void clif_inventorylist(map_session_data *sd)
 
 ---
 
+<!-- RAG_CHUNK: Summary -->
 ## Summary
 
 This reference covers the complete packet system in rAthena:
@@ -12366,6 +12478,7 @@ This reference covers the complete packet system in rAthena:
 
 # rAthena Compilation & Debugging Reference
 
+<!-- RAG_CHUNK: Table -->
 ## Table of Contents
 1. [Build Systems](#build-systems)
 2. [Dependencies](#dependencies)
@@ -12382,6 +12495,7 @@ This reference covers the complete packet system in rAthena:
 
 ---
 
+<!-- RAG_CHUNK: Build -->
 ## Build Systems
 
 ### CMake (Recommended - Cross-Platform)
@@ -12606,6 +12720,7 @@ MSBuild rathena.sln /t:Clean,Build /p:Configuration=Release /m
 
 ---
 
+<!-- RAG_CHUNK: Dependencies -->
 ## Dependencies
 
 ### MySQL/MariaDB
@@ -12771,6 +12886,7 @@ sudo yum install -y \
 
 ---
 
+<!-- RAG_CHUNK: Build -->
 ## Build Options & Configuration
 
 ### PACKETVER (Client Version)
@@ -12947,6 +13063,7 @@ uint64 exp_table[MAX_LEVEL];
 
 ---
 
+<!-- RAG_CHUNK: Compilation -->
 ## Compilation Commands
 
 ### Linux/Unix Full Build
@@ -13098,6 +13215,7 @@ nm map-server | grep -i "script_run"
 
 ---
 
+<!-- RAG_CHUNK: GDB -->
 ## GDB Debugging
 
 ### Setup & Basics
@@ -13381,6 +13499,7 @@ gdb ./map-server core.12345
 
 ---
 
+<!-- RAG_CHUNK: Visual -->
 ## Visual Studio Debugging
 
 ### Basic Debugging Operations
@@ -13583,6 +13702,7 @@ Debug → Windows → Parallel Tasks
 
 ---
 
+<!-- RAG_CHUNK: Memory -->
 ## Memory Leak Detection
 
 ### Valgrind (Linux)
@@ -13793,6 +13913,7 @@ int main() {
 
 ---
 
+<!-- RAG_CHUNK: Profiling -->
 ## Profiling & Performance Analysis
 
 ### gprof (GNU Profiler)
@@ -14016,6 +14137,7 @@ void print_profile_stats() {
 
 ---
 
+<!-- RAG_CHUNK: Common -->
 ## Common Errors & Fixes
 
 ### MySQL Not Found
@@ -14199,6 +14321,7 @@ cmake --build .
 
 ---
 
+<!-- RAG_CHUNK: Continuous -->
 ## Continuous Integration Setup
 
 ### GitHub Actions
@@ -14438,6 +14561,7 @@ volumes:
 
 ---
 
+<!-- RAG_CHUNK: Optimization -->
 ## Optimization Flags
 
 ### GCC/Clang Optimization Levels
@@ -14635,6 +14759,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 
 ---
 
+<!-- RAG_CHUNK: Real -->
 ## Real Debugging Scenarios
 
 ### Scenario 1: Server Crash on Player Login
