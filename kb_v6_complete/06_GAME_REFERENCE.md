@@ -1,12 +1,20 @@
-# rAthena KB v6 - Game Mechanics Reference
+# rAthena KB v6.1 - Game Reference (@Commands & Mechanics)
 
-**Version:** 6.0 Complete
-**Generated:** 2025-11-26
+**Version:** 6.1 Validated
+**Source:** doc/atcommands.txt, db/re/attr_fix.yml
 
 ---
 
 ## Quick Navigation
 
+### @Commands
+- [Permission Levels](#permission-levels)
+- [Player Commands](#player-commands)
+- [Item Commands](#item-commands)
+- [Admin Commands](#admin-commands)
+- [Reload Commands](#reload-commands)
+
+### Game Mechanics
 - [Damage Formulas](#damage-formulas)
 - [Element Table](#element-table)
 - [Size Modifiers](#size-modifiers)
@@ -14,6 +22,128 @@
 - [Battle Mechanics](#battle-mechanics)
 
 ---
+
+# PART 1: @COMMANDS
+
+## Permission Levels
+
+<!-- RAG_CHUNK: atcmd_permissions -->
+
+| Level | Description |
+|-------|-------------|
+| 0 | Players |
+| 1-59 | Support GM |
+| 60-79 | Moderator |
+| 80-99 | High GM |
+| 99 | Admin |
+
+Configuration: `conf/groups.conf`
+
+---
+
+## Player Commands
+
+<!-- RAG_CHUNK: atcmd_player -->
+
+| Command | Description |
+|---------|-------------|
+| @commands | List available commands |
+| @rates | Show server rates |
+| @time | Show server time |
+| @exp | Show experience |
+| @stats | Show character stats |
+| @storage | Open storage |
+| @guildstorage | Open guild storage |
+| @autotrade | Vend while offline |
+| @showexp | Toggle exp display |
+| @showzeny | Toggle zeny display |
+| @noask | Block trade/party requests |
+| @noks | Anti kill-steal mode |
+
+---
+
+## Item Commands
+
+<!-- RAG_CHUNK: atcmd_item -->
+
+| Command | Syntax |
+|---------|--------|
+| @item | @item <id/name> {amount} |
+| @item2 | @item2 <id> <qty> <identify> <refine> <attr> <c1> <c2> <c3> <c4> |
+| @itembound | @itembound <id> <amount> <bound_type> |
+| @delitem | @delitem <id> <amount> |
+| @storeall | Move all to storage |
+| @itemreset | Delete all inventory |
+| @clearstorage | Clear storage |
+| @clearcart | Clear cart |
+| @repairall | Repair all items |
+| @identify | Identify items |
+| @identifyall | Identify all items |
+
+---
+
+## Admin Commands
+
+<!-- RAG_CHUNK: atcmd_admin -->
+
+| Command | Description |
+|---------|-------------|
+| @kick <name> | Kick player |
+| @ban <time> <name> | Ban player |
+| @unban <name> | Unban player |
+| @mute <time> <name> | Mute player |
+| @jail <name> | Jail player |
+| @unjail <name> | Unjail player |
+| @kill <name> | Kill player |
+| @alive | Resurrect self |
+| @raise | Resurrect all on map |
+| @raisemap | Resurrect all on server |
+| @hide | GM invisibility |
+| @disguise <id> | Disguise as monster |
+| @undisguise | Remove disguise |
+
+### Monster Commands
+| Command | Description |
+|---------|-------------|
+| @monster <name> {amount} | Spawn monster |
+| @killmonster | Kill all monsters on map |
+| @killmonster2 | Kill without drops |
+| @summon <name> {duration} | Summon monster as slave |
+
+### Map Commands
+| Command | Description |
+|---------|-------------|
+| @pvpon / @pvpoff | Toggle PVP |
+| @gvgon / @gvgoff | Toggle GVG |
+| @skillon / @skilloff | Toggle skills |
+| @day / @night | Change time |
+| @snow / @fog / @sakura | Weather effects |
+| @clearweather | Clear weather |
+
+---
+
+## Reload Commands
+
+<!-- RAG_CHUNK: atcmd_reload -->
+
+| Command | Reloads |
+|---------|---------|
+| @reloadscript | All NPC scripts |
+| @reloaditemdb | item_db.yml |
+| @reloadmobdb | mob_db.yml |
+| @reloadskilldb | skill_db.yml |
+| @reloadquestdb | quest_db.yml |
+| @reloadbattleconf | battle/*.conf |
+| @reloadatcommand | atcommand.conf |
+| @reloadstatusdb | status_db.yml |
+| @reloadpcdb | job_db.yml |
+| @reloadinstancedb | instance_db.yml |
+| @reloadachievementdb | achievement_db.yml |
+| @reloadmotd | motd.txt |
+
+---
+
+# PART 2: GAME MECHANICS
 
 ## Damage Formulas
 
@@ -43,14 +173,7 @@ RefineBonus = Refine × (WeaponLevel × 3 + LevelBonus)
 ```
 MATK = StatusMATK + WeaponMATK + EquipMATK
 Final = MATK × SkillModifier × ElementModifier / (MDEF_Reduction)
-
 StatusMATK = floor(BaseLevel/4) + INT + floor(INT²/2/100)
-```
-
-### Defense Reduction
-```
-Physical: FinalDEF = EquipDEF × (1 - HardDEFRate) + SoftDEF
-MDEF: Same formula with MDEF values
 ```
 
 ### Critical Hits
@@ -82,14 +205,7 @@ CritDamage = NormalDamage × 1.4 + CritDamageBonus
 | **Ghost** | 90 | 100 | 100 | 100 | 100 | 75 | 90 | 90 | 125 | 100 |
 | **Undead** | 100 | 100 | 100 | 90 | 100 | 75 | 125 | 0 | 100 | 0 |
 
-*Values below 100 = resistance, above 100 = weakness, 0 = immune*
-
-### Element Levels
-Monsters have element levels 1-4 that modify resistances:
-- Level 1: Base values
-- Level 2: +5% per weakness, -5% per resistance
-- Level 3: +10% per weakness, -10% per resistance
-- Level 4: +15% per weakness, -15% per resistance
+*0 = immune, <100 = resistant, >100 = weak*
 
 ---
 
@@ -113,12 +229,8 @@ Monsters have element levels 1-4 that modify resistances:
 | Staff | 100 | 100 | 100 |
 | Bow | 100 | 100 | 75 |
 | Knuckle | 100 | 75 | 50 |
-| Musical | 75 | 100 | 75 |
-| Whip | 75 | 100 | 50 |
-| Book | 100 | 100 | 50 |
 | Katar | 75 | 100 | 75 |
 | Gun | 100 | 100 | 100 |
-| Huuma | 75 | 100 | 100 |
 
 ---
 
@@ -148,7 +260,6 @@ HitChance = (Hit - Flee + 80)%  // Capped 5%-100%
 ### ASPD Calculation (Renewal)
 ```
 ASPD = 195 - floor((BaseASPD - ASPDAGI - ASPDBonus) / 10)
-BaseASPD depends on job and weapon type
 ASPDAGI = sqrt((AGI×AGI/2 + DEX×DEX/5) / 4)
 ```
 
@@ -179,13 +290,6 @@ Cooldown is not affected by reductions
 Global delay = 0.3 seconds between most skills
 ```
 
-### Knockback
-```
-Knockback ignores Boss protocol flag
-NoKnockback bonus prevents knockback
-Direction is from attacker to target
-```
-
 ---
 
-*Generated as part of rAthena KB v6 Complete*
+*rAthena KB v6.1 - Game Reference*
