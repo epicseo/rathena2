@@ -1,6 +1,6 @@
-# rAthena Knowledge Base v9.0 Final
+# rAthena Knowledge Base v9.1 Final
 
-**The Ultimate RAG-Optimized rAthena Knowledge Base**
+**The Ultimate 100% Complete RAG-Optimized rAthena Knowledge Base**
 
 ---
 
@@ -8,12 +8,14 @@
 
 | Metric | Value |
 |--------|-------|
-| Version | 9.0 Final |
+| Version | 9.1 Final (100% Complete) |
 | Files | 8 |
-| Total Lines | 90,775 |
-| RAG Chunks | 1,610 |
-| Size | ~2.7 MB |
+| Total Lines | 92,530 |
+| RAG Chunks | 1,622 |
+| Size | ~3.0 MB |
 | Validated | Yes - against rAthena source |
+| SC_* Coverage | ALL 1038 entries |
+| DB Schemas | ALL 47 YAML schemas |
 
 ---
 

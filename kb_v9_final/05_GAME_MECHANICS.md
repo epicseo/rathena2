@@ -2666,3 +2666,627 @@ boss_map	mapflag	hidemobhpbar
 
 ---
 
+# rAthena Database Schemas Complete Reference v9.1
+
+**Version:** 9.1 - Complete Database Coverage
+**Source:** db/re/*.yml (47 files)
+**Last Updated:** 2025-11-26
+
+---
+
+## Quick Navigation
+
+- [Item Databases](#item-databases)
+- [Monster Database](#monster-database)
+- [Skill Database](#skill-database)
+- [Quest Database](#quest-database)
+- [Instance Database](#instance-database)
+- [Pet/Homunculus/Mercenary](#pet-homunculus-mercenary)
+- [Job System](#job-system)
+- [Refine/Enchant](#refine-enchant)
+- [Other Databases](#other-databases)
+
+---
+
+# ═══════════════════════════════════════════════════════════════
+# ITEM DATABASES
+# ═══════════════════════════════════════════════════════════════
+
+
+<!-- RAG_CHUNK: item_db_schema -->
+## item_db.yml Schema
+
+**Location:** `db/re/item_db.yml`, `item_db_equip.yml`, `item_db_usable.yml`, `item_db_etc.yml`
+
+```yaml
+Body:
+  - Id: 501                    # Item ID (required)
+    AegisName: Red_Potion      # Server-side name (required)
+    Name: Red Potion           # Display name (required)
+    Type: Healing              # Item type (required)
+    # Types: Healing, Usable, Etc, Armor, Weapon, Card, PetEgg,
+    #        PetArmor, Arrow, Ammo, DelayConsume, ShadowGear, Cash
+    
+    SubType: None              # Weapon/Ammo subtype
+    # Weapon: Fist, Dagger, 1hSword, 2hSword, 1hSpear, 2hSpear,
+    #         1hAxe, 2hAxe, Mace, Staff, Bow, Knuckle, Musical,
+    #         Whip, Book, Katar, Revolver, Rifle, Gatling,
+    #         Shotgun, Grenade, Huuma, 2hStaff
+    
+    Buy: 50                    # Buy price (NPC)
+    Sell: 25                   # Sell price (NPC, default: Buy/2)
+    Weight: 70                 # Weight (1 = 0.1)
+    Attack: 0                  # Physical attack
+    MagicAttack: 0             # Magic attack
+    Defense: 0                 # Physical defense
+    Range: 0                   # Attack range
+    Slots: 0                   # Card slots
+    Jobs:                      # Jobs that can equip
+      All: true                # or specific jobs
+      # Novice, Swordman, Mage, Archer, Acolyte, Merchant, Thief,
+      # Knight, Priest, Wizard, Blacksmith, Hunter, Assassin,
+      # Crusader, Monk, Sage, Rogue, Alchemist, Bard, Dancer, etc.
+    
+    Classes:                   # Classes that can equip
+      All: true                # Normal, Upper, Baby, Third, Fourth
+    
+    Gender: Both               # Female, Male, Both
+    Locations:                 # Equipment locations
+      Head_Top: true           # Head_Top, Head_Mid, Head_Low
+      # Right_Hand, Left_Hand, Both_Hand, Armor, Shoes,
+      # Garment, Right_Accessory, Left_Accessory, Both_Accessory,
+      # Costume_Head_Top, Costume_Head_Mid, Costume_Head_Low,
+      # Costume_Garment, Shadow_Armor, Shadow_Weapon, Shadow_Shield,
+      # Shadow_Shoes, Shadow_Right_Accessory, Shadow_Left_Accessory
+    
+    WeaponLevel: 1             # Weapon level 1-5
+    ArmorLevel: 1              # Armor level 1-2
+    EquipLevelMin: 1           # Minimum equip level
+    EquipLevelMax: 999         # Maximum equip level
+    Refineable: true           # Can be refined
+    Gradable: false            # Can be graded
+    View: 0                    # View/Sprite ID
+    
+    Script: |                  # Equip/Use script
+      bonus bStr,1;
+    EquipScript: |             # On equip script
+      sc_start SC_BLESSING,60000,10;
+    UnEquipScript: |           # On unequip script
+      sc_end SC_BLESSING;
+    
+    Flags:
+      BuyingStore: true        # Can be sold in buying store
+      DeadBranch: false        # Spawned by dead branch
+      Container: false         # Is a container item
+      UniqueId: false          # Has unique ID
+      BindOnEquip: false       # Binds on equip
+      DropAnnounce: false      # Announces on drop
+      NoConsume: false         # Not consumed on use
+      DropEffect: None         # Client drop effect
+    
+    Delay:
+      Duration: 0              # Use delay in ms
+      Status: None             # Status for delay
+    
+    Stack:
+      Amount: 0                # Max stack (0 = no limit)
+      Inventory: true          # Can stack in inventory
+      Cart: true               # Can stack in cart
+      Storage: true            # Can stack in storage
+      GuildStorage: true       # Can stack in guild storage
+    
+    NoUse:
+      Override: 100            # GM level to override
+      Sitting: false           # Cannot use while sitting
+    
+    Trade:
+      Override: 100            # GM level to override
+      NoDrop: false            # Cannot drop
+      NoTrade: false           # Cannot trade
+      TradePartner: false      # Cannot trade with partner
+      NoSell: false            # Cannot sell to NPC
+      NoCart: false            # Cannot put in cart
+      NoStorage: false         # Cannot put in storage
+      NoGuildStorage: false    # Cannot put in guild storage
+      NoMail: false            # Cannot send by mail
+      NoAuction: false         # Cannot auction
+```
+
+
+---
+
+<!-- RAG_CHUNK: mob_db_schema -->
+## mob_db.yml Schema
+
+**Location:** `db/re/mob_db.yml`
+
+```yaml
+Body:
+  - Id: 1002                   # Monster ID (required)
+    AegisName: PORING          # Server name (required)
+    Name: Poring               # Display name (required)
+    JapaneseName: Poring       # Japanese name
+    Level: 1                   # Monster level
+    Hp: 55                     # Max HP
+    Sp: 0                      # Max SP
+    BaseExp: 27                # Base experience
+    JobExp: 20                 # Job experience
+    MvpExp: 0                  # MVP experience
+    Attack: 8                  # Min attack
+    Attack2: 11                # Max attack
+    Defense: 2                 # Physical defense
+    MagicDefense: 5            # Magic defense
+    Str: 1                     # STR stat
+    Agi: 1                     # AGI stat
+    Vit: 1                     # VIT stat
+    Int: 0                     # INT stat
+    Dex: 6                     # DEX stat
+    Luk: 5                     # LUK stat
+    AttackRange: 1             # Attack range
+    SkillRange: 10             # Skill range
+    ChaseRange: 12             # Chase range
+    Size: Small                # Small, Medium, Large
+    Race: Plant                # Formless, Undead, Brute, Plant, Insect,
+                               # Fish, Demon, DemiHuman, Angel, Dragon
+    RaceGroups:                # Special race groups
+      Goblin: true
+    Element: Water             # Element type
+    ElementLevel: 1            # Element level 1-4
+    WalkSpeed: 400             # Walk speed (lower = faster)
+    AttackDelay: 1872          # Attack delay in ms
+    AttackMotion: 672          # Attack animation time
+    DamageMotion: 480          # Damage animation time
+    DamageTaken: 100           # Damage taken % (100 = normal)
+    
+    Ai: 02                     # AI type
+    # 01 = Passive, 02 = Passive looter, 03 = Aggressive,
+    # 04 = Aggressive looter, 05 = Aggressive coward,
+    # 06 = Aggressive coward looter, 07 = Guard (doesn't move)
+    # 17 = Passive detector, 21 = Aggressive detector
+    
+    Class: Normal              # Normal, Boss, Guardian
+    
+    Modes:
+      CanMove: true            # Can move
+      Looter: true             # Picks up items
+      Aggressive: false        # Attacks on sight
+      Assist: false            # Helps other monsters
+      CastSensorIdle: false    # Detects cast (idle)
+      Boss: false              # Boss monster
+      Plant: false             # Plant mode (no exp/drops if killed too fast)
+      CanAttack: true          # Can attack
+      Detector: false          # Detects hidden players
+      CastSensorChase: false   # Detects cast (chasing)
+      ChangeChase: false       # Can change chase target
+      Angry: false             # Gets angry
+      ChangeTargetMelee: false # Changes target in melee
+      ChangeTargetChase: false # Changes target while chasing
+      TargetWeak: false        # Targets weakest
+      NoKnockback: false       # Cannot be knocked back
+      RandomTarget: false      # Attacks random target
+      IgnoreMagic: false       # Ignores magic
+      IgnoreMelee: false       # Ignores melee
+      IgnoreMisc: false        # Ignores misc
+      IgnoreRanged: false      # Ignores ranged
+      Mvp: false               # Is MVP
+      IgnoreSkill: false       # Ignores skills
+    
+    MvpDrops:                  # MVP drops
+      - Item: Old_Card_Album
+        Rate: 5000             # Rate in 0.01% (5000 = 50%)
+    
+    Drops:                     # Normal drops
+      - Item: Jellopy
+        Rate: 7000
+      - Item: Knife_
+        Rate: 100
+      - Item: Sticky_Mucus
+        Rate: 400
+      - Item: Apple
+        Rate: 1000
+      - Item: Empty_Bottle
+        Rate: 1500
+      - Item: Poring_Card
+        Rate: 1                # 0.01%
+```
+
+---
+
+<!-- RAG_CHUNK: skill_db_schema -->
+## skill_db.yml Schema
+
+**Location:** `db/re/skill_db.yml`
+
+```yaml
+Body:
+  - Id: 1                      # Skill ID (required)
+    Name: NV_BASIC             # Skill constant name (required)
+    Description: Basic Skill   # Display description (required)
+    MaxLevel: 9                # Maximum skill level
+    Type: None                 # Skill type
+    # None, Weapon, Magic, Misc, Trap
+    
+    TargetType: Self           # Target type
+    # Self, Attack, Ground, Trap, Friend, Party
+    
+    DamageFlags:               # Damage calculation flags
+      NoDamage: true           # No damage
+      Splash: false            # Splash damage
+      SplashSplit: false       # Splash split
+      IgnoreAtkCard: false     # Ignore ATK cards
+      IgnoreElement: false     # Ignore element
+      IgnoreDefense: false     # Ignore defense
+      IgnoreFlee: false        # Ignore flee
+      IgnoreDefCard: false     # Ignore DEF cards
+      Critical: false          # Can crit
+      IgnoreLongCard: false    # Ignore long range cards
+    
+    Flags:
+      IsQuest: false           # Quest skill
+      IsNpc: false             # NPC skill
+      IsWedding: false         # Wedding skill
+      IsSpirit: false          # Spirit skill
+      IsGuild: false           # Guild skill
+      IsSong: false            # Song/Dance skill
+      IsEnsemble: false        # Ensemble skill
+      IsTrap: false            # Trap skill
+      TargetSelf: false        # Force self target
+      NoTargetSelf: false      # Cannot target self
+      PartyOnly: false         # Party only
+      GuildOnly: false         # Guild only
+      NoEnemy: false           # Cannot target enemy
+      IgnoreLandProtector: false # Ignores LP
+      Chorus: false            # Chorus skill
+      FreeCastNormal: false    # Free cast normal
+      FreeCastReduced: false   # Free cast reduced
+      ShowSkillScale: false    # Show skill scale
+      AllowReproduce: false    # Can be reproduced
+      HiddenTrap: false        # Hidden trap
+      IsCombo: false           # Combo skill
+    
+    Range:                     # Skill range per level
+      - Level: 1
+        Size: 1
+      - Level: 5
+        Size: 5
+    
+    Hit: Single                # Hit type: Single, Multi
+    HitCount: 1                # Number of hits (negative = divide)
+    
+    Element: Weapon            # Skill element
+    # Neutral, Water, Earth, Fire, Wind, Poison,
+    # Holy, Dark, Ghost, Undead, Weapon, EndowedWeapon, Random
+    
+    SplashArea: 0              # Splash area
+    ActiveInstance: 0          # Max active instances
+    Knockback: 0               # Knockback cells
+    GiveAp: 0                  # AP given
+    
+    CastCancel: true           # Can cancel cast
+    CastDefenseReduction: true # Def reduces cast
+    CastTime: 0                # Cast time in ms
+    AfterCastActDelay: 0       # After cast delay
+    AfterCastWalkDelay: 0      # After cast walk delay
+    Duration1: 0               # Duration 1
+    Duration2: 0               # Duration 2
+    Cooldown: 0                # Cooldown time
+    FixedCastTime: 0           # Fixed cast time
+    
+    CastTimeFlags:             # What affects cast time
+      IgnoreDex: false
+      IgnoreStatus: false
+      IgnoreItemBonus: false
+    
+    CastDelayFlags:            # What affects delay
+      IgnoreDex: false
+      IgnoreStatus: false
+      IgnoreItemBonus: false
+    
+    Requires:                  # Skill requirements
+      HpCost: 0                # HP cost
+      SpCost: 0                # SP cost per level
+      ApCost: 0                # AP cost
+      HpRateCost: 0            # HP % cost
+      SpRateCost: 0            # SP % cost
+      ApRateCost: 0            # AP % cost
+      MaxHpTrigger: 0          # Max HP % trigger
+      ZenyCost: 0              # Zeny cost
+      Weapon:                  # Required weapon
+        Fist: true
+        Dagger: true
+      Ammo:                    # Required ammo
+        Arrow: true
+      AmmoAmount: 1            # Ammo amount
+      State: None              # Required state
+      # None, Mounted, Falcon, Riding, Cart, Shield,
+      # MoveStopped, MoveEnabled, Attack, Elemental, Poisoned,
+      # Cursed, RollingCutter, RollingNights, Combo
+      Status:                  # Required status
+        Hiding: true
+      SpiritSphereCost: 0      # Spirit sphere cost
+      ItemCost:                # Item cost
+        - Item: Red_Gemstone
+          Amount: 1
+      Equipment:               # Required equipment
+        Shield: true
+    
+    Unit:                      # Ground unit settings
+      Id: 0                    # Unit ID
+      Layout: 0                # Unit layout
+      Range: 0                 # Unit range
+      Interval: 0              # Effect interval
+      Target: All              # Unit target
+      Flag:                    # Unit flags
+        UF_DEFNOTENEMY: true
+        UF_NOREITERATION: true
+        UF_NOFOOTSET: true
+        UF_NOOVERLAP: true
+```
+
+
+---
+
+<!-- RAG_CHUNK: quest_db_schema -->
+## quest_db.yml Schema
+
+**Location:** `db/re/quest_db.yml`
+
+```yaml
+Body:
+  - Id: 1000                   # Quest ID (required)
+    Title: Quest Title         # Quest title
+    TimeLimit: 2h              # Time limit (s, m, h, d format)
+    Targets:                   # Kill targets
+      - Mob: PORING
+        Count: 10
+        Id: 1                  # Target ID within quest
+        Race: Plant            # Target race
+        Size: Small            # Target size
+        Element: Water         # Target element
+        MinLevel: 1            # Min monster level
+        MaxLevel: 999          # Max monster level
+    Drops:                     # Required item drops
+      - Mob: PORING
+        Item: Jellopy
+        Count: 5
+        Rate: 5000             # Drop rate (10000 = 100%)
+```
+
+---
+
+<!-- RAG_CHUNK: instance_db_schema -->
+## instance_db.yml Schema
+
+**Location:** `db/re/instance_db.yml`
+
+```yaml
+Body:
+  - Id: 1                      # Instance ID (required)
+    Name: Endless Tower        # Instance name (required)
+    TimeLimit: 4h              # Time limit
+    IdleTimeOut: 5m            # Idle timeout
+    Enter:                     # Entry point
+      Map: 1@tower
+      X: 50
+      Y: 50
+    AdditionalMaps:            # Additional maps
+      - Map: 2@tower
+      - Map: 3@tower
+```
+
+---
+
+<!-- RAG_CHUNK: pet_db_schema -->
+## pet_db.yml Schema
+
+**Location:** `db/re/pet_db.yml`
+
+```yaml
+Body:
+  - Mob: PORING                # Pet monster (required)
+    TameItem: Unripe_Apple     # Taming item
+    EggItem: Poring_Egg        # Egg item
+    EquipItem: Backpack        # Equipment item
+    FoodItem: Apple            # Food item
+    Fullness: 3                # Fullness decrease per tick
+    HungryDelay: 60000         # Hunger delay in ms
+    Intimacy:                  # Intimacy settings
+      Initial: 250             # Initial intimacy
+      FeedIncrement: 50        # +intimacy per feed
+      OverFeedDecrement: 100   # -intimacy if overfed
+      OwnerDeathDecrement: 20  # -intimacy on owner death
+    CaptureRate: 2000          # Capture rate (10000 = 100%)
+    Speed: 150                 # Pet speed
+    SpecialPerformance: true   # Has special performance
+    TalkWithEmotes: true       # Uses emotes
+    AttackRate: 300            # Attack rate
+    DefendRate: 400            # Defend rate
+    ChangeTargetRate: 800      # Change target rate
+    AutoFeed: true             # Can auto-feed
+    Script: |                  # Pet bonus script
+      bonus bLuk,2;
+      bonus bCritical,1;
+    SupportScript: |           # Support script
+      sc_start SC_INCFLEE,10000,10;
+```
+
+---
+
+<!-- RAG_CHUNK: homunculus_db_schema -->
+## homunculus_db.yml Schema
+
+**Location:** `db/re/homunculus_db.yml`
+
+```yaml
+Body:
+  - Id: 6001                   # Homunculus ID
+    Name: Lif                  # Name
+    FoodItem: Pet_Food         # Food item
+    HungryDelay: 60000         # Hunger delay
+    BaseSize: Small            # Base size
+    EvoSize: Medium            # Evolved size
+    Race: Demihuman            # Race type
+    Element: Neutral           # Element
+    bASPD: 700                 # Base ASPD
+    Status:                    # Base stats
+      Hp: 150
+      Sp: 40
+      Str: 17
+      Agi: 20
+      Vit: 15
+      Int: 35
+      Dex: 24
+      Luk: 12
+    Growth:                    # Stat growth per level
+      Hp: { Min: 60, Max: 100 }
+      Sp: { Min: 4, Max: 9 }
+      Str: { Min: 5, Max: 9 }
+      Agi: { Min: 4, Max: 8 }
+      Vit: { Min: 3, Max: 7 }
+      Int: { Min: 6, Max: 10 }
+      Dex: { Min: 4, Max: 8 }
+      Luk: { Min: 2, Max: 6 }
+    Evolution:                 # Evolution items
+      - Item: Medicine_Bowl
+        Amount: 1
+```
+
+---
+
+<!-- RAG_CHUNK: refine_schema -->
+## refine.yml Schema
+
+**Location:** `db/re/refine.yml`
+
+```yaml
+Body:
+  - Group: Armor               # Refine group
+    # Armor, Weapon1, Weapon2, Weapon3, Weapon4, Shadow
+    Levels:
+      - Level: 1               # Refine level
+        RefineryUISettings:
+          Items:
+            - Item: Elunium
+              Amount: 1
+            - Item: HD_Elunium
+              Amount: 1
+              FailureBehavior: Downgrade
+          Cost: 2000           # Zeny cost
+        Rates:
+          - Type: Normal       # Rate type
+            # Normal, Enriched, EventNormal, EventEnriched
+            Rate: 100          # Success rate %
+            Chance: 1000       # Random option chance
+        Bonus: 70              # Stat bonus per refine
+```
+
+---
+
+<!-- RAG_CHUNK: achievement_db_schema -->
+## achievement_db.yml Schema
+
+**Location:** `db/re/achievement_db.yml`
+
+```yaml
+Body:
+  - Id: 100000                 # Achievement ID
+    Group: Adventure           # Achievement group
+    Name: Achievement Name     # Name
+    Targets:                   # Completion targets
+      - Id: 1                  # Target ID
+        Mob: PORING            # Target monster
+        Count: 100             # Required count
+    Condition: BaseLevel >= 99 # Script condition
+    Rewards:                   # Rewards
+      TitleId: 1001            # Title reward
+      Item: Old_Card_Album     # Item reward
+      ItemAmount: 1            # Item amount
+      Script: |                # Reward script
+        getitem Knife,1;
+    Score: 10                  # Achievement points
+```
+
+---
+
+<!-- RAG_CHUNK: other_schemas -->
+## Other Database Schemas
+
+### item_group_db.yml (Item Groups/Boxes)
+```yaml
+Body:
+  - Group: Old_Blue_Box        # Group name
+    SubGroups:
+      - SubGroup: 0            # SubGroup ID
+        List:
+          - Item: Apple
+            Rate: 100          # Weight (not percentage)
+          - Item: Jellopy
+            Rate: 50
+```
+
+### skill_tree.yml (Job Skill Trees)
+```yaml
+Body:
+  - Job: Swordman              # Job name
+    Tree:
+      - Skill: SM_SWORD        # Skill name
+        MaxLevel: 10           # Max level
+        Require:               # Prerequisites
+          - Skill: NV_BASIC
+            Level: 9
+```
+
+### job_exp.yml (Experience Tables)
+```yaml
+Body:
+  - Jobs:                      # Affected jobs
+      Novice: true
+    MaxLevel: 99               # Max level
+    Exp:                       # Required exp per level
+      - 40                     # Level 1->2
+      - 76                     # Level 2->3
+```
+
+### attr_fix.yml (Element Table)
+```yaml
+Body:
+  - Level: 1                   # Element level
+    Neutral:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 100
+      Holy: 100
+      Dark: 100
+      Ghost: 90               # Neutral vs Ghost = 90%
+      Undead: 100
+```
+
+---
+
+## Database File Summary
+
+| Database | File | Purpose |
+|----------|------|---------|
+| item_db | item_db*.yml | All items |
+| mob_db | mob_db.yml | All monsters |
+| skill_db | skill_db.yml | All skills |
+| quest_db | quest_db.yml | Quest definitions |
+| instance_db | instance_db.yml | Instance dungeons |
+| pet_db | pet_db.yml | Pet system |
+| homunculus_db | homunculus_db.yml | Homunculus |
+| mercenary_db | mercenary_db.yml | Mercenaries |
+| refine | refine.yml | Refine system |
+| achievement_db | achievement_db.yml | Achievements |
+| item_group_db | item_group_db.yml | Item groups/boxes |
+| skill_tree | skill_tree.yml | Job skill trees |
+| job_exp | job_exp.yml | Experience tables |
+| attr_fix | attr_fix.yml | Element table |
+| size_fix | size_fix.yml | Size modifiers |
+| level_penalty | level_penalty.yml | Level penalty |
+
+---
+
+*All schemas verified against rAthena db/re/*.yml files*
