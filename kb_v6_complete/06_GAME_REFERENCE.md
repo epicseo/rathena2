@@ -5,29 +5,25 @@
 
 ---
 
-## Quick Navigation
-
-### @Commands
-- [Permission Levels](#permission-levels)
-- [Player Commands](#player-commands)
-- [Item Commands](#item-commands)
-- [Admin Commands](#admin-commands)
-- [Reload Commands](#reload-commands)
-
-### Game Mechanics
-- [Damage Formulas](#damage-formulas)
-- [Element Table](#element-table)
-- [Size Modifiers](#size-modifiers)
-- [Stat Formulas](#stat-formulas)
-- [Battle Mechanics](#battle-mechanics)
+# PART 1: @COMMANDS
 
 ---
 
-# PART 1: @COMMANDS
+## Quick Navigation
+
+### By Category
+- [Player Commands](#player-commands) - @go, @warp, @memo
+- [Item Commands](#item-commands) - @item, @storage, @storeall
+- [Information](#information-commands) - @who, @where, @time
+- [Guild Commands](#guild-commands) - @guild, @breakguild
+- [Admin Commands](#admin-commands) - @kick, @ban, @mute
+- [Monster Commands](#monster-commands) - @monster, @killmonster
+- [Skill Commands](#skill-commands) - @allskill, @skillpoint
+- [Stat Commands](#stat-commands) - @str, @agi, @statall
+
+---
 
 ## Permission Levels
-
-<!-- RAG_CHUNK: atcmd_permissions -->
 
 | Level | Description |
 |-------|-------------|
@@ -37,113 +33,788 @@
 | 80-99 | High GM |
 | 99 | Admin |
 
-Configuration: `conf/groups.conf`
+Permission configuration: `conf/groups.conf`
 
 ---
 
-## Player Commands
+## Complete @Command Reference
 
-<!-- RAG_CHUNK: atcmd_player -->
+### @version
 
-| Command | Description |
-|---------|-------------|
-| @commands | List available commands |
-| @rates | Show server rates |
-| @time | Show server time |
-| @exp | Show experience |
-| @stats | Show character stats |
-| @storage | Open storage |
-| @guildstorage | Open guild storage |
-| @autotrade | Vend while offline |
-| @showexp | Toggle exp display |
-| @showzeny | Toggle zeny display |
-| @noask | Block trade/party requests |
-| @noks | Anti kill-steal mode |
+@version
 
 ---
 
-## Item Commands
+### @rates
 
-<!-- RAG_CHUNK: atcmd_item -->
-
-| Command | Syntax |
-|---------|--------|
-| @item | @item <id/name> {amount} |
-| @item2 | @item2 <id> <qty> <identify> <refine> <attr> <c1> <c2> <c3> <c4> |
-| @itembound | @itembound <id> <amount> <bound_type> |
-| @delitem | @delitem <id> <amount> |
-| @storeall | Move all to storage |
-| @itemreset | Delete all inventory |
-| @clearstorage | Clear storage |
-| @clearcart | Clear cart |
-| @repairall | Repair all items |
-| @identify | Identify items |
-| @identifyall | Identify all items |
+@rates
 
 ---
 
-## Admin Commands
+### @time
 
-<!-- RAG_CHUNK: atcmd_admin -->
-
-| Command | Description |
-|---------|-------------|
-| @kick <name> | Kick player |
-| @ban <time> <name> | Ban player |
-| @unban <name> | Unban player |
-| @mute <time> <name> | Mute player |
-| @jail <name> | Jail player |
-| @unjail <name> | Unjail player |
-| @kill <name> | Kill player |
-| @alive | Resurrect self |
-| @raise | Resurrect all on map |
-| @raisemap | Resurrect all on server |
-| @hide | GM invisibility |
-| @disguise <id> | Disguise as monster |
-| @undisguise | Remove disguise |
-
-### Monster Commands
-| Command | Description |
-|---------|-------------|
-| @monster <name> {amount} | Spawn monster |
-| @killmonster | Kill all monsters on map |
-| @killmonster2 | Kill without drops |
-| @summon <name> {duration} | Summon monster as slave |
-
-### Map Commands
-| Command | Description |
-|---------|-------------|
-| @pvpon / @pvpoff | Toggle PVP |
-| @gvgon / @gvgoff | Toggle GVG |
-| @skillon / @skilloff | Toggle skills |
-| @day / @night | Change time |
-| @snow / @fog / @sakura | Weather effects |
-| @clearweather | Clear weather |
+@time
 
 ---
 
-## Reload Commands
+### @uptime
 
-<!-- RAG_CHUNK: atcmd_reload -->
+@uptime
 
-| Command | Reloads |
-|---------|---------|
-| @reloadscript | All NPC scripts |
-| @reloaditemdb | item_db.yml |
-| @reloadmobdb | mob_db.yml |
-| @reloadskilldb | skill_db.yml |
-| @reloadquestdb | quest_db.yml |
-| @reloadbattleconf | battle/*.conf |
-| @reloadatcommand | atcommand.conf |
-| @reloadstatusdb | status_db.yml |
-| @reloadpcdb | job_db.yml |
-| @reloadinstancedb | instance_db.yml |
-| @reloadachievementdb | achievement_db.yml |
-| @reloadmotd | motd.txt |
+---
+
+### @refresh
+
+@refresh
+
+---
+
+### @refreshall
+
+@refreshall
+
+---
+
+### @showexp
+
+@showexp
+
+---
+
+### @showzeny
+
+@showzeny
+
+---
+
+### @showdelay
+
+@showdelay
+
+---
+
+### @noask
+
+@noask
+
+---
+
+### @noks
+
+@noks
+
+---
+
+### @agitstart
+
+@agitstart
+
+---
+
+### @agitend
+
+@agitend
+
+---
+
+### @agitstart2
+
+@agitstart2
+
+---
+
+### @agitend2
+
+@agitend2
+
+---
+
+### @agitstart3
+
+@agitstart3
+
+---
+
+### @agitend3
+
+@agitend3
+
+---
+
+### @pvpon
+
+@pvpon
+
+---
+
+### @pvpoff
+
+@pvpoff
+
+---
+
+### @gvgon
+
+@gvgon
+
+---
+
+### @gvgoff
+
+@gvgoff
+
+---
+
+### @skillon
+
+@skillon
+
+---
+
+### @skilloff
+
+@skilloff
+
+---
+
+### @allowks
+
+@allowks
+
+---
+
+### @day
+
+@day
+
+---
+
+### @night
+
+@night
+
+---
+
+### @snow
+
+@snow
+
+---
+
+### @clouds
+
+@clouds
+
+---
+
+### @clouds2
+
+@clouds2
+
+---
+
+### @fog
+
+@fog
+
+---
+
+### @fireworks
+
+@fireworks
+
+---
+
+### @sakura
+
+@sakura
+
+---
+
+### @leaves
+
+@leaves
+
+---
+
+### @clearweather
+
+@clearweather
+
+---
+
+### @gat
+
+@gat
+
+---
+
+### @showrate
+
+@showrate
+
+---
+
+### @whereis
+
+@whereis
+
+---
+
+### @commands
+
+@commands
+
+---
+
+### @charcommands
+
+@charcommands
+
+---
+
+### @exp
+
+@exp
+
+---
+
+### @stats
+
+@stats
+
+---
+
+### @itemlist
+
+@itemlist
+
+---
+
+### @users
+
+@users
+
+---
+
+### @jailtime
+
+@jailtime
+
+---
+
+### @storage
+
+@storage
+
+---
+
+### @mail
+
+@mail
+
+---
+
+### @auction
+
+@auction
+
+---
+
+### @identify
+
+@identify
+
+---
+
+### @identifyall
+
+@identifyall
+
+---
+
+### @autotrade
+
+@autotrade
+
+---
+
+### @item
+
+@item <item name/ID>{:<item name/ID>:...} {<amount>}
+
+---
+
+### @itembound
+
+@itembound <item name/ID>{:<item name/ID>:...} <amount> <bound type>
+
+---
+
+### @repairall
+
+@repairall
+
+---
+
+### @storeall
+
+@storeall
+
+---
+
+### @itemreset
+
+@itemreset
+
+---
+
+### @clearstorage
+
+@clearstorage
+
+---
+
+### @cleargstorage
+
+@cleargstorage
+
+---
+
+### @clearcart
+
+@clearcart
+
+---
+
+### @cleanarea
+
+@cleanarea
+
+---
+
+### @cleanmap
+
+@cleanmap
+
+---
+
+### @save
+
+@save
+
+---
+
+### @load
+
+@load
+
+---
+
+### @recallall
+
+@recallall
+
+---
+
+### @killer
+
+@killer
+
+---
+
+### @killable
+
+@killable
+
+---
+
+### @allskill
+
+@allskill
+
+---
+
+### @resetstat
+
+@resetstat
+
+---
+
+### @resetskill
+
+@resetskill
+
+---
+
+### @reset
+
+@reset
+
+---
+
+### @feelreset
+
+@feelreset
+
+---
+
+### @hatereset
+
+@hatereset
+
+---
+
+### @mount2
+
+@mount2
+
+---
+
+### @hairstyle
+
+@hairstyle <default: 0-27>
+
+---
+
+### @haircolor
+
+@haircolor <default: 0-8>
+
+---
+
+### @dye
+
+@dye <default: 0-4>
+
+---
+
+### @bodystyle
+
+@bodystyle <default: 0-1>
+
+---
+
+### @changedress
+
+@changedress
+
+---
+
+### @accept
+
+@accept
+
+---
+
+### @reject
+
+@reject
+
+---
+
+### @leave
+
+@leave
+
+---
+
+### @alive
+
+@alive
+
+---
+
+### @raisemap
+
+@raisemap
+
+---
+
+### @raise
+
+@raise
+
+---
+
+### @undisguise
+
+@undisguise
+
+---
+
+### @undisguiseall
+
+@undisguiseall
+
+---
+
+### @monsterignore
+
+@monsterignore
+
+---
+
+### @hide
+
+@hide
+
+---
+
+### @limitedsale
+
+@limitedsale
+
+---
+
+### @enchantgradeui
+
+@enchantgradeui
+
+---
+
+### @resetcooltime
+
+@resetcooltime
+
+---
+
+### @changesex
+
+@changesex
+
+---
+
+### @changecharsex
+
+@changecharsex
+
+---
+
+### @refineui
+
+@refineui
+
+---
+
+### @stylist
+
+@stylist
+
+---
+
+### @gmotd
+
+@gmotd
+
+---
+
+### @killmonster
+
+@killmonster
+
+---
+
+### @killmonster2
+
+@killmonster2
+
+---
+
+### @kill
+
+@kill
+
+---
+
+### @doommap
+
+@doommap
+
+---
+
+### @doom
+
+@doom
+
+---
+
+### @kickall
+
+@kickall
+
+---
+
+### @mapexit
+
+@mapexit
+
+---
+
+### @reloadatcommand
+
+@reloadatcommand
+
+---
+
+### @reloadbattleconf
+
+@reloadbattleconf
+
+---
+
+### @reloadinstancedb
+
+@reloadinstancedb
+
+---
+
+### @reloaditemdb
+
+@reloaditemdb
+
+---
+
+### @reloadmobdb
+
+@reloadmobdb
+
+---
+
+### @reloadmotd
+
+@reloadmotd
+
+---
+
+### @reloadmsgconf
+
+@reloadmsgconf
+
+---
+
+### @reloadpcdb
+
+@reloadpcdb
+
+---
+
+### @reloadquestdb
+
+@reloadquestdb
+
+---
+
+### @reloadscript
+
+@reloadscript
+
+---
+
+### @reloadskilldb
+
+@reloadskilldb
+
+---
+
+### @reloadstatusdb
+
+@reloadstatusdb
+
+---
+
+### @reloadachievementdb
+
+@reloadachievementdb
+
+---
+
+### @reloadattendancedb
+
+@reloadattendancedb
+
+---
+
+### @reloadbarterdb
+
+@reloadbarterdb
+
+---
+
+### @partyoption
+
+@partyoption <pickup share: yes/no> <item distribution: yes/no>
+
+---
+
+### @breakguild
+
+@breakguild
+
+---
+
+### @guildstorage
+
+@guildstorage
+
+---
+
+### @undisguiseguild
+
+@undisguiseguild
+
+---
+
+### @hatch
+
+@hatch
+
+---
+
+### @petrename
+
+@petrename
+
+---
+
+### @homevolution
+
+@homevolution
+
+---
+
+### @hominfo
+
+@hominfo
+
+---
+
+### @homstats
+
+@homstats
+
+---
+
+### @homshuffle
+
+@homshuffle
+
+---
+
 
 ---
 
 # PART 2: GAME MECHANICS
+
+## Quick Navigation
+
+- [Damage Formulas](#damage-formulas)
+- [Element Table](#element-table)
+- [Size Modifiers](#size-modifiers)
+- [Stat Formulas](#stat-formulas)
+- [Battle Mechanics](#battle-mechanics)
+
+---
 
 ## Damage Formulas
 
@@ -173,7 +844,14 @@ RefineBonus = Refine × (WeaponLevel × 3 + LevelBonus)
 ```
 MATK = StatusMATK + WeaponMATK + EquipMATK
 Final = MATK × SkillModifier × ElementModifier / (MDEF_Reduction)
+
 StatusMATK = floor(BaseLevel/4) + INT + floor(INT²/2/100)
+```
+
+### Defense Reduction
+```
+Physical: FinalDEF = EquipDEF × (1 - HardDEFRate) + SoftDEF
+MDEF: Same formula with MDEF values
 ```
 
 ### Critical Hits
@@ -205,7 +883,14 @@ CritDamage = NormalDamage × 1.4 + CritDamageBonus
 | **Ghost** | 90 | 100 | 100 | 100 | 100 | 75 | 90 | 90 | 125 | 100 |
 | **Undead** | 100 | 100 | 100 | 90 | 100 | 75 | 125 | 0 | 100 | 0 |
 
-*0 = immune, <100 = resistant, >100 = weak*
+*Values below 100 = resistance, above 100 = weakness, 0 = immune*
+
+### Element Levels
+Monsters have element levels 1-4 that modify resistances:
+- Level 1: Base values
+- Level 2: +5% per weakness, -5% per resistance
+- Level 3: +10% per weakness, -10% per resistance
+- Level 4: +15% per weakness, -15% per resistance
 
 ---
 
@@ -229,8 +914,12 @@ CritDamage = NormalDamage × 1.4 + CritDamageBonus
 | Staff | 100 | 100 | 100 |
 | Bow | 100 | 100 | 75 |
 | Knuckle | 100 | 75 | 50 |
+| Musical | 75 | 100 | 75 |
+| Whip | 75 | 100 | 50 |
+| Book | 100 | 100 | 50 |
 | Katar | 75 | 100 | 75 |
 | Gun | 100 | 100 | 100 |
+| Huuma | 75 | 100 | 100 |
 
 ---
 
@@ -260,6 +949,7 @@ HitChance = (Hit - Flee + 80)%  // Capped 5%-100%
 ### ASPD Calculation (Renewal)
 ```
 ASPD = 195 - floor((BaseASPD - ASPDAGI - ASPDBonus) / 10)
+BaseASPD depends on job and weapon type
 ASPDAGI = sqrt((AGI×AGI/2 + DEX×DEX/5) / 4)
 ```
 
@@ -290,6 +980,13 @@ Cooldown is not affected by reductions
 Global delay = 0.3 seconds between most skills
 ```
 
+### Knockback
+```
+Knockback ignores Boss protocol flag
+NoKnockback bonus prevents knockback
+Direction is from attacker to target
+```
+
 ---
 
-*rAthena KB v6.1 - Game Reference*
+*Generated as part of rAthena KB v6 Complete*
