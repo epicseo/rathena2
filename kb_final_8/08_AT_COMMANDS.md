@@ -1,8 +1,3 @@
-# rAthena AT Commands Complete Reference v12.0
-## ALL 287 @COMMANDS WITH SYNTAX AND EXAMPLES
-
----
-
 # rAthena AT Commands - Complete Reference
 ## All 287 @commands with Full Documentation
 
