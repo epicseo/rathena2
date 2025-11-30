@@ -1,11 +1,11 @@
 # rAthena Knowledge Base v15.0 - Superior Edition
 
-**Version:** 15.0 - Enhanced with Visual Effects, Monster Modes & GM Permissions
+**Version:** 15.1 - Complete Visual Effects + Monster Modes + GM Permissions
 **Release Date:** 2025-11-30
 **Total Files:** 9 RAG-optimized knowledge base files
-**Total Lines:** 94,826 (CLEAN - no duplicates)
+**Total Lines:** 95,068 (VERIFIED - no duplicates)
 **Total Size:** 2.9 MB
-**RAG Chunks:** 1,687
+**RAG Chunks:** 1,659
 
 ---
 
@@ -47,8 +47,8 @@
 | 06 | **06_CONTENT_CREATION.md** | 5,107 | 55 | NPC patterns, items, quests |
 | 07 | **07_SOURCE_DEVELOPMENT.md** | 50,607 | 567 | C++ dev + 420+ tutorials |
 | 08 | **08_AT_COMMANDS.md** | 1,364 | 30 | 287 @commands + **PC_PERM_*** |
-| 09 | **09_VISUAL_EFFECTS.md** | 786 | 30 | **ALL 967 EF_* effects** |
-| **TOTAL** | **9 files** | **94,826** | **1,687** | **Superior Coverage** |
+| 09 | **09_VISUAL_EFFECTS.md** | 1,010 | 3 | **ALL 968 EF_* effects (COMPLETE)** |
+| **TOTAL** | **9 files** | **95,068** | **1,659** | **Superior Coverage** |
 
 ---
 
