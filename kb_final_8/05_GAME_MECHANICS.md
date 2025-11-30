@@ -3290,3 +3290,192 @@ Body:
 ---
 
 *All schemas verified against rAthena db/re/*.yml files*
+
+---
+
+# ═══════════════════════════════════════════════════════════════
+# PART 5: MONSTER MODES (MD_* CONSTANTS)
+# ═══════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: MD_MONSTER_MODES -->
+## Monster Mode Flags Reference
+
+Monster behavior is controlled via the `Mode` field in mob_db.yml using these bitwise flags:
+
+### Mode Bit Table
+
+| Constant | Hex | Decimal | Description |
+|----------|-----|---------|-------------|
+| MD_CANMOVE | 0x0000001 | 1 | Monster can move/chase |
+| MD_LOOTER | 0x0000002 | 2 | Loots nearby items when idle |
+| MD_AGGRESSIVE | 0x0000004 | 4 | Attacks nearby players |
+| MD_ASSIST | 0x0000008 | 8 | Helps same-class mobs when attacked |
+| MD_CASTSENSORIDLE | 0x0000010 | 16 | Chases players who cast on it (idle) |
+| MD_NORANDOMWALK | 0x0000020 | 32 | Doesn't walk randomly when idle |
+| MD_NOCAST | 0x0000040 | 64 | Cannot cast skills |
+| MD_CANATTACK | 0x0000080 | 128 | Can use normal attacks |
+| MD_CASTSENSORCHASE | 0x0000200 | 512 | Switches target to casters while chasing |
+| MD_CHANGECHASE | 0x0000400 | 1024 | Switches targets if another is in range |
+| MD_ANGRY | 0x0000800 | 2048 | Hyper-active (follow/angry states) |
+| MD_CHANGETARGETMELEE | 0x0001000 | 4096 | Switches target when hit by melee |
+| MD_CHANGETARGETCHASE | 0x0002000 | 8192 | Switches target when hit while chasing |
+| MD_TARGETWEAK | 0x0004000 | 16384 | Only aggro players 5+ levels below |
+| MD_RANDOMTARGET | 0x0008000 | 32768 | Random target each attack |
+| MD_IGNOREMELEE | 0x0010000 | 65536 | Takes 1 damage from physical attacks |
+| MD_IGNOREMAGIC | 0x0020000 | 131072 | Takes 1 damage from magic attacks |
+| MD_IGNORERANGED | 0x0040000 | 262144 | Takes 1 damage from ranged attacks |
+| MD_MVP | 0x0080000 | 524288 | MVP flag (Coma resist, MVP rewards) |
+| MD_IGNOREMISC | 0x0100000 | 1048576 | Takes 1 damage from misc attacks |
+| MD_KNOCKBACKIMMUNE | 0x0200000 | 2097152 | Cannot be knocked back |
+| MD_TELEPORTBLOCK | 0x0400000 | 4194304 | Blocks teleportation nearby |
+| MD_FIXEDITEMDROP | 0x1000000 | 16777216 | Fixed item drops (no modifiers) |
+| MD_DETECTOR | 0x2000000 | 33554432 | Detects hidden players |
+| MD_STATUSIMMUNE | 0x4000000 | 67108864 | Immune to status effects |
+| MD_SKILLIMMUNE | 0x8000000 | 134217728 | Immune to skills |
+
+<!-- RAG_CHUNK: MD_MODE_EXPLANATIONS -->
+### Detailed Mode Explanations
+
+**MD_CANMOVE (0x1)**
+Enables the mob to move and chase characters. Without this, the mob stands still.
+
+**MD_LOOTER (0x2)**
+The mob will pick up nearby items on the ground when idle. Items can be retrieved by killing the mob.
+
+**MD_AGGRESSIVE (0x4)**
+Normal aggressive mob behavior. Will automatically attack nearby players within its search range.
+
+**MD_ASSIST (0x8)**
+When a nearby mob of the same class is attacked, assist-type mobs will join the fight.
+
+**MD_CASTSENSORIDLE (0x10)**
+Will chase characters who start casting on them if the mob is idle or walking (no current target).
+
+**MD_NORANDOMWALK (0x20)**
+The mob will not randomly walk around while in the idle state. Useful for stationary guards.
+
+**MD_NOCAST (0x40)**
+The mob will be unable to cast skills. Normal attacks are still allowed.
+
+**MD_CANATTACK (0x80)**
+Enables the mob to attack/retaliate when you are within attack range. Note that this only enables normal attacks; skills are always allowed regardless of this flag.
+
+**MD_CASTSENSORCHASE (0x200)**
+Will switch chase targets to characters who start casting on them, even while already chasing another player.
+
+**MD_CHANGECHASE (0x400)**
+Allows chasing mobs to switch targets if another player happens to be within attack range. Handy for ranged attackers.
+
+**MD_ANGRY (0x800)**
+"Hyper-active" mobs. Apart from chase/attack, they have follow/angry states. Once hit, they stop using these states and use normal ones. Used for different skill-sets before/after being attacked. When "following", they automatically switch to the closest character.
+
+**MD_CHANGETARGETMELEE (0x1000)**
+Enables a mob to switch targets when hit by a normal melee attack while already attacking someone else.
+
+**MD_CHANGETARGETCHASE (0x2000)**
+Enables a mob to switch targets when hit by any attack while chasing another character.
+
+**MD_TARGETWEAK (0x4000)**
+Allows aggressive monsters to only be aggressive against characters that are five levels below their own level. Example: A level 104 monster will not attack a level 99 player.
+
+**MD_RANDOMTARGET (0x8000)**
+Picks a new random target in range for each normal attack.
+
+**MD_IGNOREMELEE (0x10000)**
+The mob will take only 1 HP damage from physical melee attacks.
+
+**MD_IGNOREMAGIC (0x20000)**
+The mob will take only 1 HP damage from magic attacks.
+
+**MD_IGNORERANGED (0x40000)**
+The mob will take only 1 HP damage from ranged physical attacks.
+
+**MD_MVP (0x80000)**
+Flagged as MVP. Makes mob resistant to Coma skill. Displays the MVP sign and gives players MVP EXP and MVP items.
+
+**MD_IGNOREMISC (0x100000)**
+The mob will take only 1 HP damage from "misc" type attacks (traps, reflect damage, etc).
+
+**MD_KNOCKBACKIMMUNE (0x200000)**
+The mob cannot be knocked back by skills like Arrow Repel, Jupitel Thunder, etc.
+
+**MD_TELEPORTBLOCK (0x400000)**
+Players near this mob cannot use teleportation skills or items.
+
+**MD_FIXEDITEMDROP (0x1000000)**
+Item drops are not affected by drop rate modifiers. Drops always at base rate.
+
+**MD_DETECTOR (0x2000000)**
+Can detect and attack hidden/cloaked players.
+
+**MD_STATUSIMMUNE (0x4000000)**
+Immune to all status effects (stun, freeze, etc).
+
+**MD_SKILLIMMUNE (0x8000000)**
+Immune to all skill damage (but not normal attacks).
+
+<!-- RAG_CHUNK: MD_COMMON_COMBINATIONS -->
+### Common Mode Combinations
+
+```yaml
+# Normal mob (can move and attack)
+Mode:
+  CanMove: true
+  CanAttack: true
+# Hex: 0x81 (129)
+
+# Aggressive mob (attacks on sight)
+Mode:
+  CanMove: true
+  Aggressive: true
+  CanAttack: true
+# Hex: 0x85 (133)
+
+# Assist mob (helps allies)
+Mode:
+  CanMove: true
+  Assist: true
+  CanAttack: true
+# Hex: 0x89 (137)
+
+# Boss/MVP monster
+Mode:
+  CanMove: true
+  Aggressive: true
+  CanAttack: true
+  Mvp: true
+  Detector: true
+  StatusImmune: true
+# Hex: 0x6080085
+
+# Stationary NPC-like mob
+Mode:
+  CanAttack: true
+  NoRandomWalk: true
+# Hex: 0xA0 (160)
+
+# Plant/Mushroom (cannot move or attack)
+Mode: {}
+# Hex: 0x0 (0)
+```
+
+### mob_db.yml Mode Example
+
+```yaml
+Body:
+  - Id: 1002
+    AegisName: PORING
+    Name: Poring
+    Level: 1
+    Hp: 50
+    Attack: 7
+    Attack2: 10
+    Mode:
+      CanMove: true      # MD_CANMOVE
+      Looter: true       # MD_LOOTER
+      CanAttack: true    # MD_CANATTACK
+```
+
+---
+
+*Monster modes reference from rAthena doc/mob_db_mode_list.txt*

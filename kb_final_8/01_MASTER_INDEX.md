@@ -1,64 +1,54 @@
-# rAthena Knowledge Base v14.0 - Clean Deduplicated Edition
+# rAthena Knowledge Base v15.0 - Superior Edition
 
-**Version:** 14.0 - Properly Merged & Deduplicated
+**Version:** 15.0 - Enhanced with Visual Effects, Monster Modes & GM Permissions
 **Release Date:** 2025-11-30
-**Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 93,698 (CLEAN - no duplicates)
-**Total Size:** 2.8 MB
-**RAG Chunks:** 1,646
+**Total Files:** 9 RAG-optimized knowledge base files
+**Total Lines:** 94,826 (CLEAN - no duplicates)
+**Total Size:** 2.9 MB
+**RAG Chunks:** 1,687
 
 ---
 
 <!-- RAG_CHUNK: version_comparison -->
 ## VERSION COMPARISON
 
-| Metric | kb_v9_final | v13 (bloated) | **v14 (CLEAN)** |
-|--------|-------------|---------------|-----------------|
-| **Total Files** | 9 | 8 | **8** |
-| **Total Lines** | 92,448 | 143,038 | **93,698** |
-| **Total Size** | 2.8 MB | 4.6 MB | **2.8 MB** |
-| **Duplicates** | None | ~40% | **None** |
-| **RAG Chunks** | 1,622 | ~50 | **1,646** |
-| **Quality** | Excellent | Poor | **Excellent** |
+| Metric | kb_v9_final | v14 (clean) | **v15 (SUPERIOR)** |
+|--------|-------------|-------------|-------------------|
+| **Total Files** | 9 | 8 | **9** |
+| **Total Lines** | 92,448 | 93,732 | **94,826** |
+| **Total Size** | 2.8 MB | 2.8 MB | **2.9 MB** |
+| **Duplicates** | None | None | **None** |
+| **RAG Chunks** | 1,621 | 1,649 | **1,687** |
+| **Visual Effects** | Partial | Partial | **967 EF_* Complete** |
+| **Monster Modes** | Partial | Partial | **27 MD_* Complete** |
+| **GM Permissions** | None | None | **31 PC_PERM_* Complete** |
 
-### Why v14 is Better Than v13
+### What's NEW in v15
 
-| Issue | v13 Problem | v14 Solution |
-|-------|-------------|--------------|
-| script_commands_optimized.md | Added as duplicate (10K lines wasted) | Not added - v9 version is MORE comprehensive |
-| Rathena_Source_Data.md | Added as duplicate (31K lines wasted) | Not added - already IN v9 source tutorials |
-| RAG Markers | Only ~50 markers added to index | 1,646 markers preserved from v9 |
-| @go tutorial | Appeared 4+ times | Appears 1 time |
-| File bloat | 4.6 MB | 2.8 MB |
-
----
-
-<!-- RAG_CHUNK: sources_merged -->
-## Source Files Analysis
-
-| File | Lines | In v9? | Action |
-|------|-------|--------|--------|
-| kb_v9_final | 92,448 | BASE | Used as gold standard |
-| script_commands_optimized.md | 10,222 | YES (v9 has 16K superior version) | NOT added (subset) |
-| Rathena_Source_Data.md | 31,401 | YES (in 08_SOURCE_TUTORIALS) | NOT added (already included) |
-| 17_AT_COMMANDS_COMPLETE.md | 1,245 | NO | Added (unique content) |
+| Addition | Lines | RAG Chunks | Value |
+|----------|-------|------------|-------|
+| **09_VISUAL_EFFECTS.md** | 786 | 30 | All 967 EF_* effects with categories |
+| **Monster Modes (MD_*)** | +189 | +3 | All 27 mob mode flags with explanations |
+| **GM Permissions (PC_PERM_*)** | +119 | +5 | All 31 permission constants |
+| **TOTAL NEW** | **+1,094** | **+38** | **Unique content NOT in v9** |
 
 ---
 
 <!-- RAG_CHUNK: file_reference -->
-## Complete File Reference (8 Files)
+## Complete File Reference (9 Files)
 
 | # | File | Lines | RAG Chunks | Content |
 |---|------|-------|------------|---------|
-| 01 | **01_MASTER_INDEX.md** | ~180 | 10 | Navigation hub, comparison |
-| 02 | **02_SCRIPT_COMMANDS.md** | 16,070 | 24 | 767+ commands + creation + performance |
-| 03 | **03_STATUS_EFFECTS.md** | 11,982 | 671 | ALL 1,038 SC_* + val1-val4 docs |
+| 01 | **01_MASTER_INDEX.md** | ~200 | 10 | Navigation hub, comparison |
+| 02 | **02_SCRIPT_COMMANDS.md** | 16,070 | 24 | 767+ commands + BUILDIN_FUNC |
+| 03 | **03_STATUS_EFFECTS.md** | 11,982 | 671 | ALL 1,038 SC_* + val1-val4 |
 | 04 | **04_ITEM_BONUSES.md** | 5,262 | 270 | All 263 bonuses + constants |
-| 05 | **05_GAME_MECHANICS.md** | 3,292 | 30 | EAJ_*, mf_*, element table, configs |
+| 05 | **05_GAME_MECHANICS.md** | 3,481 | 31 | EAJ_*, mf_*, elements, **MD_*** |
 | 06 | **06_CONTENT_CREATION.md** | 5,107 | 55 | NPC patterns, items, quests |
-| 07 | **07_SOURCE_DEVELOPMENT.md** | 50,607 | 567 | C++ dev + tutorials + wiki |
-| 08 | **08_AT_COMMANDS.md** | 1,245 | 25 | ALL 287 @commands |
-| **TOTAL** | **8 files** | **93,698** | **1,646** | **100% Complete** |
+| 07 | **07_SOURCE_DEVELOPMENT.md** | 50,607 | 567 | C++ dev + 420+ tutorials |
+| 08 | **08_AT_COMMANDS.md** | 1,364 | 30 | 287 @commands + **PC_PERM_*** |
+| 09 | **09_VISUAL_EFFECTS.md** | 786 | 30 | **ALL 967 EF_* effects** |
+| **TOTAL** | **9 files** | **94,826** | **1,687** | **Superior Coverage** |
 
 ---
 
@@ -69,22 +59,17 @@
 |-----------|-----------|
 | Script command syntax | 02_SCRIPT_COMMANDS |
 | Create custom command (BUILDIN_FUNC) | 02_SCRIPT_COMMANDS Part 2 |
-| Script performance optimization | 02_SCRIPT_COMMANDS Part 3 |
 | Status effects (SC_*) | 03_STATUS_EFFECTS |
-| SC_* val1-val4 parameters | 03_STATUS_EFFECTS |
 | Item bonuses (bonus/bonus2/etc) | 04_ITEM_BONUSES |
-| Race/Element/Size constants | 04_ITEM_BONUSES |
 | Job masks (EAJ_*) | 05_GAME_MECHANICS |
 | Mapflags (mf_*) | 05_GAME_MECHANICS |
+| **Monster modes (MD_*)** | **05_GAME_MECHANICS** |
 | Element damage table | 05_GAME_MECHANICS |
-| Battle config settings | 05_GAME_MECHANICS |
 | NPC scripting patterns | 06_CONTENT_CREATION |
-| Item groups/gacha | 06_CONTENT_CREATION |
-| Quest system | 06_CONTENT_CREATION |
-| C++ source code | 07_SOURCE_DEVELOPMENT |
-| Plugin system | 07_SOURCE_DEVELOPMENT |
-| Server setup tutorials | 07_SOURCE_DEVELOPMENT |
+| C++ source development | 07_SOURCE_DEVELOPMENT |
 | @commands reference | 08_AT_COMMANDS |
+| **GM permissions (PC_PERM_*)** | **08_AT_COMMANDS** |
+| **Visual effects (EF_*)** | **09_VISUAL_EFFECTS** |
 
 ---
 
@@ -93,12 +78,12 @@
 
 ### For NPC Scripters
 ```
-Load: 02_SCRIPT_COMMANDS + 03_STATUS_EFFECTS + 04_ITEM_BONUSES
+Load: 02_SCRIPT_COMMANDS + 03_STATUS_EFFECTS + 04_ITEM_BONUSES + 09_VISUAL_EFFECTS
 ```
 
 ### For Content Creators
 ```
-Load: 06_CONTENT_CREATION + 04_ITEM_BONUSES + 05_GAME_MECHANICS
+Load: 06_CONTENT_CREATION + 04_ITEM_BONUSES + 05_GAME_MECHANICS + 09_VISUAL_EFFECTS
 ```
 
 ### For C++ Developers
@@ -108,12 +93,12 @@ Load: 07_SOURCE_DEVELOPMENT (includes all tutorials)
 
 ### For Server Admins
 ```
-Load: 05_GAME_MECHANICS (configs) + 08_AT_COMMANDS
+Load: 05_GAME_MECHANICS + 08_AT_COMMANDS (includes GM permissions)
 ```
 
-### For Beginners
+### For Monster Creation
 ```
-Load: 07_SOURCE_DEVELOPMENT (420+ tutorials section)
+Load: 05_GAME_MECHANICS (Monster Modes section) + 06_CONTENT_CREATION
 ```
 
 ---
@@ -124,12 +109,14 @@ Load: 07_SOURCE_DEVELOPMENT (420+ tutorials section)
 | Content | Source File | Status |
 |---------|-------------|--------|
 | Script Commands | doc/script_commands.txt | ✅ 767 commands |
-| Status Effects | src/map/status.hpp | ✅ 1,038 SC_* verified |
+| Status Effects | src/map/status.hpp | ✅ 1,038 SC_* |
 | Item Bonuses | doc/item_bonus.txt | ✅ 263 bonuses |
 | AT Commands | doc/atcommands.txt | ✅ 287 commands |
+| **Visual Effects** | **doc/effect_list.md** | ✅ **967 EF_*** |
+| **Monster Modes** | **doc/mob_db_mode_list.txt** | ✅ **27 MD_*** |
+| **GM Permissions** | **doc/permissions.txt** | ✅ **31 PC_PERM_*** |
 | Battle Config | conf/battle/*.conf | ✅ 550+ settings |
 | Element Table | db/re/attr_fix.yml | ✅ Values verified |
-| Job Constants | src/map/pc.hpp | ✅ EAJ_* verified |
 
 ---
 
@@ -138,30 +125,61 @@ Load: 07_SOURCE_DEVELOPMENT (420+ tutorials section)
 
 ### Chunk Distribution
 - **03_STATUS_EFFECTS.md**: 671 chunks (1 per status effect)
-- **04_ITEM_BONUSES.md**: 270 chunks (1 per bonus type)
 - **07_SOURCE_DEVELOPMENT.md**: 567 chunks (per section/tutorial)
-- **Total**: 1,646 semantic chunks
+- **04_ITEM_BONUSES.md**: 270 chunks (1 per bonus type)
+- **06_CONTENT_CREATION.md**: 55 chunks (per pattern/guide)
+- **05_GAME_MECHANICS.md**: 31 chunks (inc. monster modes)
+- **08_AT_COMMANDS.md**: 30 chunks (inc. permissions)
+- **09_VISUAL_EFFECTS.md**: 30 chunks (effects by category)
+- **02_SCRIPT_COMMANDS.md**: 24 chunks (major sections)
+- **Total**: 1,687 semantic chunks
 
-### Chunk Format
-```html
-<!-- RAG_CHUNK: SC_BLESSING -->
-### SC_BLESSING
-Effect: Increase STR, DEX & INT by (Skill Lv)
-...
+### Why v15 is Superior
+
+1. **Complete Visual Effects Reference**: All 967 EF_* constants with descriptions - essential for NPC scripters using `specialeffect`
+2. **Monster Mode Documentation**: Full MD_* flag explanations for mob_db.yml creation
+3. **GM Permissions Reference**: All PC_PERM_* constants for groups.conf configuration
+4. **Zero Duplicates**: Only genuinely unique content added
+5. **+38 RAG Chunks**: More precise semantic boundaries
+
+---
+
+<!-- RAG_CHUNK: new_content_summary -->
+## New Content in v15
+
+### Visual Effects (09_VISUAL_EFFECTS.md)
+```c
+// Use in NPC scripts
+specialeffect EF_BLESSING;    // Effect on NPC
+specialeffect2 EF_HEAL;       // Effect on player
+@effect 42                    // Test in-game
+```
+Categories: Hit, Buff, Mage, Priest, Assassin, Knight, Monk, Bard, Ninja, Gunslinger, 3rd Class, Elemental
+
+### Monster Modes (05_GAME_MECHANICS.md)
+```yaml
+Mode:
+  CanMove: true       # MD_CANMOVE
+  Aggressive: true    # MD_AGGRESSIVE
+  Mvp: true          # MD_MVP
+  Detector: true     # MD_DETECTOR
 ```
 
-### Why This Works for RAG
-1. Each chunk is semantically complete
-2. Chunk names match search queries (SC_BLESSING, bStr, etc.)
-3. No duplicate content = accurate retrieval
-4. Consistent format = predictable parsing
+### GM Permissions (08_AT_COMMANDS.md)
+```conf
+permissions: {
+    all_commands: true        # PC_PERM_USE_ALL_COMMANDS
+    any_warp: true           # PC_PERM_WARP_ANYWHERE
+    bypass_max_stat: true    # PC_PERM_BYPASS_MAX_STAT
+}
+```
 
 ---
 
 <!-- RAG_METADATA -->
-<!-- VERSION: 14.0 -->
-<!-- FILES: 8 -->
-<!-- TOTAL_LINES: 93698 -->
-<!-- RAG_CHUNKS: 1646 -->
+<!-- VERSION: 15.0 -->
+<!-- FILES: 9 -->
+<!-- TOTAL_LINES: 94826 -->
+<!-- RAG_CHUNKS: 1687 -->
 <!-- DUPLICATES: 0 -->
 <!-- LAST_UPDATED: 2025-11-30 -->

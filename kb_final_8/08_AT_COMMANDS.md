@@ -1242,4 +1242,123 @@ Check `/src/map/atcommand.cpp` for full restriction list.
 
 ---
 
+---
+
+<!-- RAG_CHUNK: gm_permissions_001 -->
+## GM Permissions Reference (PC_PERM_*)
+
+Configure in `/conf/groups.conf` under the "permissions" bracket.
+
+### 1. Basic Permissions
+
+<!-- RAG_CHUNK: PC_PERM_BASIC -->
+| Permission | Constant | Description |
+|------------|----------|-------------|
+| can_trade | PC_PERM_TRADE | Allow trades, drops, vending, storage, mail |
+| can_party | PC_PERM_PARTY | Allow creating and joining parties |
+| attendance | PC_PERM_ATTENDANCE | Allow daily attendance system |
+
+### 2. Extended Permissions
+
+<!-- RAG_CHUNK: PC_PERM_EXTENDED -->
+| Permission | Constant | Description |
+|------------|----------|-------------|
+| all_skill | PC_PERM_ALL_SKILL | Grants all skills in skill tree |
+| all_equipment | PC_PERM_USE_ALL_EQUIPMENT | Equip any item (bypass requirements) |
+| skill_unconditional | PC_PERM_SKILL_UNCONDITIONAL | Use skills without SP/items |
+| join_chat | PC_PERM_JOIN_ALL_CHAT | Join password-protected chatrooms |
+| kick_chat | PC_PERM_NO_CHAT_KICK | Cannot be kicked from chatrooms |
+| view_hpmeter | PC_PERM_VIEW_HPMETER | See all players' HP bars |
+| view_equipment | PC_PERM_VIEW_EQUIPMENT | View any player's equipment |
+| hack_info | PC_PERM_RECEIVE_HACK_INFO | Receive hack attempt notifications |
+| disable_pvm | PC_PERM_DISABLE_PVM | Cannot attack monsters |
+| disable_pvp | PC_PERM_DISABLE_PVP | Cannot attack players |
+| can_trade_bounded | PC_PERM_TRADE_BOUNDED | Trade bound items |
+| item_unconditional | PC_PERM_ITEM_UNCONDITIONAL | Use items without requirements |
+| trade_unconditional | PC_PERM_TRADE_UNCONDITIONAL | Ignore item trade conditions |
+
+### 3. Command-related Permissions
+
+<!-- RAG_CHUNK: PC_PERM_COMMANDS -->
+| Permission | Constant | Description |
+|------------|----------|-------------|
+| all_commands | PC_PERM_USE_ALL_COMMANDS | Access all @ and # commands |
+| disable_commands_when_dead | PC_PERM_DISABLE_CMD_DEAD | Cannot use commands while dead |
+| hide_session | PC_PERM_HIDE_SESSION | Hidden from @who commands |
+| who_display_aid | PC_PERM_WHO_DISPLAY_AID | See GMs and account IDs in @who |
+| any_warp | PC_PERM_WARP_ANYWHERE | Bypass nowarp/nowarpto/nomemo mapflags |
+| receive_requests | PC_PERM_RECEIVE_REQUESTS | Receive @request messages |
+| show_bossmobs | PC_PERM_SHOW_BOSS | See boss mobs in @showmobs |
+| channel_admin | PC_PERM_CHANNEL_ADMIN | Full #channel control |
+| use_check | PC_PERM_USE_CHECK | Use /check client command |
+| use_changemaptype | PC_PERM_USE_CHANGEMAPTYPE | Use /changemaptype client command |
+| command_enable | PC_PERM_ENABLE_COMMAND | Use @commands while in NPC dialogue |
+| bypass_stat_onclone | PC_PERM_BYPASS_STAT_ONCLONE | Bypass stat limits in @clonestat |
+| bypass_max_stat | PC_PERM_BYPASS_MAX_STAT | Bypass max stats (up to 32767) |
+| macro_detect | PC_PERM_MACRO_DETECT | Use /macro_detector |
+| macro_register | PC_PERM_MACRO_REGISTER | Use /macro_register and /macro_preview |
+
+<!-- RAG_CHUNK: groups_conf_example -->
+### Example groups.conf Entry
+
+```conf
+{
+    id: 99                          // Group ID
+    name: "Admin"                   // Group name
+    level: 99                       // GM level
+    inherit: ( "Support", "Law" )   // Inherit from other groups
+    commands: {
+        // All commands enabled
+        all_commands: true
+    }
+    permissions: {
+        // Full access
+        can_trade: true
+        can_party: true
+        all_skill: true
+        all_equipment: true
+        skill_unconditional: true
+        item_unconditional: true
+        view_hpmeter: true
+        view_equipment: true
+        hack_info: true
+        any_warp: true
+        who_display_aid: true
+        all_commands: true
+        channel_admin: true
+        bypass_max_stat: true
+    }
+}
+```
+
+### Checking Permissions in Scripts
+
+```c
+// Check if player has a specific permission
+if (has_permission(PC_PERM_TRADE)) {
+    mes "You can trade!";
+}
+
+// Get player's group ID
+.@group = getgroupid();
+if (.@group >= 10) {
+    mes "You are a GM!";
+}
+```
+
+### Source Code Location
+Permissions are defined in `src/map/pc.hpp`:
+```cpp
+enum e_pc_permission {
+    PC_PERM_TRADE = 0,
+    PC_PERM_PARTY,
+    PC_PERM_ALL_SKILL,
+    // ... etc
+};
+```
+
+---
+
+*Permissions reference from rAthena doc/permissions.txt*
+
 #rathena #atcommand #charcommand #gm #admin #commands #reference #complete
