@@ -15165,3 +15165,3717 @@ int pc_additem(struct map_session_data *sd, struct item *item_data, int amount, 
 
 This reference covers all essential compilation and debugging workflows for rAthena development, from basic builds to advanced debugging scenarios with real-world examples.
 
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 5: SOURCE CODE DOCUMENTATION (doc/source_doc.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: SOURCE_DOC_COMPLETE -->
+
+//===== rAthena Documentation ================================
+//= Source Documentation
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Last Updated: ========================================
+//= 20140218
+//===== Description: =========================================
+//= Explanation of source behaviours and structures.
+//============================================================
+
+This file provides basic information about rAthena's source code.
+The format of this file is as follows:
+	1. Glossary
+	2. Intro & Emulation
+	3. Interface and Communications
+	4. Databases and Independence
+	5. Package and Module Purposes
+	6. Nomenclature
+	7. Variable Notes
+	8. Building
+	9. Atcommands & Script Commands
+
+===============
+| 1. Glossary |
+===============
+The following terms will be frequently used throughout this file, so it is
+important to have a thorough understanding of what they are to avoid confusion.
+
+  Term          Description
+  ----          -----------  
+  serv          a program/daemon that runs indefinitely offering a service
+  host          a machine that has one or more servs running
+  command       a request of an action on the server or client
+                (atcommand, script_command, packet_request)
+  interface     a class/module that offers a list of commands
+
+========================
+| 2. Intro & Emulation |
+========================
+rAthena is an emulation of Ragnarok Online, which runs on software known as AEGIS.
+AEGIS is separated into 4 servs:
+
+  Serv       Description
+  ----       -----------
+  account    handles player account information and logins.
+  char       handles character data (persistent information).
+  inter      handles broadcasting across map-serv. [merged into rAthena's char-serv]
+  map        handles all player runtime actions.
+
+These servs are an aggregation of each other:
+  login-serv  =>  1 - * char-serv, 1 - * map-serv
+
+In this case, * is 30. This means that 1 login-serv is able to manage up to
+30 char-serv, which itself can manage up to 30 map-serv. Note that due to these
+aggregations, the login-serv and map-serv never directly communicate with each other.
+
+===================================
+| 3. Interface and Communications |
+===================================
+We have 3 types of communication:
+
+  1. serv <=> serv  (AH,HA,HZ,ZH)
+     This type of server-to-server communication is referred to as "inter-serv" communication.
+
+  2. serv <=> client  (AC,CA,HC,CH,ZC,CZ)
+     This is what our servs send or receive to a player client.
+	
+  3. serv <=> console/terminal
+     This is the only kind of communication which doesn't use packets (currently).
+     It's only done in localhost from console to servs (a way to input args in servs runtime).
+
+The packet notation and structure are well defined in 'doc/packet_struct_notation.txt'.
+
+Note that scripts and atcommands are another kind of interface, as they allow
+users to input data into the serv.
+
+=================================
+| 4. Databases and Independence |
+=================================
+Each server can theoretically be set in a different host with its own databases
+associated (although this is currently broken due to years without documentation).
+In other words, you shouldn't expect to find char-serv data on a map-serv host
+and access it directly, but rather ask the char-serv to fetch it.
+
+The list below details the association of database tables with the servs.
+For real table names, see 'conf/inter_athena.conf'.
+
+  ==============
+  | Login-serv |
+  ==============
+
+  Table                 Contents
+  -----                 --------
+  login_db              all account-related information
+  reg_db                permanent account variables (ex. #CASHPOINTS)
+
+  =============
+  | Char-serv |
+  =============
+
+  Table                 Contents
+  -----                 --------
+  char_db               all char-related information
+  hotkey_db             hotkeys set for each character
+  scdata_db             character status at disconnection
+  cart_db               list of items in each character's cart
+  inventory_db          list of items in each character's inventory
+  charlog_db            char-serv logs
+  storage_db            list of items in each character's storage (Kafra)
+  reg_db                permanent character variables (ex. ADVJOB)
+  skill_db              character learned skill database
+  interlog_db           inter-serv logs
+  memo_db               character Memo_point database 
+  guild_db              guild record (name, master, lv, exp, emblem, etc.)
+  guild_alliance_db     guild relations database (allies, enemies)
+  guild_castle_db       guild owned castle database
+  guild_expulsion_db    guild expulsion logs
+  guild_member_db       guild current member titles and positions
+  guild_skill_db        guild learned skills database
+  guild_position_db     guild positions configuration (names, taxes, rights)
+  guild_storage_db      guild item storage
+  party_db              party record (name, leader, shared_exp, shared_item)
+  pet_db                saved pet objects database
+  friend_db             character friends database
+  mail_db               mail database
+  auction_db            auction database
+  quest_db              character quest realisation database
+  homunculus_db         saved homunculus objects database
+  skill_homunculus_db   homunculus learned skills database
+  mercenary_db          saved mercenary objects database (HP, SP, level, etc.)
+  mercenary_owner_db    character proprietary link to mercenary object save and use stats
+  elemental_db          saved Elemental objects database (HP, SP, FLEE, etc.)
+  ragsrvinfo_db         map-serv rate record (similar to 'conf/battle/drop.conf', possibly a leftover?)
+  skillcooldown_db      character skill cooldowns at disconnection
+  bonus_script_db       character bonus_script at disconnection
+
+  ============
+  | Map-serv |
+  ============
+
+  Table                 Contents
+  -----                 --------
+  mapreg_db             permanent map-serv global variables (ex. $agit_result_timer)
+  buyingstore_db        live buyers database (map_pos, aid, shop title, etc.)
+  buyingstore_items_db  items currently being purchased by live buyers
+  vending_db            live vendors database (map_pos, aid, shop title, etc.)
+  vending_items_db      items currently being sold by live vendors
+
+  The tables below are optional alternatives to TXT databases located in 'db/*.txt'.
+
+  item_db               item database (Pre-Renewal)
+  item_db_re            item database (Renewal)
+  item_db2              item database import (Pre-Renewal)
+  item_db2_re           item database import (Renewal)
+  item_cash_db          cash shop database
+  item_cash_db2         cash shop database (import)
+  mob_db                monster database (Pre-Renewal)
+  mob_db_re             monster database (Renewal)
+  mob_db2               monster database import (Pre-Renewal)
+  mob_db2_re            monster database import (Renewal)
+  mob_skill_db          monster skill database (Pre-Renewal)
+  mob_skill_db_re       monster skill database (Renewal)
+  mob_skill_db2         monster skill database import (Pre-Renewal)
+  mob_skill_db2_re      monster skill database import (Renewal)
+
+==================================
+| 5. Package and Module Purposes |
+==================================
+The following list describes each module and its purpose.
+
+  ============
+  | 3rdparty |
+  ============
+  The '3rdparty/' folder contains libraries used by the project but are not maintained by us.
+
+  ==========
+  | Common |
+  ==========
+  The 'src/common' folder contains all the modules which are used by more then 1 serv.
+
+  Module         Description
+  ------         -----------
+  cbasetypes     adapter to OS and arch specification (function name, bit representation)
+  cli            console Line Interface handling (get arguments from terminal at beginning and runtime) 
+  conf           facade of libconfig api
+  core           MAIN program entry (initialization of each serv starts here)
+  db             database module (create, parse, and destroy databases)
+  des            Data Encryption Standard algorithm modified for rAthena
+  ers            Entry Reusage System to help memory allocation
+  grfio          handles *.grf files (searches for files in them and decodes them)
+  malloc         handles runtime memory allocation (so that memory manager could check for leaks)
+  mapindex       handles the processing and reading of the mapcache.dat
+  md5calc        offers md5 encryption
+  mmo.hpp        common structures and defines across serv
+  msg_conf       handles msg in src from configuration
+  nullpo         checks and dumps info for debug mode
+  random         generation of random numbers
+  showmsg        display messages in console with a certain color
+  socket         handling of sockets (listening, close, open, etc.)
+  sql.cpp        MySQL database proxy
+  strlib.cpp     string handling
+  timer.cpp      timer-related functions
+  utils.cpp      misc functions
+  winapi.hpp     Windows redefine and include
+
+  ==============
+  | Login-serv |
+  ==============
+
+  Module         Description
+  ------         -----------
+  account            persistence for account data
+  ipban              offers IP banishment
+  login              main module of login-serv
+  loginclif          client <=> login-serv connections interface (send and receive packets to/from client)
+  loginchrif         char-serv <=> login-serv connections interface (send and receive packets to char-serv)
+  logincsnlif        console <=> login-serv connections interface (send and receive packets to/from console (internal buffer))
+  loginlog           records all operations into log for login-serv
+
+  =============
+  | Char-serv |
+  =============
+  The char-serv is responsible for persistence (save/load data permanently) and
+  also serves as a controller that handles all associated map-servs. Further, it
+  is responsible for ensuring that there are no duplicate party names among the
+  map-servs (which could create conflicts if a party transfers map-servs).
+
+  Module             Description
+  ------             -----------
+  char               currently holds all the char-serv (EA) process
+  -- char_clif       client <=> char-serv connections interface (send and receive packets to/from client)
+  -- char_csnlif     console <=> char-serv connections interface (send and receive packets to/from console (internal buffer))
+  -- char_mapif      map-serv <=> char-serv connections interface (send and receive packets to map-serv)
+  -- char_logif      login-serv <=> char-serv connections interface (send and receive packets to login-serv)
+  inter              main entry to inter-serv; delegates packet handling to submodules
+  -- int_auction     handles auction request and saving
+  -- int_elemental   handles elemental data (BL_ELE => Sorcerer mob)
+  -- int_guild       handles guild data (creation, destruction, add member, etc.)
+  -- int_homun       handles homunculus data (BL_HOM => Alchemist mob)
+  -- int_mail        handles mail data
+  -- int_mercenary   handles mercenary data (BL_MER => All class mob)
+  -- int_party       handles party data (creation, destruction, add member, etc.)
+  -- int_pet         handles pet data (BL_PET => All class mob)
+  -- int_quest       handles quest data
+  -- int_storage     handles storage data (save storage, load storage, etc.)
+
+  ============
+  | Map-serv |
+  ============
+
+  Module         Description
+  ------         -----------
+  atcommand      handles GM commands (ex. @who)
+  battle         handles damage calculation where target is enemy and battle configuration settings
+  battleground   functions for Battleground system (create, destroy, messaging, join, etc.)
+  buyingstore    functions for player Buying Stores (create, search, sell)
+  cashshop       functions to set up the server cashshop (from cashshop_db), and contains function to buy items from cashshop
+  channel        functions for the channel system (create, delete, join/auto-join, leave, broadcast, alter options)
+  chat           functions for the chatroom system (create, delete, trigger chatroom_event, change owner, etc.)
+  chrif          char-serv <=> map-serv connections interface (send and receive packets to char-serv)
+  clif           client <=> map-serv connections interface (send and receive packets to/from client)
+  date           functions for time
+  duel           functions for the duel system
+  elemental      functions for Sorcerer Elementals processing (create, delete, etc.)
+  guild          functions for the guild system
+  homunculus     functions for Alchemist Homunculi processing (create, delete, get stats, death, etc.)
+  instance       functions for instance system
+  intif          map-serv <=> inter-serv interface (meant to communicate with 'char/inter.cpp' or its submodules)
+  itemdb         functions for the item database
+  log            functions for server log system
+  mail           functions for mail system
+  map            map-serv main module, and a representation of a map object
+                   adds or removes other objects into map (blocklist) and provides iterators (ex. map_foreachpc)
+  mapreg         functions to save or read variables in mapreg_db (global variables for all map-serv)
+  mercenary      functions for Mercenary system (create, search, get stats, dead)
+  mob            functions for mob data, structures, and mob routines
+  npc            functions for NPC data (create, delete, calling NPCs)
+  npc_chat       functions for PCRE and NPC interaction
+  party          functions for the party system (create, join, delete, alter options, etc.)
+  path           functions for path finding (check_distance, search path unit will use)
+  pc             functions for player processing (loot/drop/delete items, player bonus handling, player dead, etc.)
+  pc_groups      functions for players groups system (manage player permissions and atcommand access)
+  pet            functions for the pet system (similar to mercenary, homunculus, player, etc.)
+  quest          functions for the quest log system (add, complete, remove, etc.) 
+  script         handles script language logic (used in NPC scripts), script commands, and mapflags
+  searchstore    functions for the Vendor Shop Search feature
+  skill          functions for skills (skill_casttime calculation, skill behaviours, skill_chk_cast, requirement checks, 'db/skill_*.txt' processing)
+  status         functions for statuses on a bl (add, remove, calculation of effects as a temporary bonus)
+                   status is a struct available by most units as common attributes (bl_type only attribute are dealt in bl specific files, like 'pc.cpp' or 'mob.cpp')
+  storage        functions for the storage system: Kafra, cart, guild, inventory (add, transfer, remove items between containers)
+                   also ensures container mutex (e.g. guild_storage) and preparation for save requests
+  trade          functions to perform a trade (request, accept, add items/Zeny, checks, complete trade)
+  unit           functions for controlling player/mob/NPC actions (walk, follow, skill use)
+  vending        functions for Merchant Vending (create, purchase)
+
+===================
+| 6. Nomenclature |
+===================
+The following are standard naming conventions used by rAthena.
+
+  Type        Prefix         Example
+  ----        ------         -------
+  function    module_        pc_addspiritball -> located in pc.cpp file
+  structure   s_             s_quest_db
+  enum        e_             e_race
+  status      SC_            SC_INTOABYSS
+  skill       classmid_      AL_TELEPORT -> AL = Acolyte
+  bonus       SP_            SP_ATK_RATE
+
+NOTES:
+  - If a status name conflicts with a skill name, another '_' is added (e.g. SC__WEAKNESS).
+  - All constants should be written in all caps.
+  - battle_config vs. #define macro:
+        battle_config can be changed during runtime (ex. @setbattleflag), but this requires
+        more processing and could render the server less stable than a macro would.
+
+=====================
+| 7. Variable Notes |
+=====================
+The following variables are commonly used in the source code.
+
+  Variable   Full Name            Description
+  --------   ---------            -----------
+  sd         session data         represents the session of a client into a serv (login, char, or map)
+  tsd        target sd            same as sd, but for a target
+  pl_sd                           usually in an iteration loop, the current sd of index
+  it_sd                           a variant of pl_sd (for iter_sd)
+  fd         file descriptor      a link to an I/O like a socket or file
+  md         mob data             represents monster information; also used to represent mercenary information
+  hd         homunculus data      represents homunculus information
+  nd         NPC data             represents NPC information
+  ed         elemental data       represents elemental information
+  pd         pet data             represents pet information
+  sc         status change        a structure containing all the possible status applied to a character
+  tsc        target sc            same as sc, but for a target
+  sce        status change entry  represents data of a specific inflicted status
+  bl         blocklist            common data of one object (a skill, pet, player, etc); also represents a 2-way chain-link
+  tbl        target bl            same as bl, but for a target
+  st         script stack         the stack of an NPC
+  aid        account id           a player account ID
+  gid        game id              the general unique ID of a Unit, which is the aid for players
+                                  (since a single character per account can be connected at one time)
+  cid        character id         a player character ID
+  rid        character id         a variant of cid
+  su         skill unit           a skill with a unit that remains on the ground
+
+===============
+| 8. Building |
+===============
+When adding a new src file or library (new.cpp and its header, new.hpp), you'll also
+need to update the following files to fully integrate it into the project so that
+users can compile it.
+
+There are 3 ways to compile the project:
+
+> configure + makefile (requires POSIX environment + C compiler)
+  This flow is mainly used by Linux users, but can be done in any POSIX environment (ex. Windows + Cygwin).
+  - Configure.in: Template file to generate the configure script by autoconf.
+  - Makefile.in: Template makefile to generate the real makefile according to configure. Each subfolder needs its own makefile.
+  - Makefile: File filled with rules for gcc to compile folder.
+  The sequence is as follows:
+	1) configure.in => configure by autoconf ('autoconf configure.in > configure')
+	2) configure    => Makefile by Makefile.in
+	3) Makefile     => binary by 'make all' or alternative
+
+> cmake (requires C compiler + cmake)
+  - CmakeList: Comparable to Makefile, but in a more cross-OS way.
+  The sequence is as follows:
+	1) Define which toolchain to use, acting like a configure ('cmake -G "Unix Makefiles"' or 'cmake -G "Visual Studio 10"')
+	2) Enter the build folder where the Makefiles are generated and launch 'make install' to produce binaries from them
+
+> sln (requires Visual Studio)
+  - *.sln: Solution project for Visual Studio (Windows).
+
+See https://github.com/rathena/rathena/wiki/compiling for more detailed compilation instructions.
+
+===================================
+| 9. Atcommands & Script Commands |
+===================================
+To implement an atcommand or script command, you must define a function and
+add its reference to the appropriate array. See the files in 'src/custom/'
+for examples.
+
+Atcommands
+----------
+	ACMD_FUNC(name)
+	{
+		<code>
+	}
+
+	ACMD_DEF(name)  - OR -  ACMD_DEFR(name,restriction)
+	  - OR -
+	ACMD_DEF2("alias",name)  - OR -  ACMD_DEF2R("alias",name,restriction)
+
+  Restriction    Description
+  -----------    -----------
+      1          restrict usage in console
+      2          restrict usage in script_command
+
+Script Commands
+---------------
+	BUILDIN_FUNC(name)
+	{
+		<code>
+	}
+
+	BUILDIN_DEF(name,"arguments")
+	  - OR -
+	BUILDIN_DEF2(name,"alias","arguments")
+
+  Argument    Description
+  --------    -----------
+     i        integer
+     s        string
+     v        variable
+     l        label
+     r        reference (of a variable)
+     ?        optional parameter (one)
+     *        optional parameter (unknown count)
+              null (no arguments)
+
+Useful functions:
+  script_hasdata(st,i);       // Returns if the stack contains data at the target index
+  script_getdata(st,i);       // Returns the script_data at the target index (data is a glob type)
+  script_getnum(st,val);      // Returns the int at the target index
+  script_getstr(st,val);      // Returns the string at the target index
+  script_getref(st,val);      // Returns the reference of a variable at the target index (useful for arrays, ex. 'checkweight2')
+  script_getfuncname(st);     // Returns the current function name (useful for function variants, ex. 'sc_start')
+  script_pushint(st,val);     // Pushes an int into the stack
+  script_pushstr(st,val);     // Pushes a string into the stack
+  script_isstring(st,i);      // Returns if the data at at the target index is a string
+  script_isint(st,i);         // Returns if the data at at the target index is an int
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 6: PACKET STRUCTURE NOTATION (doc/packet_struct_notation.md)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: PACKET_STRUCT_NOTATION -->
+
+# Packet Structure Notation
+
+This document specifies how packets are and should be documented, to
+keep packet structure comments consistent in the entire codebase. It
+also serves as a guide to those, who are unfamiliar with the general
+packet layout.
+
+All mentioned data types are assumed to be little-endian (least-
+significant byte first, least significant bit last) and of same size
+regardless of architecture.
+
+### Typical description of a packet
+
+```
+Notifies the client about entering a chatroom.  
+00db <packet len>.W <chat id>.L { <role>.L <name>.24B }* (ZC_ENTER_ROOM)
+role:  
+  0 = owner (menu)  
+  1 = normal  
+```
+
+The first line contains a brief description of what the packet does,
+or what it is good for, followed by it's `AEGIS` name in parentheses;
+first two letters of the `AEGIS` name specify origin (first letter)
+and destination (second letter) of the packet. If the packet's name
+is not known or is not applicable (rAthena server-server packets),
+specify at least these two letters to indicate the direction of the
+packet. Do not use `S(end)/R(ecv)` for this, as it is inaccurate and
+location dependent (if the description is copied to different server
+or other RO-related projects, it might change it's meaning).
+
+If there are multiple versions of the packet, the `AEGIS` name is
+appended to the end of the packet's structure instead. If the name
+did not change between versions, a `PACKETVER` expression is appended,
+such as `(PACKETVER >= 20111111)`.
+
+Second line describes the packet's field structure, beginning with a
+`%04x` formatted packet type, followed by the individual fields and
+their types. Each field begins with it's name enclosed in angle
+brackets ( `<field name>` ) followed by a dot and the data size type.
+Field names should be lower-case and without underscores. If other
+packets already have a field in common, use that name, rather than
+inventing your own (ex. "packet len" and "account id"). Repeated and
+optional fields are designated with curly and square brackets
+respectively, padded with a single space at each side.
+
+Further lines are optional and either include details about the
+the packet's mechanics or further explanation on the packet fields'
+values.
+
+### Packet field data size type
+
+ |Field name|Field description|Field size|
+ |---|---|---|
+ |B|byte|1 byte|
+ |W|word|2 bytes|
+ |L|long, dword|4 bytes|
+ |F|float|4 bytes|
+ |Q|quad|8 bytes|
+
+### Variable cases
+ 
+ |Field name|Field description|
+ |---|---|
+ |nB|n bytes|
+ |?B|variable/unknown amount of bytes|
+ |nS|n bytes, zero-terminated|
+ |?S|variable/unknown amount of bytes, zero-terminated|
+
+### Repetition of packet fields
+ 
+ |Field name|Field description|
+ |---|---|
+ |{}|repeated block|
+ |{}*|variable/unknown amount of consecutive blocks|
+ |{}*n|n times repeated block|
+ |[]|optional fields|
+
+### Packet origin and destination letters
+ 
+ |Origin|Destination|
+ |---|---|
+ |A|Account (Login)|
+ |C|Client|
+ |H|Character|
+ |I|Inter|
+ |S|Server (any type of server)|
+ |Z|Zone (Map)|
+
+### Examples
+
+- Packet with nested repetition blocks:
+ 
+```
+/// Presents a textual list of producable items.
+/// 018d <packet len>.W { <name id>.W { <material id>.W }*3 }* (ZC_MAKABLEITEMLIST)
+/// material id:
+///     unused by the client
+```
+
+- Packet with multiple versions identified with different AEGIS names:
+
+```
+/// Request for server's tick.
+/// 007e <client tick>.L (CZ_REQUEST_TIME)
+/// 0360 <client tick>.L (CZ_REQUEST_TIME2)
+```
+
+- Packet with multiple versions identified with same AEGIS name:
+
+```
+/// Cashshop Buy Ack.
+/// 0289 <cash point>.L <error>.W (ZC_PC_CASH_POINT_UPDATE)
+/// 0289 <cash point>.L <kafra point>.L <error>.W (PACKETVER >= 20070711) (ZC_PC_CASH_POINT_UPDATE)
+```
+
+- Packet with combination of both different AEGIS names and different versions with same name:
+
+```
+/// Sends hotkey bar.
+/// 02b9 { <is skill>.B <id>.L <count>.W }*27 (ZC_SHORTCUT_KEY_LIST)
+/// 07d9 { <is skill>.B <id>.L <count>.W }*36 (ZC_SHORTCUT_KEY_LIST_V2, PACKETVER >= 20090603)
+/// 07d9 { <is skill>.B <id>.L <count>.W }*38 (ZC_SHORTCUT_KEY_LIST_V2, PACKETVER >= 20090617)
+```
+ 
+- Packet for a client command:
+
+```
+/// /item /monster.
+/// Request to make items or spawn monsters.
+/// 013f <item/mob name>.24B (CZ_ITEM_CREATE)
+```
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 7: INTER-SERVER PACKETS (doc/packet_interserv.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: PACKET_INTERSERV_COMPLETE -->
+
+//===== rAthena Documentation ================================
+//= Source Documentation
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Last Updated: ========================================
+//= 20180924
+//===== Description: =========================================
+//= List of all packets used by login-server (A), char-server
+//= (H), and map-server (Z) to communicate with each other.
+//= See packet_client.txt for communication to client (C).
+//============================================================
+
+This file provides information about rAthena's packets, ordered by number.
+This assumes knowledge of packet notation, which is detailed in
+'doc/packet_struct_notation.txt'.
+
+The format of this file is as follows:
+	1. Notes
+	2. Login-Char Packets
+	3. Char/Inter Packets
+	- 3.1 Inter-Map Packets
+	- 3.2 Char-Map Packets
+
+============
+| 1. Notes |
+============
+Currently the max packet size is 0xFFFF (see 'WFIFOSET()' in 'src/common/socket.cpp').
+
+=========================
+| 2. Login-Char Packets |
+=========================
+0x2712:
+	Type: HA
+	Structure: <cmd>.W <aid>.L <login_id1>.L <login_id2>.L <sex>.B <ip>.L <request_id>.L
+	index: 0,2,6,10,14,15,19
+	len: 23
+	parameter:
+		- cmd : packet identification (0x2712)
+		- aid : account identification
+		- login_id1: unknown @FIXME
+		- login_id2: unknown @FIXME
+		- sex: the sex of the account
+		- ip: the ip of the connection (obsolete)
+		- request_id: unknown @FIXME
+	desc:
+		- Request from char-server to authenticate an account.
+
+0x2713:
+	Type: AH
+	Structure: <cmd>.W <aid>.L <login_id1>.L <login_id2>.L <sex>.B <auth>.B <request_id>.L <clienttype>.B
+	index: 0,2,6,10,14,15,16,20
+	len: 21
+	parameter:
+		- cmd : packet identification (0x2713)
+		- aid : account identification
+		- login_id1: unknown @FIXME
+		- login_id2: unknown @FIXME
+		- sex: the sex of the account
+		- ok : 1=auth failed, 1=ok
+		- request_id: unknown @FIXME
+		- clienttype: unknown @FIXME
+	desc:
+		- Acknowledge the authentication request from char-server
+
+0x2714:
+	Type: HA
+	Structure: <cmd>.W <user_count>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2714)
+		- user_count: number of user present on the char-server
+	desc:
+		- Retrieve the number of user present on a char-server
+
+0x2715:
+	free
+
+0x2716:
+	Type: HA
+	Structure: <cmd>.W <aid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2716)
+		- aid: account identification
+	desc:
+		- Request the account information of aid (see 0x2717)
+
+0x2717
+	Type: AH
+	Structure: <cmd>.W <aid>.L <email>.40B <expiration_time>.L <group_id>.B <char_slots>.B <birthdate>.11B <pincode>.5B <pincode_change>.L <isvip>.B <char_vip>.B <MAX_CHAR_BILLING>.B
+	index: 0,2,6,46,50,51,52,63,68,72,73,74
+	len: 75
+	parameter:
+		- cmd: packet identification (0x2717)
+		- aid: account identification
+		- email: email of aid
+		- expiration_time: unknow @FIXME
+		- group_id: the group the aid belong too
+		- char_slots: number of slot available the account have (will be displayed on client)
+		- birthdate: birthdate of aid
+		- pincode: current pincode of aid
+		- pincode_change: new pincode of aid
+		- isvip: if this aid is currently vip or not
+		- char_vip: number of charslot that are vip (could only do creation on if you are vip)
+		- MAX_CHAR_BILLING: number of charslort that are for billing
+	desc:
+		- Request account data
+
+0x2718
+	Type: AH
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2718)
+	desc:
+		- Keep alive packet, (confirm we are still connected)
+
+0x2719:
+	Type: HA
+	Structure: <cmd>.W
+	index: 0,2
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2719)
+	desc:
+		- Ping request from char-server
+
+0x2720:
+	Type: HA
+	Structure: <cmd>.W <map_fd>.L <u_fd>.L <u_aid>.L <account_id>.L
+	index: 0,2,6,10,14
+	len: 18
+	parameter:
+		- cmd : packet identification (0x2720)
+		- map_fd :
+		- u_fd :
+		- u_aid :
+		- account_id :
+	desc:
+		-
+
+0x2721:
+	Type: AH
+	Structure: <cmd>.W <map_fd>.L <u_fd>.L <u_aid>.L <account_id>.L <status>.B <password>.33B <email>.40B <last_ip>.16B <last_login>.24B <group_id>.L <logincount>.L <state>.L <birthdate>.11B <userid>.?B
+	index: 0,2,6,10,18,19,52,92,108,132,136,140,144,122+NAME_LENGTH
+	len: 122 + NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x2721)
+		- map_fd
+		- u_fd
+		- u_aid
+		- account_id
+		- status: 0 - Failed
+		- password
+		- email
+		- last_ip
+		- last_login
+		- group_id
+		- logincount
+		- state
+		- birthdate
+		- userid
+	desc:
+		-
+
+0x2722:
+	Type: HA
+	Structure: <cmd>.W <account_id>.L <actual_e-mail>.40B <new_e-mail>.40B
+	index: 0,2,6,46
+	len: 86
+	parameter:
+		- cmd : packet identification (0x2722)
+		- aid: account identification
+		- actual_email: current email address
+		- new_email: new email address
+	desc:
+		- Map-server sends information to change an email of an account via char-server
+
+0x2723:
+	Type: AH
+	Structure: <cmd>.W <aid>.L <sex>.B
+	index: 0,2,6
+	len: 7
+	parameter:
+		- cmd : packet identification (0x2723)
+		- aid: account identification
+		- sex: sex of account
+			0 = SEX_FEMALE
+			1= SEX_MALE
+			2=SEX_SERVER
+	desc:
+		- Acknowledge sex update
+
+0x2724:
+	Type: HA
+	Structure: <cmd>.W <t_aid>.L <state>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2724)
+		- t_aid: account identification of target
+		- state: state of account
+			- 0 : unblock
+			- 5 : block (Connection refused)
+	desc:
+		- Receiving an account state update request from a map-server (relayed via char-server)
+
+0x2725:
+	Type: HA
+	Structure: <cmd>.W <t_aid>.L <timediff>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2725)
+		- t_aid: account identification of target
+		- timediff: tick to add or remove to a timestamp
+	desc:
+		- Receiving of map-server via char-server a ban request (alter the ban time)
+
+0x2726:
+	Type: AH
+	Structure: <cmd>.W <len>.W <aid>.L <cid>.L <?>.B <type>.B <count>.W { <keyLength>.B <key>.<keyLength> <index>.L <valLength>.B <val>.<valLength> }*
+	index: 0,2,4,8,12,13,14,16,...
+	len: variable
+	parameter:
+		- cmd : packet identification (0x2726)
+		- ?
+		- aid
+		- cid
+		- type
+		- count
+		- keyLength
+		- key
+		- index
+		- val
+		- valLength
+	desc:
+		- Send global account registry
+
+0x2727:
+	Type: HA
+	Structure: <cmd>.W <aid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2727)
+		- aid: account identification
+	desc:
+		- Receive a request to change sex (sex is reversed)
+
+0x2728:
+	Type: HA
+	Structure: <cmd>.W <len>.W <aid>.L <cid>.L { <keyLength>.B <key>.<keyLength> <index>.L <type>.B <value>.?B }
+	index: 0,2,4,8,13
+	len: variable (reg size+4)
+	parameter:
+		- cmd : packet identification (0x2728)
+		- len:  pakcet size
+		- aid: account identification
+		- cid : char identification
+		- keyLength
+		- key
+		- index
+		- type
+		- value
+	desc:
+		- Receive a request to fetch account_reg2 from a char-server, see packet 0x3004 (mapif_parse_Registry)
+
+
+0x2729:
+	Type: AH
+	Structure: <cmd>.W <len>.L <aid>.L <cid>.L <type>.B { <str>.?B <value>.?B }
+	index: 0,2,4,8,12,13
+	len: variable (reg2 size+13)
+	parameter:
+		- cmd : packet identification (0x2729)
+		- len:  pakcet size
+		- aid: account identification
+		- cid : char identification
+		-type:
+		-type:
+			1: account2 registry (only one used atm)
+			2: account registry
+			3: char registry
+		- str : name of variable in registry
+		- value : value of varaible in registry
+	desc:
+		- Receive account_reg2 registry, forward to map-server.
+
+0x272a:
+	Type: HA
+	Structure: <cmd>.W <t_aid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x272a)
+		- t_aid: account identification
+	desc:
+		- request unban account
+
+
+0x272b:
+	Type: HA
+	Structure: <cmd>.W <t_aid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x272b)
+		- t_aid: account identification
+	desc:
+		- Add aid to list of online user on login-server (setacconline).
+
+0x272c:
+	Type: HA
+	Structure: <cmd>.W <t_aid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x272c)
+		- t_aid: account identification
+	desc:
+		- Remove aid to the list of online user (setaccoffline).
+
+0x272d:
+	Type: HA
+	Structure: <cmd>.W <len>.W <nb_online>.L {<aid>.L}*
+	index: 0,2,4,8
+	len: 8+users*4
+	parameter:
+		- cmd : packet identification (0x272d)
+		- len : size of packet
+		- users: number of users connected to char-server
+		- aid: account identification
+	desc:
+		- receive account list from char-server
+
+0x272e:
+	Type: HA
+	Structure: <cmd>.W  <aid>.L  <cid>.L
+	index: 0,2,4,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x272e)
+		- aid: account identification
+		- cid: char identification
+	desc:
+		- request accreg2 to login
+
+0x272f:
+0x2730:
+	free
+
+0x2731:
+	Type: AH
+	Structure: <cmd>.W <aid>.L <state>.B <status/date>.L
+	index: 0,2,6,7
+	len: 11
+	parameter:
+		- cmd : packet identification (0x2731)
+		- aid: account identification
+		- state: 0=change of status, 1=ban
+		- status|date: status or final date of a banishment
+	desc:
+		- Notify char-server of a state change or ban (accbannotification).
+
+0x2732:
+0x2733:
+    free
+
+0x2734:
+	Type: AH
+	Structure: <cmd>.W <aid>.L
+	index: 0,2,
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2734)
+		- aid: account identification
+	desc:
+		- Account is already marked as online. (Login-server request to kick a character out).
+
+0x2735:
+	Type: AH
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2735)
+	desc:
+		- IP address update signal from login-server.
+		- Send back the IP of char-server to login-server if IP was changed.
+
+0x2736:
+	Type: HA
+	Structure: <cmd>.W <ip>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2736)
+		-  ip: ip of char-server
+	desc:
+		- IP update for char-server
+
+0x2737:
+	Type: HA
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2737)
+	desc:
+		- Request to set all account as offline from char-server
+
+0x2738:
+	Type: HA
+	Structure: <cmd>.W <aid>.L <pincode>.?B
+	index: 0,2,6
+	len: variable: 11+PINCODE_LENGTH+1
+	parameter:
+		- cmd : packet identification (0x2738)
+		- aid : account identification
+		- pincode : new pincode code
+	desc:
+		- Change PIN Code of an account
+
+0x2739:
+	Type: HA
+	Structure: <cmd>.W <aid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2739)
+		- aid : account identification
+	desc:
+		- Login-server notifies char-server for too many wrong PIN code entered. (fail auth)
+
+0x273a
+0x273b
+0x273c
+0x273d
+0x273e
+0x273f
+	free
+
+0x2740
+0x2741
+	free
+
+0x2742:
+	Type: HA
+	Structure: <cmd>.W <aid>.L <flag>.B <timediff>.L <mapfd>.L
+	index: 0,2,6,7,11
+	len: 15
+	parameter:
+		- cmd : packet identification (0x2742)
+		- aid: account identification
+		- flag: 0x1 ack vip data to char-server, 0x2 add duration, 0x8 First request on player login
+		- timediff: tick to add to viptime
+		- mapfd: map-server link to ack if type&1
+	desc:
+		- Received a VIP data request from char
+
+0x2743:
+	Type: AH
+	Structure: <cmd>.W <aid>.L <vip_time>.L <flag>.B <groupid>.L <mapfd>.L
+	index: 0,2,6,10,11,15
+	len: 19
+	parameter:
+		- cmd : packet identification (0x2743)
+		- aid: account identification
+		- vip_time: timestamp of vip_time if he is vip
+		- flag: 0x1: isvip, is this account in vip mode atm, 0x2: isgm, 0x4: show rates on player
+		- groupid: group id of account
+		- mapfd: map-server link to ack
+	desc:
+		- Transmit vip specific data to char-server (will be transfered to map-server)
+
+=========================
+| 3.1 Inter-Map Packets |
+=========================
+
+0x3000
+	Type: ZI
+	Structure: <cmd>.W <len>.W <fontColor>.L <fontType>.W <fontSize>.W <fontAlign>.W <fontY>.W <mes>.?B
+	index: 0,2,4,8,10,12,14,16
+	len: 16+msglen
+	parameter:
+		- cmd : packet identification (0x3000)
+		- len : packet size
+		- fontColor: (standard broadcast color=0xFF000000)
+		- fontType:
+		- fontSize:
+		- fontAlign:
+		- fontY:
+		- mes: message to send
+	desc:
+		- Broadcasts a message to all map-servers connected to this char-server
+
+
+0x3001
+	Type: ZI
+	Structure: <cmd>.W <len>.W <name>(NAME_LENGTH)B <nick>(NAME_LENGTH)B <mes>.?B
+	index: 0,2,4,4+NAME_LENGTH,4+2*NAME_LENGTH
+	len: 52+mes_len
+	parameter:
+		- cmd : packet identification (0x3001)
+		- len: packet size
+		- name : sender name of msg
+		- nick : receiver name of msg
+		- mes : message to send
+	desc:
+		- Send a whisper to another player
+
+0x3002
+	Type: ZI
+	Structure: <cmd>.W <
+	index: 0,2,6
+	len: 7
+	parameter:
+		- cmd : packet identification (0x3002)
+		- id: whisper id, identifier to match current whisper session that store in inter.cpp::wis_db
+		- flag: 0=success, 1=target not found, 2=ignored by target
+	desc:
+		- Inform the char-server of the result of the whisper
+
+0x3003
+	Type: ZI
+	Structure: <cmd>.W <packet_len>.W <wispname>.?B <permission>.L <message>.?B
+	index: 0,2,4,4+NAME_LENGTH,8+NAME_LENGTH
+	len: variable: mes_len + 8 + NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3003)
+		- packet_len: mes_len + 8 + NAME_LENGTH
+		- wisp_name
+		- permission
+		- message
+	desc:
+		- Transmission of GM only Wisp/Page from server to inter-server
+
+0x3004
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <cid>.L <type>.B { <str>.?B <value>.?B }?
+	index: 0,4,8,12,13
+	len:  variable : 13+regnum*(len variable name+len value) (max=288 * MAX_REG_NUM+13)
+	parameter:
+		- cmd : packet identification (0x3004)
+		- aid: account identification
+		- cid: char identification
+		-type:
+			1: account2 registry
+			2: account registry
+			3: char registry
+		-str: register variable identity, (variable name)
+		-value: variable value
+	desc:
+		- Map-server is requesting char-server to save registry values. (type=1 will forward data to login-server)
+
+0x3005
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <cid>.L <acc_reg2>.B <acc_reg>.B <ch_reg>.B
+	index: 0,2,6,10,11,12
+	len: 13
+	parameter:
+		- cmd : packet identification (0x3005)
+		- aid:
+		- cid:
+		-acc_reg2 : request  account registry (permanent variable of account, save on login-server)
+		-acc_reg : request account registry (permanent variable of account , save on char-server)
+		-ch_reg :  request char registry (permanent variable of char)
+	desc:
+		- Request the registries for this player.
+
+0x3006
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <cid>.L <type>.B <NAME_LENGTH>.?
+	index: 0,2,6,10,11
+	len: 12+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3006)
+		- aid
+		- cid
+		- type
+		- NAME_LENGTH
+	desc
+
+0x3007
+	Type: ZI
+	Structure: <cmd>.W <u_fd>.L <aid>.L <group_lv>.L <type>.B <query>.?B
+	index: 0,2,6,10,14,15
+	len: 15+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3007)
+		- u_fd
+		- aid
+		- group_lv
+		- type : 0 - Full account info. 1 - Return as clif_account_name
+		- query : name or aid of player we want info
+	desc:
+		- Request acc info
+
+0x3009
+	Type: ZI
+	Structure: <cmd>.W <len>.W <nameid>.W <source>.W <type>.B <name>.24B <srcname>.24B
+	index: 0,2,6,4,8,9,24
+	len: 9+NAME_LENGTH+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3009)
+		- len : Packet length
+		- nameid : ID of obtained item
+		- source : Source from where the item obtained
+		- type : Obtained type. 0: Box/Package, 1: Monster, 2: NPC
+		- name : Name of player who obtained the item
+		- srcname : Source name as alternative of source id
+	desc:
+		- Send broadcasts request if player get special items.
+
+0x3018
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <gid>.L
+	index 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x3018)
+		- aid
+		- gid
+	desc:
+		- Request guild storage
+
+0x3019
+	Type: ZI
+	Structure: <cmd>.W <guild_storage>.W <aid>.L <gid>.L
+	index: 0,2,4,8,12
+	len: 12+guild_storage
+	parameter:
+		- cmd : packet identification (0x3019)
+		- guild_storage
+		- aid
+		- gid
+	desc:
+		- Send guild storage
+
+0x3020
+	Type: ZI
+	Structure: <cmd>.W <party_member>.W <name>.24B <item>.B <item2>.B <member>.?B
+	index: 0,2,4,28,29,30
+	len: variable: 28+party_member (max=64)
+	parameter:
+		- cmd : packet identification (0x3020)
+		- party_member
+		- name
+		- item
+		- item2
+		- member
+	desc:
+		- Party creation request
+
+0x3021
+	Type: ZI
+	Structure: <cmd>.W <party_id>.L <cid>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x3021)
+		- party_id
+		- cid
+	desc:
+		- Party information request
+
+0x3022
+	Type: ZI
+	Structure: <cmd>.W <party_member>.W <party_id>.L <member>.?B
+	index: 0,2,4,8
+	len: variable: 8+party_member (Max=42)
+	parameter:
+		- cmd : packet identification (0x3022)
+		- party_member
+		- party_id
+		- member
+	desc:
+		- Request to add a member to party
+
+0x3023
+	Type: ZI
+	Structure: <cmd>.W <party_id>.L <aid>.L <exp>.W <item>.W
+	index: 0,2,6,10,12,14
+	len: 14
+	parameter:
+		- cmd : packet identification (0x3023)
+		- party_id
+		- aid
+		- exp
+		- item
+	desc:
+		- Request to change party configuration (exp,item share)
+
+0x3024
+	Type: ZI
+	Structure: <cmd>.W <party_id>.L <aid>.L <cid>.L <name>.24B <type>.B
+	index: 0,2,6,10,14,48
+	len: 49
+	parameter:
+		- cmd : packet identification (0x3024)
+		- party_id : Party ID
+		- aid : Account ID
+		- cid : Character ID
+		- name : Character Name
+		- type : Leave (PARTY_MEMBER_WITHDRAW_LEAVE) or kick (PARTY_MEMBER_WITHDRAW_EXPEL) the player
+	desc:
+		- Request to leave party or kick party member
+
+0x3025
+	Type: ZI
+	Structure: <cmd>.W <party_id>.L <aid>.L <cid>.L <mapindex>.W <online>.B <base_level>.W
+	index: 0,2,6,10,14,16,17
+	len: 19
+	parameter:
+		- cmd : packet identification (0x3025)
+		- party_id
+		- aid
+		- cid
+		- mapindex
+		- online
+		- base_level
+	desc:
+		- Party change map
+
+0x3026
+	Type: ZI
+	Structure: <cmd>.W <party_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3026)
+		- party_id
+	desc:
+		- Request breaking party
+
+0x3027
+	Type: ZI
+	Structure: <cmd>.W <len>.W <party_id>.L <aid>.L <mes>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+len
+	parameter:
+		- cmd : packet identification (0x3027)
+		- len
+		- party_id
+		- aid
+		- mes
+	desc:
+		- Sending party chat
+
+0x3029
+	Type: ZI
+	Structure: <cmd>.W <party_id>.L <aid>.L <cid>.L
+	index: 0,2,6,10
+	len: 14
+	parameter:
+		- cmd : packet identification (0x3029)
+		- party_id
+		- aid
+		- cid
+	desc:
+		- Request a new leader for party
+
+0x302A
+	Type: ZI
+	Structure: <cmd>.W <share_lvl>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x302a)
+		- share_lvl
+	desc:
+		- Request to update party share level
+
+0x3030
+	Type: ZI
+	Structure: <cmd>.W <guild_member>.W <aid>.L <name>.?B <master>.?B
+	index: 0,2,4,8,8+NAME_LENGTH
+	len:
+	parameter:
+		- cmd : packet identification (0x3030)
+		- guild_member
+		- aid
+		- name
+		- master
+	desc:
+		- Request a Guild creation
+
+0x3031
+	Type: ZI
+	Structure: <cmd>.W <guild_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3031)
+		- guild_id
+	desc:
+		- Request Guild information
+
+0x3032
+	Type: ZI
+	Structure: <cmd>.W <guild_member>.W <guild_id>.L <m>.?B
+	index: 0,2,4,8
+	len: variable: 8+guild_member
+	parameter:
+		- cmd : packet identification (0x3032)
+	desc:
+		- Request to add member to the guild
+
+0x3033
+	Type: ZI
+	Structure: <cmd>.W <len>.W <guild_id>.L <name>.?B
+	index: 0,2,4,8
+	len: variable: 8+len
+	parameter:
+		- cmd : packet identification (0x3033)
+		- len
+		- guild_id
+		- name
+	desc:
+		- Request a new leader for guild
+
+0x3034
+	Type: ZI
+	Structure: <cmd>.W <guild_id>.L <aid>.L <cid>.L <flag>.B <mes> .40B
+	index: 0,2,6,10,14,15
+	len: 55
+	parameter:
+		- cmd : packet identification (0x3034)
+		- guild_id
+		- aid
+		- cid
+		- flag
+		- mes
+	desc:
+		- Request to leave guild
+
+0x3035
+	Type: ZI
+	Structure: <cmd>.W <guild_id>.L <aid>.L <cid>.L <online>.B <lv>.W <class_>.W
+	index: 0,2,6,10,14,15,17
+	len: 19
+	parameter:
+		- cmd : packet identification (0x3035)
+		- guild_id
+		- aid
+		- cid
+		- online
+		- lv
+		- class_
+	desc:
+		- Update request / Lv online status of the guild members
+
+0x3036
+	Type: ZI
+	Structure: <cmd>.W <guild_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3036)
+		- guild_id
+	desc:
+		- Guild disbanded notification
+
+0x3037
+	Type: ZI
+	Structure: <cmd>.W <len>.W <guild_id>.L <aid>.L <mes>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+len
+	parameter:
+		- cmd : packet identification (0x3037)
+		- len
+		- guild_id
+		- aid
+		- mes
+	desc:
+		- Send a guild message
+
+0x3039
+	Type: ZI
+	Structure: <cmd>.W <len>.W <guild_id>.L <type>.W <data>.?B
+	index: 0,2,4,8,10
+	len: variable: 10+len
+	parameter:
+		- cmd : packet identification (0x3039)
+		- len
+		- guild_id
+		- type
+		- data
+	desc:
+		- Request a change of Guild basic information
+
+0x303a
+	Type: ZI
+	Structure: <cmd>.W <len>.W <guild_id>.L <aid>.L <cid>.L <type>.W <data>.?B
+	index: 0,2,4,8,12,16,18
+	len: variable: 18+len
+	parameter:
+		- cmd : packet identification (0x303a)
+		- len
+		- guild_id
+		- aid
+		- cid
+		- type
+		- data
+	desc:
+		- Request a change of Guild member information
+
+0x303b
+	Type: ZI
+	Structure: <cmd>.W <guild_position>.W <guild_id>.L <idx>.L <p>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+guild_position
+	parameter:
+		- cmd : packet identification (0x303b)
+		- guild_position
+		- guild_id
+		- idx
+		- p
+	desc:
+		- Request a change of Guild title
+
+0x303c
+	Type: ZI
+	Structure: <cmd>.W <guild_id>.L <skill_id>.L <aid>.L <max>.L
+	index: 0,2,6,10,14
+	len: 18
+	parameter:
+		- cmd : packet identification (0x303c)
+		- guild_id
+		- skill_id
+		- aid
+		- max
+	desc:
+		- Request an update of Guild skill skill_id
+
+0x303d
+	Type: ZI
+	Structure: <cmd>.W <guild_id1>.L <guild_id2>.L <account_id1>.L <account_id2>.L <flag>.B
+	index: 0,2,6,10,14,18
+	len: 19
+	parameter:
+		- cmd : packet identification (0x303d)
+		- guild_id1
+		- guild_id2
+		- account_id1
+		- account_id2
+		- flag
+	desc:
+		- Request a new guild alliance
+
+0x303e
+	Type: ZI
+	Structure: <cmd>.W <guild_id>.L <mes1>.60B <mes2>.120B
+	index: 0,2,6,66
+	len: 186
+	parameter:
+		- cmd : packet identification (0x303e)
+		- guild_id
+		- mes1
+		- mes2
+	desc:
+		- Request to change guild notice
+
+0x303f
+	Type: ZI
+	Structure: <cmd>.W <len>.W <guild_id>.L <0>.L <data>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+len (Max=2012)
+	parameter:
+		- cmd : packet identification (0x303f)
+	desc:
+		- Request to change guild emblem
+
+0x3040
+	Type: ZI
+	Structure: <cmd>.W <num>.W <castle_ids>.?B
+	index: 0,2,4
+	len: variable: 4 + num * 2,147,483,647
+	parameter:
+		- cmd : packet identification (0x3040)
+		- num
+		- castle_ids
+	desc:
+		- Requests guild castles data from char-server
+
+0x3041
+	Type: ZI
+	Structure: <cmd>.W <castle_ids>.W <index>.B <value>.L
+	index: 0,2,4,5
+	len: 9
+	parameter:
+		- cmd : packet identification (0x3041)
+		- castle_ids
+		- index
+		- value
+	desc:
+		- Request change castle guild owner and save data
+
+0x3048
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <flag>.B <mail_type>.B
+	index: 0,2,6,7
+	len: 8
+	parameter:
+		- cmd : packet identification (0x3048)
+		- cid
+		- flag
+		- mail_type
+	desc:
+		- Inbox request
+
+0x3049
+	Type: ZI
+	Structure: <cmd>.W <mail_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3049)
+		- mail_id
+	desc:
+		- Mail read
+
+0x304a
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <mail_id>.L <attachment_type>.B
+	index: 0,2,6,10
+	len: 11
+	parameter:
+		- cmd : packet identification (0x304a)
+		- cid
+		- mail_id
+		- attachment_type
+	desc:
+		- Mail get attachment
+
+0x304b
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <mail_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x304b)
+		- cid
+		- mail_id
+	desc:
+		- Mail delete
+
+0x304c
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <mail_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x304c)
+		- cid
+		- mail_id
+	desc:
+		- Mail return
+
+0x304d
+	Type: ZI
+	Structure: <cmd>.W <len>.W <aid>.L <msg>.?B
+	index: 0,2,4,8
+	len: variable: 8+mail_message
+	parameter:
+		- cmd : packet identification (0x304d)
+		- len
+		- aid
+		- msg
+	desc:
+		- Mail send
+
+0x304e
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <name>.24B
+	index: 0,2,6
+	len: 30
+	parameter:
+		- cmd : packet identification (0x304e)
+		- cid
+		- name
+	desc:
+		- Checks if a character with the given name exists.
+
+0x3050
+	Type: ZI
+	Structure: <cmd>.W <len>.W <cid>.L <type>.W <price>.L <page>.W <searchtext>.?B
+	index: 0,2,4,8,10,14,16
+	len: variable: 16+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3050)
+		- len
+		- cid
+		- type
+		- price
+		- page
+		- searchtext
+	desc:
+		- Auction request list
+
+0x3051
+	Type: ZI
+	Structure: <cmd>.W <len>.W <auction_data>.?B
+	index: 0,2,4
+	len: variable: 4+auction_data
+	parameter:
+		- cmd : packet identification (0x3051)
+		- len
+		- auction_data
+	desc:
+		- Auction register
+
+0x3052
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <auction_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x3052)
+		- cid
+		- auction_id
+	desc:
+		- Auction cancel
+
+0x3053
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <auction_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x3053)
+		- cid
+		- auction_id
+	desc:
+		- Auction close
+
+0x3055
+	Type: ZI
+	Structure: <cmd>.W <len>.W <cid>.L <auction_id>.L <bid>.L <name>.?B
+	index: 0,2,4,8,12,16
+	len: variable: 16+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3055)
+		- len
+		- cid
+		- auction_id
+		- bid
+	desc:
+		- Auction bid
+
+0x3056
+	Type: ZI
+	Structure: <cmd>.W <cid>.L <aid>.L <guild_id>.W
+	index: 0,2,6,10
+	len: 12
+	parameter:
+		- cmd : packet identification (0x3056)
+		- cid
+		- aid
+		- guild_id
+	desc:
+		- Itembound request
+
+0x3060
+	Type: ZI
+	Structure: <cmd>.W <cid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3060)
+		- cid
+	desc:
+		- Requests a character's quest log entries to the inter-server.
+
+0x3061
+	Type: ZI
+	Structure: <cmd>.W <len>.W <cid>.L <quest_log>.?B
+	index: 0,2,4,8
+	len: variable: 8+num_quests
+	parameter:
+		- cmd : packet identification (0x3061)
+	desc:
+		- Requests to the inter-server to save a character's quest log entries.
+
+0x3062
+	Type: ZI
+	Structure: <cmd>.W <cid>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3062)
+		- cid
+	desc:
+		- Requests a character's achievement log entries to the inter-server.
+
+0x3063
+	Type: ZI
+	Structure: <cmd>.W <len>.W <cid>.L <achievement_log>.?B
+	index: 0,2,4,8
+	len: variable: 8+count
+	parameter:
+		- cmd : packet identification (0x3063)
+	desc:
+		- Requests to the inter-server to save a character's achievement log entries.
+
+0x3070
+	Type: ZI
+	Structure: <cmd>.W <size>.W <merc>.?B
+	index: 0,2,4
+	len: variable: 4+s_mercenary
+	parameter:
+		- cmd : packet identification (0x3070)
+		- size
+		- merc
+	desc:
+		- Mercenary create
+
+0x3071
+	Type: ZI
+	Structure: <cmd>.W <merc_id>.L <char_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x3071)
+		- merc_id
+		- cid
+	desc:
+		- Mercenary request
+
+0x3072
+	Type: ZI
+	Structure: <cmd>.W <merc_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3072)
+		- merc_id
+	desc:
+		- Mercenary delete
+
+0x3073
+	Type: ZI
+	Structure: <cmd>.W <size>.W <merc>.?B
+	index: 0,2,4
+	len: variable: 4+s_mercenary
+	parameter:
+		- cmd : packet identification (0x3073)
+		- size
+		- merc
+	desc:
+		- Mercenary save
+
+0x307c
+	Type: ZI
+	Structure: <cmd>.W <size>.W <ele>.?B
+	index: 0,2,4
+	len: variable: 4+s_elemental
+	parameter:
+		- cmd : packet identification (0x307c)
+		- size
+		- ele
+	desc:
+		- Elemental create
+
+0x307d
+	Type: ZI
+	Structure: <cmd>.W <ele_id>.L <cid>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x307d)
+		- ele_id
+		- cid
+	desc:
+		- Elemental request
+
+0x307e
+	Type: ZI
+	Structure: <cmd>.W <ele_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x307e)
+		- ele_id
+	desc:
+		- Elemental delete
+
+0x307f
+	Type: ZI
+	Structure: <cmd>.W <size>.W <ele>.?B
+	index: 0,2,4
+	len: variable: 4+s_elemental
+	parameter:
+		- cmd : packet identification (0x307f)
+		- size
+		- ele
+	desc:
+		- Elemental save
+
+0x3080
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <cid>.L <pet_class>.W <pet_lv>.W <pet_egg_id>.W <pet_equip>.W <intimate>.W <hungry>.W <rename_flag>.B <incubate>.B
+	index: 0,2,6,10,12,14,16,18,20,22,23,24
+	len: variable: 24+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3080)
+		- aid
+		- cid
+		- pet_class
+		- pet_lv
+		- pet_egg_id
+		 -pet_equip
+		- intimate
+		- hungry
+		- rename_flag
+		- incubate
+	desc:
+		- Pet create
+
+0x3081
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <cid>.L <pet_id>.L
+	index: 0,2,6,10
+	len: 14
+	parameter:
+		- cmd : packet identification (0x3081)
+		- aid
+		- cid
+		- pet_id
+	desc:
+		- Request pet data
+
+0x3082
+	Type: ZI
+	Structure: <cmd>.W <size>.W <aid>.L <s_pet>.?B
+	index: 0,2,4,8
+	len: variable: 8+s_pet
+	parameter:
+		- cmd : packet identification (0x3082)
+		- size
+		- aid
+		- s_pet: Pet data
+	desc:
+		- Save pet data
+
+0x3083
+	Type: ZI
+	Structure: <cmd>.W <pet_id>.L
+	index: 0,2
+	len 6:
+	parameter:
+		- cmd : packet identification (0x3083)
+		- pet_id
+	desc:
+		- Delete pet data
+
+0x308a
+	Type: ZI
+	Structure: <cmd>.W <type>.B <account_id>.L <char_id>.L
+	index: 0,2,3,7
+	len: 11
+	parameter:
+		- cmd : packet identification (0x308a)
+		- type : 0 - TABLE_INVENTORY, 1 - TABLE_CART, 2 - TABLE_STORAGE
+		- account_id
+		- char_id
+	desc:
+		- Request inventory/cart/storage data for a player/guild if type = 3
+
+0x308b
+	Type: ZI
+	Structure: <size>.W <type>.B <account_id>.L <char_id>.L <entries>.?B
+	index: 0,2,4,5,9,13
+	len: 11
+	parameter:
+		- cmd : packet identification (0x308b)
+		- type : 0 - TABLE_INVENTORY, 1 - TABLE_CART, 2 - TABLE_STORAGE
+		- account_id
+		- char_id
+		- entries : Inventory/cart/storage entries that will be saved
+	desc:
+		- Request to save inventory/cart/storage entries
+
+0x3090:
+	Type: ZI
+	Structure: <cmd>.W <s_homunculus>.W <aid>.L <sh>.?B
+	index: 0,2,4,8
+	len: variable: 8+s_homunculus
+	parameter:
+		- cmd : packet identification (0x3090)
+		- s_homunculus
+		- aid
+		- sh
+	desc:
+		- Homunculus create
+
+0x3091:
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <homun_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x3091)
+		- aid
+		- homun_id
+	desc:
+		- Homunculus request load
+
+0x3092:
+	Type: ZI
+	Structure: <cmd>.W <s_homunculus>.W <aid>.L <sh>.?B
+	index: 0,2,4,8
+	len: variable: 8+s_homunculus
+	parameter:
+		- cmd : packet identification (0x3092)
+		- s_homunculus
+		- aid
+		- sh
+	desc:
+		- Homunculus request save
+
+0x3093:
+	Type: ZI
+	Structure: <cmd>.W <homun_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x3093)
+		- homun_id
+	desc:
+		- Homunculus request delete
+
+0x3094:
+	Type: ZI
+	Structure: <cmd>.W <aid>.L <cid>.L <name>.?B
+	index: 0,2,6,10
+	len: variable: 10+name
+	parameter:
+		- cmd : packet identification (0x3094)
+		- aid
+		- cid
+		- name
+	desc:
+		- Homunculus rename
+
+0x30A0:
+	Type: ZI
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x30A0)
+	desc:
+		- Requests the loaded clans from the inter-server
+
+0x30A1
+	Type: ZI
+	Structure: <cmd>.W <size>.W <clan id>.L <account id>.L <message>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+message
+	parameter:
+		- cmd : packet identification (0x30A1)
+		- size
+		- clan id : the clan id the message is sent to
+		- account id : the account id of the sender
+		- message : the message to be sent
+	desc:
+		- Sends a clan message to the inter-server to relay it to all other map-servers
+
+0x30A2:
+	Type: ZI
+	Structure: <cmd>.W <clan id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x30A2)
+		- clan id : the clan id
+	desc:
+		- Notifies the inter-server that a player has left the clan or disconnected
+
+0x30A3:
+	Type: ZI
+	Structure: <cmd>.W <clan id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x30A3)
+		- clan id : the clan id
+	desc:
+		- Notifies the inter-server that a player has joined the clan or connected
+
+0x3800:
+	Type: IZ
+	Structure: <cmd>.W <len>.W <fontColor>.L <fontType>.W <fontSize>.W <fontAlign>.W <fontY>.W <mes>.?B
+	index: 0,2,4,8,10,12,14,16
+	len: variable: 16+len
+	parameter:
+		- cmd : packet identification (0x3800)
+		- len
+		- fontColor
+		- fontType
+		- fontSize
+		- fontAlign
+		- fontY
+		- mes
+	desc:
+		- Send broadcast message
+
+0x3801
+	Type: IZ
+	Structure: <cmd>.W <len>.W <id>.L <src>.24B <dst>.24B <msg>.?B
+	index: 0,2,4,8,32,56
+	len: variable: 56+len (Max=1991)
+	parameter:
+		- cmd : packet identification (0x3801)
+		- len
+		- id
+		- src
+		- dst
+		- msg
+	desc:
+		- Send whisper message
+
+0x3802
+	Type: IZ
+	Structure: <cmd>.W <src>.24B <flag>.B
+	index: 0,2,26
+	len: 27
+	parameter:
+		- cmd : packet identification (0x3802)
+		- src
+		- flag
+	desc:
+		- Whisper sending result
+
+0x3803
+	Type: IZ
+	Structure: <cmd>.W <packet_len>.W <wispname>.?B <permission>.L <message>.?B
+	index: 0,2,4,4+NAME_LENGTH,8+NAME_LENGTH
+	len: variable: mes_len + 8 + NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3803)
+		- packet_len: mes_len + 8 + NAME_LENGTH
+		- wisp_name
+		- permission
+		- message
+	desc:
+		- Parse whisper to GM
+
+0x3804
+	Type: HZ
+	Structure: <cmd>.W <len>.W <aid>.L <cid>.L <?>.B <type>.B <count>.W { <keyLength>.B <key>.<keyLength> <index>.L <valLength>.B <val>.<valLength> }*
+	index: 0,2,4,8,12,13,14,16,...
+	len: variable
+	parameter:
+		- cmd : packet identification (0x3804)
+		- ?
+		- aid
+		- cid
+		- type
+		- count
+		- keyLength
+		- key
+		- index
+		- val
+		- valLength
+	desc:
+		- Send global account registry to map-server from login-server
+
+0x3806
+	Type: IZ
+	Structure: <cmd>.W <aid>.L <cid>.L <type>.B <flag>.B <name>.B
+	index: 0,2,6,10,11,12
+	len: 13
+	parameter:
+		- cmd : packet identification (0x3806)
+		- aid
+		- cid
+		- type
+		- flag
+		- name
+	desc:
+		- mapif_namechange_ack
+
+0x3807
+	Type: IZ
+	Structure: <cmd>.W <len>.W <u_fd>.L <aid>.L <msg_out>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+len
+	parameter:
+		- cmd : packet identification (0x3807)
+		- len
+		- u_fd
+		- aid
+		- msg_out
+	desc:
+		- sends a message to map-server (fd) to a user (u_fd) although we use fd we keep aid for safe-check
+
+0x3808
+	Type: IZ
+	Structure: <cmd>.W <u_fd>.L <aid>.L <acc_name>.?B
+	index: 0,2,6,10
+	len: variable: 10+NAME+LENGTH
+	parameter:
+		- cmd : packet identification (0x3808)
+		- u_fd
+		- aid
+		- acc_name
+	desc:
+		- Transmit the result of a account_information request from map-server, with type 1
+
+0x3809
+	Type: IZ
+	Structure: <cmd>.W <len>.W <nameid>.W <source>.W <type>.B <name>.24B <srcname>.24B
+	index: 0,2,6,4,8,9,24
+	len: 9+NAME_LENGTH+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3809)
+		- len : Packet length
+		- nameid : ID of obtained item
+		- source : Source from where the item obtained
+		- type : Obtained type. 0: Box/Package, 1: Monster, 2: NPC
+		- name : Name of player who obtained the item
+		- srcname : Source name as alternative of source
+	desc:
+		- Broadcasts if player get special items.
+
+0x3818
+	Type: IZ
+	Structure: <cmd>.W <len>.W <aid>.L <guild_id>.L <flag>.B <guild_storage>.?B
+	index: 0,2,4,8,12,13
+	len: variable: 13+guild_storage
+	parameter:
+		- cmd : packet identification (0x3818)
+		- len
+		- aid
+		- guild_id
+		- flag
+		- guild_storage
+	desc:
+		- mapif_load_guild_storage
+
+0x3819
+	Type: IZ
+	Structure: <cmd>.W <aid>.L <guild_id>.L <fail>.B
+	index: 0,2,6,10
+	len: 11
+	parameter:
+		- cmd : packet identification (0x3819)
+		- aid
+		- guild_id
+		- fail
+	desc:
+		- mapif_save_guild_storage_ack
+
+0x3820
+	Type: IZ
+	Structure: <cmd>.W <aid>.L <char_id>.L <?>.B <party_id>.L <name>.?B
+	index: 0,2,6,10,11,15
+	len: 39
+	parameter:
+		- cmd : packet identification (0x3820)
+		- aid
+		- char_id
+		- ?
+		- party_id
+		- name
+	desc:
+		- ACK party creation
+
+0x3821
+	Type: IZ
+	Structure: <cmd>.W <?>.W <char_id>.L <party_id>.L
+	index: 0,2,4,8
+	len: 12
+	parameter:
+		- cmd : packet identification (0x3821)
+		- ?
+		- char_id
+		- party_id
+	desc:
+		- Party information not found
+
+0x3822
+	Type: IZ
+	Structure: <cmd>.W <party_id>.L <account_id>.L <char_id>.L <flag>.B
+	index: 0,2,6,10,14
+	len: 15
+	parameter:
+		- cmd : packet identification (0x3822)
+		- party_id
+		- account_id
+		- char_id
+		- flag
+	desc:
+		- mapif_party_memberadded
+
+0x3823
+	Type: IZ
+	Structure: <cmd>.W <party_id>.L <account_id>.L <exp>.W <item>.W <flag>.B
+	index: 0,2,6,10,12,14,15?
+	len: 16?
+	parameter:
+		- cmd : packet identification (0x3823)
+		- party_id
+		- account_id
+		- exp
+		- item
+		- flag
+		- ?
+	desc:
+		- Party setting change notification
+
+0x3824
+	Type: IZ
+	Structure: <cmd>.W <party_id>.L <account_id>.L <char_id>.L <name>.24B <type>.B
+	index: 0,2,6,10,14,48
+	len: 49
+	parameter:
+		- cmd : packet identification (0x3824)
+		- party_id : Party ID
+		- account_id : Account ID
+		- char_id : Character ID
+		- name : Character Name
+		- type : Leaving reason/result
+	desc:
+		- Withdrawal notification party
+
+0x3825
+	Type: IZ
+	Structure: <cmd>.W <party_id>.L <account_id>.L <char_id>.L <map>.W <online>.B <lv>.W <?>.?B
+	index: 0,2,6,10,14,16,17,19
+	len: 20?
+	parameter:
+		- cmd : packet identification (0x3825)
+		- party_id
+		- account_id
+		- char_id
+		- map
+		- online
+		- lv
+		- ?
+	desc:
+		- Party map update notification
+
+0x3826
+	Type: IZ
+	Structure: <cmd>.W <party_id>.L <flag>.B <?>.?B
+	index: 0,2,6,7
+	len: 16
+	parameter:
+		- cmd : packet identification (0x3826)
+		- party_id
+		- flag
+		- ?
+	desc:
+		- Dissolution party notification
+
+0x3827
+	Type: IZ
+	Structure: <cmd>.W <len>.W <party_id>.L <account_id>.L <mes>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+len (max=512)
+	parameter:
+		- cmd : packet identification (0x3827)
+		- len
+		- party_id
+		- account_id
+		- mes
+	desc:
+		- mapif_party_message
+
+0x3830
+	Type: IZ
+	Structure: <cmd>.W <account_id>.L <guild_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x3830)
+		- account_id
+		- guild_id
+	desc:
+		- mapif_guild_created
+
+0x3831
+	Type: IZ
+	Structure: <cmd>.W <?>.W <guild_id>.L <?>.?B
+	index: 0,2,4,8
+	len: 12
+	parameter:
+		- cmd : packet identification (0x3831)
+		- ?
+		- guild_id
+		- ?
+	desc:
+		- mapif_guild_noinfo
+
+0x3832
+	Type: IZ
+	Structure: <cmd>.W <guild_id>.L <account_id>.L <char_id>.L <flag>.B
+	index: 0,2,6,10,14
+	len: 15
+	parameter:
+		- cmd : packet identification (0x3832)
+		- guild_id
+		- account_id
+		- char_id
+		- flag
+	desc:
+		- ACK member add
+
+0x3834
+	Type: IZ
+	Structure: <cmd>.W <guild_id>.L <account_id>.L <char_id>.L <flag>.B <mes>.40B <name>.?B
+	index: 0,2,6,10,14,15,55
+	len: variable: 55+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x3834)
+		- guild_id
+		- account_id
+		- char_id
+		- flag
+		- mes
+		- name
+	desc:
+		- mapif_guild_withdraw
+
+0x3835
+	Type: IZ
+	Structure: <cmd>.W <guild_id>.L <account_id>.L <char_id>.L <online>.B <lv>.W <class_>.W
+	index: 0,2,6,10,14,15,17
+	len: 19
+	parameter:
+		- cmd : packet identification (0x3835)
+		- guild_id
+		- account_id
+		- char_id
+		- online
+		- lv
+		- class_
+	desc:
+		- Send short guild member's info
+
+0x3836
+	Type: IZ
+	Structure: <cmd>.W <guild_id>.L <flag>.B
+	index: 0,2,6
+	len: 7
+	parameter:
+		- cmd : packet identification (0x3836)
+		- guild_id
+		- flag
+	desc:
+		- mapif_guild_broken
+
+0x3837
+	Type: IZ
+	Structure: <cmd>.W <len>.W <guild_id>.L <account_id>.L <mes>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+len (max=512)
+	parameter:
+		- cmd : packet identification (0x3837)
+		- len
+		- guild_id
+		- account_id
+		- mes
+	desc:
+		- Send guild message
+
+0x3839
+	Type: IZ
+	Structure: <cmd>.W <len>.W <guild_id>.L <type>.W <data>.?B
+	index: 0,2,4,8,10
+	len: variable: 10+len (Max=2048)
+	parameter:
+		- cmd : packet identification (0x3839)
+		- len
+		- guild_id
+		- type
+		- data
+	desc:
+		- mapif_guild_basicinfochanged
+
+0x383a
+	Type: IZ
+	Structure: <cmd>.W <len>.W <guild_id>.L <account_id>.L <char_id>.L <type>.W <data>.?B
+	index: 0,2,4,8,12,16,18
+	len: variable: 18+len (Max=2048)
+	parameter:
+		- cmd : packet identification (0x383a)
+		- len
+		- guild_id
+		- account_id
+		- char_id
+		- type
+		- data
+	desc:
+		- mapif_guild_memberinfochanged
+
+0x383b
+	Type: IZ
+	Structure: <cmd>.W <len>.W <guild_id>.L <idx>.L <position>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+guild_position
+	parameter:
+		- cmd : packet identification (0x383b)
+		- len
+		- guild_id
+		- idx
+		- position
+	desc:
+		- mapif_guild_position
+
+0x383c
+	Type: IZ
+	Structure: <cmd>.W <guild_id>.L <skill_id>.L <account_id>.L
+	index: 0,2,6,10
+	len: 14
+	parameter:
+		- cmd : packet identification (0x383c)
+		- guild_id
+		- skill_id
+		- account_id
+	desc:
+		- ACK guild skill up
+
+0x383d
+	Type: IZ
+	Structure: <cmd>.W <guild_id1>.L <guild_id2>.L <account_id1>.L <account_id2>.L <flag>.B <name1>.?B <name2>.?B
+	index: 0,2,6,10,14,18,19
+	len: variable: 19+2*NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x383d)
+		- guild_id1
+		- guild_id2
+		- account_id1
+		- account_id2
+	desc:
+		- ACK guild alliance
+
+0x383e
+	Type: IZ
+	Structure: <cmd>.W <guild_id>.L <mes1>.60B <mes2>.120B <?>.?B
+	index: 0,2,6,66,186
+	len: 256
+	parameter:
+		- cmd : packet identification (0x383e)
+		- guild_id
+		- mes1
+		- mes2
+		- ?
+	desc:
+		- Send the guild notice
+
+0x383f
+	Type: IZ
+	Structure: <cmd>.W <len>.W <guild_id>.L <emblem_id>.L <emblem_data>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+emblem_data
+	parameter:
+		- cmd : packet identification (0x383f)
+		- len
+		- guild_id
+		- emblem_id
+		- emblem_data
+	desc:
+		- Send emblem data
+
+0x3840
+	Type: IZ
+	Structure: <cmd>.W <len>.W <gc>.?B
+	index: 0,2,4
+	len: variable: 4+num*gc
+	parameter:
+		- cmd : packet identification (0x3840)
+		- len
+		- gc
+	desc:
+		- mapif_guild_castle_dataload
+
+0x3843
+	Type: IZ
+	Structure: <cmd>.W <guild_id>.L <aid>.L <cid>.L <time>.L
+	index: 0,2,6,10,14
+	len: 18
+	parameter:
+		- cmd : packet identification (0x3843)
+		- guild_id
+		- aid
+		- cid
+		- time of change
+	desc:
+		- mapif_guild_master_changed
+
+0x3848
+	Type: IZ
+	Structure: <cmd>.W <size>.W <char_id>.L <flag>.B <mail_type>.B <md>.?B
+	index: 0,2,4,8,9,10
+	len: variable: 10+md
+	parameter:
+		- cmd : packet identification (0x3848)
+		- size
+		- char_id
+		- flag
+		- mail_type
+		- md : Mail
+	desc:
+		- A player request for mail inbox
+
+0x3849
+	Type: IZ
+	Structure: <cmd>.W <dest_id>.L <sender_id>.L <sender_name>.24B <mail_title>.40B
+	index: 0,2,6,10,34
+	len: 74
+	parameter:
+		- cmd : packet identification (0x3849)
+		- dest_id
+		- sender_id
+		- sender_name
+		- mail_title
+	desc:
+		- Report New Mail to map-server
+
+0x384a
+	Type: IZ
+	Structure: <cmd>.W <size>.W <char_id>.L <zeny>.L <item>.?B
+	index: 0,2,4,8,12
+	len: variable: 12+item
+	parameter:
+		- cmd : packet identification (0x384a)
+		- size
+		- char_id
+		- zeny
+		- item
+	desc:
+		- Get mail attachment
+
+0x384b
+	Type: IZ
+	Structure: <cmd>.W <char_id>.L <mail_id>.L <failed>.B
+	index: 0,2,6,10,11
+	len: 11
+	parameter:
+		- cmd : packet identification (0x384b)
+		- char_id
+		- mail_id
+		- failed: Fail status when delete a mail
+	desc:
+		- Status about mail deletion to player
+
+0x384c
+	Type: IZ
+	Structure: <cmd>.W <char_id>.L <mail_id>.L <new_mail>.B
+	index: 0,2,6,10,11
+	len: 11
+	parameter:
+		- cmd : packet identification (0x384c)
+		- char_id
+		- mail_id
+		- new_mail
+	desc:
+		- Received a returned mail
+
+0x384d
+	Type: IZ
+	Structure: <cmd>.W <size>.W <mail_message>.?B
+	index: 0,2,4
+	len: variable: 4+mail_message
+	parameter:
+		- cmd : packet identification (0x384d)
+		- size
+		- mail_message
+	desc:
+		- Mail sent status (to player if the sender is player and online)
+
+0x384e
+	Type: IZ
+	Structure: <cmd>.W <cid_sender>.L <cid_receiver>.L <class>.W <level>.W <name>.24B
+	index: 0,2,6,10,12,14
+	len: 38
+	parameter:
+		- cmd : packet identification (0x384e)
+		- cid_sender
+		- cid_receiver
+		- class
+		- level
+		- name
+	desc:
+		- Mail receiver's character data(character id, job, level and name)
+
+0x3850
+	Type: IZ
+	Structure: <cmd>.W <size>.W <char_id>.L <count>.W <pages>.W <auction_data>.?B
+	index: 0,2,4,8,10,12
+	len: variable: 12+auction_data
+	parameter:
+		- cmd : packet identification (0x3850)
+		- size
+		- char_id
+		- count
+		- pages
+		- auction_data
+	desc:
+		- Auction list
+
+0x3851
+	Type: IZ
+	Structure: <cmd>.W <size>.W <auction_data>.?B
+	index: 0,2,4
+	len: variable: 4+auction_data
+	parameter:
+		- cmd : packet identification (0x3851)
+		- size
+		- auction_data
+	desc:
+		- Status auction registration
+
+0x3852
+	Type: IZ
+	Structure: <cmd>.W <char_id>.L <result>.B
+	index: 0,2,6
+	len: 7
+	parameter:
+		- cmd : packet identification (0x3852)
+		- char_id
+		- result
+	desc:
+		- Cancel an auction that requested by player
+
+0x3853
+	Type: IZ
+	Structure: <cmd>.W <char_id>.L <result>.B
+	index: 0,2,6
+	len: 7
+	parameter:
+		- cmd : packet identification (0x3853)
+		- char_id
+		- result
+	desc:
+		- Receive a notification that the auction has ended
+
+0x3855
+	Type: IZ
+	Structure: <cmd>.W <char_id>.L <bid>.L <result>.B
+	index: 0,2,6,10
+	len: 11
+	parameter:
+		- cmd : packet identification (0x3855)
+		- char_id
+		- bid
+		- result
+	desc:
+		- Get back the money from biding auction (someone else have bid it over)
+
+0x3856
+	Type: IZ
+	Structure: <cmd>.W <aid>.L <guild_id>.W
+	index: 0,2,6
+	len: 8
+	parameter:
+		- cmd : packet identification (0x3856)
+		- aid : account_id
+		- guild_id
+	desc:
+		- Acknowledge the good deletion of the bound item
+
+0x3857
+	Type: IZ
+	Structure: <cmd>.W <size>.W <count>.W <guild_id>.W { <items>.?B }*MAX_INVENTORY
+	index: 0,2,4,6,8
+	len: variable: 8+items
+	parameter:
+		- cmd : packet identification (0x3857)
+		- size
+		- count : number of item retrieved
+		- guild_id
+		- items: retrieved guild bound items
+	desc:
+		- Ask map-server to process the retrieved guild bound items from expelled member
+
+0x3860
+	Type: IZ
+	Structure: <cmd>.W <size>.W <char_id>.L <quest>.?B
+	index: 0,2,4,8
+	len: variable: 8+quest
+	parameter:
+		- cmd : packet identification (0x3860)
+		- size
+		- char_id
+		- quest
+	desc:
+		- Send quest log to a player
+
+0x3861
+	Type: IZ
+	Structure: <cmd>.W <char_id>.L <success>.B
+	index: 0,2,4
+	len: 5
+	parameter:
+		- cmd : packet identification (0x3861)
+		- char_id
+		- success
+	desc:
+		- Send quest log saving status
+
+0x3880
+	Type: IZ
+	Structure: <cmd>.W <account_id>.L <class>.W <pet_id>.L
+	index: 0,2,6,8
+	len: 12
+	parameter:
+		- cmd : packet identification (0x3880)
+		- account_id
+		- class
+		- pet_id
+	desc:
+		- Send pet egg creation status
+
+0x3881
+	Type: IZ
+	Structure: <cmd>.W <size>.W <account_id>.L <status>.B <s_pet>.?B
+	index: 0,2,4,6,8,9
+	len: variable: 9+s_pet
+	parameter:
+		- cmd : packet identification (0x3881)
+		- size
+		- account_id
+		- status: 1 means no info available
+		- s_pet: Pet data
+	desc:
+		- Send packet data to a player
+
+0x3882
+	Type: IZ
+	Structure: <cmd>.W <account_id>.L <flag>.B
+	index: 0,2,4
+	len: 5
+	parameter:
+		- cmd : packet identification (0x3882)
+		- account_id
+		- flag: 1 failed to save
+	desc:
+		- Send pet save status
+
+0x3883
+	Type: IZ
+	Structure: <cmd>.W <flag>.B
+	index: 0,2
+	len: 3
+	parameter:
+		- cmd : packet identification (0x3883)
+		- flag
+	desc:
+		- Send pet deletion status
+
+0x388a
+	Type: IZ
+	Structure: <cmd>.W <size>.W <type>.B <account_id>.L <result>.B <entries>.?B
+	index: 0,2,4,5,9
+	len: 9+variable
+	parameter:
+		- cmd : packet identification (0x388a)
+		- size
+		- type : Storage type, 0 - TABLE_INVENTORY, 1 - TABLE_CART, 2 - TABLE_STORAGE
+		- account_id
+		- result : True if data loaded, false if failed
+		- entries : Inventory/cart/storage entries
+	desc:
+		- Process inventory/cart/storage entries for player from inter-server
+
+0x388b
+	Type: IZ
+	Structure: <cmd>.W <account_id>.L <result>.B <type>.B
+	index: 0,2,6,7
+	len: 11
+	parameter:
+		- cmd : packet identification (0x388b)
+		- account_id
+		- result : 1 - success, 0 - failed
+		- type : Storage type, 0 - TABLE_INVENTORY, 1 - TABLE_CART, 2 - TABLE_STORAGE
+	desc:
+		- Info about inventory/cart/storage data is saved
+
+0x388c
+	Type: IZ
+	Structure: <cmd>.W <len>.W { <storage_table>.? }*?
+	index: 0,2,6,...
+	len: 6+variable
+	parameter:
+		- cmd : packet identification (0x388c)
+		- len : packet length
+		- storage_table : Storage table information
+	desc:
+		- Receive storage information
+
+0x3890
+	Type: IZ
+	Structure: <cmd>.W <size>.W <account_id>.L <flag>.B <s_homunculus>.?B
+	index: 0,2,4,8,9
+	len: variable: 9+s_homunculus
+	parameter:
+		- cmd : packet identification (0x3890)
+		- size
+		- account_id
+		- flag: 0 means homunculus creation is failed
+		- s_homunculus: Homunculus data
+	desc:
+		- Send homunculus creation status
+
+0x3891
+	Type: IZ
+	Structure: <cmd>.W <size>.W <account_id>.L <flag>.B <s_homunculus>.?B
+	index: 0,2,4,8,9
+	len: variable: 9+s_homunculus
+	parameter:
+		- cmd : packet identification (0x3891)
+		- size
+		- account_id
+		- flag: 0 means failed to retrieve homunculus data
+		- s_homunculus: Homunculus data
+	desc:
+		- Send homunculus data to a player
+
+0x3892
+	Type: IZ
+	Structure: <cmd>.W <account_id>.L <flag>.B
+	index: 0,2,4
+	len: 5
+	parameter:
+		- cmd : packet identification (0x3892)
+		- account_id
+		- flag: 1 if success
+	desc:
+		- Send homunculus saving status to a player
+
+0x3893
+	Type: IZ
+	Structure: <cmd>.W <flag>.B
+	index: 0,2
+	len: 3
+	parameter:
+		- cmd : packet identification (0x3893)
+		- flag: 1 Homunculus deleted
+	desc:
+		- Send homunculus deletion status
+
+0x38A0
+	Type: IZ
+	Structure: <cmd>.W <size>.W <clan structure>.?B * n
+	index: 0, 2, 4
+	len: variable: 4+clan*n
+	parameter:
+		- cmd : packet identification (0x38A0)
+		- size
+		- clan structure
+	desc:
+		- Send all loaded clans to the map-server
+
+0x38A1
+	Type: IZ
+	Structure: <cmd>.W <size>.W <message>.?B
+	index: 0, 2, 4
+	len: variable: 4+message
+	parameter:
+		- cmd : packet identification (0x38A1)
+		- size
+		- message : the data of the clan chat message packet
+	desc:
+		- Sends a clan chat message to other map-servers
+
+0x38A2
+	Type: IZ
+	Structure: <cmd>.W <clan id>.L <online count>.W
+	index: 0, 2, 6
+	len: 8
+	parameter:
+		- cmd : packet identification (0x38A2)
+		- clan id : the clan id of the clan that needs an update
+		- online count : the amount of currently connected players in the clan
+	desc:
+		- Updates the online clan member count for all other map-servers
+
+========================
+| 3.2 Char-Map Packets |
+========================
+0x2af9
+	Type: AZ
+	Structure: <cmd>.W <?>.B
+	index: 0,2
+	len: 3
+	parameter:
+		- cmd : packet identification (0x2af9)
+		- ?
+	desc:
+		- chrif_connectack
+
+0x2afb
+	Type: HZ
+	Structure: <cmd>.W <size>.W <status>.B <servername>.?B <defaultmap>.?B <mapx>.W <mapy>.W
+	index: 0,2,4,5+NAME_LENGTH,5+NAME_LENGTH+MAP_NAME_LENGTH,5+NAME_LENGTH+MAP_NAME_LENGTH+2
+	len: variable: 9+NAME_LENGTH+MAP_NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x2afb)
+		- status : 0 Success, 1 : Fail
+		- servername :
+		- defaultmap :
+		- mapx :
+		- mapy :
+	desc:
+		- Map received from map-server, then send reply with server name and default map
+
+0x2afd
+	Type: AZ
+	Structure: <cmd>.W <mmo_charstatus_len>.W <account_id>.L <?>.L <?>.L <?>.L <?>.L <?>.B <cd>.?B
+	index: 0,2,4,8,12,16,20,24,25
+	len: variable: mmo_charstatus_len
+	parameter:
+		- cmd : packet identification (0x2afd)
+		- mmo_charstatus_len
+		- account_id
+		- ?
+		- ?
+		- ?
+		- ?
+		- ?
+		- cd
+	desc:
+		- auth request from map-server
+
+0x2b00
+	Type: AZ
+	Structure: <cmd>.W <users>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2b00)
+	desc:
+		- Send to map-servers the users count on this char-server, (meaning the total of all map-server)
+
+0x2b03
+	Type: AZ
+	Structure: <cmd>.W <account_id>.L <?>.B
+	index: 0,2,6
+	len: 7
+	parameter:
+		- cmd : packet identification (0x2b03)
+		- account_id
+		- ?
+	desc:
+		- Player Requesting char-select from map-server
+
+0x2b04
+	Type: AZ
+	Structure: <cmd>.W <?>.W <ip>.L <port>.W
+	index: 0,2,4,8
+	len: ?
+	parameter:
+		- cmd : packet identification (0x2b04)
+		- ?
+		- ip
+		- port
+	desc:
+		- Receive maps from some other map-server (relayed via char-server)
+
+0x2b06
+	Type: AZ
+	Structure: <cmd>.W <account_id>.L <login_id1>.L <login_id2>.L <char_id>.L <map_index>.W <x>.W <y>.W <ip>.L <port>.W
+	index: 0,2,6,10,14,16,18,20,24,28
+	len: 30
+	parameter:
+		- cmd : packet identification (0x2b06)
+		- account_id
+		- login_id1
+		- login_id2
+		- char_id
+		- map_index
+		- x
+		- y
+		- ip
+		- port
+	desc:
+		- Map-server change request acknowledgment (positive or negative)
+
+0x2b09
+	Type: AZ
+	Structure: <cmd>.W <?>.L <?>?
+	index: 0,2,6
+	len: 30
+	parameter:
+		- cmd : packet identification (0x2b09)
+		- ?
+		- ?
+	desc:
+		- Lookup to search if that char_id correspond to a name.
+
+0x2b0b
+	Type: AZ
+	Structure: <cmd>.W <len>.W <aid>.L <cid>.L <count>.W <skill_cooldown_data>.?B
+	index: 0,2,4,8,12,14
+	len: variable: 14+MAX_SKILLCOOLDOWN*skill_cooldown_data
+	parameter:
+		- cmd : packet identification (0x2b0b)
+		- len
+		- aid
+		- cid
+		- count
+		- skill_cooldown_data
+	desc:
+		- Retrieve and load skillcooldown for a player
+
+0x2b0d
+	Type: AZ
+	Structure: <cmd>.W <acc>.L <sex>.L
+	index:0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b0d)
+		- acc
+		- sex
+	desc:
+		- Request char-server to change sex of char
+
+0x2b0f
+	Type: AZ
+	Structure: <cmd>.W <aid>.L <name>.24B <operation>.W <result>.W
+	index: 0,2,6,30,32
+	len: 34
+	parameter:
+		- cmd : packet identification (0x2b0f)
+		- aid
+		- name
+		- operation
+		- result
+	desc:
+		- Processing a reply to chrif_req_login_operation() (request to modify an account).
+
+0x2b12
+	Type: AZ
+	Structure: <cmd>.W <partner_id1>.L <partner_id2>.L <?>.B
+	index: 0,2,6,10
+	len: 11
+	parameter:
+		- cmd : packet identification (0x2b12)
+		- partner_id1
+		- partner_id2
+		- ?
+	desc:
+		- Divorce players (only used if 'partner_id' is offline)
+
+0x2b14
+	Type: AZ
+	Structure: <cmd>.W <id>.L <res>.B <ret_status>.L
+	index: 0,2,6,7
+	len: 11
+	parameter:
+		- cmd : packet identification (0x2b14)
+		- id
+		- res
+		- ret_status
+	desc:
+		- Disconnection of a player (account has been banned of has a status, from login/char-server)
+
+0x2b1b
+	Type: AZ
+	Structure: <cmd>.W <size>.W <size>.W <size>.W <smith_rank>.?B <alchi_rank>.?B <taek_rank>.?B
+	index: 0,2,4,6,?,?,?
+	len: ? (Max=32000)
+	parameter:
+		- cmd : packet identification (0x2b1b)
+		- size: total packet length
+		- size: Alchemist block size
+		- size: Blacksmith block size
+		-
+		-
+		-
+	desc:
+		- Send map-servers fames ranking lists
+
+0x2b1d
+	Type: AZ
+	Structure: <cmd>.W <len>.W <aid>.L <cid>.L
+	index: 0,2,4,8
+	len: variable: 14+50*status_change_data
+	parameter:
+		- cmd : packet identification (0x2b1d)
+		- len
+		- aid
+		- cid
+	desc:
+		- Map-server requesting to send the list of sc_data the player has saved
+
+0x2b1e
+	Type: AZ
+	Structure: <cmd>.W <new_ip>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2b1e)
+		- new_ip
+	desc:
+		- Request forwarded from char-server for inter-server IP sync
+
+0x2b1f
+	Type: AZ
+	Structure: <cmd>.W <account_id>.L <reason>.B
+	index: 0,2,6
+	len: 7
+	parameter:
+		- cmd : packet identification (0x2b1f)
+		- account_id
+		- reason
+	desc:
+		- Request to kick char from a certain map-server
+
+0x2b20
+	Type: AZ
+	Structure: <cmd>.W <len>.W <ip>.L <port>.W
+	index: 0,2,4,8
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b20)
+		- len
+		- ip
+		- port
+	desc:
+		- Remove specified maps (used when some other map-server disconnects)
+
+0x2b21
+	Type: AZ
+	Structure: <cmd>.W <aid>.L <cid>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b21)
+	desc:
+		- chrif_save_ack (Received after a character has been "final saved" on the char-server)
+
+0x2b22
+	Type: AZ
+	Structure: <cmd>.W <type>.B <index>.B <fame>.L
+	index: 0,2,3,4
+	len: 8
+	parameter:
+		- cmd : packet identification (0x2b22)
+		- type
+		- index
+		- fame
+	desc:
+		- Send to map-servers the updated fame ranking lists
+
+0x2b24
+	Type: AZ
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2b24)
+	desc:
+		- Map-server keep alive packet, answer back map that we alive as well
+
+0x2b25
+	Type: AZ
+	Structure: <cmd>.W <father_id>.L <mother_id>.L <char_id>.L
+	index: 0,2,6
+	len: ? (Max=64)
+	parameter:
+		- cmd : packet identification (0x2b25)
+		- father_id
+		- mother_id
+		- char_id
+	desc:
+		- Removes baby from Father ID and Mother ID
+
+0x2b27
+	Type: AZ
+	Structure: <cmd>.W <account_id>.L <char_id>.L <login_id1>.L <sex>.B
+	index: 0,2,6,10,14
+	len: 15
+	parameter:
+		- cmd : packet identification (0x2b27)
+		- account_id
+		- char_id
+		- login_id1
+		- sex
+	desc:
+		- Client authentication failed
+
+0x2b29
+	free
+
+0x2b2b
+	Type: AZ
+	Structure: <cmd>.W <aid>.L <vip_time>.L <groupid>.L <flag>.B
+	index: 0,2,6,10,11
+	len: 15
+	parameter:
+		- cmd : packet identification (0x2b2b)
+		- aid
+		- vip_time
+		- groupid
+		- flag : 0x1: isvip, is this account in vip mode atm, 0x2: isgm, 0x4: show rates on player
+	desc:
+		- Received vip-data from char-server, fill map-server data
+
+0x2b2f
+	Type: AZ
+	Structure: <cmd>.W <len>.W <cid>.L <count>.B { <bonus_script_data>.?B }
+	index: 0,2,4,8
+	len: variable: 9+count*bonus_script_data
+	parameter:
+		- cmd : packet identification (0x2b2f)
+	desc:
+		- Get bonus_script data(s) from table to load
+
+0x2736
+	Type: ZA
+	Structure: <cmd>.W <ip>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2736)
+	desc:
+		- ip address update
+
+0x2afa
+	Type: ZA
+	Structure: <cmd>.W <size>.W {<map_index>.W}*instance_start
+	index: 0,2,4
+	len: variable: 4+instance_start*4
+	parameter:
+		- cmd : packet identification (0x2afa)
+		- size
+		- map_index*instance_start
+	desc:
+		- Send available normal maps. chrif_sendmap
+
+0x2afc
+	Type: ZA
+	Structure: <cmd>.W <account_id>.L <char_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2afc)
+		- account_id
+		- char_id
+	desc:
+		- Request sc_data from char-server
+
+0x2afe
+	Type: ZA
+	Structure: <cmd>.W <map_usercount>.W
+	index: 0,2
+	len: 4
+	parameter:
+		- cmd : packet identification (0x2afe)
+	desc:
+		- send_usercount_tochar (unused)
+
+0x2aff
+	Type: ZA
+	Structure: <cmd>.W <len>.W <users>.W <account_id>.L <char_id>.L
+	index: 0,2,4,6+8*i,6+8+i+4
+	len: variable: 6+8*users
+	parameter:
+		- cmd : packet identification (0x2aff)
+		- len
+		- users
+		- account_id
+		- char_id
+	desc:
+		- Map-server sent us all his users info, (aid and cid) so we can update online_char_db
+
+0x2b01
+	Type: ZA
+	Structure: <cmd>.W <mmo_charstatus_len>.W <account_id>.L <char_id>.L <flag>.B
+	index: 0,2,4,8,12
+	len: variable: mmo_charstatus_len
+	parameter:
+		- cmd : packet identification (0x2b01)
+	desc:
+		- charsave of char XY account XY
+
+0x2b02
+	Type: ZA
+	Structure: <cmd>.W <id>.L <login_id1>.L <login_id2>.L <s_ip>.L
+	index: 0,2,6,10,14
+	len: 18
+	parameter:
+		- cmd : packet identification (0x2b02)
+		- id
+		- login_id1
+		- login_id2
+		- s_ip
+	desc:
+		- chrif_charselectreq
+
+0x2b05
+	Type: ZA
+	Structure: <cmd>.W <id>.L <login_id1>.L <login_id2>.L <char_id>.L <mapindex>.W <x>.W <y>.W <ip>.L <port>.W <sex>.B <client_addr>.L <group_id>.L
+	index: 0,2,6,10,14,18,20,22,24,28,30,31,35
+	len: 39
+	parameter:
+		- cmd : packet identification (0x2b05)
+		- id
+		- login_id1
+		- login_id2
+		- char_id
+		- mapindex
+		- x
+		- y
+		- ip
+		- port
+		- sex
+		- client_addr
+		- group_id
+	desc:
+		- Tell the char-server the map change / quest for ok
+
+0x2b07
+	Type: ZA
+	Structure: <cmd>.W <char_id>.L <friend_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b07)
+		- char_id
+		- friend_id
+	desc:
+		- Asks char-server to remove friend_id from the friend list of char_id
+
+0x2b08
+	Type: ZA
+	Structure: <cmd>.W <char_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2b08)
+	desc:
+		- Search char through id on char-server
+
+0x2b0a
+	Type: ZA
+	Structure: <cmd>.W <account_id>.L <char_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b0a)
+		- account_id
+		- char_id
+	desc:
+		- Request skillcooldown from char-server
+
+0x2b0c
+	Type: ZA
+	Structure: <cmd>.W <id>.W <actual_email>.40B <new_email>.40B
+	index: 0,2,6,46
+	len: 86
+	parameter:
+		- cmd : packet identification (0x2b0c)
+		- id
+		- actual_email
+		- new_email
+	desc:
+		- Change Email
+
+0x2b0e
+	Type: ZA
+	Structure: <cmd>.W <aid>.L <name>.24B <operation_type>.W <timediff>.L <val1>.L <val2>.L
+	index: 0,2,30,36,40
+	len: 44
+	parameter:
+		- cmd : packet identification (0x2b0e)
+		- aid
+		- name
+		- operation_type: 1:block account, 2:ban account, 3:unblock account, 4:unban account, 5:changesex, 6:VIP, 7:changecharsex
+		- timediff
+		- val1
+		- val2
+	desc:
+		- Send an account modification request to the login-server (via char-server).
+
+0x2b10
+	Type: ZA
+	Structure: <cmd>.W <char_id>.L <fame>.L <type>.B
+	index: 0,2,6,10
+	len: 11
+	parameter:
+		- cmd : packet identification (0x2b10)
+		- char_id
+		- fame
+		- type
+	desc:
+		- Request/Receive top 10 Fame character list
+
+0x2b11
+	Type: ZA
+	Structure: <cmd>.W <partner_id1>.L <partner_id2>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b11)
+		- partner_id1
+		- partner_id2
+	desc:
+		- Request char-server to Divorce Players
+
+0x2b15
+	Type: ZA
+	Structure: <cmd>.W <len>.W <account_id>.L <char_id>.L <count>.W
+	index: 0,2,4,8,12
+	len: variable: 14+MAX_SKILLCOOLDOWN*skill_cooldown_data
+	parameter:
+		- cmd : packet identification (0x2b15)
+		- len
+		- account_id
+		- char_id
+		- count
+	desc:
+		- Request to save skill cooldown data
+
+0x2b16
+	Type: ZA
+	Structure: <cmd>.W <base_rate>.L <job_rate>.L <drop_rate>.L
+	index: 0,2,6,10
+	len: 14
+	parameter:
+		- cmd : packet identification (0x2b16)
+		- base_rate
+		- job_rate
+		- drop_rate
+	desc:
+		- Send rates and motd to char-server
+
+0x2b17
+	Type: ZA
+	Structure: <cmd>.W <char_id>.L <account_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b17)
+		- char_id
+		- account_id
+	desc:
+		- Tell char-server character disconnected
+
+0x2b18
+	Type: ZA
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2b18)
+	desc:
+		- Tell char-server to reset all chars offline
+
+0x2b19
+	Type: ZA
+	Structure: <cmd>.W <char_id>.L <account_id>.L
+	index: 0,2,6
+	len: 10
+	parameter:
+		- cmd : packet identification (0x2b19)
+		- char_id
+		- account_id
+	desc:
+		- Tell char-server character is online
+
+0x2b1a
+	Type: ZA
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2b1a)
+	desc:
+		- Build the fame ranking lists and send them
+
+0x2b1c
+	Type: ZA
+	Structure: <cmd>.W <len>.W <account_id>.L <char_id>.L <count>.W
+	index: 0,2,4,8,12
+	len: variable: 14+SC_MAX*status_change_data
+	parameter:
+		- cmd : packet identification (0x2b1c)
+		- len
+		- account_id
+		- char_id
+		- count
+	desc:
+		- parses the sc_data of the player and sends it to the char-server for saving
+
+0x2b23
+	Type: ZA
+	Structure: <cmd>.W
+	index: 0
+	len: 2
+	parameter:
+		- cmd : packet identification (0x2b23)
+	desc:
+		- pings the char-server (chrif_keepalive)
+
+0x2b26
+	Type: ZA
+	Structure: <cmd>.W <account_id>.L <char_id>.L <login_id1>.L <sex>.B <client_addr>.L <autotrade>.B
+	index: 0,2,6,10,14,15,19
+	len: 20
+	parameter:
+		- cmd : packet identification (0x2b26)
+		- account_id
+		- char_id
+		- login_id1
+		- sex
+		- client_addr
+		- autotrade
+	desc:
+		- client authentication request
+
+0x2b28
+	Type: ZA
+	Structure: <cmd>.W <aid>.L <timediff>.L <character_name>.?B
+	index: 0,2,6,10
+	len: variable: 10+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x2b28)
+		- aid
+		- timediff
+		- character_name
+	desc:
+		- chrif_req_charban
+
+0x2b2a
+	Type: ZA
+	Structure: <cmd>.W <aid>.L <character_name>.?B
+	index: 0,2,6
+	len: 6+NAME_LENGTH
+	parameter:
+		- cmd : packet identification (0x2b2a)
+		- aid
+		- character_name
+	desc:
+		- chrif_req_charunban
+
+0x2b2d
+	Type: ZA
+	Structure: <cmd>.W <char_id>.L
+	index: 0,2
+	len: 6
+	parameter:
+		- cmd : packet identification (0x2b2d)
+	desc:
+		- Requests bonus_script data
+
+0x2b2e
+	Type: ZA
+	Structure: <cmd>.W <len>.W <char_id>.L <count>.B { <bonus_script_data>.?B }
+	index: 0,2,4,8
+	len: variable: 9+count*bonus_script_data
+	parameter:
+		- cmd : packet identification (0x2b2e)
+		- len
+		- char_id
+		- count
+	desc:
+		- Stores bonus_script data(s) to the table
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 8: MD5 HASH CHECK (doc/md5_hashcheck.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: MD5_HASHCHECK -->
+
+//===== rAthena Documentation ================================
+//= MD5 Hash Check
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Last Updated: ========================================
+//= 20140208
+//===== Description: =========================================
+//= This file outlines the login server's MD5 hash check.
+//============================================================
+
+The login server is able to perform a check of the client's MD5 hash.
+This will ensure that a user has not tampered with the client and that
+the client is the one specific to your server.
+
+The client can only send the correct MD5 hash to the server on certain
+server types, so a client diff is required to ensure the hash is sent.
+Please refer to your client diff tool manual for the appropriate patch,
+called "Force Send Client Hash Packet" or a similar name. A link
+containing the WeeDiffGen plugin can be found at:
+http://rathena.org/board/topic/70841-r16771-client-md5-hash-check/
+
+The server-side settings for the hash check are located in
+'conf\login_athena.conf':
+
+// Client MD5 hash check
+// If turned on, the login server will check if the client's hash matches
+// the value below, and will not connect tampered clients.
+// Note: see 'doc/md5_hashcheck.txt' for more details.
+client_hash_check: off
+
+// Client MD5 hashes
+// The client with the specified hash can be used to log in by players with
+// a group_id equal to or greater than the given value.
+// If you specify 'disabled' as hash, players with a group_id greater than or
+// equal to the given value will be able to log in regardless of hash (and even
+// if their client does not send a hash at all.)
+// Format: group_id, hash
+// Note: see 'doc/md5_hashcheck.txt' for more details.
+client_hash: 0, 113e195e6c051bb1cfb12a644bb084c5
+client_hash: 10, cb1ea78023d337c38e8ba5124e2338ae
+client_hash: 99, disabled
+
+To enable MD5 hash checks, set 'client_hash_check' to 'on' and add one
+'client_hash' entry for each client you want to use.
+The group_id can be any of the groups in 'conf/groups.conf', and it is
+useful in case if you want to allow GMs to use a different client
+than normal players; for example, a GM client could be hexed
+differently, perhaps with dual-clienting enabled and chat flood
+disabled.
+You will need to replace the example MD5 hashes with the actual hash of
+your client. You can use any MD5 hash tools to generate it, e.g.:
+- md5sum (command line) on linux
+- WinMD5 on Windows
+- md5 (command line) on Mac OS X

@@ -6120,3 +6120,228 @@ specialeffect2 EF_BLESSING;      // Effect on player
 ---
 
 *Complete effect list from rAthena doc/effect_list.md - All 968 effects individually listed*
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 8: QUEST VARIABLES (doc/quest_variables.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: QUEST_VARIABLES -->
+
+//===== rAthena Documentation ================================
+//= Permanent Quest Variables
+//===== By: ==================================================
+//= Lupus
+//===== Last Updated: ========================================
+//= 20120826
+//===== Description: =========================================
+//= This file should help to understand and manage bit-wise 
+//= quest variables. You can store up to 31 boolean value into 
+//= a single variable.
+//============================================================
+
+Variable: MISC_QUEST
+--------------------------------------------------------------
+
+Quest:		Juice Maker Quest
+Info:		How to make juices. This bit keeps final state of the quest.
+How to set:	set MISC_QUEST, MISC_QUEST | 1;
+How to check:	if (MISC_QUEST & 1) {}
+
+Quest:		-
+Info:		-
+How to set:	set MISC_QUEST, MISC_QUEST | 2;
+How to check:	if (MISC_QUEST & 2) {}
+
+Quest:		Morgenstein Quest
+Info:		How to make Mixture & Counteragent. This bit keeps final state of the quest.
+How to set:	set MISC_QUEST, MISC_QUEST | 4;
+How to check:	if (MISC_QUEST & 4) {}
+
+Quest:		Prontera Culvert Quest
+Info:		Determines if player can enter Prontera Culverts.
+How to set:	set MISC_QUEST, MISC_QUEST | 8;
+How to check:	if (MISC_QUEST & 8) {}
+
+Quest:		Edgar's Offer
+Info:		Cheap ticket from Izlude to Alberta. This bit keeps final state of the quest.
+How to set:	set MISC_QUEST, MISC_QUEST | 16;
+How to check:	if (MISC_QUEST & 16) {}
+
+Quest:		Piano Quest
+Info:		The only way from Niflheim to Umbala.
+How to set:	set MISC_QUEST, MISC_QUEST | 32;
+How to check:	if (MISC_QUEST & 32) {}
+
+Quest:		-
+Info:		-
+How to set:	set MISC_QUEST, MISC_QUEST | 64;
+How to check:	if (MISC_QUEST & 64) {}
+
+Quest:		-
+Info:		-
+How to set:	set MISC_QUEST, MISC_QUEST | 128;
+How to check:	if (MISC_QUEST & 128) {}
+
+Quest:		-
+Info:		-
+How to set:	set MISC_QUEST, MISC_QUEST | 256;
+How to check:	if (MISC_QUEST & 256) {}
+
+Quest:		Cube Room
+Info:		Lighthalzen Cube Room quest (to enter Bio-Lab)
+How to set:	set MISC_QUEST, MISC_QUEST | 512;
+How to check:	if (MISC_QUEST & 512) {}
+
+Quest:		Reset Skills Event
+Info:		Yuno, Hypnotist Teacher
+How to set:	set MISC_QUEST, MISC_QUEST | 1024;
+How to check:	if (MISC_QUEST & 1024) {}
+
+Quest:		Slotted Arm Guard Quest
+Info:		Ninja Job Room, Boshuu
+How to set:	set MISC_QUEST, MISC_QUEST | 2048;
+How to check:	if (MISC_QUEST & 2048) {}
+
+Quest:		Improved Arm Guard Quest
+Info:		Ninja Job Room, Basshu
+How to set:	set MISC_QUEST, MISC_QUEST | 4096;
+How to check:	if (MISC_QUEST & 4096) {}
+
+Quest:		Rachel Sanctuary Quest
+Info:		Determines if player can access Rachel Santuary.
+How to set:	set MISC_QUEST, MISC_QUEST | 8192;
+How to check:	if (MISC_QUEST & 8192) {}
+
+Quest:		Message Delivery Quest
+Info:		Send a message to Elly, in Niflheim from Erious.
+How to set:	set MISC_QUEST, MISC_QUEST | 16384;
+How to check:	if (MISC_QUEST & 16384) {}
+
+Quest:		Umbala Domestic Dispute?
+Info:		Reward: 1 Yggdrasil Leaf.
+How to set:	set MISC_QUEST, MISC_QUEST | 32768;
+How to check:	if (MISC_QUEST & 32768) {}
+
+Quest:		Access to the Turtle Island
+Info:		Reward: ~1 OCA, OVB, GB.
+How to set:	set MISC_QUEST, MISC_QUEST | 65536;
+How to check:	if (MISC_QUEST & 65536) {}
+
+
+Variable: MISC_QUEST2
+--------------------------------------------------------------
+
+Quest:		-
+Info:		-
+How to set:	set MISC_QUEST2, MISC_QUEST2 | ?;
+How to check:	if (MISC_QUEST2 & ?) {}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 9: NPC WHISPER SYSTEM (doc/whisper_sys.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: WHISPER_SYSTEM -->
+
+//===== rAthena Documentation ================================
+//= NPC Whisper System
+//===== By: ==================================================
+//= lordalfa
+//===== Last Updated: ========================================
+//= 20120904
+//===== Description: =========================================
+//= A description of rAthena's NPC whispering system.
+//============================================================
+
+This piece of code to allows characters to execute events in NPCs by whispering 
+them up to ten parameters. The NPC must have an "OnWhisperGlobal" label, or an 
+"event not found" error will result.
+
+	NPC:<NPC Name>		<String>{#String 2{#...{#String 10}}}
+	
+The whispered strings are separated by the "#" character, and are each stored
+into separate temporary character string variables:
+
+	@whispervar0$, @whispervar1$, ... @whispervar9$
+
+---------------------------------------------------------------------------------
+
+Below is an example of how this feature might be used.
+You whisper an NPC "NPCCommander" in-game with the following instructions:
+
+	NPC:NPCCommander	Report#Killstealing#Lordalfa
+
+The parameters are passed on to the "OnWhisperGlobal" label of the NPC, and can
+be processed accordingly:
+
+-	script	NPCCommander	-1,{
+OnWhisperGlobal:
+	// Inform player "Lordalfa" that he has been reported for killstealing.
+	if (@whispervar0$ == "Report")
+		message @whispervar2$,"You have been reported for "+@whispervar1$+".";
+	end;
+}
+
+This could also be used for hidden event triggers:
+
+-	script	EventManager	-1,{
+OnWhisperGlobal:
+	if (getgmlevel() < 80) end;
+	if (@whispervar0$ == "pvp") {
+		// Script for a PVP event.
+	}
+	else if (@whispervar0$ == "mvp") {
+		// Script for an MVP summoning event.
+	}
+	end;
+}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 10: CAPTCHA SYSTEM (doc/captcha_db.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: CAPTCHA_SYSTEM -->
+
+//===== rAthena Documentation ================================
+//= Captcha Database Structure
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Last Updated: ========================================
+//= 20220920
+//===== Description: =========================================
+//= Explanation of the captcha_db.yml file and structure.
+//============================================================
+
+---------------------------------------
+
+Id: Unique ID.
+
+---------------------------------------
+
+Filename: Name of the BMP image file (with location).
+		  The path of the file can be different for each captcha image, but it's best practice to keep them in the same directory.
+
+Example:
+    Filename: db/import/captcha/rathena.bmp
+
+---------------------------------------
+
+Answer: Correct answer for the captcha (case-sensitive).
+
+---------------------------------------
+
+Bonus: NPC script that is ran when a captcha is successfully answered. Accepts all forms of script constants, variables, as well as the
+	   unique player variable @captcha_retries. This variable can be used within the Bonus script to get the remaining retries a player
+	   has. Coupled with the script command 'getbattleflag()' this could be used to assign different bonuses based on success rate.
+
+Example:
+    # Give level 10 Blessing for 20 minutes with no failures, else give for 30 seconds.
+    Bonus: >
+      if (@captcha_retries == getbattleflag("macro_detection_retry")) {
+        # Player solved it on first try
+        specialeffect2 EF_BLESSING;
+        sc_start SC_BLESSING,1200000,10;
+      } else {
+        # Player needed more than one try
+        specialeffect2 EF_BLESSING;
+        sc_start SC_BLESSING,30000,10;
+      }

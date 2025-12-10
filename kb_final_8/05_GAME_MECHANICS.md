@@ -4848,3 +4848,398 @@ enum e_pc_permission {
 *Permissions reference from rAthena doc/permissions.txt*
 
 #rathena #atcommand #charcommand #gm #admin #commands #reference #complete
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 7: WOE TIME EXPLANATION (doc/woe_time_explanation.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: WOE_TIME_EXPLANATION -->
+
+//===== rAthena Documentation ================================
+//= WoE Time Explanation
+//===== By: ==================================================
+//= erKURITA
+//===== Last Updated: ========================================
+//= 20161206
+//===== Description: =========================================
+//= Details on the behavior of the default WoE controller.
+//============================================================
+
+There are 2 main commands that determine WoE times:
+OnClock<time>: and gettime(<type>).
+
+OnClock<time> triggers when <time> is reached.
+The format is HHMM, where H = hour, M = minute.
+OnClock2350: would run at 23:50, server time.
+
+gettime(<type>) is a function that checks for certain
+information regarding time. The types are:
+
+	DT_SECOND - Seconds (of the current minute)
+	DT_MINUTE - Minutes (of the current hour)
+	DT_HOUR - Hour (of the current day)
+	DT_DAYOFWEEK - Week day (constants for MONDAY to SUNDAY are available)
+	DT_DAYOFMONTH - Day of the current month
+	DT_MONTH - Month (constants for JANUARY to DECEMBER are available)
+	DT_YEAR - Year
+	DT_DAYOFYEAR - Day of the year
+
+This way, we can check for a desired minute, hour, day, month, etc.
+
+-------------------------------------------------------------------------------
+
+Now the structure:
+
+	OnClock2100:	// Start time for Tuesday and Thursday
+	OnClock2300:	// End time for Tuesday and Thursday
+	OnClock1600:	// Start time for Saturday
+	OnClock1800:	// End time for Saturday
+
+These 4 labels will run one after the other, reaching the next check:
+
+	if((gettime(DT_DAYOFWEEK)==TUESDAY) && (gettime(DT_HOUR)>=21 && gettime(DT_HOUR)<23)) goto L_Start;
+	if((gettime(DT_DAYOFWEEK)==THURSDAY) && (gettime(DT_HOUR)>=21 && gettime(DT_HOUR)<23)) goto L_Start;
+	if((gettime(DT_DAYOFWEEK)==SATURDAY) && (gettime(DT_HOUR)>=16 && gettime(DT_HOUR)<18)) goto L_Start;
+
+This part will check for the times. Since both Start and End times run
+through the same chain of commands, these are important checks to ensure
+it's the right time. Let's take the following example:
+
+	if((gettime(DT_DAYOFWEEK)==TUESDAY) && (gettime(DT_HOUR)>=21 && gettime(DT_HOUR)<23))
+
+The first gettime() is checking for a type DT_DAYOFWEEK, the day of the week, and it's
+comparing it to the one desired, which is TUESDAY. The function will
+return either true or false.
+
+The second gettime is checking type DT_HOUR, the hour, and it's comparing
+it to 21. If the first part is greater than or equal to (>=) the second part,
+the comparison will return 1.
+
+The third and last gettime is checking again for the hour, but the time has to be less
+than the specified time (in this case, 23).
+
+Now, look at the parentheses. Parentheses are very important when making comparisons
+and conditions. Check the order of these. I'll place dummy characters for this example:
+
+	if ((X && (Y && Z)) goto L_Start;
+
+It's saying, if Y and Z are true, the condition is met. Now let's use another set
+of dummy characters. We're checking if (Y && Z) = G:
+
+	if (X && G) goto L_Start;
+
+It's saying that if X and G are true, the condition is met, thus proceeding to L_Start.
+
+Now, the last part of the script, regarding the end of WoE time:
+
+	if((gettime(DT_DAYOFWEEK)==TUESDAY) && (gettime(DT_HOUR)==23)) goto L_End;
+	if((gettime(DT_DAYOFWEEK)==THURSDAY) && (gettime(DT_HOUR)==23)) goto L_End;
+	if((gettime(DT_DAYOFWEEK)==SATURDAY) && (gettime(DT_HOUR)==18)) goto L_End;
+	end;
+
+This is the same as before, but it's checking for the day in the first gettime() and
+the hour on the second. If both conditions are true, WoE will end. We're checking 
+here for the end time, not the start.
+
+Another important thing is "OnAgitInit:". This special label will be run as soon as the
+castle data is loaded from the char data. It will check for the above start and end times
+to see if it's in WoE time, hence why the hours have to be checked.
+
+-------------------------------------------------------------------------------
+
+An example of how to set the WoE so it starts on Monday, at 4 pm and ends up at 10 pm:
+
+	OnClock1600: // 16:00 = 4 pm
+	OnClock2200: // 22:00 = 10 pm
+
+	OnAgitInit: // This can only be written once: put OnClock above and the checks below.
+
+	if ((gettime(DT_DAYOFWEEK)==MONDAY) && (gettime(DT_HOUR)>=16 && gettime(DT_HOUR)<22)) goto L_Start;
+	if ((gettime(DT_DAYOFWEEK)==MONDAY) && (gettime(DT_HOUR)==22) goto L_End;
+	end; // Don't forget this!
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 8: MONSTER SPRITE AVAILABILITY (doc/mob_avail.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: MOB_AVAIL -->
+
+//===== rAthena Documentation ================================
+//= rAthena Monster Availability Database Reference
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Last Updated: ========================================
+//= 20191213
+//===== Description: =========================================
+//= Explanation of the mob_avail.yml file and structure.
+//============================================================
+
+---------------------------------------
+
+Mob: The AEGIS name of the monster.
+
+---------------------------------------
+
+Sprite: The name of the sprite the monster will be changed to.
+
+This can be another mob, a player (prefixed with 'JOB_'), or an NPC. When using an NPC sprite,
+the prefix is not required in the mob_avail database as the script engine will strip it.
+
+Example:
+  - Mob: POPORING
+    Sprite: PORING # This will change the Poporing into a Poring.
+
+  - Mob: PORING
+    Sprite: JOB_STALKER # This will change the Poring into a Stalker.
+
+  - Mob: WOLF
+    Sprite: 4_M_BARBER # This will change the Wolf into the Barber NPC.
+
+These constants can be found in src/map/script_constants.hpp.
+
+---------------------------------------
+
+Sex: The sex to be displayed if the Sprite is a player.
+
+Valid types:
+	Female
+	Male
+
+---------------------------------------
+
+HairStyle: The hair style ID to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+HairColor: The hair color ID to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+ClothColor: The cloth color ID to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+Weapon: The AEGIS name of the item to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+Shield: The AEGIS name of the item to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+HeadTop: The AEGIS name of the item to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+HeadMid: The AEGIS name of the item to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+HeadLow: The AEGIS name of the item to be displayed if the Sprite is a player.
+
+---------------------------------------
+
+PetEquip: The AEGIS name of the item to be displayed if the Mob is a valid pet.
+
+---------------------------------------
+
+Options: The view option to be applied to the Mob.
+
+Valid types:
+	Sight
+	Cart1
+	Falcon
+	Riding
+	Cart2
+	Cart3
+	Cart4
+	Cart5
+	Orcish
+	Wedding
+	Ruwach
+	Flying
+	Xmas
+	Transform
+	Summer
+	Dragon1
+	Wug
+	WugRider
+	MadoGear
+	Dragon2
+	Dragon3
+	Dragon4
+	Dragon5
+	Hanbok
+	Oktoberfest
+	Summer2
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 9: MOB ITEM RATIO (doc/mob_item_ratio.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: MOB_ITEM_RATIO -->
+
+//===== rAthena Documentation ================================
+//= Mob Item Ratio Database Structure
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Last Updated: ========================================
+//= 20210624
+//===== Description: =========================================
+//= Explanation of the mob_item_ratio.yml file and structure.
+//============================================================
+
+Item base drop rates defined in mob_db.yml will not get multiplied by global item_rate* values (aka drop rates) from
+conf/battle/drops.conf and instead, Ratio will be used (100 = 1x).
+If no Mob is specified, all monsters will be affected, otherwise only the ones listed.
+
+Examples:
+Jellopies from monsters will drop with 1x drop rate regardless of global drop rate
+Body:
+ - Item: Jellopy
+   Ratio: 100
+
+Jellopies from monsters will drop with 10x drop rate regardless of global drop rate
+Body:
+ - Item: Jellopy
+   Ratio: 1000
+
+Removes Jellopies from monsters drop
+Body:
+ - Item: Jellopy
+   Ratio: 0
+
+Jellopies from Porings will drop with 1x drop rate. Other monsters that drop Jellopies are unaffected (use global drop rate).
+Body:
+ - Item: Jellopy
+   Ratio: 100
+   List:
+     PORING: true
+
+Notes:
+- Does not override item_drop_*_min/max settings.
+- Does not affect card/item-granted drops. To adjust card/item-granted drops, edit them in item_db.
+- Does affect MVP prizes and Treasure Boxes.
+- You can add only ONE Ratio per Item. If you need various ratios for different monsters, override drop rate with Ratio=100 and edit base drop rates in mob_db.
+- This file is reloaded by @reloadmobdb.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 10: MONSTER POWER SKILLS (doc/mob_skill_db_powerskill.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: MOB_POWERSKILL -->
+
+//===== rAthena Documentation ================================
+//= rAthena Monster Powerskill Reference
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Last Updated: ========================================
+//= 20200104
+//===== Description: =========================================
+//= Reference for monster level 10 skills.
+//============================================================
+
+When a monster uses a level 10 skill on Aegis, it will be much stronger than the 
+normal player version. On rAthena we reflect this by giving the monster a skill
+level above the maximum player skill level.
+The following list explains the skill specialities and the corresponding level
+which needs to be put for these skills in the mob_skill_db.
+
+Note: The "SkillDatabase::parseNode" template has a linear determination feature
+where it will attempt to fill the values from the last level defined to MAX_SKILL_LEVEL.
+If it can't determine a trend it will fill with the last level defined.
+
+-------------------------------------------------------------------------------
+Skill | rAthena Lv | Explanation
+-------------------------------------------------------------------------------
+6,SM_PROVOKE          |10| Reduces DEF by 100%. No ATK bonus.
+7,SM_MAGNUM           |25| 9x9 AoE. 600% damage at all ranges.
+15,MG_FROSTDIVER      |40| 500% damage. 100% base chance.
+17,MG_FIREBALL        |43| 7x7 AoE. 1000% damage. (In pre-re, level is 93.)
+21,MG_THUNDERSTORM    |20| 7x7 AoE. 3 splash into LP. 20 hits.
+28,AL_HEAL            |11| Heals max_heal HP(see conf/battle/skills.conf)
+30,AL_DECAGI          |48| Reduces Agi by 50. Duration 130 seconds.
+42,MC_MAMMONITE       |22| 1200% damage.
+57,KN_BRANDISHSPEAR   |10| 562% damage at all ranges.
+60,KN_TWOHANDQUICKEN  |30| Increases ASPD by 70%. Duration 300 seconds.
+80,WZ_FIREPILLAR      |10| Damage multiplied by number of hits.
+83,WZ_METEOR          |11| Meteors drop in 33x33 AoE. 10 meteors. 15 hits per meteor.
+84,WZ_JUPITEL         |28| 30 hits, knockback out of visible range.
+85,WZ_VERMILION       |21| 15x15 unit placement. 1 splash into LP. 500% damage.
+86,WZ_WATERBALL       |10| 9x9 unit placement. 67 hits.
+110,BS_HAMMERFALL     |10| 25x25 AoE. 100% base chance.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 11: MAP CACHE (doc/map_cache.txt)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: MAP_CACHE -->
+
+//===== rAthena Documentation ================================
+//= rAthena Map Cache Builder and Format Documentation
+//===== By: ==================================================
+//= DracoRPG
+//===== Last Updated: ========================================
+//= 20070724
+//===== Description: =========================================
+//= A complete manual for rAthena's map cache generator as 
+//= well as a reference on the map cache format used.
+//============================================================
+
+Preface:
+-------------------------------------------------------------------------------
+
+Since SVN revision ~10000, the map-server no longer knows how to read GRFs directly. It reads maps from a
+"map cache" file that contains all and only the useful data about the maps. A map cache containing every official
+kRO Sakray map currently supported by rAthena is provided as a default.
+If you have custom maps or want to minimize the size of your map cache because your server does not load all of them
+(multi-map-server or light test server), you can use the map cache builder to generate a new one fitting your needs.
+
+Map cache builder manual:
+-------------------------------------------------------------------------------
+
+The source code for the map cache builder is located in src/tool/. It can be built using "make tools" if you use the Makefile
+or using the "mapcache" project under Visual Studio. Named "mapcache", the executable will be in your rAthena main folder.
+The map cache builder needs 3 file paths : one is a list of GRFs and/or data directory containing the maps, the second
+is the list of maps to add to the map cache, and the last one is the path of the map cache to generate. Default values for
+those paths are "tools/mapcache/grf_files.txt", "db/map_index.txt" and "db/(pre-)re/map_cache.dat".
+
+As of r16867, the mapcache can be located in db/pre-re/ and db/re/. This is due to renewal and pre-renewal modes having
+slightly different maps. When building your cache, you should ensure you're pointing the tool to the correct location.
+
+The list of GRFs and/or data directory must follow the format and indication of the default file: as many "grf:" entries as
+you wish and optionally only one "data_dir:" entry with trailing backslash included. // comments are supported as usual.
+In fact, any file with one map name per line can be used as a map list, that's why the map index list is used as a default:
+we are sure it contains every map supported by the server. Anything after the map name is ignored, // comments are supported
+and if the first word on the line is "map:" then the second word is used as the map name instead: that allows using
+maps_athena.conf as your map list, which is handy if you want to generate a minimal map cache for each of your multiple
+map-servers.
+The map cache file path can point to an already existing file, as the builder adds a map only if it's not already cached.
+This way, you can add custom maps to the base map cache without even needing kRO Sakray maps. If you wish to rebuild the
+entire map cache, though, you can either provide a path to a non-existing file, or force the rebuild mode.
+
+Here are the command-line arguments you can provide to the map cache builder to customize its behavior:
+ -grf path/to/grf/list
+   Allows to specify the file containing the list of GRFs and/or data directory
+ -list path/to/map/list
+   Allows to specify the file containing the list of maps to add to the map cache
+ -cache path/to/map/cache
+   Allows to specify the path to the generated map cache
+ -rebuild
+   Allows to force the rebuild mode (map cache will be overwritten even if it already exists)
+
+
+Map cache format reference:
+-------------------------------------------------------------------------------
+
+The file is written as little-endian, even on big-endian systems, for cross-compatibility reasons. Appropriate conversions
+are done when generating it, so don't worry about it.
+The first 6 bytes are a main header:
+<unsigned int> file size
+<unsigned short> number of maps
+Then maps are stored one right after another:
+<12-characters-long string> map name
+<short> X size
+<short> Y size
+<long> compressed cell data length
+<variable> compressed cell data
