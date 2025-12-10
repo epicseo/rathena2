@@ -6345,3 +6345,305 @@ Example:
         specialeffect2 EF_BLESSING;
         sc_start SC_BLESSING,30000,10;
       }
+
+---
+
+<!-- RAG_CHUNK: sample_instance_script -->
+## Part 11: Sample Instance Script
+
+> Source: `doc/sample/instancing.txt` (208 lines)
+
+Complete example of an instance system with creation, entry, mob spawning, and cleanup.
+
+### Instance Database Entry
+Before using, add to `db/(pre-)re/instance_db.txt`:
+```
+100,Abyss Lake Instance,3600,300,abyss_03,160,155
+```
+
+### Instance Creation NPC
+
+```c
+prontera,151,190,6	script	Sample Instance	101,{
+	.@instance$ = "Abyss Lake Instance";
+
+	if (instance_live_info(ILI_NAME, instance_id(IM_PARTY)) == .@instance$) {
+		// Already in this instance
+		mes "[Sample Instance]";
+		mes "You are already part of an instance.";
+		next;
+		switch(select("Enter Instance.:Cancel.")) {
+		case 1:
+			break;
+		case 2:
+			mes "[Sample Instance]";
+			mes "You don't want to try again?";
+			emotion ET_CRY;
+			close;
+		}
+	}
+	else if (instance_id(IM_PARTY)) {
+		// Another instance is running
+		mes "[Sample Instance]";
+		mes "You are part of the instance " + instance_live_info(ILI_NAME, instance_id(IM_PARTY)) + ".";
+		close;
+	}
+	else {
+		// Create new instance
+		mes "[Sample Instance]";
+		mes "Would you like to try the sample instance?";
+		next;
+		switch(select("Create Instance.:Cancel.")) {
+		case 1:
+			.@create = instance_create(.@instance$);
+			if (.@create < 0) {
+				mes "[Sample Instance]";
+				switch (.@create) {
+					case -1: mes "ERROR: Invalid type."; break;
+					case -2: mes "ERROR: Party not found."; break;
+					case -3: mes "ERROR: Instance already exists."; break;
+					case -4: mes "ERROR: No free instances."; break;
+				}
+				close;
+			}
+			mes "[Sample Instance]";
+			mes "Instance created. Now entering...";
+			next;
+			break;
+		case 2:
+			close;
+		}
+	}
+
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Sample Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		close;
+	}
+	close;
+}
+```
+
+### Instance Start NPC
+
+```c
+abyss_03,154,159,6	script	Instance NPC#start	101,{
+	mes "[Instance NPC]";
+	mes "Are you ready to begin?";
+	next;
+	switch(select("Yes.:No.")) {
+	case 1:
+		mes "[Instance NPC]";
+		mes "Good luck.";
+		close2;
+		donpcevent instance_npcname("#ins_abyss03_mobs")+"::OnEnable";
+		delwaitingroom;
+		disablenpc instance_npcname(strnpcinfo(0));
+		end;
+	case 2:
+		mes "[Instance NPC]";
+		mes "Take your time.";
+		close;
+	}
+	end;
+
+OnInit:
+	disablenpc strnpcinfo(0);
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname("abysslakedunwarp004");
+	waitingroom "Click here to start!",0;
+	end;
+}
+```
+
+### Monster Spawning Controller
+
+```c
+abyss_03,0,0,0	script	#ins_abyss03_mobs	-1,{
+	end;
+OnEnable:
+	initnpctimer;
+	end;
+OnTimer1000:
+	mapannounce strnpcinfo(4),"Instance NPC: The instance has begun.",bc_all;
+	end;
+OnTimer5000:
+	stopnpctimer;
+
+	// Spawn mobs with event labels
+	.@map$        = instance_mapname("abyss_03");
+	.@label$      = instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	.@label_boss$ = instance_npcname(strnpcinfo(0))+"::OnMyBossDead";
+
+	monster .@map$,0,0,"Huge Poring",1002,20,.@label$,2;
+	monster .@map$,0,0,"Huge Drops",1113,15,.@label$,2;
+	monster .@map$,97,102,"Treasure Chest",1732,1,.@label_boss$,2;
+	end;
+
+OnMyMobDead:
+	dispbottom "What am I doing? I should attack the Treasure Chest!";
+	viewpoint 0,97,102,0,0xFF0000;
+	switch (rand(6)) {
+		case 0: sc_start SC_STONE,5000,0; break;
+		case 1: sc_start SC_FREEZE,5000,0; break;
+		case 2: sc_start SC_STUN,5000,0; break;
+		case 3: sc_start SC_SLEEP,5000,0; break;
+		case 4: sc_start SC_CONFUSION,5000,0; break;
+		case 5: sc_start SC_BLIND,5000,0; break;
+	}
+	end;
+
+OnMyBossDead:
+	specialeffect2 EF_MVP;
+	getitem 512,1; // Apple
+
+	.@map$   = instance_mapname("abyss_03");
+	.@label$ = instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	killmonster .@map$,.@label$;
+	mapannounce .@map$,"Instance NPC: Good work! Speak to me now.",bc_all;
+	donpcevent instance_npcname("Instance NPC#finish")+"::OnEnable";
+	end;
+}
+```
+
+### Instance Completion NPC
+
+```c
+abyss_03,97,102,4	script	Instance NPC#finish	101,{
+	mes "[Instance NPC]";
+	mes "Congratulations! You've finished.";
+	mes "I'll send you back to town now.";
+	emotion ET_BEST;
+	close2;
+	warp "prontera",156,191;
+	instance_destroy();
+	end;
+
+OnInit:
+	disablenpc strnpcinfo(0);
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0));
+	specialeffect EF_HIDING;
+	end;
+}
+```
+
+### Key Instance Functions
+
+| Function | Description |
+|----------|-------------|
+| `instance_create(name)` | Creates instance, returns ID or error |
+| `instance_enter(name)` | Warps player into instance |
+| `instance_destroy()` | Destroys current instance |
+| `instance_id(IM_PARTY)` | Gets party's instance ID |
+| `instance_mapname(map)` | Gets instanced map name |
+| `instance_npcname(name)` | Gets instanced NPC name |
+| `instance_live_info(type,id)` | Gets instance info |
+
+### Error Codes
+
+**instance_create returns:**
+| Code | Meaning |
+|------|---------|
+| -1 | Invalid type |
+| -2 | Party not found |
+| -3 | Instance already exists |
+| -4 | No free instances |
+
+**instance_enter returns:**
+| Code | Meaning |
+|------|---------|
+| 0 | Success |
+| 1 | Party not found |
+| 2 | No instance |
+| 3 | Unknown error |
+
+---
+
+<!-- RAG_CHUNK: sample_dynamic_shop -->
+## Part 12: Sample Dynamic Shop
+
+> Source: `doc/sample/npc_dynamic_shop.txt` (93 lines)
+
+Example of a shop that changes based on conditions.
+
+```c
+prontera,150,150,4	script	Dynamic Shop	100,{
+	mes "[Shop Keeper]";
+	mes "Welcome! My stock changes based on your level.";
+	next;
+
+	// Clear previous shop data
+	deletearray .@items;
+	deletearray .@prices;
+	.@count = 0;
+
+	// Always available items
+	.@items[.@count] = 501;  // Red Potion
+	.@prices[.@count] = 50;
+	.@count++;
+
+	.@items[.@count] = 502;  // Orange Potion
+	.@prices[.@count] = 200;
+	.@count++;
+
+	// Level 30+ items
+	if (BaseLevel >= 30) {
+		.@items[.@count] = 503;  // Yellow Potion
+		.@prices[.@count] = 550;
+		.@count++;
+	}
+
+	// Level 50+ items
+	if (BaseLevel >= 50) {
+		.@items[.@count] = 504;  // White Potion
+		.@prices[.@count] = 1200;
+		.@count++;
+	}
+
+	// Level 70+ items
+	if (BaseLevel >= 70) {
+		.@items[.@count] = 547;  // Condensed White Potion
+		.@prices[.@count] = 2500;
+		.@count++;
+	}
+
+	// VIP items
+	if (vip_status(1)) {
+		.@items[.@count] = 12016; // Speed Potion
+		.@prices[.@count] = 5000;
+		.@count++;
+	}
+
+	// Build and open shop
+	npcshopdelitem "dynamic_shop#" + strnpcinfo(0), 0;
+	for (.@i = 0; .@i < .@count; .@i++) {
+		npcshopadditem "dynamic_shop#" + strnpcinfo(0), .@items[.@i], .@prices[.@i];
+	}
+
+	mes "Here's what I have for you today.";
+	close2;
+	callshop "dynamic_shop#" + strnpcinfo(0), 1;
+	end;
+}
+
+-	shop	dynamic_shop#Dynamic Shop	-1,501:50
+```
+
+### Key Dynamic Shop Functions
+
+| Function | Description |
+|----------|-------------|
+| `npcshopdelitem(shop,id)` | Remove item (0 = clear all) |
+| `npcshopadditem(shop,id,price)` | Add item with price |
+| `callshop(shop,type)` | Open shop (1=buy, 2=sell) |

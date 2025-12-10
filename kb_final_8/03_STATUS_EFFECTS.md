@@ -11980,3 +11980,297 @@ SC__STRIPACCESSORY
 SC__UNLUCKY
 SC__WEAKNESS
 ```
+
+---
+
+<!-- RAG_CHUNK: status_database_structure -->
+## Part 3: Status Database Structure (status.yml)
+
+> Source: `doc/status.txt` (321 lines)
+
+This section explains the structure of `db/status.yml` and all available flags/options.
+
+### Status Field Reference
+
+#### Status
+Status change name. See `src/map/script_constants.hpp` for SC_* constants.
+
+#### Icon
+Status change icon or client effect displayed client-side. See `src/map/script_constants.hpp` for EFST_* constants.
+
+#### DurationLookup
+Used for default duration lookup in `skill_db.yml`. The duration used is `Duration2` defined for the skill linked. If different durations are defined per level, level 7 is used.
+
+### States
+
+States given when the SC is active:
+
+| State | Description |
+|-------|-------------|
+| None | No special state (Default) |
+| NoMove | Cannot move |
+| NoMoveCond | Condition check for SCS_NOMOVE |
+| NoPickItem | Cannot pick item |
+| NoPickItemCond | Condition check for SCS_NOPICKITEM |
+| NoDropItem | Cannot drop item |
+| NoDropItemCond | Condition check for SCS_NODROPITEM |
+| NoCast | Cannot cast a skill |
+| NoCastCond | Condition check for SCS_NOCAST |
+| NoChat | Cannot chat and open chat room |
+| NoChatCond | Condition check for SCS_NOCHATCOND |
+| NoEquipItem | Cannot put on equipment |
+| NoEquipItemCond | Condition check for SCS_NOEQUIPITEM |
+| NoUnEquipItem | Cannot put off equipment |
+| NoUnEquipItemCond | Condition check for SCS_NOUNEQUIPITEM |
+| NoConsumeItem | Cannot consume item |
+| NoConsumeItemCond | Condition check for SCS_NOCONSUMEITEM |
+| NoAttack | Cannot attack |
+| NoAttackCond | Condition check for SCS_NOATTACK |
+| NoWarp | Cannot warp |
+| NoWarpCond | Condition check for SCS_NOWARP |
+| NoDeathPenalty | Cannot lose experience on death |
+| NoDeathPenaltyCond | Condition check for SCS_NODEATHPENALTY |
+| NoInteract | Cannot interact with client (sit/stand or talk with NPC) |
+| NoInteractCond | Condition check for SCS_NOINTERACT |
+
+> States with "Cond" suffix have hard coded conditions in `status.cpp::status_calc_state`
+
+### CalcFlags
+
+Flag indicating which status calculation is performed:
+
+| Flag | Description |
+|------|-------------|
+| None | Calculates nothing (Default) |
+| Base | Base status |
+| MaxHp | Maximum HP |
+| MaxSp | Maximum SP |
+| Str | STR |
+| Agi | AGI |
+| Vit | VIT |
+| Int | INT |
+| Dex | DEX |
+| Luk | LUK |
+| Batk | Base Attack |
+| Watk | Weapon Attack |
+| Matk | Magic Attack |
+| Hit | Hit/accuracy rate |
+| Flee | Flee/dodge rate |
+| Def | Equipment Defense |
+| Def2 | Defense |
+| Mdef | Equipment Magic Defense |
+| Mdef2 | Magic Defense |
+| Speed | Walk speed |
+| Aspd | Attack speed |
+| Dspd | Damage delay speed |
+| Cri | Critical rate |
+| Flee2 | Perfect dodge rate |
+| Atk_Ele | Attack Element |
+| Def_Ele | Defense Element |
+| Mode | Mode |
+| Size | Size |
+| Race | Race |
+| Range | Range |
+| Regen | Regeneration |
+| MaxAp | Maximum AP |
+| Pow | POW |
+| Sta | STA |
+| Wis | WIS |
+| Spl | SPL |
+| Con | CON |
+| Crt | CRT |
+| Patk | Physical Power |
+| Smatk | Spell Magic Attack |
+| Res | Physical Resistance |
+| Mres | Magic Resistance |
+| Hplus | Heal Plus |
+| Crate | Critical Rate |
+| Dye | Dye |
+| All | Calculates all CalcFlags |
+
+### Opt1 (BODYSTATE)
+
+Special effect when status is active. Not stackable:
+
+| Option | Description |
+|--------|-------------|
+| None | No effect (Default) |
+| Stone | Stone curse effect |
+| StoneWait | Stone curse incubation effect |
+| Freeze | Freeze effect |
+| Stun | Stun effect |
+| Sleep | Sleep effect |
+| Burning | Burning effect |
+| Imprison | Imprison effect |
+| Crystalize | Crystalize effect |
+
+### Opt2 (HEALTHSTATE)
+
+Special client effect when status is active:
+
+| Option | Description |
+|--------|-------------|
+| None | No effect (Default) |
+| Poison | Poisoned effect |
+| Curse | Cursed effect |
+| Silence | Silenced effect |
+| SignumCrucis | Signum Crucis effect |
+| Blind | Blind effect |
+| Angelus | Angelus effect |
+| Bleeding | Bleeding effect |
+| Dpoison | Heavy Poisoned effect |
+| Fear | Fear effect |
+
+### Opt3 (SHOW_EFST)
+
+Special visual effect when status is active:
+
+| Option | Description |
+|--------|-------------|
+| Normal | No effect (Default) |
+| Quicken | Quicken effect |
+| OverThrust | Overthrust effect |
+| EnergyCoat | Energy Coat effect |
+| ExplosionSpirits | Explosion Spirits effect |
+| SteelBody | Steel Body effect |
+| BladeStop | Blade Stop effect |
+| AuraBlade | Aura Blade effect |
+| Berserk | Berserk effect |
+| LightBlade | Light Blade effect |
+| Moonlit | Moonlit effect |
+| Marionette | Marionette effect |
+| Assumptio | Assumptio effect |
+| Warm | Warm effect |
+| Kaite | Kaite effect |
+| Bunsin | Bunshin effect |
+| SoulLink | Soul Link effect |
+| Undead | Undead effect |
+| Contract | Contract effect |
+
+### Options (Visual States)
+
+Special visual state when status is active:
+
+| Option | Description |
+|--------|-------------|
+| Nothing | No effect (Default) |
+| Sight | Sight effect |
+| Hide | Hide effect |
+| Cloak | Cloaking effect |
+| Falcon | Falcon effect |
+| Riding | Riding effect |
+| Invisible | Invisible effect |
+| Orcish | Orcish effect (the ugly face!) |
+| Wedding | Wedding costume |
+| Ruwach | Ruwach effect |
+| ChaseWalk | Chasewalk effect |
+| Flying | Flying effect (Star Gladiator Union) |
+| Xmas | Christmas costume |
+| Transform | Transformation |
+| Summer | Summer costume |
+| Dragon1-5 | Dragon mount variants |
+| Wug | Wug |
+| WugRider | Riding a Wug |
+| Madogear | Madogear |
+| Hanbok | Hanbok costume |
+| Oktoberfest | Oktoberfest costume |
+
+### Flags
+
+Various status flags for specific events:
+
+#### Display Flags
+| Flag | Description |
+|------|-------------|
+| BlEffect | Status has BL_SCEFFECT as relevant effect |
+| DisplayPc | Displays status effect when player logs in |
+| DislpayNpc | Displays status effect on a NPC |
+| Debuff | Status is considered a debuff |
+| SetStand | Sets player to standing state |
+
+#### Overlap/Mado Flags
+| Flag | Description |
+|------|-------------|
+| OverlapIgnoreLevel | Status activates for any level if already active |
+| FailedMado | Cannot be applied if Madogear is active |
+| MadoCancel | Cancels when mounting Madogear |
+| MadoEndCancel | Cancels when unmounting Madogear |
+
+#### Removal Prevention Flags
+| Flag | Description |
+|------|-------------|
+| NoClearbuff | Cannot be removed by status_change_clear_buffs() |
+| NoForcedEnd | Cannot be removed by sc_end |
+| NoRemoveOnDead | Cannot be removed when player dies |
+| NoDispell | Cannot be removed by SA_DISPELL |
+| NoClearance | Cannot be removed by AB_CLEARANCE |
+| NoBanishingBuster | Cannot be removed by RL_BANISHING_BUSTER |
+| NoSave | Won't be saved when player logs out |
+| NoSaveInfinite | Infinite duration status won't be saved |
+
+#### Removal Trigger Flags
+| Flag | Description |
+|------|-------------|
+| RemoveOnDamaged | Removed when receiving damage |
+| RemoveOnRefresh | Removed by RK_REFRESH |
+| RemoveOnLuxAnima | Removed by RK_LUXANIMA |
+| RemoveOnMapWarp | Removed when warping to another map |
+| RemoveOnChangeMap | Removed when changing map-server |
+| RemoveChemicalProtect | Removed by AM_CP_* skills |
+| RemoveOnUnequip | Removed when unequipping any equipment |
+| RemoveOnUnequipWeapon | Removed when unequipping weapon |
+| RemoveOnUnequipArmor | Removed when unequipping armor |
+| RemoveOnHermode | Removed by CG_HERMODE |
+
+#### Action Stop Flags
+| Flag | Description |
+|------|-------------|
+| StopAttacking | Makes unit stop attacking |
+| StopCasting | Makes unit stop casting skills |
+| StopWalking | Makes unit stop walking |
+
+#### Boss Resistance Flags
+| Flag | Description |
+|------|-------------|
+| BossResist | Cannot be applied to Boss Monster (MD_STATUS_IMMUNE) |
+| MvpResist | Cannot be applied to MvP (MD_MVP) |
+
+#### Notification Flags
+| Flag | Description |
+|------|-------------|
+| SendOption | Sends STATE_CHANGE packet for Opt1/Opt2/Opt3 |
+| SendLook | Sends STATE_CHANGE for body/look changes |
+| SendVal1 | Notifies client of val1 |
+| SendVal2 | Notifies client of val2 |
+| SendVal3 | Notifies client of val3 |
+
+#### Requirement Flags
+| Flag | Description |
+|------|-------------|
+| RequireWeapon | Status requires weapon equipped |
+| RequireNoWeapon | Status requires no weapon equipped |
+| RequireShield | Status requires shield equipped |
+
+### Additional Fields
+
+| Field | Description |
+|-------|-------------|
+| MinDuration | Minimum duration (ms) after resistance reduction |
+| MinRate | Minimum success rate (n/10000) after resistance reduction |
+| Fail | List of status that causes activation to fail |
+| EndOnStart | List of status that end when this status activates |
+| EndReturn | List of status that end on activate and prevent effect |
+| EndOnEnd | List of status that end when this status ends |
+| Script | Script to execute when status starts |
+
+### Important Notes
+
+1. **Buff vs Debuff**: By default, statuses are 'Buff' unless given 'Debuff' flag
+2. **NoClearbuff**: Prevents removal by `status_change_clear`, `status_change_clear_buffs`, `map_quit`
+3. **Skill Interactions**:
+   - CG_TAROTCARD, CG_HERMODE: Only remove buffs
+   - PA_GOSPEL, LG_INSPIRATION: Remove buffs AND debuffs
+   - RK_REFRESH, RK_LUXANIMA: Only remove with specific flags
+4. **Opt1 Exclusivity**: SC_STONE, SC_FREEZE, SC_STUN, SC_SLEEP, SC_BURNING, SC_WHITEIMPRISON, SC_CRYSTALIZE cannot override each other
+5. **Mado Immunity**: Madogear is immune to increase agi, wind walk, cart boost, etc.
+6. **Berserk Types**: SC_BERSERK, SC_SATURDAYNIGHTFEVER, SC__BLOODYLUST do not overlap
