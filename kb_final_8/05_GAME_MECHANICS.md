@@ -5243,3 +5243,245 @@ Then maps are stored one right after another:
 <short> Y size
 <long> compressed cell data length
 <variable> compressed cell data
+
+---
+
+<!-- RAG_CHUNK: item_group_structure -->
+## Part 12: Item Group Database Structure
+
+> Source: `doc/item_group.txt` (256 lines)
+
+Item groups allow bundling items for random/guaranteed drops via script commands.
+
+### Script Command Compatibility
+
+| Field | groupranditem | getrandgroupitem | getgroupitem |
+|-------|---------------|------------------|--------------|
+| GroupID | YES | YES | YES |
+| Item | YES | YES | YES |
+| Rate | YES | YES | YES |
+| Amount | no | OPTIONAL | YES |
+| SubGroup | OPTIONAL | OPTIONAL | YES |
+| Announced | no | no | YES |
+| Duration | no | no | YES |
+| UniqueId | no | no | YES |
+| Bound | no | no | YES |
+| Named | no | no | YES |
+
+### Field Reference
+
+| Field | Description |
+|-------|-------------|
+| GroupID | Uses IG_* constants from script_constants.hpp |
+| Index | Unique number for same Item with different data |
+| Item | AegisName of the item |
+| Rate | Probability weight (not percentage) |
+| Amount | Quantity to give |
+| SubGroup | Groups items into separate lists |
+| Algorithm | Random, All, or SharedPool |
+| Announced | Broadcasts "[Player] has won [Item]" |
+| Duration | Rental item expiration in minutes |
+| UniqueId | Prevents stacking with same items |
+| Bound | Binds item (see getitembound) |
+| Named | Inscribes with player's name |
+
+### Algorithm Types
+
+| Type | Description |
+|------|-------------|
+| Random | Random pick using rate as weight (default behavior) |
+| All | All items given; rate must be 0 |
+| SharedPool | Pool depletes as items are taken; refills when empty |
+
+### Example: Basic Random Group
+
+```yaml
+- Group: MyItemGroup
+  SubGroups:
+    - SubGroup: 1
+      List:
+        - Index: 0
+          Item: Knife
+          Rate: 5      # 5/6 = 83.3% chance
+        - Index: 1
+          Item: Dagger
+          Rate: 1      # 1/6 = 16.7% chance
+```
+
+### Example: Must + Random Groups
+
+```yaml
+- Group: MyItemGroup
+  SubGroups:
+    - SubGroup: 0
+      Algorithm: All
+      List:
+        - Index: 0
+          Item: Knife       # Always given
+        - Index: 1
+          Item: Dagger      # Always given
+    - SubGroup: 1
+      Algorithm: Random
+      List:
+        - Index: 0
+          Item: Stiletto
+          Rate: 5
+        - Index: 1
+          Item: Stiletto_
+          Rate: 2
+```
+
+### Usage Examples
+
+```c
+// Get all items from group (must + random from each subgroup)
+getgroupitem(IG_MyItemGroup);
+
+// Get random item from subgroup 1
+getrandgroupitem(IG_MyItemGroup);
+
+// Get 3 random items from subgroup 1
+getrandgroupitem(IG_MyItemGroup, 3);
+
+// Get random item from subgroup 0 (must group)
+getrandgroupitem(IG_MyItemGroup, 1, 0);
+
+// Get item ID only (use with getitem)
+.@item = groupranditem(IG_MyItemGroup);
+getitem .@item, 1;
+```
+
+### SharedPool Example
+
+```yaml
+- Group: MyItemGroup2
+  SubGroups:
+    - SubGroup: 1
+      Algorithm: SharedPool
+      List:
+        - Item: Milk
+          Rate: 10        # 10 packs in pool
+          Amount: 3       # 3x per pack
+        - Item: Well_Baked_Cookie
+          Rate: 5         # 5 packs in pool
+          Amount: 2       # 2x per pack
+        - Item: Gift_Box
+          Rate: 1         # 1 in pool
+```
+
+Pool starts with 16 total packs. Each draw removes one pack until empty, then refills.
+
+---
+
+<!-- RAG_CHUNK: achievement_system -->
+## Part 13: Achievement Database Structure
+
+> Source: `doc/achievements.md` (165 lines)
+
+### Achievement Fields
+
+| Field | Description |
+|-------|-------------|
+| Id | Unique achievement ID |
+| Group | Achievement trigger type |
+| Name | Name for RODEX rewards |
+| Targets | Monster/count requirements |
+| Condition | Script condition for completion |
+| Map | Map restriction (for Chatting group) |
+| Dependents | Required prior achievements |
+| Rewards | Items/scripts on completion |
+| Score | Achievement points |
+
+### Achievement Groups
+
+| Group | Trigger |
+|-------|---------|
+| None | Custom, given via script |
+| Add_Friend | Player adds a friend |
+| Adventure | Via achievementcomplete command |
+| Baby | Player becomes baby job |
+| Battle | Player kills a monster |
+| Chatting | Via achievementupdate command |
+| Chatting_Count | Others join player's chatroom |
+| Chatting_Create | Player creates chatroom |
+| Chatting_Dying | Player dies with chatroom open |
+| Get_Item | Player gets item with specific sell value |
+| Get_Zeny | Player gets specific zeny amount |
+| Goal_Achieve | Achievement rank levels up |
+| Goal_Level | Base/job level changes |
+| Goal_Status | Base stats change |
+| Job_Change | Job changes |
+| Marry | Players get married |
+| Party | Player creates party |
+| Enchant_Fail | Refine fails |
+| Enchant_Success | Refine succeeds |
+| Spend_Zeny | Player spends zeny on vendors |
+| Taming | Player tames monster |
+
+### Target Format
+
+```yaml
+Targets:
+  - Id: 0
+    Mob: SCORPION
+    Count: 5
+  - Id: 1
+    Mob: PORING
+    Count: 10
+```
+
+### Condition Format
+
+Uses ARG0, ARG1, etc. for event arguments:
+```yaml
+Condition: " ARG0 >= 100 "
+Condition: " BaseLevel >= 99 "
+```
+
+### Dependents Format
+
+```yaml
+Dependents:
+  10001: true    # Must complete 10001 first
+  10002: true    # Must complete 10002 first
+```
+
+### Rewards Format
+
+```yaml
+Rewards:
+  Item: Shabby_Purse
+  Amount: 10
+  Script: " specialeffect2 EF_BLESSING; sc_start SC_BLESSING,30000,10; "
+  TitleId: 1000
+```
+
+### Complete Example
+
+```yaml
+- Id: 99
+  Group: Baby
+  Name: Example Achieve
+  Targets:
+    - Id: 0
+      Mob: XM_CELINE_KIMI
+      Count: 1
+  Condition: " BaseLevel >= 99 "
+  Map: prontera
+  Dependents:
+    - Id: 100
+  Rewards:
+    Item: Shabby_Purse
+    Amount: 10
+    Script: " specialeffect2 EF_BLESSING; sc_start SC_BLESSING,30000,10; "
+    TitleId: 1000
+  Score: 10
+```
+
+### Script Commands
+
+| Command | Description |
+|---------|-------------|
+| `achievementcomplete(id)` | Marks achievement complete |
+| `achievementupdate(id,arg,value)` | Updates achievement progress |
+| `achievementinfo(id,type)` | Gets achievement info |
