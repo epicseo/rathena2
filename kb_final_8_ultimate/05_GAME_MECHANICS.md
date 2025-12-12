@@ -5485,3 +5485,133 @@ Rewards:
 | `achievementcomplete(id)` | Marks achievement complete |
 | `achievementupdate(id,arg,value)` | Updates achievement progress |
 | `achievementinfo(id,type)` | Gets achievement info |
+
+---
+
+# ═══════════════════════════════════════════════════════════════
+# PART 12: 4TH JOB CLASSES COMPLETE REFERENCE
+# ═══════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 05_4th_jobs_overview -->
+## 4th Job Classes Overview
+
+4th Job Classes are the latest job advancement in rAthena, requiring 3rd job completion. They introduce new stats (Pow, Sta, Wis, Spl, Crt, Con) alongside traditional stats.
+
+### Complete 4th Job List
+
+| 4th Job | Evolution From | Base Tree | Key Skills |
+|---------|----------------|-----------|------------|
+| Dragon Knight | Rune Knight | Swordman 2-1 | DK_SERVANTWEAPON, DK_DRAGONIC_BREATH |
+| Imperial Guard | Royal Guard | Swordman 2-2 | IG_GUARD_STANCE, IG_JUDGEMENT_CROSS |
+| Meister | Mechanic | Merchant 2-1 | MT_ABR_M, MT_SUMMON_ABR_INFINITY |
+| Biolo | Genetic | Merchant 2-2 | BO_BIONIC_PHARMACY, BO_HELLTREE |
+| Shadow Cross | Guillotine Cross | Thief 2-1 | SHC_SHADOW_EXCEED, SHC_FATAL_SHADOW_CROW |
+| Abyss Chaser | Shadow Chaser | Thief 2-2 | ABC_ABYSS_SLAYER, ABC_ABYSS_STRIKE |
+| Arch Mage | Warlock | Mage 2-1 | AG_ASTRAL_STRIKE, AG_CLIMAX |
+| Elemental Master | Sorcerer | Mage 2-2 | EM_ELEMENTAL_BUSTER, EM_PSYCHIC_STREAM |
+| Cardinal | Arch Bishop | Acolyte 2-1 | CD_PNEUMATICUS_PROCELLA, CD_EFFLIGO |
+| Inquisitor | Sura | Acolyte 2-2 | IQ_MASSIVE_F_BLASTER, IQ_BLAZING_FLAME_BLAST |
+| Windhawk | Ranger | Archer 2-1 | WH_CALAMITYGALE, WH_GALESTORM |
+| Troubadour | Minstrel | Archer 2-2 | TR_MYSTIC_SYMPHONY, TR_KVASIR_SONATA |
+| Trouvere | Wanderer | Archer 2-2 | TR_MYSTIC_SYMPHONY, TR_KVASIR_SONATA |
+| Sky Emperor | Star Emperor | Taekwon | SKE_ALL_IN_THE_SKY, SKE_SKY_SUN |
+| Soul Ascetic | Soul Reaper | Taekwon | SOA_SOUL_OF_HEAVEN_AND_EARTH |
+| Night Watch | Rebellion | Gunslinger | NW_MISSION_BOMBARD, NW_MIDNIGHT_FALLEN |
+| Shinkiro | Kagerou | Ninja (Male) | SS_ANKOKURYUUAKUMU |
+| Shiranui | Oboro | Ninja (Female) | SS_ANKOKURYUUAKUMU |
+| Spirit Handler | Summoner | Doram | SH_COMMUNE_WITH_CHUL_HO |
+| Hyper Novice | Super Novice E | Novice | HN_BREAKINGLIMIT, HN_RULEBREAK |
+
+---
+
+<!-- RAG_CHUNK: 05_4th_jobs_stats -->
+## 4th Job Class Stats
+
+| Job | MaxWeight | HpFactor | SpFactor | Focus Stats |
+|-----|-----------|----------|----------|-------------|
+| Dragon Knight | 45000 | 68 | 7 | Pow, Str, Crt |
+| Imperial Guard | 45000 | 94 | 3 | Sta, Wis, Pow |
+| Meister | 48000 | 76 | 3 | Pow, Sta, Con |
+| Biolo | 42000 | 104 | 0 | Crt, Pow, Int |
+| Shadow Cross | 42000 | 64 | 7 | Pow, Crt, Con |
+| Abyss Chaser | 42000 | 64 | 7 | Pow, Spl, Crt |
+| Arch Mage | 40000 | 91 | 6 | Spl, Int, Wis |
+| Elemental Master | 40000 | 104 | 9 | Spl, Int |
+| Cardinal | 40000 | 94 | 5 | Spl, Wis |
+| Inquisitor | 42000 | 90 | 7 | Pow, Sta, Wis |
+| Windhawk | 42000 | 93 | 6 | Pow, Con, Crt |
+| Troubadour/Trouvere | 42000 | 95 | 8 | Spl, Con |
+| Sky Emperor | 42000 | 72 | 3 | Pow, Crt, Sta |
+| Soul Ascetic | 42000 | 94 | 6 | Spl, Wis, Con |
+| Night Watch | 48000 | 66 | 9 | Pow, Con, Crt |
+| Shinkiro/Shiranui | 45000 | 85 | 3 | Pow/Spl |
+| Spirit Handler | 42000 | 16 | 7 | Multiple |
+| Hyper Novice | 40000 | 38 | 6 | Pow, Spl |
+
+---
+
+<!-- RAG_CHUNK: 05_4th_jobs_skill_prefixes -->
+## 4th Job Skill Prefixes
+
+| Prefix | Job Class | Example Skill |
+|--------|-----------|---------------|
+| DK_ | Dragon Knight | DK_SERVANTWEAPON |
+| IG_ | Imperial Guard | IG_GUARD_STANCE |
+| MT_ | Meister | MT_ABR_M |
+| BO_ | Biolo | BO_BIONIC_PHARMACY |
+| SHC_ | Shadow Cross | SHC_SHADOW_EXCEED |
+| ABC_ | Abyss Chaser | ABC_ABYSS_SLAYER |
+| AG_ | Arch Mage | AG_ASTRAL_STRIKE |
+| EM_ | Elemental Master | EM_ELEMENTAL_BUSTER |
+| CD_ | Cardinal | CD_PNEUMATICUS_PROCELLA |
+| IQ_ | Inquisitor | IQ_MASSIVE_F_BLASTER |
+| WH_ | Windhawk | WH_CALAMITYGALE |
+| TR_ | Troubadour/Trouvere | TR_MYSTIC_SYMPHONY |
+| SKE_ | Sky Emperor | SKE_ALL_IN_THE_SKY |
+| SOA_ | Soul Ascetic | SOA_SOUL_OF_HEAVEN_AND_EARTH |
+| NW_ | Night Watch | NW_MISSION_BOMBARD |
+| SS_ | Shinkiro/Shiranui | SS_ANKOKURYUUAKUMU |
+| SH_ | Spirit Handler | SH_COMMUNE_WITH_CHUL_HO |
+| HN_ | Hyper Novice | HN_BREAKINGLIMIT |
+
+---
+
+<!-- RAG_CHUNK: 05_4th_jobs_scripting -->
+## 4th Job Scripting Examples
+
+### Check if Player is 4th Job
+```c
+// Using eaclass with EAJL_FOURTH mask
+if (eaclass() & EAJL_FOURTH) {
+    mes "You have ascended to the 4th job class!";
+}
+```
+
+### Job Change to 4th Job
+```c
+// Dragon Knight job change example
+if (BaseJob == Job_Rune_Knight || BaseJob == Job_Rune_Knight_T) {
+    if (BaseLevel >= 200 && JobLevel >= 70) {
+        jobchange Job_Dragon_Knight;
+        getitem 6635,1; // Job change reward
+    }
+}
+```
+
+### Check Trait Stats (Pow, Sta, Wis, Spl, Crt, Con)
+```c
+// 4th jobs have access to Trait Stats
+if (readparam(bPow) >= 100) {
+    mes "Your Power stat is maxed!";
+}
+if (readparam(bSpl) >= 100) {
+    mes "Your Spell stat is maxed!";
+}
+```
+
+### 4th Job Skill Check
+```c
+if (getskilllv(DK_SERVANTWEAPON) >= 5) {
+    mes "You've mastered Servant Weapon!";
+}
+```

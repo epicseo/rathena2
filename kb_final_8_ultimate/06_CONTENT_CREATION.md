@@ -6634,3 +6634,169 @@ prontera,150,150,4	script	Dynamic Shop	100,{
 | `npcshopdelitem(shop,id)` | Remove item (0 = clear all) |
 | `npcshopadditem(shop,id,price)` | Add item with price |
 | `callshop(shop,type)` | Open shop (1=buy, 2=sell) |
+
+---
+
+# ═══════════════════════════════════════════════════════════════
+# PART 11: ATTENDANCE SYSTEM
+# ═══════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 06_attendance_overview -->
+## Attendance System Overview
+
+The Attendance System provides daily login rewards. Players claim rewards by logging in each day during an event period.
+
+### Database Location
+- **File:** `db/re/attendance.yml` (Renewal) or `db/pre-re/attendance.yml`
+- **Type:** ATTENDANCE_DB
+
+---
+
+<!-- RAG_CHUNK: 06_attendance_schema -->
+## Attendance YAML Schema
+
+```yaml
+Header:
+  Type: ATTENDANCE_DB
+  Version: 1
+
+Body:
+  - Start: YYYYMMDD          # Event start date (e.g., 20180502)
+    End: YYYYMMDD            # Event end date (e.g., 20180529)
+    Rewards:
+      - Day: <number>        # Day number (1-20)
+        ItemId: <item_id>    # Item ID or aegis name
+        Amount: <number>     # Quantity (default: 1)
+```
+
+### Example Configuration
+```yaml
+Body:
+  - Start: 20250101
+    End: 20250131
+    Rewards:
+      - Day: 1
+        ItemId: 22979
+      - Day: 7
+        ItemId: 23340
+        Amount: 3
+      - Day: 20
+        ItemId: 22845
+```
+
+### Server Configuration
+```conf
+# conf/battle/client.conf
+feature.attendance: 1   # 0=disabled, 1=enabled
+```
+
+**Client Requirement:** PACKETVER >= 20180307
+
+---
+
+# ═══════════════════════════════════════════════════════════════
+# PART 12: STYLIST SYSTEM
+# ═══════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 06_stylist_overview -->
+## Stylist System Overview
+
+The Stylist system allows players to change character appearance (hair style, hair color, cloth color).
+
+### Database Location
+- **Main:** `db/stylist.yml`
+- **Renewal:** `db/re/stylist.yml`
+- **Import:** `db/import/stylist.yml`
+
+---
+
+<!-- RAG_CHUNK: 06_stylist_schema -->
+## Stylist YAML Schema
+
+```yaml
+Header:
+  Type: STYLIST_DB
+  Version: 1
+
+Body:
+  - Look: <look_type>       # Hair_Color, Hair, Cloth_Color
+    Options:
+      - Index: <number>     # Client menu index (-1 = revert)
+        Value: <number>     # Look value
+        CostsHuman:
+          Price: <zeny>
+          RequiredItem: <item_name>
+          RequiredItemBox: <item_name>
+        CostsDoram:         # Same structure for Doram
+          Price: <zeny>
+```
+
+### Look Types
+| Type | Description |
+|------|-------------|
+| Hair_Color | Hair dye (0-8) |
+| Hair | Hairstyle (1-42+) |
+| Cloth_Color | Outfit palette |
+
+---
+
+<!-- RAG_CHUNK: 06_stylist_npc -->
+## Stylist NPC Script
+
+```c
+prontera,170,180,1	script	Stylist#custom	122,{
+    setarray .@Styles[1],
+        getbattleflag("max_cloth_color"),
+        getbattleflag("max_hair_style"),
+        getbattleflag("max_hair_color");
+    setarray .@Look[1],
+        LOOK_CLOTHES_COLOR,
+        LOOK_HAIR,
+        LOOK_HAIR_COLOR;
+
+    set .@s, select(" ~ Cloth color: ~ Hairstyle: ~ Hair color");
+    set .@Revert, getlook(.@Look[.@s]);
+    set .@Style, 1;
+
+    while(1) {
+        setlook .@Look[.@s], .@Style;
+        message strcharinfo(0), "This is style #" + .@Style + ".";
+        switch(select(" ~ Next: ~ Previous: ~ Jump to...: ~ Revert")) {
+            case 1: set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style + 1 : 1); break;
+            case 2: set .@Style, ((.@Style != 1) ? .@Style - 1 : .@Styles[.@s]); break;
+            case 3: input .@Style, 1, .@Styles[.@s]; break;
+            case 4: setlook .@Look[.@s], .@Revert; end;
+        }
+    }
+}
+```
+
+---
+
+<!-- RAG_CHUNK: 06_stylist_commands -->
+## Stylist Script Commands
+
+| Command | Description |
+|---------|-------------|
+| `setlook <type>, <value>` | Set appearance |
+| `getlook(<type>)` | Get current appearance |
+| `changelook <type>, <value>` | Change for attached player |
+| `getbattleflag("max_hair_style")` | Get max allowed |
+
+### Look Constants
+```c
+LOOK_HAIR          // Hairstyle
+LOOK_HAIR_COLOR    // Hair color
+LOOK_CLOTHES_COLOR // Cloth color
+LOOK_HEAD_BOTTOM   // Lower headgear
+LOOK_HEAD_TOP      // Upper headgear
+LOOK_HEAD_MID      // Middle headgear
+```
+
+### Server Configuration
+```conf
+# conf/battle/client.conf
+max_hair_style: 42
+max_hair_color: 8
+max_cloth_color: 4
+```
