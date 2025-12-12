@@ -5074,12 +5074,12 @@ Look in your data folder and make sure there is a folder named "lua files", if t
 Now open accname.lua, do basically the same thing but just in a different way, and for the sprite. Add your item to the bottom, have it look like the ones above it, except have your items name and the item's sprite name.
 
 ```bash
-   [ACCESSORY_IDs.ACCESSORY_PINKBUNNY_HAIRBAND] = "_Ã‡ÃŽÃ……head",
+   [ACCESSORY_IDs.ACCESSORY_PINKBUNNY_HAIRBAND] = "_pinkbunny_head",
    [ACCESSORY_IDs.ACCESSORY_GREENBUNNY_HAIRBAND] = "_—…head",
-   [ACCESSORY_IDs.ACCESSORY_OLD_ELFEAR] = "_€Ã‡",
-   [ACCESSORY_IDs.ACCESSORY_THA_MAERO_MASK] = "_Ã……€Ã‡‡Ã„",
-   [ACCESSORY_IDs.ACCESSORY_THANATOS_MAI_MASK] = "_Ã……€Ã‡€",
-   [ACCESSORY_IDs.ACCESSORY_FISHPIN] = "_‡Ã‰",
+   [ACCESSORY_IDs.ACCESSORY_OLD_ELFEAR] = "_elf_ear",
+   [ACCESSORY_IDs.ACCESSORY_THA_MAERO_MASK] = "_tha_maero",
+   [ACCESSORY_IDs.ACCESSORY_THANATOS_MAI_MASK] = "_tha_mai",
+   [ACCESSORY_IDs.ACCESSORY_FISHPIN] = "_fishpin",
    [ACCESSORY_IDs.ACCESSORY_CUSTOM_HAT] = "_Sprite_Name_Here",
 }
 ```bash
@@ -5976,32 +5976,32 @@ Additionally for the sprite to display you can place the custom weapon sprites i
 
 |                  |                                                |
 |------------------|------------------------------------------------|
-| ‘Ã€Ãš             | Ninja weapon sprites                           |
+| ninja_             | Ninja weapon sprites                           |
 | magic           | Mage weapon sprites                            |
-| …             | Monk weapon sprites                            |
+| monk_             | Monk weapon sprites                            |
 |          | Alchemist weapon sprites                       |
-| €Ãš           | GM Weapon sprites                              |
+| gm_           | GM Weapon sprites                              |
 | basic             | Knight weapon sprites                          |
 | ƒ             | Archer weapon sprites                          |
-| €ÃŽ             | Merchant weapon sprites                        |
-| ‡Š             | Gunslinger weapon sprites                      |
+| merchant_             | Merchant weapon sprites                        |
+| gunslinger_             | Gunslinger weapon sprites                      |
 | ‹             | Swordsman weapon sprites                       |
 |              | Thief weapon sprites                           |
 | Ž—             | Rogue weapon sprites                           |
-| €ÃŒ           | Sage weapon sprites                            |
+| sage_           | Sage weapon sprites                            |
 | performance           | Acolyte weapon sprites                         |
-| †Ã›       | Super novice weapon sprites                    |
-| …Ã†„ÃšÃ…€ÃŒ | Crusader weapon sprites (when mounted on peco) |
-| …           | Assassin weapon sprites                        |
+| supernovice_       | Super novice weapon sprites                    |
+| crusader_peco_ | Crusader weapon sprites (when mounted on peco) |
+| assassin_           | Assassin weapon sprites                        |
 | ˆ             | Dancer weapon sprites                          |
 | ™             | Bard weapon sprites                            |
 | ƒ           | Blacksmith weapon sprites                      |
-| Ã€€           | Wizard weapon sprites                          |
-| Ã…€ÃŒ       | Crusader weapon sprites                        |
+| wizard_           | Wizard weapon sprites                          |
+| crusader_       | Crusader weapon sprites                        |
 | effect_basic   | Knight weapon sprites (when mounted on peco)   |
-| ÃƒÃŠ€Ãš           | Novice weapon sprites                          |
-| Ã‡†         | Priest weapon sprites                          |
-| Ã‡…             | Hunter weapon sprites                          |
+| novice_           | Novice weapon sprites                          |
+| priest_         | Priest weapon sprites                          |
+| hunter_             | Hunter weapon sprites                          |
 
 Troubleshooting
 **Q: Weapon is an Unknown Item.**
@@ -6279,7 +6279,7 @@ Job sprites folder.
 :\*\*\* **headster (†µ)**
 Hair folder.
 
-:\*\* **Ã€ÃŒÃ†Ã‘Ã† (ŒŠ¸)**
+:\*\* **status_effects**
 Status effects and other effects. Examples are curse, sleep, the time o attack that pops up in PVP.
 
 :\*\* **book**
@@ -7786,7 +7786,7 @@ The second Button:
 </div>
 #### Webbrowsers (Webbrowser List - *repeatable*')
 
-[<File:Ergo_Patcher_Webbrowser_Element.PNG>â€Ž](/File:Ergo_Patcher_Webbrowser_Element.PNGâ€Ž "wikilink")
+[<File:Ergo_Patcher_Webbrowser_Element.PNG>](/File:Ergo_Patcher_Webbrowser_Element.PNG "wikilink")
 
 <div style="background:#ececec">
 ```
@@ -7838,7 +7838,7 @@ The "Hidden" entry is for those labels which are preset by the patcher. (If don'
 
 #### Loading Bars (Fixed Element - *not Repeatable*')
 
-[<File:Ergo_Pather_Loading_Bars_and_Labels.PNG>â€Ž](/File:Ergo_Pather_Loading_Bars_and_Labels.PNGâ€Ž "wikilink")
+[<File:Ergo_Pather_Loading_Bars_and_Labels.PNG>](/File:Ergo_Pather_Loading_Bars_and_Labels.PNG "wikilink")
 
 <div style="background:#ececec">
 ```
@@ -11615,7 +11615,7 @@ rAthena Status:   Implemented
 
 Patch Info: -
 
-### Episode 11.3 : Nameless Islandâ€‹
+### Episode 11.3 : Nameless Island
 
 ```
 Release Date:   2007.04.10
@@ -11634,7 +11634,7 @@ Sub Patches:
 
 1.  2007.04.10 : Mercenary System
 
-Episode 12 : Satan Morrocâ€‹
+Episode 12 : Satan Morroc
 ```
 Release Date:   2007.10.17
 Patch File: 
@@ -11680,7 +11680,7 @@ Sub Patches:
 
  
 
-### Episode 13.2 : Encounterâ€‹
+### Episode 13.2 : Encounter
 
 ```
 Release Date:   2008.12.17
@@ -11707,7 +11707,7 @@ Sub Patches:
 
   
 
-### Episode 13.3 : El Dicastesâ€‹
+### Episode 13.3 : El Dicastes
 
 ```
 Release Date:   2009.12.23
@@ -11751,13 +11751,13 @@ Patch Info: - Sub Patches:
 1.  2010.07.28 : Equipment Synthesis, Costume System
 2.  2010.08.18 : Search Vending Shops
 3.  2010.09.29 : Indonesia Localized Map, Dewata
-4.  2010.11.24 :â€‹
+4.  2010.11.24 :
 
 5.  2010.12.29 : Super Novice Expansion
 6.  2011.03.09 : Replay System
 7.  2011.03.30 : Biolabs 4th Floor
 8.  2011.05.25 : Thanatos Tower Changes.
-9.  2011.06.29 : (WoE1 Renewal)â€‹
+9.  2011.06.29 : (WoE1 Renewal)
 
 10. 2011.08.17 : 7x7 Padding around NPCs.
 11. 2011.08.31 : (Class Balance + Homunculus S)
@@ -11802,13 +11802,13 @@ Patch Info: Sub Patches:
 14. 2012.07.11 : Headgear Synthesis Quests 
 15. 2012.07.25 : WoE:TE Mini God Item quest + guild and daily quests in siege areas.
 16. 2012.08.14 : Job EXP increased from Monsters with lvl 100+.
-17. 2012.08.22 : Heroes' Trails (Part 1)â€‹ 
+17. 2012.08.22 : Heroes' Trails (Part 1) 
 
-18. 2012.08.22 :â€‹
+18. 2012.08.22 :
 
 19. 2012.09.19 : Champion Mobs.
 20. 2012.10.10 : Ranger Falcon changed to Owl
-21. 2012.10.17 : Heroes' Trails (Part 2)â€‹
+21. 2012.10.17 : Heroes' Trails (Part 2)
 
 22. 2012.10.31 : Eden Quests for levels 131~140
 23. 2012.12.18 : Horror Toy Factory Memorial Dungeon
@@ -11891,7 +11891,7 @@ Sub Patches:
 2.  2013.08.02 : Rebellion Weapons
 3.  2013.08.14 : New Clothing Dyes for Kagerou & Oboro classes.
 4.  2013.08.21 : Max HP Limits (lvl 99 = 330k, 150 = 660k, 175 = 1.1m)
-5.  2013.09.25 : Heroes' Trail Part (Part 3)â€‹â€‹â€‹
+5.  2013.09.25 : Heroes' Trail Part (Part 3)
 
 #### Fenrir and Airship Assault Memorial Dungeons
 
@@ -13787,7 +13787,7 @@ There should be absolutely no private server advertisements of any form. An exce
 8. Do not abuse the channel bot commands (including spamming). Falls under "causing annoyance to other users".
 9. No heavy nick changing/excessive channel hopping are allowed Falls under "causing annoyance to other users".
 10. No impersonating members of rA forum admins/moderators/channel operators on the IRC server. One shall not impersonate (which means, pretend to be) any member of rAthena, especially the Administrators, Moderators, Support Leaders and Channel Operators.
-11. Do not insult any other user in the channel. A rule of thumb: â€œTreat others as you want to be treatedâ€. This means there is no toleration of calling people names, or otherwise playing \*god\* to them.
+11. Do not insult any other user in the channel. A rule of thumb: "Treat others as you want to be treated". This means there is no toleration of calling people names, or otherwise playing \*god\* to them.
 
 `12. Do not attempt to profit off rAthena through any possible means.`
 
@@ -28336,7 +28336,7 @@ Game mechanics
 
 Unlike most other RPGs, each character within Ragnarok has two different levels: Base Level (blvl) and Job Level (jlvl). This is denoted as "Base/Job". So, a character who is 5/1 would be Base Level 5, and Job Level 1.
 
-Base Level indicates personal growth. Through base levels, your Stats grow â€” you become stronger, faster, or smarter, for example.
+Base Level indicates personal growth. Through base levels, your Stats grow "” you become stronger, faster, or smarter, for example.
 
 Job Level indicates your progression within your chosen profession. For example, you become a better Archer or Blacksmith. In game terms, that means you get more Skills and bonus stat points.
 
@@ -28352,69 +28352,69 @@ Each class branches off into two different "Second classes", to make an effectiv
 2-1 classes:
 
 
-**Knight** â€“ The primary 2nd class of the Swordsman has mastery of the two-hand sword and one-hand spear. Has a skill which enables ability to rent and ride the Pecopeco.
+**Knight** "“ The primary 2nd class of the Swordsman has mastery of the two-hand sword and one-hand spear. Has a skill which enables ability to rent and ride the Pecopeco.
 
-**Assassin** â€“ The primary 2nd class of the Thief uses katars or daggers in both hands. Can apply poison to attacks.
+**Assassin** "“ The primary 2nd class of the Thief uses katars or daggers in both hands. Can apply poison to attacks.
 
-**Wizard** â€“ The primary 2nd class of the Mage uses powerful magic of the elements: Fire, Ice, Lightning and Earth.
+**Wizard** "“ The primary 2nd class of the Mage uses powerful magic of the elements: Fire, Ice, Lightning and Earth.
 
-**Hunter** â€“ The primary 2nd class of the Archer has mastery of the bow. Can use traps to kill or give enemies status ailments. Has a falcon to assist in battle.
+**Hunter** "“ The primary 2nd class of the Archer has mastery of the bow. Can use traps to kill or give enemies status ailments. Has a falcon to assist in battle.
 
-**Blacksmith** â€“ The primary 2nd class of the Merchant can make weapons. Has axe mastery and combat abilities relating to hammers and axes.
+**Blacksmith** "“ The primary 2nd class of the Merchant can make weapons. Has axe mastery and combat abilities relating to hammers and axes.
 
-**Priest** â€“ The primary 2nd class of the Acolyte has powerful healing magic and exorcises the undead. Usually the foundation of a party.
+**Priest** "“ The primary 2nd class of the Acolyte has powerful healing magic and exorcises the undead. Usually the foundation of a party.
 
 2-2 classes:
 
 
-**Crusader** â€“ The alternate 2nd class of the Swordsman has skills with the two-hand spear and shield as well as healing and holy magic. Has a skill which enables ability to rent and ride the Grand Pecopeco.
+**Crusader** "“ The alternate 2nd class of the Swordsman has skills with the two-hand spear and shield as well as healing and holy magic. Has a skill which enables ability to rent and ride the Grand Pecopeco.
 
-**Rogue** â€“ The alternate 2nd class of the Thief uses bow and arrows or dagger and shield while sneaking around and/or stripping the enemies armor and weapons.
+**Rogue** "“ The alternate 2nd class of the Thief uses bow and arrows or dagger and shield while sneaking around and/or stripping the enemies armor and weapons.
 
-**Sage** â€“ The alternate 2nd class of the Mage can give temporary elemental enchantments to weapons or small areas. Also has a unique skill allowing the Sage to cast spells while walking.
+**Sage** "“ The alternate 2nd class of the Mage can give temporary elemental enchantments to weapons or small areas. Also has a unique skill allowing the Sage to cast spells while walking.
 
-**Bard** and **Dancer** â€“ The alternate 2nd classes of the Archer can sing and dance to support party members with various boosts. Male Archers can become Bards, while female Archers can become Dancers.
+**Bard** and **Dancer** "“ The alternate 2nd classes of the Archer can sing and dance to support party members with various boosts. Male Archers can become Bards, while female Archers can become Dancers.
 
-**Alchemist** â€“ The alternate 2nd class of the Merchant can make and throw healing and offensive potions.
+**Alchemist** "“ The alternate 2nd class of the Merchant can make and throw healing and offensive potions.
 
-**Monk** â€“ The alternate 2nd class of the Acolyte uses fists, attack combinations and a powerful one-shot kill ability.
+**Monk** "“ The alternate 2nd class of the Acolyte uses fists, attack combinations and a powerful one-shot kill ability.
 
 Recently, new additions have been added in the form of **Advanced Second Class** jobs were released in kRO (and private server), and were released in iRO July 2005 under the name of **Transcendent Classes**. These are NOT the 3rd class jobs. To achieve these classes you must reach 99/50 in your current second class form, then become reborn-that is turned once again into a Novice (actually, Novice High) with a level of 1/1. You level the same as before, except that you must choose the exact same class as before- Knights must become Swordsmen again- or else suffer major penalties. Your skills will have to be re-learned (which leaves room to correct previous errors), but any quest-based skills you earned will be returned to you immediately upon reaching the appropriate level. You will then find yourself going through the "High" first class jobs (Swordsman High, Archer High, etc.) and when you change into second class, you will be in the new advanced form. All advanced jobs can level up to 99/70, and have access to all the skills from the normal version of the class, as well as new, Advanced-only skills.
 
 2-1-2 classes:
 
 
-**Lord Knight** â€“ The primary Advanced 2nd Class of High Swordsman, with all the abilities of knights plus a few new abilities pertaining to swords and spears.
+**Lord Knight** "“ The primary Advanced 2nd Class of High Swordsman, with all the abilities of knights plus a few new abilities pertaining to swords and spears.
 
-**Assassin Cross** â€“ The primary Advanced 2nd Class of High Thief, with all former abilities of assassin, in addition to more poisoning skills, advanced katar mastery, and additional attack skills.
+**Assassin Cross** "“ The primary Advanced 2nd Class of High Thief, with all former abilities of assassin, in addition to more poisoning skills, advanced katar mastery, and additional attack skills.
 
-**High Wizard** â€“ The primary Advanced 2nd class of the High Mage that uses even more powerful magic.
+**High Wizard** "“ The primary Advanced 2nd class of the High Mage that uses even more powerful magic.
 
-**Sniper** â€“ The primary Advanced 2nd class of the High Archer has further mastery of the bow. Traps become more effective, and the bond with the Falcon is much stronger.
+**Sniper** "“ The primary Advanced 2nd class of the High Archer has further mastery of the bow. Traps become more effective, and the bond with the Falcon is much stronger.
 
-**Whitesmith/MasterSmith** â€“ The primary Advanced 2nd class of the High Merchant can make weapons better than ever before. Has axe mastery and combat abilities relating to hammers and axes, and now can utilize these abilities better than ever. The name Mastersmith is used in the International version of Ragnarok Online.
+**Whitesmith/MasterSmith** "“ The primary Advanced 2nd class of the High Merchant can make weapons better than ever before. Has axe mastery and combat abilities relating to hammers and axes, and now can utilize these abilities better than ever. The name Mastersmith is used in the International version of Ragnarok Online.
 
-**High Priest** â€“ The primary Advanced 2nd class of the High Acolyte has powerful healing magic and exorcises the undead. Their new skills are powerful, and the extra skill points allows more variation for this skill-oriented class.
+**High Priest** "“ The primary Advanced 2nd class of the High Acolyte has powerful healing magic and exorcises the undead. Their new skills are powerful, and the extra skill points allows more variation for this skill-oriented class.
 
 2-2-2 classes:
 
 
-**Paladin** â€“ The alternate advanced 2nd class of the High Swordsman has skills with the spear and shield as well as healing and holy magic. Has a skill which enables ability to rent and ride the Grand Pecopeco, and is now a super tank.
+**Paladin** "“ The alternate advanced 2nd class of the High Swordsman has skills with the spear and shield as well as healing and holy magic. Has a skill which enables ability to rent and ride the Grand Pecopeco, and is now a super tank.
 
-**Stalker** â€“ The alternate advanced 2nd class of the High Thief uses bow and arrows or dagger and shield while sneaking around and stripping the enemies armor and weapons, and now can strip everything at once.
+**Stalker** "“ The alternate advanced 2nd class of the High Thief uses bow and arrows or dagger and shield while sneaking around and stripping the enemies armor and weapons, and now can strip everything at once.
 
-**Professor/Scholar** â€“ The alternate advanced 2nd class of the High Mage can give temporary elemental enchantments to weapons or small areas. Also has a unique skill allowing the Professor to cast spells while walking, as well as take over the soul of its enemy. The name Scholar is used in the International version of Ragnarok Online.
+**Professor/Scholar** "“ The alternate advanced 2nd class of the High Mage can give temporary elemental enchantments to weapons or small areas. Also has a unique skill allowing the Professor to cast spells while walking, as well as take over the soul of its enemy. The name Scholar is used in the International version of Ragnarok Online.
 
-**Clown/Minstrel** and **Gypsy** â€“ The alternate advanced 2nd classes of the Archer High can sing and dance to support party members. Male High Archers can become Clowns/Minstrels, while female High Archers can become Gypsies. To the delight of many players, the name Minstrel is to be used in the International version of Ragnarok Online.
+**Clown/Minstrel** and **Gypsy** "“ The alternate advanced 2nd classes of the Archer High can sing and dance to support party members. Male High Archers can become Clowns/Minstrels, while female High Archers can become Gypsies. To the delight of many players, the name Minstrel is to be used in the International version of Ragnarok Online.
 
-**Creator/Biochemist** â€“ The alternate advanced 2nd class of the High Merchant can make and throw more powerful types of healing and offensive potions, and now also has a created ally in the Homonculus. The name Biochemist is used in the internationale version of Ragnarok Online.
+**Creator/Biochemist** "“ The alternate advanced 2nd class of the High Merchant can make and throw more powerful types of healing and offensive potions, and now also has a created ally in the Homonculus. The name Biochemist is used in the internationale version of Ragnarok Online.
 
-**Champion** â€“ The alternate advanced 2nd class of the High Acolyte uses fists and builds on the Monk's powerful combo attacks.
+**Champion** "“ The alternate advanced 2nd class of the High Acolyte uses fists and builds on the Monk's powerful combo attacks.
 
 Special Alternate Class (not 2-1-2 or 2-2-2... just a new option after novice)
 
 
-**Tae Kwon Boy/Girl** â€“ A martial arts themed character specializing in various kicks is currently in beta testing on kRO. Little is yet known about it and the two 2nd classes, Star Knight and Soul Linker. However, it is scheduled for release for kRO on October 2005.
+**Tae Kwon Boy/Girl** "“ A martial arts themed character specializing in various kicks is currently in beta testing on kRO. Little is yet known about it and the two 2nd classes, Star Knight and Soul Linker. However, it is scheduled for release for kRO on October 2005.
 
 ### Stats
 
@@ -28677,11 +28677,11 @@ head1_female_0.pal - Head palette example
 
  - Dancer
 
-‘Ã€Ãš - Ninja
+ninja_ - Ninja
 
 magic - Mage
 
-… - Monk
+monk_ - Monk
 
  - Alchemist
 
@@ -28693,11 +28693,11 @@ basic - Knight
 
 ‡ - Flying Star Gladiator
 
-€ÃŽ - Merchant
+merchant_ - Merchant
 
 ˆ - Wedding
 
-‡Š - Gunslinger
+gunslinger_ - Gunslinger
 
 ‹ - Swordsman
 
@@ -28705,65 +28705,65 @@ basic - Knight
 
 Ž— - Rogue
 
-Ž€ÃŒÃ† - Lord Knight/Rune Knight
+lordknight_ - Lord Knight/Rune Knight
 
-€ÃŒ - Sage
+sage_ - Sage
 
 ’„ - Soul Linker
 
 performance - Acolyte
 
-†Ã› - Super Novice
+supernovice_ - Super Novice
 
-€ÃŒÃ†Ã› -Sniper/Ranger/Mounted Ranger
+sniper_ranger_ -Sniper/Ranger/Mounted Ranger
 
-…„ - Stalker/Shadow Chaser
+stalker_ - Stalker/Shadow Chaser
 
-… - Assassin
+assassin_ - Assassin
 
-…Ã…Ž -Assassin Cross/Guillotine Cross
+assassin_cross_ -Assassin Cross/Guillotine Cross
 
 ™ - Bard
 
 ƒ - Blacksmith
 
-Ãƒ‡Ã‡‚ - Champion/Shura
+champion_shura_ - Champion/Shura
 
-Ã€€ - Wizard
+wizard_ - Wizard
 
-Ã…€ÃŒÃ… - Creator/Genetic
+creator_genetic - Creator/Genetic
 
-Ã… - Clown/Minstrel
+clown/Minstrel
 
-Ã… - Crusader
+crusader
 
-Ã…Ã‚‡’ -Taekwon
+taekwon_ - Taekwon
 
-Ã†„ÃšŽ - Peco Lord Knight/Dragon Rune Knight
+peco_lordknight_ - Peco Lord Knight/Dragon Rune Knight
 
 effect_basic - Peco Knight
 
-effect_Ã… - Peco Crusader
+peco_crusader_ - Peco Crusader
 
-Ã†„ÃšÃ†Ãˆ - Peco Paladin/Gryphon Royal Guard
+peco_paladin_ - Peco Paladin/Gryphon Royal Guard
 
-Ã†Ãˆ - Paladin/Royal Guard
+paladin_ - Paladin/Royal Guard
 
-ÃƒÃŠ€Ãš - Novice
+novice_ - Novice
 
 ƒ - Gypsy/Wanderer
 
-Ã‡† - Priest;Xmas;Summer
+priest_ - Priest;Xmas;Summer
 
-Ã‡ŽÃ† Professor/Sorcerer
+professor_sorcerer_ Professor/Sorcerer
 
-Ã‡… - Hunter
+hunter_ - Hunter
 
-Ã‡€ÃŒÃ€€ - High Wizard/Warlock
+high_wizard_ - High Wizard/Warlock
 
-Ã‡€ÃŒÃ‡† - High Priest/Arch Bishop
+high_priest_ - High Priest/Arch Bishop
 
-Ãˆ Ã€ÃŒÃ†Œ - Whitesmith/Mechanic
+whitesmith_ - Whitesmith/Mechanic
 
 ====
 ============================================================
@@ -32263,7 +32263,7 @@ Map Texture Editing
 Map textures are easy to make, load Photoshop, paint .net or even just paint and create a square image (Normal map images are either 256x256 or 512x512 pixels) then draw your image and save it as a 256 color bmp (You can make them higher but 256 color images take less space, have less issues and you don't need all the extra colors) to what ever locaion you desire in your client's data folder (You can make your own folder when it's your textures for your maps).
 
 Adding A Texture To A Map
-If you are using Browedit you'll need to edit the texture text file within Browedit's data folder (It can be handy to make your own but if you do you will have to add it to the config file your using). The texture files are structured in a simple way, which is, menu location and display name followed by directory location then file name (Eg. sets/prontera/forest/grass_path-curve1|Ã‡ÃŠ™š\\pron-dun-03.bmp). You can even set out how you want the menu listing for added sections by simply having just the menu location listed without any display names or file or folder listings (Eg. floor/carpet/|). This way you can structure your texture file at the beginning and list the textures afterwords. If you have successfully added your next map texture or textures to one of Browedit's texture files you'll be then able to find your texture in the texture window under what you put it under. If you are having trouble with the texture file just follow how one of the files is listed in there already.
+If you are using Browedit you'll need to edit the texture text file within Browedit's data folder (It can be handy to make your own but if you do you will have to add it to the config file your using). The texture files are structured in a simple way, which is, menu location and display name followed by directory location then file name (Eg. sets/prontera/forest/grass_path-curve1|texture_path\\pron-dun-03.bmp). You can even set out how you want the menu listing for added sections by simply having just the menu location listed without any display names or file or folder listings (Eg. floor/carpet/|). This way you can structure your texture file at the beginning and list the textures afterwords. If you have successfully added your next map texture or textures to one of Browedit's texture files you'll be then able to find your texture in the texture window under what you put it under. If you are having trouble with the texture file just follow how one of the files is listed in there already.
 
 Model Texture Editing
 If you are like some and wish to edit the textures of an object (aka model) and may or may not wish to replace the existing model then read on. Also like map textures, model textures are simple bmp files which any image editor should be able to open and edit. But while this is so, transparency on models seems to be lost when replaced by another (Borf may fix this in Browedit).

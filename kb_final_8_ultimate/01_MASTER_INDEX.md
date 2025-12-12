@@ -3,7 +3,7 @@
 **Version:** 16.0 - Ultimate Complete (ALL gaps filled)
 **Release Date:** 2025-12-12
 **Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 100,419 (VERIFIED - no duplicates, ALL gaps filled)
+**Total Lines:** 100,343 (VERIFIED - no duplicates, ALL gaps filled)
 **Total Size:** ~2.9 MB
 **RAG Chunks:** 1,600+
 **Validation:** 100% source-verified, ALL systems documented
@@ -34,7 +34,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | Metric | kb_v9_final | v13 (bloated) | v15.4 | **v16.0 (ULTIMATE)** |
 |--------|-------------|---------------|-------|----------------------|
 | **Files** | 9 | 8 | 8 | **8** |
-| **Lines** | 92,530 | 143,038 | 99,465 | **100,419** |
+| **Lines** | 92,530 | 143,038 | 99,465 | **100,343** |
 | **Duplicates** | 0% | ~45% | 0% | **0%** |
 | **Missing Docs** | Many | Many | 3 gaps | **NONE** |
 | **4th Jobs** | NO | NO | NO | **YES (20 classes)** |
@@ -66,7 +66,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | 06 | **06_CONTENT_CREATION.md** | 6,802 | 56 | NPC, EF_*, **Attendance, Stylist** |
 | 07 | **07_SOURCE_DEV_COMPLETE.md** | 18,803 | 68 | C++ + packets + source_doc |
 | 08 | **08_SOURCE_TUTORIALS.md** | 35,339 | 411 | 420+ expert tutorials |
-| **TOTAL** | **8 files** | **100,419** | **1,561** | **100% COMPLETE** |
+| **TOTAL** | **8 files** | **100,343** | **1,561** | **100% COMPLETE** |
 
 ---
 
@@ -190,7 +190,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- RAG_METADATA -->
 <!-- VERSION: 16.0 -->
 <!-- FILES: 8 -->
-<!-- TOTAL_LINES: 100419 -->
+<!-- TOTAL_LINES: 100343 -->
 <!-- RAG_CHUNKS: 1561 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
