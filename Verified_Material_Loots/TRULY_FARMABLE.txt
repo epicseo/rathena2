@@ -4,190 +4,270 @@
 #   - Mob actually spawns in npc/pre-re/mobs/
 #   - Item NOT given by any NPC
 #   - Item from db/pre-re/item_db_etc.yml
-# Total: 182 items
+# Total: 262 items
 #
 # Format: ItemID,ItemName,MobCount,TotalSpawns,BestDropRate
 # ============================================================
 
-919,Animal Skin,10,1396,5500
-1032,Maneater Blossom,4,890,9000
-1033,Maneater Root,4,737,5500
-955,Worm Peeling,6,667,9000
-7317,Rusty Screw,6,640,5000
+919,Animal Skin,13,1688,9000
+7054,Brigan,24,1240,5335
+955,Worm Peeling,10,1171,9000
+921,Mushroom Spore,5,914,9000
+1032,Maneater Blossom,5,912,9000
+912,Zargon,16,873,5000
+1033,Maneater Root,5,759,5500
+932,Skel-Bone,9,716,8000
+7053,Cyfar,14,697,5335
+7317,Rusty Screw,7,670,5000
 962,Tentacle,3,637,8000
 1036,Dragon Scale,7,613,5335
+7033,Poison Spore,3,594,9000
 916,Feather of Birds,4,591,9000
-912,Zargon,11,577,5000
-7312,Jubilee,2,535,5000
-7054,Brigan,9,518,5335
+7312,Jubilee,3,550,5000
+915,Chrysalis,2,488,5500
+928,Insect Feeler,2,470,5500
+943,Solid Shell,6,466,5335
 1057,Moth Dust,2,465,9000
 913,Tooth of Bat,2,465,5500
-7325,Flexible Tube,1,395,4000
+7752,Clattering Skull,3,452,3000
+949,Feather,5,442,3000
+1061,Witched Starsand,4,410,5000
+7325,Flexible Tube,2,410,4000
+958,Horrendous Mouth,3,401,6000
 1035,Dragon Canine,6,391,5335
+7798,Fragment of Darkness,5,382,9000
+7001,Mould Powder,3,378,5335
 967,Turtle Shell,6,372,4413
+937,Venom Canine,2,364,9000
 1052,Single Cell,3,360,9000
+1034,Blue Hair,5,357,6305
+920,Wolf Claw,3,349,9000
+7097,Burning Heart,7,347,4850
 1056,Grit,2,340,5335
-958,Horrendous Mouth,2,331,6000
+7319,Used Iron Plate,6,336,5000
 7003,Anolian Skin,2,330,4850
-915,Chrysalis,1,325,5500
-7100,Sharp Leaf,3,308,5000
+7188,Brown Root,4,327,4000
+7100,Sharp Leaf,4,318,5000
+926,Snake Scale,3,314,9000
+1055,Earthworm Peeling,4,313,9000
 7006,Wing of Red Bat,2,305,5500
-7319,Used Iron Plate,5,305,5000
 7565,Sticky Poison,2,305,3000
-928,Insect Feeler,1,305,2000
 7564,Rotten Meat,2,300,3000
+1031,Mantis Scythe,2,299,9000
 940,Grasshopper's Leg,3,298,9000
-1031,Mantis Scythe,1,293,9000
 947,Horn,1,291,5500
 950,Heart of Mermaid,2,290,9000
-1055,Earthworm Peeling,3,289,9000
-7097,Burning Heart,6,281,4850
-7053,Cyfar,5,280,5335
+1019,Trunk,3,288,3200
+7345,Handcuffs,5,283,3000
+7071,Tattered Clothes,3,280,4413
 7568,White Mask,4,277,2500
+7201,Log,3,273,5000
+7198,Huge Leaf,3,273,4365
 7031,Old Frying Pan,1,271,9000
-943,Solid Shell,2,252,5335
+7753,Broken Farming Utensil,1,252,3000
+954,Shining Scale,2,249,5335
+948,Bear's Footskin,4,248,9000
 1028,Mane,2,248,9000
+930,Rotten Bandage,5,243,9000
+939,Bee Sting,2,240,9000
 1017,Mole Whiskers,2,240,9000
-7188,Brown Root,2,235,3000
+7190,Solid Husk,1,240,6500
+7030,Claw of Desert Wolf,1,240,5500
+7202,Pincher of Beetle,1,240,4500
+924,Powder of Butterfly,3,236,9000
+907,Resin,2,236,9000
+911,Scell,6,235,9000
+1059,Fabric,5,230,5820
+1042,Bug Leg,4,230,5335
 7563,Bloody Rune,5,229,7000
-948,Bear's Footskin,3,226,9000
-1061,Witched Starsand,3,222,4850
-921,Mushroom Spore,1,220,9000
+7561,Glacial Heart,3,221,5000
 1027,Porcupine Quill,1,216,9000
-1059,Fabric,3,206,5820
-911,Scell,5,205,9000
+1038,Little Evil Horn,3,206,5820
 904,Scorpion Tail,2,205,5500
 952,Cactus Needle,1,200,9000
-1034,Blue Hair,3,200,5335
-1042,Bug Leg,2,195,5335
+7119,Bacillus,2,198,4074
+1095,Needle of Alarm,3,193,5335
 1060,Golden Hair,2,191,9000
-939,Bee Sting,1,190,9000
-7001,Mould Powder,2,190,5335
+7203,Strong Branch,2,191,5000
 7567,Suspicious Hat,2,190,2500
-1095,Needle of Alarm,2,185,5335
+7115,Harpy Feather,2,189,4850
+7116,Harpy Talon,2,189,3000
 7124,Sand Clump,1,180,4947
 997,Great Nature,1,180,2500
-937,Venom Canine,1,170,9000
+1021,Dokebi Horn,2,171,9000
 945,Raccoon Leaf,1,165,5500
-930,Rotten Bandage,2,160,9000
+7751,Old White Cloth,2,161,3000
+925,Bill of Birds,1,155,9000
 1013,Rainbow Shell,1,155,9000
 941,Nose Ring,2,155,5335
 7013,Coral Reef,1,153,4850
 917,Talon,2,150,9000
-1021,Dokebi Horn,1,150,9000
 1018,Mole Claw,1,150,5000
 1096,Round Shell,1,150,3500
+7122,Burning Hair,3,150,3200
+7347,Research Chart,3,148,2000
 942,Yoyo Tail,2,145,9000
 1016,Rat Tail,1,145,9000
-7198,Huge Leaf,1,145,2000
-7561,Glacial Heart,2,144,3000
-932,Skel-Bone,2,143,8000
-924,Powder of Butterfly,1,141,9000
-7751,Old White Cloth,1,139,3000
+7120,Burning Horseshoe,2,139,4947
+7066,Ice Cubic,3,138,4365
 1012,Frill,2,136,7500
+7012,Tough Scalelike Stem,1,135,5335
+1025,Cobweb,2,133,9000
+7069,Destroyed Armor,3,132,3000
+7005,Skull,3,131,5000
 902,Tree Root,1,130,9000
 1068,Barren Trunk,1,130,3500
+7063,Soft Feather,2,130,3000
 1067,Solid Trunk,1,130,2000
-1025,Cobweb,1,123,9000
 7123,Dragon Skin,3,121,4074
-926,Snake Scale,2,120,9000
+7002,Ogre Tooth,1,121,2500
 946,Snail's Shell,1,120,9000
 944,Horseshoe,2,120,6000
+7298,Fig Leaf,1,118,5335
 1037,Dragon Tail,2,118,3880
-7122,Burning Hair,2,115,3200
+7095,Metal Fragment,3,115,5335
+7094,Fragment,3,115,3000
 7511,Rune of Darkness,4,112,6000
+7027,Key of Underground,2,112,3000
 1040,Elder Pixie's Moustache,2,111,5500
 936,Scale Shell,2,110,5335
-920,Wolf Claw,1,105,9000
 7106,Antelope Horn,1,105,4559
+7321,Crystal Fragment,2,105,3000
 7107,Antelope Skin,1,105,2500
 7099,Worn-out Magic Scroll,1,104,4000
-7027,Key of Underground,1,104,3000
 7110,Broken Sword,2,101,4365
 7301,Tassel,1,100,4850
-7069,Destroyed Armor,1,100,3000
-7095,Metal Fragment,2,95,5335
+7064,Wing of Dragonfly,1,100,4413
+965,Clam Shell,2,95,5500
 7186,Thin Trunk,1,95,3880
-7094,Fragment,2,95,3000
 7121,Honey Pot,1,95,2500
 7194,Soft Blade of Grass,1,95,2000
+7197,Tough Vines,2,91,5335
+7171,Leopard Skin,2,91,5200
+7172,Leopard Claw,2,91,3200
 906,Pointed Scale,1,90,5500
 961,Conch,1,90,5500
-7197,Tough Vines,1,90,5335
+1041,Lantern,1,90,5500
 1045,Cultish Masque,2,90,4365
-7321,Crystal Fragment,1,90,3000
-7752,Clattering Skull,1,85,3000
+7196,Shoulder Protector,1,90,4000
 7007,Claw of Rat,1,84,4656
+7101,Peco Peco Feather,1,83,4850
+7189,Wooden Heart,1,82,4000
 929,Immortal Heart,1,80,9000
 7220,Ectoplasm,2,80,5723
-965,Clam Shell,1,75,5500
-1020,Black Hair,1,70,9000
-949,Feather,2,70,3000
+1043,Orc Claw,1,80,5500
+1064,Reins,1,80,5335
+7151,Oil Paper,2,80,5000
+7762,Yaga's Pestle,1,80,5000
+7150,Piece of Bamboo,2,80,4268
+7163,Hard Feeler,1,75,4608
+7098,Live Coal,2,75,3400
+7168,Giant Butterfly Wing,1,75,2500
+7152,Glossy Hair,1,73,5335
+7153,Worn-out Kimono,1,73,2500
+1020,Black Hair,2,71,9000
+7111,Slick Paper,2,71,4947
 7318,Old Pick,1,70,3000
 901,Daenggie,1,68,9000
 957,Decayed Nail,1,65,9000
 1048,Horrendous Hair,2,65,5335
 7507,Solid Iron Piece,2,64,3000
 7512,Burnt Part,2,64,2000
-7005,Skull,2,61,4850
+922,Orc's Fang,1,60,5500
 7156,Broken Shuriken,1,59,5335
-7066,Ice Cubic,1,59,3000
 7157,Dark Mask,1,59,2000
-1038,Little Evil Horn,2,58,5820
 7315,Dark Crystal Fragment,1,57,3000
+7164,Solid Peach,1,56,4365
 7158,Broken Liquor Jar,1,55,5500
+1063,Fang,1,55,4656
 7159,Tengu Nose,1,55,3500
-954,Shining Scale,1,55,2000
+7067,Stone Fragment,2,51,4850
+7165,Transparent Celestial Robe,2,51,3977
 7149,Yellow Plate,1,50,6500
 1044,Zenorc's Fang,1,50,5500
 951,Fin,1,50,5335
-7151,Oil Paper,1,50,5000
 7216,Red Muffler,1,50,4850
-7150,Piece of Bamboo,1,50,4268
+7162,Cloud Crumb,1,50,4656
+7161,Black Bear Skin,1,50,4462
 7221,Tangled Chains,1,50,3686
-1019,Trunk,1,50,3200
+7167,Strange Steel Piece,1,50,3500
 7205,Piece of Black Cloth,1,50,3200
-7063,Soft Feather,1,50,3000
-7111,Slick Paper,1,50,2200
-7115,Harpy Feather,1,49,4850
-7116,Harpy Talon,1,49,2500
 7047,Alice's Apron,1,48,2500
 964,Crab Shell,1,45,5500
 1023,Fish Tail,1,45,5500
-7171,Leopard Skin,1,45,3000
-7172,Leopard Claw,1,45,2000
+7267,Tiger Panty,1,45,4500
+7264,Dry Sand,1,45,4365
 1062,Jack o' Pumpkin,1,40,9000
 1024,Squid Ink,1,40,9000
 7218,Decomposed Rope,1,40,5335
 7320,Dust Pollutant,2,40,5000
+7195,Slingshot,1,40,4500
 7222,Wooden Gnarl,1,40,4074
-7098,Live Coal,1,40,3400
+7200,Elastic Band,1,40,3500
 1015,Tongue,3,37,9700
+7155,Poisonous Toad Skin,1,36,5500
+7154,Poisonous Powder,1,36,2400
 7210,Armor Piece of Dullahan,1,35,4850
 7209,Helm of Dullahan,1,35,3200
 1094,Short Daenggie,1,33,5500
 959,Stinky Scale,1,30,5500
 7217,Spool,1,30,5335
+1050,Tendon,1,30,5000
+7192,Vane,1,30,5000
 7215,Broken Needle,1,30,4365
+7266,Denture from Dragon Mask,1,30,4365
+1098,Manacles,1,30,3500
+1099,Worn-out Prison Uniform,1,30,3500
 7225,Pumpkin Lantern,1,30,3200
+7187,Festival Mask,1,30,3000
+7265,Dragon Horn,1,30,3000
+7038,Yarn,1,30,3000
+1051,Detonator,1,30,2500
 7213,Needle Packet,1,30,2000
 7299,Straw Basket,1,25,4850
 7340,Will of the Darkness,1,25,3000
+7326,Fluorescent Liquid,2,23,5000
+7214,Bat Cage,1,21,5044
+7112,Sharp Paper,1,21,3200
+7219,Striped Sock,1,21,3000
 7009,Glitter Shell,1,20,5335
+7065,Sea-Otter Fur,1,20,4365
 1039,Little Evil Wing,2,17,4850
+7262,Folding Fan of Cat Ghost,1,15,4171
+7263,Cat's Eye,1,15,2000
 7011,Claw of Monkey,1,11,5335
+7207,Old Manteau,1,11,4171
+7208,Rusty Kitchen Knife,1,11,2000
+7032,Piece of Egg Shell,1,10,5000
 7125,Scorpion Claw,1,10,4365
-7119,Bacillus,1,10,3000
 7322,Toxic Gas,1,10,2000
+7026,Key of Clock Tower,1,8,2000
 7048,Talon of Griffon,1,7,2500
 1014,Ant Jaw,2,5,5000
+7439,Fragment of Despair,1,3,10000
+7437,Fragment of Misery,1,3,10000
+7436,Fragment of Agony,1,3,10000
 1053,Ancient Tooth,1,3,9000
 7316,Insect Leg,1,3,4500
 7443,Three-Headed Dragon's Head,1,3,3880
-7326,Fluorescent Liquid,1,3,2500
+7438,Fragment of Hatred,1,2,10000
+7269,Pinafore,1,2,2500
 994,Flame Heart,1,1,10000
+7799,Crystal of Darkness,1,1,9000
+7211,Fragment of Rossata Stone,1,1,7760
+7566,Will of Red Darkness,1,1,7000
 7113,Broken Pharaoh Emblem,1,1,5820
+7169,Ba Gua,1,1,5820
 7036,Fang of Hatii,1,1,5500
+7070,Broken Shell,1,1,5335
+7108,Piece of Shield,1,1,5335
 7327,Flashlight,1,1,5000
+7510,Valhalla's Flower,1,1,5000
+7300,Gemstone,1,1,4850
+7008,Stiff Horn,1,1,4850
+7023,Blade Lost in Darkness,1,1,4000
 7451,Fire Dragon Scale,1,1,3589
+7513,Pocket Watch,1,1,3000
 7035,Matchstick,1,1,2500
+7024,Bloody Edge,1,1,2500
+7022,Old Hilt,1,1,2000
