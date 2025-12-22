@@ -17,8 +17,8 @@ for root, dirs, files in os.walk("npc/pre-re/mobs"):
         if f.endswith('.txt'):
             with open(os.path.join(root, f), 'r') as file:
                 for line in file:
-                    # Match: monster MobName MobID,count
-                    match = re.search(r'monster\s+\S+\s+(\d+),(\d+)', line)
+                    # Match: monster<tab>MobName<tab>MobID,count (handles names with spaces)
+                    match = re.search(r'monster\t[^\t]+\t(\d+),(\d+)', line)
                     if match:
                         mob_id = int(match.group(1))
                         count = int(match.group(2))
