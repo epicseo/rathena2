@@ -295,7 +295,6 @@ These items drop ONLY from event/WoE mobs that don't spawn normally:
 
 | ID | Name | Source Issue |
 |---|---|---|
-| 7225 | Pumpkin Lantern | Event mobs only |
 | 7303 | Straw Rice Bag | Event mobs only |
 | 7337 | Eye of Hellion | Event mobs only |
 | 7484 | Symbol of Brave Warrior | Event mobs only |

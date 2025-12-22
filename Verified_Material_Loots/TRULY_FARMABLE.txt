@@ -4,7 +4,7 @@
 #   - Mob actually spawns in npc/pre-re/mobs/
 #   - Item NOT given by any NPC
 #   - Item from db/pre-re/item_db_etc.yml
-# Total: 180 items
+# Total: 182 items
 #
 # Format: ItemID,ItemName,MobCount,TotalSpawns,BestDropRate
 # ============================================================
@@ -55,6 +55,7 @@
 921,Mushroom Spore,1,220,9000
 1027,Porcupine Quill,1,216,9000
 1059,Fabric,3,206,5820
+911,Scell,5,205,9000
 904,Scorpion Tail,2,205,5500
 952,Cactus Needle,1,200,9000
 1034,Blue Hair,3,200,5335
@@ -119,6 +120,7 @@
 7007,Claw of Rat,1,84,4656
 929,Immortal Heart,1,80,9000
 7220,Ectoplasm,2,80,5723
+965,Clam Shell,1,75,5500
 1020,Black Hair,1,70,9000
 949,Feather,2,70,3000
 7318,Old Pick,1,70,3000
