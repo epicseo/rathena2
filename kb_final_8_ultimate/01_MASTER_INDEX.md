@@ -1,11 +1,11 @@
 # rAthena Knowledge Base v16.0 - Ultimate Complete Edition
 
 **Version:** 16.0 - Ultimate Complete (ALL gaps filled)
-**Release Date:** 2025-12-12
+**Release Date:** 2025-12-26
 **Total Files:** 8 RAG-optimized knowledge base files
 **Total Lines:** 100,343 (VERIFIED - no duplicates, ALL gaps filled)
 **Total Size:** ~2.9 MB
-**RAG Chunks:** 1,600+
+**RAG Chunks:** 1,558
 **Validation:** 100% source-verified, ALL systems documented
 **Coverage:** 100% (4th Jobs, Attendance, Stylist - ALL included)
 
@@ -191,8 +191,8 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- VERSION: 16.0 -->
 <!-- FILES: 8 -->
 <!-- TOTAL_LINES: 100343 -->
-<!-- RAG_CHUNKS: 1561 -->
+<!-- RAG_CHUNKS: 1558 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
 <!-- COVERAGE: 100% -->
-<!-- LAST_UPDATED: 2025-12-12 -->
+<!-- LAST_UPDATED: 2025-12-26 -->
