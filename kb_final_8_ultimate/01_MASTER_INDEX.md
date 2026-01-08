@@ -4,9 +4,9 @@
 **Release Date:** 2026-01-08
 **rAthena Commit:** ff1acc4e (2026-01-07)
 **Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 100,905 (VERIFIED - ALL new data extracted)
+**Total Lines:** 101,761 (VERIFIED - ALL new data extracted)
 **Total Size:** ~3.0 MB
-**RAG Chunks:** 1,566
+**RAG Chunks:** 1,569
 **Validation:** 100% source-verified, ALL systems documented
 **Coverage:** 100% COMPLETE - Including ALL January 2026 Updates
 
@@ -75,10 +75,10 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | 03 | **03_STATUS_EFFECTS.md** | 12,276 | 672 | ALL 1,038 SC_* + val1-val4 |
 | 04 | **04_ITEM_BONUSES.md** | 5,239 | 247 | All 263 bonuses + constants |
 | 05 | **05_GAME_MECHANICS.md** | 5,617 | 72 | EAJ_*, mf_*, MD_*, @cmd, **4th Jobs** |
-| 06 | **06_CONTENT_CREATION.md** | 6,802 | 56 | NPC, EF_*, **Attendance, Stylist** |
+| 06 | **06_CONTENT_CREATION.md** | 8,193 | 61 | NPC, EF_*, **Attendance, Stylist, ALL Jan 2026 Items** |
 | 07 | **07_SOURCE_DEV_COMPLETE.md** | 18,803 | 68 | C++ + packets + source_doc |
 | 08 | **08_SOURCE_TUTORIALS.md** | 35,339 | 411 | 420+ expert tutorials |
-| **TOTAL** | **8 files** | **100,343** | **1,561** | **100% COMPLETE** |
+| **TOTAL** | **8 files** | **101,761** | **1,571** | **100% COMPLETE** |
 
 ---
 
@@ -210,8 +210,8 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- RAG_METADATA -->
 <!-- VERSION: 17.0 -->
 <!-- FILES: 8 -->
-<!-- TOTAL_LINES: 100905 -->
-<!-- RAG_CHUNKS: 1566 -->
+<!-- TOTAL_LINES: 101761 -->
+<!-- RAG_CHUNKS: 1571 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
 <!-- COVERAGE: 100% -->

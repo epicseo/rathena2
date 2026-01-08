@@ -7333,22 +7333,861 @@ IG_AEGIS_105518
 | 9187 | Skeggiold_Egg | Skeggiold Egg |
 | 9190 | aegis_9190 | Clock Egg |
 
+
 ---
 
-<!-- RAG_CHUNK: 06_jan2026_skill_flag -->
-# PART 20: NEW SKILL FLAG - JANUARY 2026 UPDATE
+<!-- RAG_CHUNK: 16_Complete_Equipment_Items_Jan2026 -->
+## Part 16: Complete New Equipment Items (January 2026)
 
-## New Skill Flag: IgnoreNonCritAtkBonus
+**Total: 208 equipment items**
 
-Added to many physical skills to ignore non-critical attack bonuses.
+| ID | AegisName | Name |
+|-----|-----------|------|
+| 9169 | aegis_9169 | Clock Tower Manager Egg |
+| 9170 | aegis_9170 | Angelgolt Egg |
+| 9171 | aegis_9171 | Timeholder Egg |
+| 9187 | Skeggiold_Egg | Skeggiold Egg |
+| 9190 | aegis_9190 | Clock Egg |
+| 28145 | Sky_Rush_Axe | Sky Rush Axe |
+| 400542 | Time_DM_R_Crown_NW | Time Dimensions Rune Crown (Night Watch) |
+| 400543 | Time_DM_R_Crown_SKE | Time Dimensions Rune Crown (Sky Emperor) |
+| 400792 | C_Garden_Of_Heaven | Costume Garden of Heaven |
+| 400795 | aegis_400795 | Costume Thorn Tree Hairband (Blue) |
+| 400803 | C_Muka_Sombrero | Costume Muka Sombrero |
+| 400913 | C_CLB_DT_TS_Mini | Costume: Toothless Mini |
+| 400914 | C_CLB_DT_TS_Drooping | Costume: Toothless Floppy |
+| 400919 | C_Petal_Hood | Costume Petal Hood |
+| 400930 | C_Steamroller | Costume Wolf Masquerade(White) |
+| 400951 | aegis_400951 | Costume Night Market Special Salt |
+| 400956 | aegis_400956 | Costume: Nightmare Mask |
+| 400963 | aegis_400963 | Costume Nyar's White Ears |
+| 400964 | aegis_400964 | Costume Nyar's Gray Ears |
+| 400965 | C_Divine_Veil | Costume Divine Veil |
+| 400975 | Frontier_R_Crown_DK | Frontier Rune Crown (Dragon Knight) |
+| 400976 | Frontier_R_Crown_IG | Frontier Rune Crown (Imperial Guard) |
+| 400977 | Frontier_R_Crown_MT | Frontier Rune Crown (Meister) |
+| 400978 | Frontier_R_Crown_BO | Frontier Rune Crown (Biolo) |
+| 400979 | Frontier_R_Crown_SHC | Frontier Rune Crown (Shadow Cross) |
+| 400980 | Frontier_R_Crown_ABC | Frontier Rune Crown (Abyss Chaser) |
+| 400981 | Frontier_R_Crown_AG | Frontier Rune Crown (Arch Mage) |
+| 400982 | Frontier_R_Crown_EM | Frontier Rune Crown (Elemental Master) |
+| 400983 | Frontier_R_Crown_CD | Frontier Rune Crown (Cardinal) |
+| 400984 | Frontier_R_Crown_IQ | Frontier Rune Crown (Inquisitor) |
+| 400985 | Frontier_R_Crown_WH | Frontier Rune Crown (Windhawk) |
+| 400986 | Frontier_R_Crown_TR | Frontier Rune Crown (Troubadour & Trouvere) |
+| 400987 | Frontier_R_Crown_SS | Frontier Rune Crown (Shinkiro & Shiranui) |
+| 400988 | Frontier_R_Crown_NW | Frontier Rune Crown (Night Watch) |
+| 400989 | Frontier_R_Crown_SKE | Frontier Rune Crown (Sky Emperor) |
+| 400990 | Frontier_R_Crown_SOA | Frontier Rune Crown (Leader) |
+| 400991 | Frontier_R_Crown_HN | Frontier Rune Crown (Hyper Novice) |
+| 400992 | Frontier_R_Crown_SH | Frontier Rune Crown (Spirit Master) |
+| 401000 | aegis_401000 | Costume Liamette Hair Band |
+| 401001 | aegis_401001 | Costume Piamette Bonnet |
+| 401014 | aegis_401014 | Costume Two-Tone Cap |
+| 401055 | Stardust_Crown_SV | Silver Stardust Crown |
+| 401056 | Stardust_Crown_SC | Scarlet Stardust Crown |
+| 401057 | Stardust_Crown_VI | Violet Stardust Crown |
+| 401058 | Sky_Rune_Crown_IG | Celestial Rune Crown (Imperial Guard) |
+| 401059 | Sky_Rune_Crown_ABC | Celestial Rune Crown (Abyss Chaser) |
+| 401060 | Sky_Rune_Crown_SH | Rune Crown of the Sky (Spiritualist) |
+| 401062 | aegis_401062 | Costume Ignis Cap (Red) |
+| 401115 | Sky_Rune_Crown_MS | Sky Rune Crown (Meister) |
+| 401116 | Sky_Rune_Crown_WH | Sky Rune Crown (Windhawk) |
+| 401117 | Sky_Rune_Crown_HN | Sky Rune Crown (Hyper Novice) |
+| 401118 | Sky_Rune_Crown_CD | Sky Rune Crown (Cardinal) |
+| 401119 | Sky_Rune_Crown_IQ | Sky Rune Crown (Inquisitor) |
+| 401120 | Sky_Rune_Crown_SKE | Sky Rune Crown (Sky Emperor) |
+| 410280 | aegis_410280 | Costume Niflheim Night Sky |
+| 410399 | C_Capybara | Costume Capybara |
+| 410430 | C_Blink_Eyes_Forest | Costume Blinking Forest Eyes |
+| 410440 | C_CLB_DT_TS_Hat | Costume: Toothless Head |
+| 410456 | aegis_410456 | Costume White Cat's Eye |
+| 410457 | aegis_410457 | Costume Yellow Cat's Eye |
+| 410458 | C_Divine_Twinkling | Costume Divine Twinkling |
+| 410471 | aegis_410471 | Costume Gear Monocle |
+| 410474 | aegis_410474 | Costume Chained Bear |
+| 410491 | aegis_410491 | Costume: Violet Starlight |
+| 420351 | C_Auspicloud | Costume Auspicious Clouds |
+| 420358 | C_Experiment_Mind | Costume Experiment Mind |
+| 420448 | C_Deep_You_N | Costume Abyssal |
+| 420449 | C_Deep_You | Costume Abyssal Hair |
+| 420511 | C_Over_Cloud | Costume Over the Clouds |
+| 420512 | C_Aurora_On_Clouds | Costume Aurora on Clouds |
+| 420514 | aegis_420514 | Costume Wonderful Long (No Decoration) |
+| 420515 | aegis_420515 | Costume Wonderful Long |
+| 420516 | aegis_420516 | Costume Forest Friends |
+| 420532 | C_Immortal_H_Power | Costume Immortal Monarch's Might |
+| 420552 | C_Divine_Sky_Invite | Costume Divine Invitation |
+| 420553 | aegis_420553 | Costume Fluffy Nyar Hair |
+| 420554 | C_Waggy_Nyar_Hair | Costume Fluttering Nyar Hair |
+| 420570 | aegis_420570 | Costume Winged Twin Hair |
+| 420571 | aegis_420571 | Costume Winged Bronze Hair |
+| 420575 | aegis_420575 | Costume Piamette Rollhair |
+| 420576 | aegis_420576 | Costume Nightmare Chain |
+| 420642 | aegis_420642 | Costume Open Air Headphones (Red) |
+| 480469 | C_Con_of_Singapura_MSP | Costume Con of Singapura |
+| 480556 | C_Blue_Rose_Parasol | Costume Blue Rose Parasol |
+| 480566 | C_Immortal_H_Wing | Costume: Immortal Monarch's Wings |
+| 480595 | C_CLB_DT_TS_Wing | Costume: Toothless Wings |
+| 480596 | C_CLB_DT_TS_Hood | Costume: Toothless Hood |
+| 480611 | C_Immortal_H_Spear | Costume: Immortal Monarch's Spear |
+| 480616 | C_Qualifier_1st | Costume: Royal Knight's Rune Sword |
+| 480617 | C_Qualifier_2nd | Costume: Royal Knight's Greatsword |
+| 480618 | C_Qualifier_3rd | Costume: Knight's Greatsword |
+| 480627 | aegis_480627 | Costume ROS Victory Robe |
+| 480629 | aegis_480629 | Costume Clark Lord |
+| 480631 | aegis_480631 | Costume Detective's Magnifying Glass |
+| 480632 | aegis_480632 | Costume Mad Bunny Nightmare |
+| 480669 | aegis_480669 | Executioner's Cloak |
+| 480670 | aegis_480670 | Sharpshooter Muffler |
+| 480671 | aegis_480671 | Fighter's Cloak |
+| 480672 | aegis_480672 | Champion's Cloak |
+| 480673 | aegis_480673 | Scholar's Muffler |
+| 480674 | aegis_480674 | Wizard's Cloak |
+| 500119 | Encroached_Sword | Encroached Sword |
+| 500120 | Falx | Falks |
+| 500134 | Sky_Napalm_Sword | Celestial Napalm Sword |
+| 510140 | Encroached_Dagger | Encroached Dagger |
+| 510192 | Frontier_ABC_Dagger | Frontier Abyss Dagger |
+| 510199 | Sky_Chasing_Dagger | Chasing Dagger of the Sky |
+| 530071 | Encroached_Spear | Encroached Spear |
+| 530072 | Frontier_IG_Spear | Frontier Imperial Spear |
+| 530074 | Espetar | Ispetar |
+| 530076 | Sky_Imperial_Spear | Imperial Spear of the Sky |
+| 540109 | Encroached_Book | Encroached Book |
+| 540110 | Frontier_EM_Book | Frontier Elemental Book |
+| 540111 | Frontier_SKE_Book | Frontier Emperor Battle Book |
+| 540114 | Elemental_Spirits | Elemental Spirits |
+| 540115 | Book_Of_Crimson_M | Book of the Red Moon |
+| 540119 | Judgment_Day | Judgment Day |
+| 540122 | Sky_Moon_Book | Celestial Moonsong Book |
+| 550137 | Encroached_Staff | Encroached Staff |
+| 550174 | Encroached_Foxtail | Encroached Foxtail |
+| 550176 | Frontier_CD_Rod | Frontier Saint Lord |
+| 550177 | Frontier_HN_Rod | Frontier Hyper Lord |
+| 550178 | Frontier_SH_Foxtail | Frontier Spirit Foxtail |
+| 550187 | Sky_Chulho_Foxtail | Foxtail of the Sky |
+| 550190 | Sky_Arbi_Rod | Celestial Arby Rod |
+| 560080 | Encroached_Knuckle | Encroached Knuckles |
+| 560081 | Frontier_IQ_Claw | Frontier Judgment Claw |
+| 560086 | Sky_Destroy_Knuckle | Celestial Annihilation |
+| 570086 | Encroached_Instrument | Encroached Instrument |
+| 570087 | Frontier_TR_Vilolin | Frontier Musical Violin |
+| 570090 | Geige | Gaig |
+| 580086 | Encroached_Whip | Encroached Whip |
+| 580087 | Frontier_TR_Rope | Frontier Musical Rope |
+| 580090 | Needle_Whip | Needle Whip |
+| 590081 | Encroached_Mace | Encroached Mace |
+| 590107 | Frontier_BO_Hall | Frontier Biological Scepter |
+| 590111 | Submarine_Anchor | Submarine Anchor |
+| 590112 | Jack_O_Rush | Jack O' Rush |
+| 600056 | Encroached_T_Sword | Encroached Two-Handed Sword |
+| 600071 | Frontier_DK_T_Sword | Frontier Dragon Sword |
+| 610084 | Encroached_Katar | Encroached Katar |
+| 610085 | Frontier_SHC_Katar | Frontier Shadow Katar |
+| 610089 | Vida_Nocturno | Vida Noctorno |
+| 620038 | Encroached_T_Axe | Encroached Two-Handed Axe |
+| 620058 | Frontier_MT_T_Axe | Frontier Mechanical Axe |
+| 630059 | Encroached_T_Spear | Encroached Two-Handed Spear |
+| 630060 | Face_W_Q_Horn | Faceworm Queen's Horn |
+| 640051 | Encroached_T_Staff | Encroached Two-Handed Staff |
+| 640064 | Frontier_AG_Staff | Frontier Arc Staff |
+| 640065 | Frontier_SOA_Staff | Frontier Soul Staff |
+| 640067 | Wepawet | Wepawet |
+| 650048 | Encroached_Humma | Encroached Huuma Shuriken |
+| 650058 | Frontier_SS_Humma | Frontier Moonlight Fūma Shuriken |
+| 700117 | Encroached_Bow | Encroached Bow |
+| 700119 | Frontier_WH_Bow | Frontier Wind Bow |
+| 700121 | Beargun_Crossbow | Beargun Crossbow |
+| 700125 | Sky_Crescive_Bow | Celestial Crescent Bow |
+| 810048 | Encroached_Rifle | Encroached Firearm |
+| 810049 | Frontier_NW_Rifle | Frontier Knight Rifle |
+| 840039 | Agent_Launcher | Agent Launcher |
+| 1270079 | S_SHC_CR_Earring | Crater Shadow Earring |
+| 1270080 | S_SHC_CR_Pendant | Crater Shadow Pendant |
+| 1270081 | S_SHC_ST_Armor | Stab Shadow Armor |
+| 1270082 | S_SHC_ST_Shoes | Stab Shadow Shoes |
+| 1270083 | S_IQ_TP_Earring | Punish Shadow Earring |
+| 1270084 | S_IQ_TP_Pendant | Punish Shadow Pendant |
+| 1270085 | S_IQ_FB_Armor | Flame Bomb Shadow Armor |
+| 1270086 | S_IQ_FB_Shoes | Flame Bomb Shadow Shoes |
+| 1270087 | S_HN_MC_Earring | Max Chain Shadow Earring |
+| 1270088 | S_HN_MC_Pendant | Max Chain Shadow Pendant |
+| 1270089 | S_HN_DB_Armor | Double Blow Shadow Armor |
+| 1270090 | S_HN_DB_Shoes | Double Blow Shadow Shoes |
+| 1270091 | S_AG_CI_Earring | Crystal Illusion Shadow Earring |
+| 1270092 | S_AG_CI_Pendant | Crystal Illusion Shadow Pendant |
+| 1270093 | S_AG_VST_Armor | Violent Soul Tremor Shadow Armor |
+| 1270094 | S_AG_VST_Shoes | Violent Soul Tremor Shadow Shoes |
+| 1270095 | S_ABC_DB_Earring | Deft Breaker Shadow Earring |
+| 1270096 | S_ABC_DB_Pendant | Deft Breaker Shadow Pendant |
+| 1270097 | S_ABC_FR_Armor | Frenzy Reaction Shot Shadow Armor |
+| 1270098 | S_ABC_FR_Shoes | Frenzy Reaction Shot Shadow Shoes |
+| 1270099 | S_SKE_MS_Earring | Midnight Kick Shadow Earring |
+| 1270100 | S_SKE_MS_Pendant | Midnight Kick Shadow Pendant |
+| 1270101 | S_SKE_DB_Armor | Dawn Break Shot Shadow Armor |
+| 1270102 | S_SKE_DB_Shoes | Dawn Break Shadow Shoes |
+| 1270115 | S_CD_FP_Earring | Fracella Shadow Earring |
+| 1270116 | S_CD_FP_Pendant | Fracella Shadow Pendant |
+| 1270117 | S_CD_EP_Armor | Effltio Shadow Armor |
+| 1270118 | S_CD_EP_Shoes | Effltio Shadow Shoes |
+| 1270119 | S_EM_DS_Earring | Diamond Shadow Earring |
+| 1270120 | S_EM_DS_Pendant | Diamond Shadow Pendant |
+| 1270121 | S_EM_TP_Armor | Terra Stream Shadow Armor |
+| 1270122 | S_EM_TP_Shoes | Terra Stream Shadow Shoes |
+| 1270123 | S_SS_KK_Earring | Shadow Dance Shadow Earring |
+| 1270124 | S_SS_KK_Pendant | Shadow Dance Shadow Pendant |
+| 1270125 | S_SS_KF_Armor | Kunai Shuriken Shadow Armor |
+| 1270126 | S_SS_KF_Shoes | Kunai Shuriken Shadow Shoes |
+| 1270130 | S_WH_WH_Earring | Wild Hawk Shadow Earring |
+| 1270131 | S_WH_WH_Pendant | Wild Hawk Shadow Pendant |
+| 1270132 | S_WH_AT_Armor | Advanced Trap Shadow Armor |
+| 1270133 | S_WH_AT_Shoes | Advanced Trap Shadow Shoes |
+| 1270134 | S_TR_MS_Earring | Musical Shooting Shadow Earring |
+| 1270135 | S_TR_MS_Pendant | Musical Shooting Shadow Pendant |
+| 1270136 | S_TR_RB_Armor | Blossom Shadow Armor |
+| 1270137 | S_TR_RB_Shoes | Blossom Shadow Shoes |
+| 1270138 | S_NW_MS_Earring | Midnight Shooting Shadow Earring |
+| 1270139 | S_NW_MS_Pendant | Midnight Shooting Shadow Pendant |
+| 1270140 | S_NW_NF_Armor | Night Fire Shadow Armor |
+| 1270141 | S_NW_NF_Shoes | Night Fire Shadow Shoes |
 
-```yaml
-# Example in skill_db.yml
-- Id: 5001
-  Name: SKILL_NAME
-  Flags:
-    IgnoreNonCritAtkBonus: true
+<!-- RAG_CHUNK: 17_Complete_Usable_Items_Jan2026 -->
+## Part 17: Complete New Usable Items (January 2026)
+
+**Total: 158 usable items**
+
+| ID | AegisName | Name |
+|-----|-----------|------|
+| 14622 | aegis_14622 | Cherry Blossom Scroll |
+| 100582 | aegis_100582 | Test 1 |
+| 100584 | aegis_100584 | Test 2 |
+| 103218 | aegis_103218 | Angel's Song |
+| 103219 | aegis_103219 | Clock Lubricant |
+| 104714 | C_CLB_DT_Select_Box1 | Toothless Selection Box I |
+| 104715 | C_CLB_DT_Select_Box2 | Toothless Selection Box II |
+| 104716 | C_Clouds_Select_Box | Cloud Costume Selection Box |
+| 104741 | Rt_Ch01_Armor_A | Entwined Magical Equipment Activation Reward |
+| 104742 | Rt_Ch01_Armor_C | Entwined Magical Equipment Completion Reward |
+| 104743 | Rt_Ch01_Dimen_A | Footsteps of Dimension Activation Reward |
+| 104744 | Rt_Ch01_Dimen_C | Footsteps of Dimension Completion Reward |
+| 104745 | Rt_Ch01_Dimen_3 | Footsteps of Dimension 3 Sets Reward |
+| 104746 | Rt_Ch01_Extra_A | Chaos Activation Reward |
+| 104747 | Rt_Ch01_Extra_C | Chaos Completion Reward |
+| 104748 | Rt_Ch01_Extra_2 | Chaos 2 Sets Reward |
+| 104749 | Rt_Ch01_Extra_4 | Chaos 4 Sets Reward |
+| 104750 | Rt_Ch01_Extra_5 | Chaos 5 Sets Reward |
+| 104901 | aegis_104901 | Costume Enchant Stone Box 40 |
+| 105031 | aegis_105031 | ROS Gold Capsule |
+| 105045 | 23th_Costume_A | Fluffy Costume Gift Box |
+| 105046 | 23th_Costume_B | Fluttering Costume Gift Box |
+| 105047 | 23th_Costume_C | Divine Costume Gift Box |
+| 105059 | aegis_105059 | Special Enchant Stone Box |
+| 105161 | aegis_105161 | Tangled Singularity |
+| 105162 | aegis_105162 | Boundary Singularity |
+| 105163 | Fron_Fix_DK_T_Sword | Boundary Tuning (Frontier Dragon Sword) |
+| 105164 | Fron_Fix_IG_Spear | Boundary Tuning (Frontier Imperial Spear) |
+| 105165 | Fron_Fix_MT_T_Axe | Boundary Tuning (Frontier Mechanical Axe) |
+| 105166 | Fron_Fix_BO_Hall | Boundary Tuning (Frontier Biological Hall) |
+| 105167 | Fron_Fix_SHC_Katar | Boundary Tuning (Frontier Shadow Katar) |
+| 105168 | Fron_Fix_ABC_Dagger | Boundary Tuning (Frontier Abyss Dagger) |
+| 105169 | Fron_Fix_AG_Staff | Boundary Tuning (Frontier Arc Staff) |
+| 105170 | Fron_Fix_EM_Book | Boundary Tuning (Frontier Elemental Book) |
+| 105171 | Fron_Fix_CD_Rod | Boundary Tuning (Frontier Saint Lord) |
+| 105172 | Fron_Fix_IQ_Claw | Boundary Tuning (Frontier Judgment Claw) |
+| 105173 | Fron_Fix_WH_Bow | Boundary Tuning (Frontier Wind Bow) |
+| 105174 | Fron_Fix_TR_Vilolin | Boundary Tuning (Frontier Musical Violin) |
+| 105175 | Fron_Fix_TR_Rope | Tuning of the Boundary (Frontier Musical Rope) |
+| 105176 | Fron_Fix_SS_Humma | Tuning of the Boundary (Frontier Moonlight Fuma S |
+| 105177 | Fron_Fix_NW_Rifle | Tuning of the Boundary (Frontier Knight Rifle) |
+| 105178 | Fron_Fix_SKE_Book | Tuning of the Boundary (Frontier Emperor Battle B |
+| 105179 | Fron_Fix_SOA_Staff | Tuning of the Boundary (Frontier Soul Staff) |
+| 105180 | Fron_Fix_HN_Rod | Tuning of the Boundary (Frontier Hyper Rod) |
+| 105181 | Fron_Fix_SH_Foxtail | Tuning of the Boundary (Frontier Spirit Foxtail) |
+| 105219 | aegis_105219 | [A] Wrathful Two-Handed Dagger Box |
+| 105220 | aegis_105220 | [A] Wrathful Spear Shield Box |
+| 105356 | SP_Costume_Select | Special Costume Selection Box |
+| 105357 | SP_Costume_Collection | Special Costume Collection Box |
+| 105415 | A_DM_Fix_DK_T_Spear | Tuning of the Dimension (Faceworm Queen's Horn) |
+| 105416 | A_DM_Fix_IG_Spear | Dimensional Tuning (Ispetar) |
+| 105417 | A_DM_Fix_ABC_Bow | Dimensional Tuning (Baregun Crossbow) |
+| 105418 | A_DM_Fix_BO_Sword | Second-Dimensional Tuning (Falx) |
+| 105419 | A_DM_Fix_AG_T_Staff | Second-Dimensional Tuning (Wepawet) |
+| 105420 | A_DM_Fix_EM_Book | Second-Dimensional Tuning (Elemental Spirits) |
+| 105421 | A_DM_Fix_NW_Launcher | Second-Dimensional Tuning (Agent Launcher) |
+| 105422 | A_DM_Fix_SKE_Book | Second-Dimensional Tuning (Book of the Red Moon) |
+| 105488 | All_In_One_Healing_E | [Event] All-in-One Healing Potion |
+| 105489 | All_In_One_buff_E | [Event] All-in-One Buff Potion |
+| 105490 | 2025ROS_For_Offline | ROS Gift Box |
+| 105518 | aegis_105518 | Costume Enchantment Stone Box 41 |
+| 105526 | Niflheim_Select_1 | Niflheim Costume Selection 1 |
+| 105527 | Niflheim_Select_2 | Niflheim Costume Selection 2 |
+| 105528 | Niflheim_Select_3 | Niflheim Costume Selection 3 |
+| 105615 | ROS_FESTA_BOX | ROS FESTA BOX |
+| 105616 | R_Ep1921_Album | Episode 19-21 Card Album |
+| 105617 | R_Ep1921_Boss | Episode 19-21 Boss Card Album |
+| 105619 | Rt_Ep21_Gaebolg_A | Geoborg Activation Reward |
+| 105620 | Rt_Ep21_Gaebolg_C | Geoborg Completion Reward |
+| 105621 | Rt_Ep21_Icy_A | Ice Coast Activation Reward |
+| 105622 | Rt_Ep21_Icy_C | Ice Coast Completion Reward |
+| 105623 | Rt_Ep21_Icy_2 | Ice Coast 2-Set Reward |
+| 105624 | Rt_Ep21_Yorker_A | Yosker Yorker Activation Reward |
+| 105625 | Rt_Ep21_Yorker_C | Yosker Yorker Completion Reward |
+| 105626 | Rt_Ep21_Working_A | Staff Activation Reward |
+| 105627 | Rt_Ep21_Working_C | Staff Completion Reward |
+| 105628 | Rt_Ep21_Admin_A | Management Activation Reward |
+| 105629 | Rt_Ep21_Admin_C | Management Completion Reward |
+| 105630 | Rt_Ep21_Admin_2 | Management 2-Set Reward |
+| 105631 | Rt_Ep21_Purify_A | Purification Activity Activation Reward |
+| 105632 | Rt_Ep21_Purify_C | Purification Activity Completion Rewards |
+| 105633 | Rt_Ep21_Purify_3 | Purification Activity 3-Set Reward |
+| 105634 | Rt_Ep21_Purify_5 | Purification Activity 5-Set Reward |
+| 105635 | Rt_Ep21_Aid_A | Civil Support Activation Reward |
+| 105636 | Rt_Ep21_Aid_C | Civil Support Completion Reward |
+| 105637 | Rt_Ep21_Aid_2 | Civil Support 2-Set Reward |
+| 105638 | Rt_Ep21_Aid_4 | Civil Support 4-Set Reward |
+| 105639 | Rt_Ep21_Company_A | Group Activation Reward |
+| 105640 | Rt_Ep21_Company_C | Group Completion Reward |
+| 105641 | Rt_Ep21_Company_3 | Group 3-Set Reward |
+| 105642 | Rt_Ep21_Company_5 | Group 5-Set Reward |
+| 105643 | Rt_Ep21_Horn_A | Frozen Horn Activation Reward |
+| 105644 | Rt_Ep21_Horn_C | Frozen Horn Completion Reward |
+| 105645 | Rt_Ep21_Horn_3 | Frozen Horn 3-Set Reward |
+| 105646 | Rt_Ep21_Horn_5 | Frozen Horn 5-Set Reward |
+| 105647 | Rt_Ep21_Tan_A | Encroachment Activation Reward |
+| 105648 | Rt_Ep21_Tan_C | Encroachment Completion Reward |
+| 105685 | A_DM_Fix_MT_Mace | Second Dimensional Tuning (Submarine Anchor) |
+| 105686 | A_DM_Fix_SHC_Katar | Second Dimensional Tuning (Vida Noctorno) |
+| 105687 | A_DM_Fix_CD_Book | Second Dimensional Tuning (Judgment Day) |
+| 105688 | A_DM_Fix_TR_Violin | Second Dimensional Tuning (Geigg) |
+| 105689 | A_DM_Fix_TR_Whip | Second Dimensional Tuning (Needle Whip) |
+| 105690 | A_DM_Fix_HN_Mace | Second Dimensional Tuning (Jack O'Rush) |
+| 105715 | aegis_105715 | Infinite Giant Fly's Wings 1-Hour Box |
+| 105737 | Sky_Weapon_Hammer | Celestial Weapon Refining Hammer |
+| 105738 | Sky_Crown_Hammer | Celestial Crown Refining Hammer |
+| 105828 | aegis_105828 | [A] Time Gap Dagger Box |
+| 105829 | aegis_105829 | [A] Time Gap Kurojin Boxes |
+| 105830 | aegis_105830 | +12 [A] Crown of Good and Evil (Night's Watch) Se |
+| 105831 | aegis_105831 | +10 [C] Crown of Good and Evil (Night's Watch) Se |
+| 105832 | aegis_105832 | +12 [A] Spear of Wrath Shield Box |
+| 105833 | aegis_105833 | +10 [C] Spear of Wrath Shield Box |
+| 105834 | aegis_105834 | +12 [A] Two-Handed Dagger of Wrath Box |
+| 105835 | aegis_105835 | +10 [C] Two-Handed Dagger of Wrath Box |
+| 105836 | aegis_105836 | Holiday Season Gift |
+| 105917 | aegis_105917 | Divine Box |
+| 105927 | Select_Costume_DEC_1 | White Fox Hooded Twin Costume Selection Box |
+| 105928 | Select_Costume_DEC_2 | Winged Hair Costume Selection Box |
+| 105929 | Select_Costume_DEC_3 | Wonderful Long Costume Selection Box |
+| 200665 | DT_Colabo_Box1 | Toothless Costume Package I |
+| 200666 | DT_Colabo_Box2 | Toothless Costume Package II |
+| 200667 | Cloud_Costume_Pack | Cloud Costume Package |
+| 200669 | CostumeMilePack_39_1 | Nyangdarae Costume Mileage Package I (Stone Box 3 |
+| 200670 | CostumeMilePack_39_2 | Nyangdarae Costume Mileage Package II (Stone Box |
+| 200671 | CostumeMilePack_39_3 | Nyangdarae Costume Mileage Package III (Stone Box |
+| 200700 | LI_Nyangvine_Box1_40 | (Account Exclusive) Cat's Nest Fruit Package I (S |
+| 200701 | LI_Nyangvine_Box2_40 | (Account Exclusive) Cat's Nest Fruit Package II ( |
+| 200702 | LI_Nyangvine_Box3_40 | (Account Exclusive) Cat's Nest Fruit Package III |
+| 200713 | 23th_Costume_Pack_A | Fluffy Concentrated Refining Package |
+| 200714 | 23th_Costume_Pack_B | Fluttering High-Concentrated Refining Package |
+| 200715 | 23th_Costume_Pack_C | Sacred Cat's Nest Fruit Packages |
+| 200716 | 23th_Package_1 | Special Monthly Package I |
+| 200717 | 23th_Package_2 | Special Monthly Package II |
+| 200718 | 23th_Package_3 | Special Monthly Package III |
+| 200719 | 23th_Package_4 | Special Monthly Package IV |
+| 200721 | CostumeMilePack_SP_1 | Nyangdarae Costume Mileage Package I (Special) |
+| 200722 | CostumeMilePack_SP_2 | Nyangdarae Costume Mileage Package II (Special) |
+| 200723 | CostumeMilePack_SP_3 | Nyangdarae Costume Mileage Package III (Special) |
+| 200724 | CostumeMilePack_SP_4 | Nyangdarae Costume Mileage Package (Special) |
+| 200764 | CostumeMilePack_41_1 | Nymphalina Costume Mileage Package I (Stone Box 4 |
+| 200765 | CostumeMilePack_41_2 | Nymphalina Costume Mileage Package II (Stone Box |
+| 200766 | CostumeMilePack_41_3 | Nymphalina Costume Mileage Package III (Stone Box |
+| 200767 | Niflheim_Costume_1 | Niflheim Costume Package I |
+| 200768 | Niflheim_Costume_2 | Niflheim Costume Package II |
+| 200769 | Niflheim_Costume_3 | Niflheim Costume Package III |
+| 200770 | Niflheim_Costume_4 | Niflheim Night Sky Package |
+| 200785 | LI_Nyangvine_Box1_SP | Cat's Nest Fruit Special Package |
+| 200786 | LI_Nyangvine_Box2_SP | Cat's Nest Fruit Special Package I |
+| 200787 | LI_Nyangvine_Box3_SP | Cat's Nest Fruit Special Package II |
+| 200788 | LI_Nyangvine_Box4_SP | Nyandarae Fruit Special Package III |
+| 200789 | 2025_DEC_Package1 | Special Refining Month Package I |
+| 200790 | 2025_DEC_Package2 | Special Refining Month Package II |
+| 200791 | Cash_Booster_Box2 | Special Year-End Growth Package |
+| 200792 | Select_DEC_Pack1 | White Fox Costume Package |
+| 200793 | Select_DEC_Pack2 | Clock Witch Costume Package |
+| 200794 | Select_DEC_Pack3 | Wonderful Forest Costume Package |
+| 1100036 | aegis_1100036 | Sharing Fish |
+| 1100037 | 25_A_Ev_Cookie | Orleans' Handmade Cookies |
+
+<!-- RAG_CHUNK: 18_Complete_Etc_Items_Jan2026 -->
+## Part 18: Complete New Etc Items (January 2026)
+
+**Total: 160 etc items (cards, stones, footprints)**
+
+| ID | AegisName | Name |
+|-----|-----------|------|
+| 300715 | aegis_300715 | As Card |
+| 300716 | aegis_300716 | Kaya Toss Card |
+| 300717 | aegis_300717 | Tatio Card |
+| 300718 | aegis_300718 | Chairman Rekenber Card |
+| 300719 | aegis_300719 | As Card |
+| 300720 | aegis_300720 | Rekenber Kaya Toss Card |
+| 300721 | aegis_300721 | Rekenber Tatio Card |
+| 300722 | aegis_300722 | Rekenber Chairman Rekenber Card |
+| 313956 | Butterfly_purple_Foot | Purple Butterfly Footprints |
+| 313957 | Butterfly_yellow_Foot | Yellow Butterfly Footprints |
+| 314066 | aegis_314066 | ROS2025 Commemorative Footprints |
+| 314094 | aegis_314094 | Blue Fighting Spirit Effect |
+| 314095 | aegis_314095 | Red Fighting Spirit Effect |
+| 314171 | aegis_314171 | Footprint (2D) |
+| 314172 | aegis_314172 | Footprint (3D) |
+| 314181 | aegis_314181 | Archbishop Stone II (Upper) |
+| 314182 | aegis_314182 | Archbishop Stone II (Middle) |
+| 314183 | aegis_314183 | Archbishop Stone II (Lower) |
+| 314184 | aegis_314184 | Cardinal Stone II (Garment) |
+| 314185 | aegis_314185 | Shadow Chaser Stone II (Upper) |
+| 314186 | aegis_314186 | Shadow Chaser Stone II (Middle) |
+| 314187 | aegis_314187 | Shadow Chaser Stone II (Lower) |
+| 314188 | aegis_314188 | Abyss Chaser Stone II (Garment) |
+| 314189 | aegis_314189 | Super Novice Stone II (Upper) |
+| 314190 | aegis_314190 | Super Novice Stone II (Middle) |
+| 314191 | aegis_314191 | Super Novice Stone II (Lower) |
+| 314192 | aegis_314192 | Hyper Novice Stone II (Garment) |
+| 314212 | Nyar_Foot_BU | Nyar's Blue Footprints |
+| 314213 | Nyar_Foot_PP | Nyar's Purple Footprints |
+| 314214 | Divine_Light_Foot | Divine Light Footprints |
+| 314230 | Ch01_1_Fighter | Frontier Spell (Fighter) |
+| 314231 | Ch01_2_Fighter2 | Frontier Spell (Special Force) |
+| 314232 | Ch01_3_Hit_Attack | Frontier Spell (Hit Attack) |
+| 314233 | Ch01_3_Special_Agent | Frontier Spell (Special Agent) |
+| 314243 | T_D_Jewel_POW_1 | Time Dimension Jewel (Strength) 1Lv |
+| 314244 | T_D_Jewel_POW_2 | Time Dimension Jewel (Strength) 2Lv |
+| 314245 | T_D_Jewel_POW_3 | Time Dimension Jewel (Strength) 3Lv |
+| 314246 | T_D_Jewel_CON_1 | Lv1 Time-Space Jewel (Concentration) |
+| 314247 | T_D_Jewel_CON_2 | Lv2 Time-Space Jewel (Concentration) |
+| 314248 | T_D_Jewel_CON_3 | Lv3 Time-Space Jewel (Concentration) |
+| 314249 | Fierce_A_Jewel_1 | Fierce Attack Jewel 1Lv |
+| 314250 | Fierce_A_Jewel_2 | Fierce Attack Jewel 2Lv |
+| 314251 | Fierce_A_Jewel_3 | Fierce Attack Jewel 3Lv |
+| 314252 | Fierce_A_Jewel_4 | Fierce Attack Jewel 4Lv |
+| 314253 | Fierce_A_Jewel_5 | Fierce Attack Jewel 5Lv |
+| 314254 | Fierce_A_Jewel_6 | Fierce Attack Jewel 6Lv |
+| 314255 | Fierce_A_Jewel_7 | Fierce Attack Jewel 7Lv |
+| 314256 | Fierce_A_Jewel_8 | Fierce Attack Jewel 8Lv |
+| 314257 | Fierce_A_Jewel_9 | Fierce Attack Jewel 9Lv |
+| 314258 | Fierce_A_Jewel_10 | Fierce Attack Jewel 10Lv |
+| 314259 | Great_C_Jewel_1 | Great Craftsman Jewel 1Lv |
+| 314260 | Great_C_Jewel_2 | Great Craftsman Jewel 2Lv |
+| 314261 | Great_C_Jewel_3 | Great Craftsman Jewel 3Lv |
+| 314262 | Great_C_Jewel_4 | Great Craftsman Jewel 4Lv |
+| 314263 | Great_C_Jewel_5 | Great Craftsman Jewel 5Lv |
+| 314264 | Great_C_Jewel_6 | Great Craftsman Jewel 6Lv |
+| 314265 | Great_C_Jewel_7 | Great Craftsman Jewel 7Lv |
+| 314266 | Great_C_Jewel_8 | Great Craftsman Jewel 8Lv |
+| 314267 | Great_C_Jewel_9 | Great Craftsman Jewel 9Lv |
+| 314268 | Great_C_Jewel_10 | Great Craftsman Jewel 10Lv |
+| 314661 | aegis_314661 | Hit Physical Stone (Dual) |
+| 314662 | aegis_314662 | Hit Physical Stone (Upper) |
+| 314663 | aegis_314663 | Hit Physical Stone (Middle) |
+| 314664 | aegis_314664 | Hit Physical Stone (Lower) |
+| 314665 | aegis_314665 | Hit Physical Stone (Garment) |
+| 314666 | aegis_314666 | Experience Stone (Garment) |
+| 314667 | aegis_314667 | Archmage Stone II (Garment) |
+| 314668 | aegis_314668 | Biolo Stone II (Garment) |
+| 314669 | aegis_314669 | Celestial Stone II (Garment) |
+| 314670 | aegis_314670 | Warlock Stone II (Upper) |
+| 314671 | aegis_314671 | Warlock Stone II (Middle) |
+| 314672 | aegis_314672 | Warlock Stone II (Lower) |
+| 314673 | aegis_314673 | Generic Stone II (Upper) |
+| 314674 | aegis_314674 | Generic Stone II (Middle) |
+| 314675 | aegis_314675 | Generic Stone II (Lower) |
+| 314676 | aegis_314676 | Holy Emperor Stone II (Upper) |
+| 314677 | aegis_314677 | Holy Emperor Stone II (Middle) |
+| 314678 | aegis_314678 | Holy Emperor Stone II (Lower) |
+| 1001215 | EpisodClear21 | Eps 21 Clear Ticket |
+| 1002185 | Summer_Leaflet | Ocean Week Flyer |
+| 1002186 | ROS_Pre_Certificate | ROS Representative Tournament Participation Certi |
+| 1002187 | Gu_5LvWeapon_13Up_ROS | Level 5 Weapon 13 Refinement Guaranteed Ticket [R |
+| 1002188 | Gu_2LvArmor_13Up_ROS | Guaranteed Ticket for 2Lv Armor 13 Refining [ROS] |
+| 1002189 | Gu_5LvWeapon_14Up_ROS | Guaranteed Ticket for 5Lv Weapon 14 Refining [ROS |
+| 1002190 | Gu_2LvArmor_14Up_ROS | Guaranteed Ticket for 2Lv Armor 14 Refining [ROS] |
+| 1002191 | Gu_5LvWeapon_15Up_ROS | Guaranteed Ticket for 5Lv Weapon 15 Refining [ROS |
+| 1002192 | Gu_2LvArmor_15Up_ROS | Guaranteed Ticket for 2Lv Armor 15 Refining [ROS] |
+| 1002193 | ROS_BlueEffect_Middle | Blue Fighting Spirit Effect (Mid) |
+| 1002194 | ROS_RedEffect_Middle | Red Fighting Spirit Effect (Mid) |
+| 1002224 | CLB_DT_Ticket | [Collab] Viking Mark |
+| 1002239 | CLB_DT_2D_Foot_Robe | Footprint (2D) (Garment) |
+| 1002240 | CLB_DT_3D_Foot_Robe | Footprint (3D) (Garment) |
+| 1002243 | R_Entwined_Armor | Printed Entwined Magical Armor |
+| 1002244 | R_Entwined_Robe | Printed Entwined Magical Robe |
+| 1002245 | R_Entwined_Manteau | Printed Entwined Magical Manteau |
+| 1002246 | R_Entwined_Muffler | Printed Entwined Magical Muffler |
+| 1002247 | R_Entwined_Boots | Printed Entwined Magical Boots |
+| 1002248 | R_Dimension_B_Greave | Printed Dimension World Battle Greaves |
+| 1002249 | R_Dimension_H_Boots | Printed Dimension World Hunting Boots |
+| 1002250 | R_Dimension_S_Shoes | Printed Dimension World Spell Shoes |
+| 1002251 | R_Dimension_M_Shoes | Printed Dimension World Magic Shoes |
+| 1002252 | R_Dimension_E_Boots | Printed Dimension World Executioner Boots |
+| 1002253 | R_Entwined_Shoes | Printed Entwined Magical Shoes |
+| 1002273 | aegis_1002273 | Archbishop Stone II (Upper) |
+| 1002274 | aegis_1002274 | Archbishop Stone II (Middle) |
+| 1002275 | aegis_1002275 | Archbishop Stone II (Lower) |
+| 1002276 | aegis_1002276 | Cardinal Stone II (Garment) |
+| 1002277 | aegis_1002277 | Shadow Chaser Stone II (Upper) |
+| 1002278 | aegis_1002278 | Shadow Chaser Stone II (Middle) |
+| 1002279 | aegis_1002279 | Shadow Chaser Stone II (Lower) |
+| 1002280 | aegis_1002280 | Abyss Chaser Stone II (Garment) |
+| 1002281 | aegis_1002281 | Super Novice Stone II (Upper) |
+| 1002282 | aegis_1002282 | Super Novice Stone II (Middle) |
+| 1002283 | aegis_1002283 | Super Novice Stone II (Lower) |
+| 1002284 | aegis_1002284 | Hyper Novice Stone II (Garment) |
+| 1002285 | Butter_Purple_foot_Robe | Purple Butterfly Footprints (Garment) |
+| 1002286 | ROS2025Vic_Foot_Robe | ROS2025 Commemorative Footprints (Garment) |
+| 1002289 | aegis_1002289 | ROS Gold Coin |
+| 1002290 | aegis_1002290 | ROS Coin |
+| 1002294 | Nyar_Foot_BU_Robe | Nyar's Blue Footprints (Garment) |
+| 1002295 | Nyar_Foot_PP_Robe | Nyar's Purple Footprints (Garment) |
+| 1002296 | Divine_L_Foot_Robe | Divine Light Footprints (Garments |
+| 1002331 | Physical_TuningScroll | Physical Magic Tuning Formula |
+| 1002332 | Magical_TuningScroll | Magic Tuning Formula |
+| 1002333 | Tiem_SpellScroll | Time Magic Scroll |
+| 1002334 | Dimansion_SpellScroll | Dimensional Magic Scroll |
+| 1002335 | Pure_SpellScoll | Pure Magic Scroll |
+| 1002336 | Polluted_SpellScroll | Contaminated Magic Book |
+| 1002337 | Immortal_SpellScroll | Immortal Magic Book |
+| 1002356 | 25_A_Ev_Photo | Landscape Photo |
+| 1002394 | aegis_1002394 | Yellow Butterfly Footprints (Garment) |
+| 1002395 | aegis_1002395 | Hit Physical Stone (Dual) |
+| 1002396 | aegis_1002396 | Hit Physical Stone (Upper) |
+| 1002397 | aegis_1002397 | Hit Physical Stone (Middle) |
+| 1002398 | aegis_1002398 | Hit Physical Stone (Lower) |
+| 1002399 | aegis_1002399 | Hit Physical Stone (Garment) |
+| 1002404 | aegis_1002404 | Experience Stone (Garment) |
+| 1002405 | aegis_1002405 | Archmage Stone II (Garment) |
+| 1002406 | aegis_1002406 | Biolo Stone II (Garment) |
+| 1002407 | aegis_1002407 | Celestial Stone II (Garment) |
+| 1002408 | aegis_1002408 | Warlock Stone II (Upper) |
+| 1002409 | aegis_1002409 | Warlock Stone II (Middle) |
+| 1002410 | aegis_1002410 | Warlock Stone II (Lower) |
+| 1002411 | aegis_1002411 | Generic Stone II (Upper) |
+| 1002412 | aegis_1002412 | Generic Stone II (Middle) |
+| 1002413 | aegis_1002413 | Generic Stone II (Lower) |
+| 1002414 | aegis_1002414 | Holy Stone II (Upper) |
+| 1002415 | aegis_1002415 | Holy Stone II (Middle) |
+| 1002416 | aegis_1002416 | Holy Stone II (Lower) |
+| 1002442 | D_EpisodClear21 | Episode 21 Pass Ticket |
+| 1002473 | R_Gaebolg_Armor | Engraved Gaebolg Armor |
+| 1002474 | R_Gaebolg_Robe | Engraved Gaebolg Robe |
+| 1002475 | R_Gaebolg_Manteau | Engraved Gaebolg Cloak |
+| 1002476 | R_Gaebolg_Muffler | Engraved Gaebolg Muffler |
+| 1002477 | R_Gaebolg_Boots | Engraved Gaebolg Boots |
+| 1002478 | R_Gaebolg_Shoes | Engraved Gaebolg Shoes |
+| 1002479 | R_Gaebolg_Ring | Engraved Gaebolg Ring |
+| 1002480 | R_Gaebolg_Glove | Engraved Gaebolg Gloves |
+| 1002481 | R_Gaebolg_Earring | Engraved Gaebolg Earrings |
+| 1002482 | R_Gaebolg_Necklace | Engraved Gaebolg Necklace |
+
+<!-- RAG_CHUNK: 19_Complete_Training_Mobs_Jan2026 -->
+## Part 19: Complete Training Zone Mobs (January 2026)
+
+**Total: 120 training dummies for map 123**
+
+### Training System
+- **Map:** 123 (Training Ground)
+- **Categories:** Size (S/M/L/XL), Resistance, Race, Element
+
+| ID | AegisName | Name |
+|-----|-----------|------|
+| 21087 | S_DUMMY_100_HUMANP | Dummy (Human Player) |
+| 21088 | S_DUMMY_100_DORAMP | Dummy (Doram Player) |
+| 22551 | S_DUMMY_SMALL_R10 | Dummy (Small) |
+| 22552 | S_DUMMY_MEDIUM_R10 | Dummy (Medium) |
+| 22553 | S_DUMMY_LARGE_R10 | Dummy (Large) |
+| 22554 | S_DUMMY_XLARGE_R40 | Dummy (Extra Large) |
+| 22555 | S_DUMMY_SMALL_R20 | Dummy (Small) |
+| 22556 | S_DUMMY_MEDIUM_R20 | Dummy (Medium) |
+| 22557 | S_DUMMY_LARGE_R20 | Dummy (Large) |
+| 22558 | S_DUMMY_XLARGE_R50 | Dummy (Extra Large) |
+| 22559 | S_DUMMY_SMALL_R30 | Dummy (Small) |
+| 22560 | S_DUMMY_MEDIUM_R30 | Dummy (Medium) |
+| 22561 | S_DUMMY_SMALL1 | Dummy (Small) |
+| 22562 | S_DUMMY_MEDIUM1 | Dummy (Medium) |
+| 22563 | S_DUMMY_LARGE1 | Dummy (Large) |
+| 22564 | S_DUMMY_SMALL1_R10 | Dummy (Small) |
+| 22565 | S_DUMMY_MEDIUM1_R10 | Dummy (Medium) |
+| 22566 | S_DUMMY_LARGE1_R10 | Dummy (Large) |
+| 22567 | S_DUMMY_XLARGE1_R40 | Dummy (Extra Large) |
+| 22568 | S_DUMMY_SMALL1_R20 | Dummy (Small) |
+| 22569 | S_DUMMY_MEDIUM1_R20 | Dummy (Medium) |
+| 22570 | S_DUMMY_LARGE1_R20 | Dummy (Large) |
+| 22571 | S_DUMMY_XLARGE1_R50 | Dummy (Extra Large) |
+| 22572 | S_DUMMY_SMALL1_R30 | Dummy (Small) |
+| 22573 | S_DUMMY_MEDIUM1_R30 | Dummy (Medium) |
+| 22574 | S_DUMMY_LARGE1_R30 | Dummy (Large) |
+| 22575 | S_DUMMY_SMALL2 | Dummy (Small) |
+| 22576 | S_DUMMY_MEDIUM2 | Dummy (Medium) |
+| 22577 | S_DUMMY_LARGE2 | Dummy (Large) |
+| 22578 | S_DUMMY_SMALL2_R10 | Dummy (Small) |
+| 22579 | S_DUMMY_MEDIUM2_R10 | Dummy (Medium) |
+| 22580 | S_DUMMY_LARGE2_R10 | Dummy (Large) |
+| 22581 | S_DUMMY_XLARGE2_R40 | Dummy (Extra Large) |
+| 22582 | S_DUMMY_SMALL2_R20 | Dummy (Small) |
+| 22583 | S_DUMMY_MEDIUM2_R20 | Dummy (Medium) |
+| 22584 | S_DUMMY_LARGE2_R20 | Dummy (Large) |
+| 22585 | S_DUMMY_XLARGE2_R50 | Dummy (Extra Large) |
+| 22586 | S_DUMMY_SMALL2_R30 | Dummy (Small) |
+| 22587 | S_DUMMY_MEDIUM2_R30 | Dummy (Medium) |
+| 22588 | S_DUMMY_LARGE2_R30 | Dummy (Large) |
+| 22589 | S_DUMMY_SMALL_M10 | Dummy (Small) |
+| 22590 | S_DUMMY_MEDIUM_M10 | Dummy (Medium) |
+| 22591 | S_DUMMY_LARGE_M10 | Dummy (Large) |
+| 22592 | S_DUMMY_XLARGE_M40 | Dummy (Extra Large) |
+| 22593 | S_DUMMY_SMALL_M20 | Dummy (Small) |
+| 22594 | S_DUMMY_MEDIUM_M20 | Dummy (Medium) |
+| 22595 | S_DUMMY_LARGE_M20 | Dummy (Large) |
+| 22596 | S_DUMMY_XLARGE_M50 | Dummy (Extra Large) |
+| 22597 | S_DUMMY_SMALL_M30 | Dummy (Small) |
+| 22598 | S_DUMMY_MEDIUM_M30 | Dummy (Medium) |
+| 22599 | S_DUMMY_LARGE_M30 | Dummy (Large) |
+| 22600 | S_DUMMY_SMALL3 | Dummy (Small) |
+| 22601 | S_DUMMY_MEDIUM3 | Dummy (Medium) |
+| 22602 | S_DUMMY_LARGE3 | Dummy (Large) |
+| 22603 | S_DUMMY_SMALL3_M10 | Dummy (Small) |
+| 22604 | S_DUMMY_MEDIUM3_M10 | Dummy (Medium) |
+| 22605 | S_DUMMY_LARGE3_M10 | Dummy (Large) |
+| 22606 | S_DUMMY_XLARGE1_M40 | Dummy (Extra Large) |
+| 22607 | S_DUMMY_SMALL3_M20 | Dummy (Small) |
+| 22608 | S_DUMMY_MEDIUM3_M20 | Dummy (Medium) |
+| 22609 | S_DUMMY_LARGE3_M20 | Dummy (Large) |
+| 22610 | S_DUMMY_XLARGE1_M50 | Dummy (Extra Large) |
+| 22611 | S_DUMMY_SMALL3_M30 | Dummy (Small) |
+| 22612 | S_DUMMY_MEDIUM3_M30 | Dummy (Medium) |
+| 22613 | S_DUMMY_LARGE3_M30 | Dummy (Large) |
+| 22614 | S_DUMMY_SMALL4 | Dummy (Small) |
+| 22615 | S_DUMMY_MEDIUM4 | Dummy (Medium) |
+| 22616 | S_DUMMY_LARGE4 | Dummy (Large) |
+| 22617 | S_DUMMY_SMALL4_M10 | Dummy (Small) |
+| 22618 | S_DUMMY_MEDIUM4_M10 | Dummy (Medium) |
+| 22619 | S_DUMMY_LARGE4_M10 | Dummy (Large) |
+| 22620 | S_DUMMY_XLARGE2_M40 | Dummy (Extra Large) |
+| 22621 | S_DUMMY_SMALL4_M20 | Dummy (Small) |
+| 22622 | S_DUMMY_MEDIUM4_M20 | Dummy (Medium) |
+| 22623 | S_DUMMY_LARGE4_M20 | Dummy (Large) |
+| 22624 | S_DUMMY_XLARGE2_M50 | Dummy (Extra Large) |
+| 22625 | S_DUMMY_SMALL4_M30 | Dummy (Small) |
+| 22626 | S_DUMMY_MEDIUM4_M30 | Dummy (Medium) |
+| 22627 | S_DUMMY_LARGE4_M30 | Dummy (Large) |
+| 22628 | S_DUMMY2_NOTHING | Dummy (Formless Race) |
+| 22629 | S_DUMMY2_DRAGON | Dummy (Dragon Race) |
+| 22630 | S_DUMMY2_ANIMAL | Dummy (Brute Race) |
+| 22631 | S_DUMMY2_HUMAN | Dummy (Human Race) |
+| 22632 | S_DUMMY2_INSECT | Dummy (Insect Race) |
+| 22633 | S_DUMMY2_FISH | Dummy (Fish Race) |
+| 22634 | S_DUMMY2_DEMON | Dummy (Demon Race) |
+| 22635 | S_DUMMY2_PLANT | Dummy (Plant Race) |
+| 22636 | S_DUMMY2_ANGEL | Dummy (Angel Race) |
+| 22637 | S_DUMMY2_UNDEAD | Dummy (Undead Race) |
+| 22638 | S_DUMMY3_NOTHING | Dummy (Formless Race) |
+| 22639 | S_DUMMY3_DRAGON | Dummy (Dragon Race) |
+| 22640 | S_DUMMY3_ANIMAL | Dummy (Brute Race) |
+| 22641 | S_DUMMY3_HUMAN | Dummy (Human Race) |
+| 22642 | S_DUMMY3_INSECT | Dummy (Insect Race) |
+| 22643 | S_DUMMY3_FISH | Dummy (Fish Race) |
+| 22644 | S_DUMMY3_DEMON | Dummy (Demon Race) |
+| 22645 | S_DUMMY3_PLANT | Dummy (Plant Race) |
+| 22646 | S_DUMMY3_ANGEL | Dummy (Angel Race) |
+| 22647 | S_DUMMY3_UNDEAD | Dummy (Undead Race) |
+| 22648 | S_DUMMY2_NOTHING2 | Dummy (Neutral) |
+| 22649 | S_DUMMY2_WATER | Dummy (Water) |
+| 22650 | S_DUMMY2_GROUND | Dummy (Earth) |
+| 22651 | S_DUMMY2_FIRE | Dummy (Fire) |
+| 22652 | S_DUMMY2_WIND | Dummy (Wind) |
+| 22653 | S_DUMMY2_POISON | Dummy (Poison) |
+| 22654 | S_DUMMY2_SAINT | Dummy (Holy) |
+| 22655 | S_DUMMY2_DARKNESS | Dummy (Dark) |
+| 22656 | S_DUMMY2_TELEKINESIS | Dummy (Ghost) |
+| 22657 | S_DUMMY2_UNDEAD2 | Dummy (Undead) |
+| 22658 | S_DUMMY3_NOTHING2 | Dummy (Neutral) |
+| 22659 | S_DUMMY3_WATER | Dummy (Water) |
+| 22660 | S_DUMMY3_GROUND | Dummy (Earth) |
+| 22661 | S_DUMMY3_FIRE | Dummy (Fire) |
+| 22662 | S_DUMMY3_WIND | Dummy (Wind) |
+| 22663 | S_DUMMY3_POISON | Dummy (Poison) |
+| 22664 | S_DUMMY3_SAINT | Dummy (Holy) |
+| 22665 | S_DUMMY3_DARKNESS | Dummy (Dark) |
+| 22666 | S_DUMMY3_TELEKINESIS | Dummy (Ghost) |
+| 22667 | S_DUMMY3_UNDEAD2 | Dummy (Undead) |
+| 22668 | S_DUMMY_LARGE_R30 | Dummy (Large) |
+
+<!-- RAG_CHUNK: 20_Complete_Constants_Jan2026 -->
+## Part 20: Complete New Script Constants (January 2026)
+
+**Total: 145 new constants**
+
+### Footprint (7)
+```c
+FOOTPRINT_EF_VICTORY2025
+FOOTPRINT_EF_DRAGON_FACE_2D
+FOOTPRINT_EF_DRAGON_FACE_3D
+FOOTPRINT_EF_DIVINE
+FOOTPRINT_EF_NYAR_BLUE
+FOOTPRINT_EF_NYAR_PURPLE
+FOOTPRINT_EF_FEATHER
 ```
 
-### Skills Updated with IgnoreNonCritAtkBonus
-Many physical damage skills now have this flag to balance critical vs non-critical damage calculations.
+### HatEffect (14)
+```c
+HAT_EF_HANMAC_MUNCH
+HAT_EF_C_OVER_CLOUD
+HAT_EF_C_AURORA_ON_CLOUDS
+HAT_EF_ROS_REDSPIRIT
+HAT_EF_ROS_BLUESPIRIT
+HAT_EF_DIVINE_SKY_INVITE
+HAT_EF_C_NIGHTMARE_CHAIN
+HAT_EF_C_SPOT_MIKE
+HAT_EF_C_SPOT_FLOWER
+HAT_EF_C_2025ROSFESTA
+HAT_EF_GOLDEN_AURA_TW
+HAT_EF_C_S_BEELZEBUB_WING
+HAT_EF_SOLID_STATE_RECOGNITION
+HAT_EF_C_CURSED_SERPENT
+```
+
+### ItemGroup (105)
+```c
+IG_AEGIS_100582
+IG_AEGIS_100584
+IG_DT_COLABO_BOX1
+IG_DT_COLABO_BOX2
+IG_CLOUD_COSTUME_PACK
+IG_COSTUMEMILEPACK_39_1
+IG_COSTUMEMILEPACK_39_2
+IG_COSTUMEMILEPACK_39_3
+IG_RT_CH01_ARMOR_A
+IG_RT_CH01_ARMOR_C
+IG_RT_CH01_DIMEN_A
+IG_RT_CH01_DIMEN_C
+IG_RT_CH01_DIMEN_3
+IG_RT_CH01_EXTRA_A
+IG_RT_CH01_EXTRA_C
+IG_RT_CH01_EXTRA_2
+IG_RT_CH01_EXTRA_4
+IG_RT_CH01_EXTRA_5
+IG_AEGIS_104901
+IG_AEGIS_105031
+IG_23TH_COSTUME_A
+IG_23TH_COSTUME_B
+IG_23TH_COSTUME_C
+IG_AEGIS_105059
+IG_AEGIS_105161
+IG_AEGIS_105162
+IG_AEGIS_105219
+IG_AEGIS_105220
+IG_SP_COSTUME_COLLECTION
+IG_2025ROS_FOR_OFFLINE
+IG_AEGIS_105518
+IG_AEGIS_105715
+IG_LI_NYANGVINE_BOX1_40
+IG_LI_NYANGVINE_BOX2_40
+IG_LI_NYANGVINE_BOX3_40
+IG_23TH_COSTUME_PACK_A
+IG_23TH_COSTUME_PACK_B
+IG_23TH_COSTUME_PACK_C
+IG_23TH_PACKAGE_1
+IG_23TH_PACKAGE_2
+IG_23TH_PACKAGE_3
+IG_23TH_PACKAGE_4
+IG_COSTUMEMILEPACK_SP_1
+IG_COSTUMEMILEPACK_SP_2
+IG_COSTUMEMILEPACK_SP_3
+IG_COSTUMEMILEPACK_SP_4
+IG_COSTUMEMILEPACK_41_1
+IG_COSTUMEMILEPACK_41_2
+IG_COSTUMEMILEPACK_41_3
+IG_NIFLHEIM_COSTUME_1
+IG_NIFLHEIM_COSTUME_2
+IG_NIFLHEIM_COSTUME_3
+IG_NIFLHEIM_COSTUME_4
+IG_AEGIS_14622
+IG_ROS_FESTA_BOX
+IG_R_EP1921_ALBUM
+IG_R_EP1921_BOSS
+IG_RT_EP21_GAEBOLG_A
+IG_RT_EP21_GAEBOLG_C
+IG_RT_EP21_ICY_A
+IG_RT_EP21_ICY_C
+IG_RT_EP21_ICY_2
+IG_RT_EP21_YORKER_A
+IG_RT_EP21_YORKER_C
+IG_RT_EP21_WORKING_A
+IG_RT_EP21_WORKING_C
+IG_RT_EP21_ADMIN_A
+IG_RT_EP21_ADMIN_C
+IG_RT_EP21_ADMIN_2
+IG_RT_EP21_PURIFY_A
+IG_RT_EP21_PURIFY_C
+IG_RT_EP21_PURIFY_3
+IG_RT_EP21_PURIFY_5
+IG_RT_EP21_AID_A
+IG_RT_EP21_AID_C
+IG_RT_EP21_AID_2
+IG_RT_EP21_AID_4
+IG_RT_EP21_COMPANY_A
+IG_RT_EP21_COMPANY_C
+IG_RT_EP21_COMPANY_3
+IG_RT_EP21_COMPANY_5
+IG_RT_EP21_HORN_A
+IG_RT_EP21_HORN_C
+IG_RT_EP21_HORN_3
+IG_RT_EP21_HORN_5
+IG_RT_EP21_TAN_A
+IG_RT_EP21_TAN_C
+IG_AEGIS_105828
+IG_AEGIS_105829
+IG_AEGIS_105832
+IG_AEGIS_105833
+IG_AEGIS_105834
+IG_AEGIS_105835
+IG_AEGIS_105836
+IG_AEGIS_105917
+IG_LI_NYANGVINE_BOX1_SP
+IG_LI_NYANGVINE_BOX2_SP
+IG_LI_NYANGVINE_BOX3_SP
+IG_LI_NYANGVINE_BOX4_SP
+IG_2025_DEC_PACKAGE1
+IG_2025_DEC_PACKAGE2
+IG_CASH_BOOSTER_BOX2
+IG_SELECT_DEC_PACK1
+IG_SELECT_DEC_PACK2
+IG_SELECT_DEC_PACK3
+```
+
+### Job (17)
+```c
+EAJL_UPPER  // → JOBL_UPPER
+EAJL_BABY  // → JOBL_BABY
+EAJ_BASEMASK  // → MAPID_FIRSTMASK
+EAJ_UPPERMASK  // → MAPID_SECONDMASK
+EAJ_SUMMONER  // → MAPID_SUMMONER
+EAJ_SUPER_NOVICE  // → MAPID_SUPER_NOVICE
+EAJ_SUPERNOVICE  // → MAPID_SUPER_NOVICE
+EAJ_SPIRIT_HANDLER  // → MAPID_SPIRIT_HANDLER
+EAJ_SUPER_BABY  // → MAPID_SUPER_BABY
+EAJ_SUPER_NOVICE_E  // → MAPID_SUPER_NOVICE_E
+EAJ_SUPER_BABY_E  // → MAPID_SUPER_BABY_E
+EAJ_HYPER_NOVICE  // → MAPID_HYPER_NOVICE
+EAJ_SKY_EMPEROR  // → MAPID_SKY_EMPEROR
+EAJ_NIGHT_WATCH  // → MAPID_NIGHT_WATCH
+EAJ_SHINKIROSHIRANUI  // → MAPID_SHINKIROSHIRANUI
+EAJ_SOUL_ASCETIC  // → MAPID_SOUL_ASCETIC
+bNonCritAtkRate  // → SP_NON_CRIT_ATK_RATE
+```
+
+### SkillFlag (1)
+```c
+INF2_IGNORENONCRITATKBONUS
+```
+
+### Status (1)
+```c
+EFST_BLOCK
+```
