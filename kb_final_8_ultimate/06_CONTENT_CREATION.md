@@ -7001,3 +7001,354 @@ public:
                             int flag) override;
 };
 ```
+
+---
+
+<!-- RAG_CHUNK: 06_jan2026_new_items -->
+# PART 16: NEW ITEMS - JANUARY 2026 UPDATE
+
+## Summary: 526 New Items Added
+
+| Category | Count | ID Range |
+|----------|-------|----------|
+| Equipment (Weapons, Armor) | 208 | Various |
+| Usable Items | 158 | Various |
+| Etc Items | 160 | Various |
+
+## New 4th Job Equipment (Frontier Series)
+
+### Frontier Rune Crowns (All 4th Jobs)
+| ID | AegisName | Name |
+|----|-----------|------|
+| 400975 | Frontier_R_Crown_DK | Frontier Rune Crown (Dragon Knight) |
+| 400976 | Frontier_R_Crown_IG | Frontier Rune Crown (Imperial Guard) |
+| 400977 | Frontier_R_Crown_MT | Frontier Rune Crown (Meister) |
+| 400978 | Frontier_R_Crown_BO | Frontier Rune Crown (Biolo) |
+| 400979 | Frontier_R_Crown_SHC | Frontier Rune Crown (Shadow Cross) |
+| 400980 | Frontier_R_Crown_ABC | Frontier Rune Crown (Abyss Chaser) |
+| 400981 | Frontier_R_Crown_AG | Frontier Rune Crown (Arch Mage) |
+| 400982 | Frontier_R_Crown_EM | Frontier Rune Crown (Elemental Master) |
+| 400983 | Frontier_R_Crown_CD | Frontier Rune Crown (Cardinal) |
+| 400984 | Frontier_R_Crown_IQ | Frontier Rune Crown (Inquisitor) |
+| 400985 | Frontier_R_Crown_WH | Frontier Rune Crown (Windhawk) |
+| 400986 | Frontier_R_Crown_TR | Frontier Rune Crown (Troubadour & Trouvere) |
+| 400987 | Frontier_R_Crown_SS | Frontier Rune Crown (Shinkiro & Shiranui) |
+| 400988 | Frontier_R_Crown_NW | Frontier Rune Crown (Night Watch) |
+| 400989 | Frontier_R_Crown_SKE | Frontier Rune Crown (Sky Emperor) |
+| 400990 | Frontier_R_Crown_SOA | Frontier Rune Crown (Soul Ascetic) |
+| 400991 | Frontier_R_Crown_HN | Frontier Rune Crown (Hyper Novice) |
+| 400992 | Frontier_R_Crown_SH | Frontier Rune Crown (Spirit Handler) |
+
+### Sky/Celestial Rune Crowns
+| ID | AegisName | Name |
+|----|-----------|------|
+| 401055 | Stardust_Crown_SV | Silver Stardust Crown |
+| 401056 | Stardust_Crown_SC | Scarlet Stardust Crown |
+| 401057 | Stardust_Crown_VI | Violet Stardust Crown |
+| 401058 | Sky_Rune_Crown_IG | Celestial Rune Crown (Imperial Guard) |
+| 401059 | Sky_Rune_Crown_ABC | Celestial Rune Crown (Abyss Chaser) |
+| 401060 | Sky_Rune_Crown_SH | Rune Crown of the Sky (Spirit Handler) |
+| 401115 | Sky_Rune_Crown_MS | Sky Rune Crown (Meister) |
+| 401116 | Sky_Rune_Crown_WH | Sky Rune Crown (Windhawk) |
+| 401117 | Sky_Rune_Crown_HN | Sky Rune Crown (Hyper Novice) |
+| 401118 | Sky_Rune_Crown_CD | Sky Rune Crown (Cardinal) |
+| 401119 | Sky_Rune_Crown_IQ | Sky Rune Crown (Inquisitor) |
+| 401120 | Sky_Rune_Crown_SKE | Sky Rune Crown (Sky Emperor) |
+
+### Encroached Weapons (All Types)
+| ID | AegisName | Name | Type |
+|----|-----------|------|------|
+| 500119 | Encroached_Sword | Encroached Sword | 1H Sword |
+| 510140 | Encroached_Dagger | Encroached Dagger | Dagger |
+| 530071 | Encroached_Spear | Encroached Spear | 1H Spear |
+| 540109 | Encroached_Book | Encroached Book | Book |
+| 550137 | Encroached_Staff | Encroached Staff | 1H Staff |
+| 550174 | Encroached_Foxtail | Encroached Foxtail | Foxtail |
+| 560080 | Encroached_Knuckle | Encroached Knuckles | Knuckle |
+| 570086 | Encroached_Instrument | Encroached Instrument | Instrument |
+| 580086 | Encroached_Whip | Encroached Whip | Whip |
+| 590081 | Encroached_Mace | Encroached Mace | Mace |
+| 600056 | Encroached_T_Sword | Encroached Two-Handed Sword | 2H Sword |
+| 610084 | Encroached_Katar | Encroached Katar | Katar |
+| 620038 | Encroached_T_Axe | Encroached Two-Handed Axe | 2H Axe |
+| 630059 | Encroached_T_Spear | Encroached Two-Handed Spear | 2H Spear |
+| 640051 | Encroached_T_Staff | Encroached Two-Handed Staff | 2H Staff |
+| 650048 | Encroached_Humma | Encroached Huuma Shuriken | Huuma |
+| 700117 | Encroached_Bow | Encroached Bow | Bow |
+| 810048 | Encroached_Rifle | Encroached Firearm | Rifle |
+
+### Frontier Weapons (4th Job Specific)
+| ID | AegisName | Name | Class |
+|----|-----------|------|-------|
+| 510192 | Frontier_ABC_Dagger | Frontier Abyss Dagger | Abyss Chaser |
+| 530072 | Frontier_IG_Spear | Frontier Imperial Spear | Imperial Guard |
+| 540110 | Frontier_EM_Book | Frontier Elemental Book | Elemental Master |
+| 540111 | Frontier_SKE_Book | Frontier Emperor Battle Book | Sky Emperor |
+| 550176 | Frontier_CD_Rod | Frontier Saint Lord | Cardinal |
+| 550177 | Frontier_HN_Rod | Frontier Hyper Lord | Hyper Novice |
+| 550178 | Frontier_SH_Foxtail | Frontier Spirit Foxtail | Spirit Handler |
+| 560081 | Frontier_IQ_Claw | Frontier Judgment Claw | Inquisitor |
+| 570087 | Frontier_TR_Vilolin | Frontier Musical Violin | Troubadour |
+| 580087 | Frontier_TR_Rope | Frontier Musical Rope | Trouvere |
+| 590107 | Frontier_BO_Hall | Frontier Biological Scepter | Biolo |
+| 600071 | Frontier_DK_T_Sword | Frontier Dragon Sword | Dragon Knight |
+| 610085 | Frontier_SHC_Katar | Frontier Shadow Katar | Shadow Cross |
+| 620058 | Frontier_MT_T_Axe | Frontier Mechanical Axe | Meister |
+| 640064 | Frontier_AG_Staff | Frontier Arc Staff | Arch Mage |
+| 640065 | Frontier_SOA_Staff | Frontier Soul Staff | Soul Ascetic |
+| 650058 | Frontier_SS_Humma | Frontier Moonlight Fūma Shuriken | Shinkiro/Shiranui |
+| 700119 | Frontier_WH_Bow | Frontier Wind Bow | Windhawk |
+| 810049 | Frontier_NW_Rifle | Frontier Knight Rifle | Night Watch |
+
+### New Shadow Equipment (4th Job)
+| ID | AegisName | Name | Class |
+|----|-----------|------|-------|
+| 1270079 | S_SHC_CR_Earring | Crater Shadow Earring | Shadow Cross |
+| 1270080 | S_SHC_CR_Pendant | Crater Shadow Pendant | Shadow Cross |
+| 1270081 | S_SHC_ST_Armor | Stab Shadow Armor | Shadow Cross |
+| 1270082 | S_SHC_ST_Shoes | Stab Shadow Shoes | Shadow Cross |
+| 1270083 | S_IQ_TP_Earring | Punish Shadow Earring | Inquisitor |
+| 1270084 | S_IQ_TP_Pendant | Punish Shadow Pendant | Inquisitor |
+| 1270091 | S_AG_CI_Earring | Crystal Illusion Shadow Earring | Arch Mage |
+| 1270092 | S_AG_CI_Pendant | Crystal Illusion Shadow Pendant | Arch Mage |
+| 1270099 | S_SKE_MS_Earring | Midnight Kick Shadow Earring | Sky Emperor |
+| 1270100 | S_SKE_MS_Pendant | Midnight Kick Shadow Pendant | Sky Emperor |
+| 1270115 | S_CD_FP_Earring | Fracella Shadow Earring | Cardinal |
+| 1270116 | S_CD_FP_Pendant | Fracella Shadow Pendant | Cardinal |
+| 1270119 | S_EM_DS_Earring | Diamond Shadow Earring | Elemental Master |
+| 1270130 | S_WH_WH_Earring | Wild Hawk Shadow Earring | Windhawk |
+| 1270134 | S_TR_MS_Earring | Musical Shooting Shadow Earring | Troubadour |
+| 1270138 | S_NW_MS_Earring | Midnight Shooting Shadow Earring | Night Watch |
+
+### New Costumes (Selected)
+| ID | AegisName | Name |
+|----|-----------|------|
+| 400913 | C_CLB_DT_TS_Mini | Costume: Toothless Mini |
+| 400914 | C_CLB_DT_TS_Drooping | Costume: Toothless Floppy |
+| 410440 | C_CLB_DT_TS_Hat | Costume: Toothless Head |
+| 480595 | C_CLB_DT_TS_Wing | Costume: Toothless Wings |
+| 480596 | C_CLB_DT_TS_Hood | Costume: Toothless Hood |
+| 400792 | C_Garden_Of_Heaven | Costume Garden of Heaven |
+| 400965 | C_Divine_Veil | Costume Divine Veil |
+| 410399 | C_Capybara | Costume Capybara |
+| 420552 | C_Divine_Sky_Invite | Costume Divine Invitation |
+| 480566 | C_Immortal_H_Wing | Costume: Immortal Monarch's Wings |
+
+---
+
+<!-- RAG_CHUNK: 06_jan2026_new_mobs -->
+# PART 17: NEW MOBS - JANUARY 2026 UPDATE
+
+## Summary: 120 New Training Dummies Added
+
+The January 2026 update adds comprehensive Training Zone 123 with various training dummies.
+
+### Training Dummy Types
+
+| Category | Purpose |
+|----------|---------|
+| Size Variants | Small, Medium, Large, Extra Large |
+| Refine Variants | R10, R20, R30, R40, R50 (damage reduction) |
+| Magic Variants | M10, M20, M30, M40, M50 (magic defense) |
+| Race Dummies | All 10 races for race-specific testing |
+| Element Dummies | All 10 elements for elemental testing |
+| Player Dummies | Human Player, Doram Player |
+
+### Size Training Dummies
+| ID | AegisName | Name |
+|----|-----------|------|
+| 22551 | S_DUMMY_SMALL_R10 | Dummy (Small) |
+| 22552 | S_DUMMY_MEDIUM_R10 | Dummy (Medium) |
+| 22553 | S_DUMMY_LARGE_R10 | Dummy (Large) |
+| 22554 | S_DUMMY_XLARGE_R40 | Dummy (Extra Large) |
+
+### Race Training Dummies
+| ID | AegisName | Name | Race |
+|----|-----------|------|------|
+| 22628 | S_DUMMY2_NOTHING | Dummy (Formless Race) | Formless |
+| 22629 | S_DUMMY2_DRAGON | Dummy (Dragon Race) | Dragon |
+| 22630 | S_DUMMY2_ANIMAL | Dummy (Brute Race) | Brute |
+| 22631 | S_DUMMY2_HUMAN | Dummy (Human Race) | Human |
+| 22632 | S_DUMMY2_INSECT | Dummy (Insect Race) | Insect |
+| 22633 | S_DUMMY2_FISH | Dummy (Fish Race) | Fish |
+| 22634 | S_DUMMY2_DEMON | Dummy (Demon Race) | Demon |
+| 22635 | S_DUMMY2_PLANT | Dummy (Plant Race) | Plant |
+| 22636 | S_DUMMY2_ANGEL | Dummy (Angel Race) | Angel |
+| 22637 | S_DUMMY2_UNDEAD | Dummy (Undead Race) | Undead |
+
+### Element Training Dummies
+| ID | AegisName | Name | Element |
+|----|-----------|------|---------|
+| 22648 | S_DUMMY2_NOTHING2 | Dummy (Neutral) | Neutral |
+| 22649 | S_DUMMY2_WATER | Dummy (Water) | Water |
+| 22650 | S_DUMMY2_GROUND | Dummy (Earth) | Earth |
+| 22651 | S_DUMMY2_FIRE | Dummy (Fire) | Fire |
+| 22652 | S_DUMMY2_WIND | Dummy (Wind) | Wind |
+| 22653 | S_DUMMY2_POISON | Dummy (Poison) | Poison |
+| 22654 | S_DUMMY2_SAINT | Dummy (Holy) | Holy |
+| 22655 | S_DUMMY2_DARKNESS | Dummy (Dark) | Dark |
+| 22656 | S_DUMMY2_TELEKINESIS | Dummy (Ghost) | Ghost |
+| 22657 | S_DUMMY2_UNDEAD2 | Dummy (Undead) | Undead |
+
+### Player Type Dummies
+| ID | AegisName | Name |
+|----|-----------|------|
+| 21087 | S_DUMMY_100_HUMANP | Dummy (Human Player) |
+| 21088 | S_DUMMY_100_DORAMP | Dummy (Doram Player) |
+
+---
+
+<!-- RAG_CHUNK: 06_jan2026_new_constants -->
+# PART 18: NEW SCRIPT CONSTANTS - JANUARY 2026 UPDATE
+
+## Summary: 146 New Script Constants Added
+
+### New Job Constants
+```c
+EAJ_SPIRIT_HANDLER    // Spirit Handler job
+EAJ_HYPER_NOVICE      // Hyper Novice job
+EAJ_SKY_EMPEROR       // Sky Emperor job
+EAJ_NIGHT_WATCH       // Night Watch job
+EAJ_SHINKIROSHIRANUI  // Shinkiro/Shiranui job
+EAJ_SOUL_ASCETIC      // Soul Ascetic job
+```
+
+### New Bonus Constants
+```c
+bNonCritAtkRate       // SP_NON_CRIT_ATK_RATE - Non-critical attack rate modifier
+```
+
+### New Effect Status
+```c
+EFST_BLOCK            // Block effect status
+```
+
+### New Item Group Constants (IG_*)
+```c
+IG_AEGIS_100582
+IG_AEGIS_100584
+IG_DT_COLABO_BOX1
+IG_DT_COLABO_BOX2
+IG_CLOUD_COSTUME_PACK
+IG_COSTUMEMILEPACK_39_1
+IG_COSTUMEMILEPACK_39_2
+IG_COSTUMEMILEPACK_39_3
+IG_RT_CH01_ARMOR_A
+IG_RT_CH01_ARMOR_C
+IG_RT_CH01_DIMEN_A
+IG_RT_CH01_DIMEN_C
+IG_RT_CH01_DIMEN_3
+IG_RT_CH01_EXTRA_A
+IG_RT_CH01_EXTRA_C
+IG_RT_CH01_EXTRA_2
+IG_RT_CH01_EXTRA_4
+IG_RT_CH01_EXTRA_5
+IG_AEGIS_104901
+IG_AEGIS_105031
+IG_23TH_COSTUME_A
+IG_23TH_COSTUME_B
+IG_23TH_COSTUME_C
+IG_AEGIS_105059
+IG_AEGIS_105161
+IG_AEGIS_105162
+IG_AEGIS_105219
+IG_AEGIS_105220
+IG_SP_COSTUME_COLLECTION
+IG_2025ROS_FOR_OFFLINE
+IG_AEGIS_105518
+```
+
+---
+
+<!-- RAG_CHUNK: 06_jan2026_new_pets -->
+# PART 19: NEW PETS - JANUARY 2026 UPDATE
+
+## New Pets Added
+
+### Domovoi (Brownie)
+```yaml
+- Mob: DOMOVOI
+  EggItem: Brownie_Egg
+  FoodItem: Pet_Food
+  Script: >
+    .@i = getpetinfo(PETINFO_INTIMATE);
+    if (.@i >= PET_INTIMATE_LOYAL) {
+       bonus2 bAddRace,RC_DemiHuman,1;
+       bonus2 bMagicAddRace,RC_DemiHuman,1;
+       bonus2 bSubRace,RC_DemiHuman,1;
+    }
+```
+
+### Orc Hero
+```yaml
+- Mob: ORK_HERO
+  EggItem: Orc_Hero_Egg
+  Script: >
+    .@i = getpetinfo(PETINFO_INTIMATE);
+    if (.@i >= PET_INTIMATE_LOYAL) {
+       bonus bBaseAtk,40;
+    }
+    else if (.@i >= PET_INTIMATE_CORDIAL) {
+       bonus bBaseAtk,30;
+    }
+    else if (.@i >= PET_INTIMATE_NEUTRAL) {
+       bonus bBaseAtk,20;
+    }
+    else {
+       bonus bBaseAtk,10;
+       bonus bDef,-3;
+    }
+```
+
+### Orc Lord
+```yaml
+- Mob: ORC_LORD
+  EggItem: Orc_Lord_Egg
+  Script: >
+    .@i = getpetinfo(PETINFO_INTIMATE);
+    if (.@i >= PET_INTIMATE_LOYAL) {
+       bonus bMatk,20;
+       bonus bBaseAtk,20;
+    }
+    else if (.@i >= PET_INTIMATE_CORDIAL) {
+       bonus bMatk,15;
+       bonus bBaseAtk,15;
+    }
+    else if (.@i >= PET_INTIMATE_NEUTRAL) {
+       bonus bMatk,10;
+       bonus bBaseAtk,10;
+    }
+    else {
+       bonus bBaseAtk,10;
+       bonus bDef,-3;
+    }
+```
+
+### New Eggs Added
+| ID | AegisName | Name |
+|----|-----------|------|
+| 9169 | aegis_9169 | Clock Tower Manager Egg |
+| 9170 | aegis_9170 | Angelgolt Egg |
+| 9171 | aegis_9171 | Timeholder Egg |
+| 9187 | Skeggiold_Egg | Skeggiold Egg |
+| 9190 | aegis_9190 | Clock Egg |
+
+---
+
+<!-- RAG_CHUNK: 06_jan2026_skill_flag -->
+# PART 20: NEW SKILL FLAG - JANUARY 2026 UPDATE
+
+## New Skill Flag: IgnoreNonCritAtkBonus
+
+Added to many physical skills to ignore non-critical attack bonuses.
+
+```yaml
+# Example in skill_db.yml
+- Id: 5001
+  Name: SKILL_NAME
+  Flags:
+    IgnoreNonCritAtkBonus: true
+```
+
+### Skills Updated with IgnoreNonCritAtkBonus
+Many physical damage skills now have this flag to balance critical vs non-critical damage calculations.
