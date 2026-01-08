@@ -1,12 +1,12 @@
-# rAthena Knowledge Base v17.0 - January 2026 COMPLETE Update
+# rAthena Knowledge Base v17.1 - January 2026 COMPLETE Update
 
-**Version:** 17.0 - Ultimate Complete (FULL Sync with rAthena Jan 2026)
+**Version:** 17.1 - Ultimate Complete (FULL Sync with rAthena Jan 2026)
 **Release Date:** 2026-01-08
 **rAthena Commit:** ff1acc4e (2026-01-07)
 **Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 103,551 (VERIFIED - INCLUDING FULL ITEM SCRIPTS)
+**Total Lines:** 103,555 (VERIFIED - Part numbering fixed)
 **Total Size:** ~3.0 MB
-**RAG Chunks:** 1,569
+**RAG Chunks:** 1,573
 **Validation:** 100% source-verified, ALL systems documented
 **Coverage:** 100% COMPLETE - Including ALL January 2026 Updates
 
@@ -70,15 +70,15 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 
 | # | File | Lines | RAG Chunks | Content |
 |---|------|-------|------------|---------|
-| 01 | **01_MASTER_INDEX.md** | 220 | 12 | Navigation + comparison |
+| 01 | **01_MASTER_INDEX.md** | 227 | 8 | Navigation + comparison |
 | 02 | **02_SCRIPT_COMMANDS.md** | 16,069 | 23 | 767+ commands + BUILDIN_FUNC |
 | 03 | **03_STATUS_EFFECTS.md** | 12,276 | 672 | ALL 1,038 SC_* + val1-val4 |
-| 04 | **04_ITEM_BONUSES.md** | 5,239 | 247 | All 263 bonuses + constants |
-| 05 | **05_GAME_MECHANICS.md** | 5,617 | 72 | EAJ_*, mf_*, MD_*, @cmd, **4th Jobs** |
-| 06 | **06_CONTENT_CREATION.md** | 9,983 | 72 | NPC, EF_*, **Attendance, Stylist, ALL Jan 2026 Items + SCRIPTS** |
+| 04 | **04_ITEM_BONUSES.md** | 5,241 | 247 | All 263 bonuses + constants |
+| 05 | **05_GAME_MECHANICS.md** | 5,617 | 72 | EAJ_*, mf_*, MD_*, @cmd, 4th Jobs |
+| 06 | **06_CONTENT_CREATION.md** | 9,983 | 72 | NPC, EF_*, Attendance, Stylist, ALL Jan 2026 Items + SCRIPTS |
 | 07 | **07_SOURCE_DEV_COMPLETE.md** | 18,803 | 68 | C++ + packets + source_doc |
 | 08 | **08_SOURCE_TUTORIALS.md** | 35,339 | 411 | 420+ expert tutorials |
-| **TOTAL** | **8 files** | **103,551** | **1,580** | **100% TRUE COMPLETE** |
+| **TOTAL** | **8 files** | **103,555** | **1,573** | **100% VERIFIED COMPLETE** |
 
 ---
 
@@ -86,24 +86,23 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 ## Detailed File Contents
 
 ### 05_GAME_MECHANICS.md (5,617 lines)
-- Part 1-4: Job System (EAJ_* masks)
-- Part 5: Monster Modes (26 MD_* constants)
-- Part 6: @Commands (284) + PC_PERM_* (31)
-- Part 7: WoE Time Explanation
-- Part 8: Monster Sprite Availability
-- Part 9: Mob Item Ratio
-- Part 10: Monster Power Skills
-- Part 11: Map Cache
-- **Part 12: 4th Job Classes (20 classes, stats, skill prefixes)** ← NEW
+- Sections 1-8: Job System (EAJ_* masks), @Commands, WoE, Mapflags
+- Part 12: Item Group Database Structure
+- Part 13: Achievement Database Structure
+- 4th Job Classes section (20 classes, stats, skill prefixes)
 
-### 06_CONTENT_CREATION.md (6,802 lines)
+### 06_CONTENT_CREATION.md (9,983 lines)
 - Parts 1-6: NPC scripting, items, quests, instances
 - Part 7: Visual Effects (968 EF_* constants)
 - Part 8: Quest Variables
 - Part 9: NPC Whisper System
 - Part 10: Captcha System
-- **Part 11: Attendance System** ← NEW
-- **Part 12: Stylist System** ← NEW
+- Part 11: Attendance System
+- Part 12: Stylist System
+- Part 13: Item Enchant System (NEW Jan 2026)
+- Part 14: Item Reform System (NEW Jan 2026)
+- Part 15: New Skill Implementations (NEW Jan 2026)
+- Part 16-24: 526 New Items, Mobs, Constants, Scripts (Jan 2026)
 
 ### 07_SOURCE_DEV_COMPLETE.md (18,803 lines)
 - Parts 1-4: Plugin system, custom commands, battle config
@@ -127,7 +126,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | Monster modes (MD_*) | 05_GAME_MECHANICS | Part 5 |
 | @commands + permissions | 05_GAME_MECHANICS | Part 6 |
 | WoE timing | 05_GAME_MECHANICS | Part 7 |
-| **4th Job Classes** | **05_GAME_MECHANICS** | **Part 12** |
+| **4th Job Classes** | **05_GAME_MECHANICS** | 4th Job section |
 | NPC scripting patterns | 06_CONTENT_CREATION | Parts 1-6 |
 | Visual effects (EF_*) | 06_CONTENT_CREATION | Part 7 |
 | Quest variables | 06_CONTENT_CREATION | Part 8 |
@@ -212,10 +211,10 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 ---
 
 <!-- RAG_METADATA -->
-<!-- VERSION: 17.0 -->
+<!-- VERSION: 17.1 -->
 <!-- FILES: 8 -->
-<!-- TOTAL_LINES: 103551 -->
-<!-- RAG_CHUNKS: 1571 -->
+<!-- TOTAL_LINES: 103555 -->
+<!-- RAG_CHUNKS: 1573 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
 <!-- COVERAGE: 100% -->
@@ -225,3 +224,4 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- NEW_PETS: 3 -->
 <!-- RATHENA_COMMIT: ff1acc4e -->
 <!-- LAST_UPDATED: 2026-01-08 -->
+<!-- VERIFIED: Part numbering fixed, accurate counts -->

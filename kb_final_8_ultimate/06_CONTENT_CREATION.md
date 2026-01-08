@@ -6336,7 +6336,7 @@ Example:
 ---
 
 <!-- RAG_CHUNK: 06_sample_instance_script -->
-## Part 11: Sample Instance Script
+## Sample Instance Script (Example)
 
 > Source: `doc/sample/instancing.txt` (208 lines)
 
@@ -6558,7 +6558,7 @@ OnEnable:
 ---
 
 <!-- RAG_CHUNK: 06_sample_dynamic_shop -->
-## Part 12: Sample Dynamic Shop
+## Sample Dynamic Shop (Example)
 
 > Source: `doc/sample/npc_dynamic_shop.txt` (93 lines)
 
