@@ -8191,3 +8191,1793 @@ INF2_IGNORENONCRITATKBONUS
 ```c
 EFST_BLOCK
 ```
+
+---
+
+<!-- RAG_CHUNK: 21_Item_Enchant_System_Complete -->
+## Part 21: Item Enchant System (COMPLETE Documentation)
+
+**Database:** `db/re/item_enchant.yml` (35,623 lines)
+
+### Schema Reference
+
+```yaml
+# - Id                         Client side LUA index
+#   TargetItems:               Items that can be enchanted
+#     <item_aegis>: true       Item aegis name
+#   MinimumRefine              Minimum refine required (Default: 0)
+#   MinimumEnchantgrade        Minimum enchant grade required (Default: 0)
+#   AllowRandomOptions         Allow random options (Default: true)
+#   Reset:                     Reset enchant options
+#     Chance                   Success chance (100000 = 100%)
+#     Price                    Zeny cost
+#     Materials:               Required materials
+#       - Material: <item>
+#         Amount: <count>
+#   Order:                     Enchant slot order
+#     - Slot: <0-3>
+#   Slots:                     Per-slot configuration
+#     - Slot: <0-3>
+#       Price                  Zeny cost for this slot
+#       Materials:             Required materials
+#       Chance                 Base success chance
+#       EnchantgradeBonus:     Bonus chance per grade
+#         - Enchantgrade: <grade>
+#           Chance: <bonus>
+#       Enchants:              Available enchants by grade
+#         - Enchantgrade: <grade>
+#           Items:
+#             - Item: <enchant_item>
+#               Chance: <weight>
+#       PerfectEnchants:       100% selectable enchants
+#         - Item: <enchant_item>
+#           Price: <zeny>
+#           Materials: []
+#       Upgrades:              Enchant upgrade paths
+#         - Enchant: <source>
+#           Upgrade: <target>
+#           Price: <zeny>
+#           Materials: []
+```
+
+### Script Commands for Enchanting
+
+```c
+// Get current enchant grade in item scripts
+.@g = getenchantgrade();
+
+// Enchant grade constants
+ENCHANTGRADE_NONE  // No grade
+ENCHANTGRADE_D     // Grade D (lowest)
+ENCHANTGRADE_C     // Grade C
+ENCHANTGRADE_B     // Grade B
+ENCHANTGRADE_A     // Grade A (highest)
+
+// Usage in item script
+if (.@g >= ENCHANTGRADE_D) {
+    bonus bAtkRate,5;
+    if (.@g >= ENCHANTGRADE_C) {
+        bonus bAtkRate,5;  // Total: 10%
+        if (.@g >= ENCHANTGRADE_B) {
+            bonus bAtkRate,5;  // Total: 15%
+            if (.@g >= ENCHANTGRADE_A) {
+                bonus bPAtk,10;  // P.ATK only at grade A
+            }
+        }
+    }
+}
+```
+
+### Example: Armor Enchant Configuration
+
+```yaml
+- Id: 1
+  TargetItems:
+    Gray_W_Suits: true
+    Gray_W_Robe: true
+  MinimumRefine: 7
+  Reset:
+    Chance: 100000
+    Price: 100000
+    Materials:
+      - Material: Ep18_Amethyst_Fragment
+        Amount: 25
+  Order:
+    - Slot: 3
+    - Slot: 2
+    - Slot: 1
+  Slots:
+    - Slot: 3
+      Price: 100000
+      Materials:
+        - Material: Ep18_Amethyst_Fragment
+          Amount: 15
+      Enchants:
+        - Enchantgrade: 0
+          Items:
+            - Item: Wolf_Orb_Str_1
+              Chance: 9900
+            - Item: Wolf_Orb_Agi_1
+              Chance: 9900
+```
+
+---
+
+<!-- RAG_CHUNK: 22_Item_Reform_System_Complete -->
+## Part 22: Item Reform System (COMPLETE Documentation)
+
+**Database:** `db/re/item_reform.yml` (15,685 lines)
+
+### Schema Reference
+
+```yaml
+# - Item                       Catalyst item that opens UI
+#   BaseItems:                 Items that can be reformed
+#     - BaseItem               Source item aegis name
+#       MinimumRefine          Min refine (Default: 0)
+#       MaximumRefine          Max refine (Default: MAX_REFINE)
+#       RequiredRandomOptions  Required random options count
+#       CardsAllowed           Allow cards (Default: true)
+#       Materials:             Additional materials required
+#         - Material: <item>
+#           Amount: <count>
+#       ResultItem             Output item aegis name
+#       ChangeRefine           Refine change (+/-) (Default: 0)
+#       RandomOptionGroup      Option group to apply
+#       ClearSlots             Remove cards/enchants (Default: false)
+#       RemoveEnchantgrade     Remove grade (Default: false)
+```
+
+### Reform Example
+
+```yaml
+- Item: Reform_Ticket_Box
+  BaseItems:
+    - BaseItem: Old_Crown_DK
+      MinimumRefine: 9
+      CardsAllowed: false
+      Materials:
+        - Material: Oridecon
+          Amount: 50
+        - Material: Bradium
+          Amount: 10
+      ResultItem: Frontier_R_Crown_DK
+      ChangeRefine: -2          # +9 becomes +7
+      ClearSlots: true
+      RemoveEnchantgrade: true
+    - BaseItem: Old_Crown_IG
+      MinimumRefine: 9
+      Materials:
+        - Material: Oridecon
+          Amount: 50
+      ResultItem: Frontier_R_Crown_IG
+      ChangeRefine: -2
+```
+
+### System Comparison
+
+| Feature | Enchant System | Reform System |
+|---------|---------------|---------------|
+| Trigger | NPC/builtin UI | Item use |
+| Purpose | Add slot enchants | Transform items |
+| Refine | Preserved | Configurable |
+| Cards | Preserved | Configurable |
+| Slots | 0-3 enchants | N/A |
+| Database | item_enchant.yml | item_reform.yml |
+| NPC Script | `openenchantui <id>` | Item script |
+
+---
+<!-- RAG_CHUNK: 23_New_Item_Scripts_Jan2026 -->
+## Part 23: New Item Scripts (January 2026) - WITH FULL BONUSES
+
+**Total: 144 items with actual bonus scripts**
+
+These are the REAL item scripts from the database, showing actual bonuses and mechanics.
+
+
+### 28145: Sky_Rush_Axe
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bUnbreakableWeapon;
+bonus bPerfectHitAddRate,5;
+bonus2 bSkillAtk,"MT_RUSH_STRIKE",15+7*(.@r/4);
+bonus bNonCritAtkRate,3*(.@r/3);
+bonus bBaseAtk,35*(.@r/3);
+if (.@r>=7) {
+bonus bNonCritAtkRate,25;
+if (.@r>=9) {
+bonus bAspdRate,10;
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus2 bSkillAtk,"MT_RUSH_STRIKE",15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bAtkRate,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"MT_RUSH_STRIKE",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bSkillAtk,"MT_RUSH_STRIKE",10;
+if (.@g>=ENCHANTGRADE_A) {
+bonus bPAtk,10;
+```
+
+### 400542: Time_DM_R_Crown_NW
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMaxHP,120*(.@r/2);
+bonus bMaxSP,30*(.@r/2);
+bonus bAtkRate,2*(.@r/3);
+bonus2 bSkillAtk,"NW_SPIRAL_SHOOTING",5*(.@r/4);
+bonus2 bSkillAtk,"NW_WILD_FIRE",5*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus bPAtk,5;
+if (.@r>=10) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+if (.@r>=11) {
+bonus bFixedCast,-500;
+bonus bCritical,10;
+}
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,3;
+if (.@g>=ENCHANTGRADE_C) {
+```
+
+### 400975: Frontier_R_Crown_DK
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"DK_HACKANDSLASHER",5*(.@r/4);
+bonus2 bSkillAtk,"DK_SERVANTWEAPON_ATK",5*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bCritAtkRate,15;
+bonus bCritical,15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bShortAtkRate,10;
+```
+
+### 400976: Frontier_R_Crown_IG
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"IG_IMPERIAL_CROSS",7*(.@r/4);
+bonus2 bSkillAtk,"IG_OVERSLASH",7*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus bNonCritAtkRate,15;
+bonus bBaseAtk,50;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 400977: Frontier_R_Crown_MT
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"MT_RUSH_STRIKE",7*(.@r/4);
+bonus2 bSkillAtk,"MT_POWERFUL_SWING",7*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bNonCritAtkRate,15;
+bonus bDelayrate,-5;
+bonus bBaseAtk,50;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 400978: Frontier_R_Crown_BO
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"BO_EXPLOSIVE_POWDER",7*(.@r/4);
+bonus2 bSkillAtk,"BO_DUST_EXPLOSION",7*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bNonCritAtkRate,15;
+bonus bBaseAtk,75;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bShortAtkRate,10;
+```
+
+### 400979: Frontier_R_Crown_SHC
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"SHC_SAVAGE_IMPACT",5*(.@r/4);
+bonus2 bSkillAtk,"SHC_CROSS_SLASH",5*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bCritAtkRate,15;
+bonus bCritical,15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bShortAtkRate,10;
+```
+
+### 400980: Frontier_R_Crown_ABC
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatkRate,4*(.@r/3);
+bonus2 bSkillAtk,"ABC_FROM_THE_ABYSS_ATK",5*(.@r/4);
+bonus2 bSkillAtk,"ABC_ABYSS_FLAME",5*(.@r/4);
+bonus2 bSkillAtk,"ABC_ABYSS_FLAME_ATK",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Fire,10;
+bonus2 bMagicAtkEle,Ele_Neutral,10;
+if (.@r>=9) {
+bonus2 bMagicAddRace,RC_All,15;
+bonus2 bMagicAddRace,RC_Player_Human,-15;
+bonus2 bMagicAddRace,RC_Player_Doram,-15;
+bonus bSMatk,7;
+if (.@r>=12) {
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Neutral,15;
+bonus bMatk,50;
+bonus bAspd,2;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bSMatk,5;
+if (.@g>=ENCHANTGRADE_C) {
+```
+
+### 400981: Frontier_R_Crown_AG
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatkRate,4*(.@r/3);
+bonus2 bSkillAtk,"AG_CRIMSON_ARROW",5*(.@r/4);
+bonus2 bSkillAtk,"AG_CRIMSON_ARROW_ATK",5*(.@r/4);
+bonus2 bSkillAtk,"AG_ROCK_DOWN",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Fire,10;
+bonus2 bMagicAtkEle,Ele_Earth,10;
+if (.@r>=9) {
+bonus2 bMagicAddRace,RC_All,15;
+bonus2 bMagicAddRace,RC_Player_Human,-15;
+bonus2 bMagicAddRace,RC_Player_Doram,-15;
+bonus bSMatk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Earth,15;
+bonus bMatk,50;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bSMatk,5;
+if (.@g>=ENCHANTGRADE_C) {
+```
+
+### 400982: Frontier_R_Crown_EM
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatkRate,4*(.@r/3);
+bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",35*(.@r/4);
+bonus2 bSkillAtk,"MG_FIREBOLT",35*(.@r/4);
+bonus2 bSkillAtk,"MG_COLDBOLT",35*(.@r/4);
+bonus2 bSkillAtk,"MG_SOULSTRIKE",50*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Ghost,10;
+bonus2 bMagicAtkEle,Ele_Fire,10;
+bonus2 bMagicAtkEle,Ele_Water,10;
+bonus2 bMagicAtkEle,Ele_Wind,10;
+if (.@r>=9) {
+bonus2 bMagicAddRace,RC_All,15;
+bonus2 bMagicAddRace,RC_Player_Human,-15;
+bonus2 bMagicAddRace,RC_Player_Doram,-15;
+bonus bSMatk,7;
+if (.@r>=12) {
+bonus2 bMagicAtkEle,Ele_Ghost,15;
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Water,15;
+bonus2 bMagicAtkEle,Ele_Wind,15;
+bonus bMatk,50;
+bonus bAspd,2;
+}
+```
+
+### 400983: Frontier_R_Crown_CD
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatkRate,4*(.@r/3);
+bonus2 bSkillAtk,"CD_DIVINUS_FLOS",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Holy,10;
+bonus2 bMagicAtkEle,Ele_Neutral,10;
+if (.@r>=9) {
+bonus2 bMagicAddRace,RC_All,15;
+bonus2 bMagicAddRace,RC_Player_Human,-15;
+bonus2 bMagicAddRace,RC_Player_Doram,-15;
+bonus bSMatk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus2 bMagicAtkEle,Ele_Holy,15;
+bonus2 bMagicAtkEle,Ele_Neutral,15;
+bonus bMatk,50;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bSMatk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+```
+
+### 400984: Frontier_R_Crown_IQ
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"IQ_EXPOSION_BLASTER",5*(.@r/4);
+bonus2 bSkillAtk,"IQ_BLAZING_FLAME_BLAST",5*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus bCritAtkRate,15;
+bonus bCritical,10;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 400985: Frontier_R_Crown_WH
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"WH_CRESCIVE_BOLT",5*(.@r/4);
+bonus2 bSkillAtk,"WH_GALESTORM",5*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus bCritAtkRate,15;
+bonus bCritical,10;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 400986: Frontier_R_Crown_TR
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"TR_ROSEBLOSSOM",7*(.@r/4);
+bonus2 bSkillAtk,"TR_ROSEBLOSSOM_ATK",7*(.@r/4);
+bonus2 bSkillAtk,"TR_RHYTHMSHOOTING",7*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bNonCritAtkRate,15;
+bonus bVariableCastrate,-10;
+bonus bBaseAtk,50;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+```
+
+### 400987: Frontier_R_Crown_SS
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"SS_FUUMAKOUCHIKU",7*(.@r/4);
+bonus2 bSkillAtk,"SS_KUNAIKAITEN",7*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bNonCritAtkRate,15;
+bonus bBaseAtk,75;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bLongAtkRate,10;
+```
+
+### 400988: Frontier_R_Crown_NW
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"NW_SPIRAL_SHOOTING",5*(.@r/4);
+bonus2 bSkillAtk,"NW_WILD_SHOT",5*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus bCritAtkRate,15;
+bonus bCritical,10;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 400989: Frontier_R_Crown_SKE
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bAtkRate,4*(.@r/3);
+bonus2 bSkillAtk,"SKE_SKY_SUN",5*(.@r/4);
+bonus2 bSkillAtk,"SKE_SUNSET_BLAST",5*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus2 bAddRace,RC_All,15;
+bonus2 bAddRace,RC_Player_Human,-15;
+bonus2 bAddRace,RC_Player_Doram,-15;
+bonus bPAtk,7;
+if (.@r>=12) {
+bonus bCritAtkRate,15;
+bonus bCritical,15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+bonus bMaxSPrate,5;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bShortAtkRate,10;
+```
+
+### 400990: Frontier_R_Crown_SOA
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatkRate,4*(.@r/3);
+bonus2 bSkillAtk,"SOA_TALISMAN_OF_BLUE_DRAGON",5*(.@r/4);
+bonus2 bSkillAtk,"SOA_TALISMAN_OF_RED_PHOENIX",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Holy,10;
+bonus2 bMagicAtkEle,Ele_Fire,10;
+bonus2 bMagicAtkEle,Ele_Neutral,10;
+bonus2 bMagicAtkEle,Ele_Earth,10;
+bonus2 bMagicAtkEle,Ele_Water,10;
+bonus2 bMagicAtkEle,Ele_Wind,10;
+bonus2 bMagicAtkEle,Ele_Ghost,10;
+bonus2 bMagicAtkEle,Ele_Dark,10;
+if (.@r>=9) {
+bonus2 bMagicAddRace,RC_All,15;
+bonus2 bMagicAddRace,RC_Player_Human,-15;
+bonus2 bMagicAddRace,RC_Player_Doram,-15;
+bonus bSMatk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus2 bMagicAtkEle,Ele_Holy,15;
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Neutral,15;
+bonus2 bMagicAtkEle,Ele_Earth,15;
+```
+
+### 400991: Frontier_R_Crown_HN
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatkRate,4*(.@r/3);
+bonus2 bSkillAtk,"HN_JUPITEL_THUNDER_STORM",5*(.@r/4);
+bonus2 bSkillAtk,"HN_JACK_FROST_NOVA",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Wind,10;
+bonus2 bMagicAtkEle,Ele_Water,10;
+if (.@r>=9) {
+bonus2 bMagicAddRace,RC_All,15;
+bonus2 bMagicAddRace,RC_Player_Human,-15;
+bonus2 bMagicAddRace,RC_Player_Doram,-15;
+bonus bSMatk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus2 bMagicAtkEle,Ele_Wind,15;
+bonus2 bMagicAtkEle,Ele_Water,15;
+bonus bMatk,50;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bSMatk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bMaxHPrate,5;
+```
+
+### 400992: Frontier_R_Crown_SH
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatkRate,4*(.@r/3);
+bonus2 bSkillAtk,"SH_HYUN_ROKS_BREEZE",5*(.@r/4);
+bonus2 bSkillAtk,"SH_HYUN_ROK_SPIRIT_POWER",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Holy,10;
+bonus2 bMagicAtkEle,Ele_Fire,10;
+bonus2 bMagicAtkEle,Ele_Neutral,10;
+bonus2 bMagicAtkEle,Ele_Earth,10;
+bonus2 bMagicAtkEle,Ele_Water,10;
+bonus2 bMagicAtkEle,Ele_Wind,10;
+bonus2 bMagicAtkEle,Ele_Dark,10;
+if (.@r>=9) {
+bonus2 bMagicAddRace,RC_All,15;
+bonus2 bMagicAddRace,RC_Player_Human,-15;
+bonus2 bMagicAddRace,RC_Player_Doram,-15;
+bonus bSMatk,7;
+if (.@r>=12) {
+bonus bFixedCast,-500;
+bonus2 bMagicAtkEle,Ele_Holy,15;
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Neutral,15;
+bonus2 bMagicAtkEle,Ele_Earth,15;
+bonus2 bMagicAtkEle,Ele_Water,15;
+```
+
+### 401055: Stardust_Crown_SV
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bPow,5;
+bonus bCon,5;
+bonus bCritAtkRate,4*(.@r/2);
+bonus bBaseAtk,20*(.@r/2);
+if (.@r>=7) {
+bonus bShortAtkRate,15;
+bonus bLongAtkRate,15;
+if (.@r>=9) {
+bonus bCRate,5;
+bonus bAtkRate,10;
+if (.@r>=11) {
+bonus bCritAtkRate,25;
+bonus bPAtk,8;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bAtkRate,5;
+bonus bPow,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bCRate,5;
+bonus bCritical,15;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 401056: Stardust_Crown_SC
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bPow,5;
+bonus bCon,5;
+bonus bBaseAtk,30*(.@r/2);
+if (.@r>=7) {
+bonus bShortAtkRate,15;
+bonus bLongAtkRate,15;
+if (.@r>=9) {
+bonus bPAtk,7;
+bonus bAtkRate,12;
+if (.@r>=11) {
+bonus bShortAtkRate,25;
+bonus bLongAtkRate,25;
+bonus bPAtk,8;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bAtkRate,5;
+bonus bPow,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bPAtk,7;
+bonus bBaseAtk,25;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 401057: Stardust_Crown_VI
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bSpl,5;
+bonus bCon,5;
+bonus bMatk,25*(.@r/2);
+if (.@r>=7) {
+bonus bVariableCastrate,-10;
+if (.@r>=9) {
+bonus bSMatk,7;
+bonus bMatkRate,12;
+if (.@r>=11) {
+bonus2 bMagicAtkEle,Ele_All,25;
+bonus bSMatk,8;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bMatkRate,5;
+bonus bSpl,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bSMatk,7;
+bonus bMatk,25;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bFixedCast,-500;
+bonus bDelayrate,-7;
+```
+
+### 401058: Sky_Rune_Crown_IG
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatk,5*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Holy,2*(.@r/3);
+bonus2 bMagicAtkEle,Ele_Neutral,2*(.@r/3);
+bonus bMatkRate,2*(.@r/3);
+bonus2 bSkillAtk,"IG_IMPERIAL_PRESSURE",5*(.@r/4);
+bonus2 bSkillAtk,"IG_CROSS_RAIN",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Holy,10;
+bonus2 bMagicAtkEle,Ele_Neutral,10;
+if (.@r>=9) {
+bonus bSMatk,5;
+if (.@r>=11) {
+bonus bFixedCast,-500;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bSMatk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bDelayrate,-10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bMagicAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 401059: Sky_Rune_Crown_ABC
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bBaseAtk,3*(.@r/2);
+bonus bHit,5*(.@r/2);
+bonus bNonCritAtkRate,3*(.@r/3);
+bonus bShortAtkRate,(.@r/3);
+bonus bAtkRate,2*(.@r/3);
+bonus2 bSkillAtk,"ABC_CHASING_BREAK",5*(.@r/4);
+bonus2 bSkillAtk,"ABC_DEFT_STAB",5*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus bDelayrate,-10;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"ABC_DEFT_STAB",15;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 401060: Sky_Rune_Crown_SH
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bCritical,2*(.@r/2);
+bonus bBaseAtk,3*(.@r/2);
+bonus bCritAtkRate,3*(.@r/3);
+bonus bAtkRate,2*(.@r/3);
+bonus2 bSkillAtk,"SH_HOGOGONG_STRIKE",7*(.@r/4);
+bonus2 bSkillAtk,"SH_CHUL_HO_BATTERING",7*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus bFixedCast,-500;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"SH_HOGOGONG_STRIKE",15;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+bonus2 bAddEle,Ele_All,10;
+```
+
+### 401115: Sky_Rune_Crown_MS
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bBaseAtk,3*(.@r/2);
+bonus bHit,5*(.@r/2);
+bonus bNonCritAtkRate,3*(.@r/3);
+bonus bShortAtkRate,(.@r/3);
+bonus bAtkRate,2*(.@r/3);
+bonus2 bSkillAtk,"MT_RUSH_STRIKE",5*(.@r/4);
+bonus2 bSkillAtk,"MT_POWERFUL_SWING",5*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus bDelayrate,-10;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"MT_POWERFUL_SWING",15;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 401116: Sky_Rune_Crown_WH
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bCritical,2*(.@r/2);
+bonus bBaseAtk,3*(.@r/2);
+bonus bCritAtkRate,3*(.@r/3);
+bonus bAtkRate,2*(.@r/3);
+bonus2 bSkillAtk,"WH_CRESCIVE_BOLT",5*(.@r/4);
+bonus2 bSkillAtk,"WH_HAWKRUSH",5*(.@r/4);
+if (.@r>=7) {
+bonus bLongAtkRate,10;
+if (.@r>=9) {
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus bFixedCast,-500;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"WH_HAWKRUSH",15;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+bonus2 bAddEle,Ele_All,10;
+```
+
+### 401117: Sky_Rune_Crown_HN
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatk,5*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Ghost,2*(.@r/3);
+bonus2 bMagicAtkEle,Ele_Wind,2*(.@r/3);
+bonus bMatkRate,2*(.@r/3);
+bonus2 bSkillAtk,"HN_NAPALM_VULCAN_STRIKE",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Ghost,10;
+bonus2 bMagicAtkEle,Ele_Wind,10;
+if (.@r>=9) {
+bonus bSMatk,5;
+if (.@r>=11) {
+bonus bFixedCast,-500;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bSMatk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"HN_NAPALM_VULCAN_STRIKE",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bMagicAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+bonus2 bMagicAddEle,Ele_All,10;
+```
+
+### 401118: Sky_Rune_Crown_CD
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bMatk,5*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Holy,2*(.@r/3);
+bonus bMatkRate,2*(.@r/3);
+bonus2 bSkillAtk,"CD_ARBITRIUM",5*(.@r/4);
+bonus2 bSkillAtk,"CD_ARBITRIUM_ATK",5*(.@r/4);
+bonus2 bSkillAtk,"CD_FRAMEN",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Holy,10;
+if (.@r>=9) {
+bonus bSMatk,5;
+if (.@r>=11) {
+bonus bFixedCast,-500;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bSMatk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"CD_FRAMEN",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bMagicAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+bonus2 bMagicAddEle,Ele_All,10;
+```
+
+### 401119: Sky_Rune_Crown_IQ
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bBaseAtk,3*(.@r/2);
+bonus bHit,5*(.@r/2);
+bonus bAtkRate,2*(.@r/3);
+bonus bMaxHPrate,3*(.@r/3);
+bonus2 bSkillAtk,"IQ_THIRD_FLAME_BOMB",5*(.@r/4);
+bonus2 bSkillAtk,"SR_TIGERCANNON",5*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus bPerfectHitAddRate,5;
+bonus bMaxHPrate,5;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"SR_TIGERCANNON",15;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 401120: Sky_Rune_Crown_SKE
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bBaseAtk,3*(.@r/2);
+bonus bHit,5*(.@r/2);
+bonus bNonCritAtkRate,3*(.@r/3);
+bonus bShortAtkRate,(.@r/3);
+bonus bAtkRate,2*(.@r/3);
+bonus2 bSkillAtk,"SKE_SKY_MOON",5*(.@r/4);
+bonus2 bSkillAtk,"SKE_STAR_LIGHT_KICK",5*(.@r/4);
+if (.@r>=7) {
+bonus bShortAtkRate,10;
+if (.@r>=9) {
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus bUseSPrate,-5;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"SKE_SKY_MOON",15;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bAddSize,Size_All,10;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 410280: aegis_410280
+```c
+hateffect HAT_EF_C_BABY_GLOOM,true;
+UnEquipScript: |
+hateffect HAT_EF_C_BABY_GLOOM,false;
+Script: |
+hateffect HAT_EF_C_CONSECRATE_F_AUREOLA,true;
+UnEquipScript: |
+hateffect HAT_EF_C_CONSECRATE_F_AUREOLA,false;
+```
+
+### 420351: C_Auspicloud
+```c
+hateffect HAT_EF_C_AUSPICLOUD,true;
+UnEquipScript: |
+hateffect HAT_EF_C_AUSPICLOUD,false;
+```
+
+### 420358: C_Experiment_Mind
+```c
+hateffect HAT_EF_ATQUE_POENITENTIA,true;
+UnEquipScript: |
+hateffect HAT_EF_ATQUE_POENITENTIA,false;
+Script: |
+hateffect HAT_EF_MEDJED_TEXT,true;
+UnEquipScript: |
+hateffect HAT_EF_MEDJED_TEXT,false;
+```
+
+### 420449: C_Deep_You
+```c
+hateffect HAT_EF_HANMAC_MUNCH,true;
+UnEquipScript: |
+hateffect HAT_EF_HANMAC_MUNCH,false;
+```
+
+### 420511: C_Over_Cloud
+```c
+hateffect HAT_EF_C_OVER_CLOUD,true;
+UnEquipScript: |
+hateffect HAT_EF_C_OVER_CLOUD,false;
+```
+
+### 420512: C_Aurora_On_Clouds
+```c
+hateffect HAT_EF_C_AURORA_ON_CLOUDS,true;
+UnEquipScript: |
+hateffect HAT_EF_C_AURORA_ON_CLOUDS,false;
+```
+
+### 420552: C_Divine_Sky_Invite
+```c
+hateffect HAT_EF_DIVINE_SKY_INVITE,true;
+UnEquipScript: |
+hateffect HAT_EF_DIVINE_SKY_INVITE,false;
+```
+
+### 420576: aegis_420576
+```c
+hateffect HAT_EF_C_NIGHTMARE_CHAIN,true;
+UnEquipScript: |
+hateffect HAT_EF_C_NIGHTMARE_CHAIN,false;
+```
+
+### 420642: aegis_420642
+```c
+hateffect HAT_EF_C_SAMBA_CARNIVAL,true;
+UnEquipScript: |
+hateffect HAT_EF_C_SAMBA_CARNIVAL,false;
+Script: |
+hateffect HAT_EF_C_MELODY_WING,true;
+UnEquipScript: |
+hateffect HAT_EF_C_MELODY_WING,false;
+bonus2 bSkillAtk,"SU_CN_METEOR",10*getskilllv("SU_NYANGGRASS");
+```
+
+### 480469: C_Con_of_Singapura_MSP
+```c
+hateffect HAT_EF_C_ROS2024_WING_1,true;
+UnEquipScript: |
+hateffect HAT_EF_C_ROS2024_WING_1,false;
+```
+
+### 480627: aegis_480627
+```c
+hateffect HAT_EF_C_2025ROSFESTA,true;
+UnEquipScript: |
+hateffect HAT_EF_C_2025ROSFESTA,false;
+```
+
+### 480669: aegis_480669
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bCRate,10;
+bonus bCritical,3+(.@r/2);
+bonus bCritAtkRate,3*(.@r/2);
+bonus bBaseAtk,15*(.@r/2);
+bonus2 bAddSize,Size_All,4*(.@r/3);
+if (.@r>=7) {
+bonus bPAtk,7;
+bonus bAtkRate,5;
+if (.@r>=9) {
+bonus bDelayrate,-10;
+bonus bCritical,7;
+bonus bBaseAtk,45;
+if (.@r>=11) {
+bonus bShortAtkRate,15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bCRate,7;
+bonus bCritical,3;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bShortAtkRate,10;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 480670: aegis_480670
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bCRate,10;
+bonus bCritical,3+(.@r/2);
+bonus bCritAtkRate,3*(.@r/2);
+bonus bBaseAtk,15*(.@r/2);
+bonus2 bAddSize,Size_All,4*(.@r/3);
+if (.@r>=7) {
+bonus bPAtk,7;
+bonus bAtkRate,5;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bDelayrate,-10;
+if (.@r>=11) {
+bonus bLongAtkRate,15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bCRate,7;
+bonus bCritical,3;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bLongAtkRate,10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bPow,5;
+```
+
+### 480671: aegis_480671
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bPAtk,12;
+bonus bAtkRate,5;
+bonus bNonCritAtkRate,5*(.@r/2);
+bonus bBaseAtk,25*(.@r/2);
+bonus2 bAddSize,Size_All,4*(.@r/3);
+if (.@r>=7) {
+bonus bPAtk,7;
+bonus bAtkRate,5;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bDelayrate,-10;
+if (.@r>=11) {
+bonus bLongAtkRate,15;
+bonus bShortAtkRate,15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,7;
+bonus bBaseAtk,15;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bShortAtkRate,10;
+bonus bLongAtkRate,10;
+```
+
+### 480672: aegis_480672
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bPAtk,12;
+bonus bMaxHPrate,5+(.@r/2);
+bonus bBaseAtk,15*(.@r/2);
+bonus2 bAddSize,Size_All,4*(.@r/3);
+if (.@r>=7) {
+bonus bPAtk,7;
+bonus bAtkRate,5;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bDelayrate,-10;
+if (.@r>=11) {
+bonus bShortAtkRate,15;
+bonus bLongAtkRate,15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,7;
+bonus bBaseAtk,15;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bShortAtkRate,10;
+bonus bLongAtkRate,10;
+bonus bMaxHPrate,2;
+```
+
+### 480673: aegis_480673
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bSMatk,12;
+bonus bMatkRate,5;
+bonus2 bMagicAtkEle,Ele_Neutral,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Fire,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Earth,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Water,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Wind,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Poison,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Dark,3*(.@r/2);
+bonus bMatk,15*(.@r/2);
+bonus2 bMagicAddSize,Size_All,4*(.@r/3);
+if (.@r>=7) {
+bonus bSMatk,7;
+bonus bMatkRate,5;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bDelayrate,-10;
+if (.@r>=11) {
+bonus2 bMagicAtkEle,Ele_Neutral,15;
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Earth,15;
+bonus2 bMagicAtkEle,Ele_Water,15;
+bonus2 bMagicAtkEle,Ele_Wind,15;
+```
+
+### 480674: aegis_480674
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bSMatk,12;
+bonus bMatkRate,5;
+bonus2 bMagicAtkEle,Ele_Undead,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Fire,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Neutral,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Wind,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Ghost,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Holy,3*(.@r/2);
+bonus2 bMagicAtkEle,Ele_Dark,3*(.@r/2);
+bonus bMatk,15*(.@r/2);
+bonus2 bMagicAddSize,Size_All,4*(.@r/3);
+if (.@r>=7) {
+bonus bSMatk,7;
+bonus bMatkRate,5;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bDelayrate,-10;
+if (.@r>=11) {
+bonus2 bMagicAtkEle,Ele_Undead,15;
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Neutral,15;
+bonus2 bMagicAtkEle,Ele_Wind,15;
+bonus2 bMagicAtkEle,Ele_Ghost,15;
+```
+
+### 500120: Falx
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus2 bSkillAtk,"BO_MAYHEMIC_THORNS",15+4*(.@r/2);
+bonus bAtkRate,(.@r/2);
+bonus bBaseAtk,20*(.@r/2);
+if (.@r>=7) {
+bonus bCritical,15;
+bonus2 bSkillAtk,"BO_MAYHEMIC_THORNS",15;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bCRate,7;
+if (.@r>=12) {
+bonus bCritAtkRate,15;
+bonus2 bSkillAtk,"BO_MAYHEMIC_THORNS",10;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bCritAtkRate,10;
+bonus bCritical,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bLongAtkRate,20;
+bonus bVariableCastrate,-5;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bSkillAtk,"BO_MAYHEMIC_THORNS",15;
+```
+
+### 500134: Sky_Napalm_Sword
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bVariableCastrate,-5;
+bonus2 bSkillAtk,"HN_JUPITEL_THUNDER_STORM",15;
+bonus2 bMagicAtkEle,Ele_Ghost,2*(.@r/3);
+bonus2 bMagicAtkEle,Ele_Wind,2*(.@r/3);
+bonus bMatk,30*(.@r/3);
+bonus2 bSkillAtk,"HN_NAPALM_VULCAN_STRIKE",5*(.@r/4);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Ghost,25;
+bonus2 bMagicAtkEle,Ele_Wind,25;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bSMatk,5;
+if (.@r>=11) {
+bonus2 bSkillAtk,"HN_JUPITEL_THUNDER_STORM",15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bMatkRate,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"HN_JUPITEL_THUNDER_STORM",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bDelayrate,-10;
+```
+
+### 510192: Frontier_ABC_Dagger
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bSMatk,5;
+bonus2 bSkillAtk,"ABC_FROM_THE_ABYSS_ATK",5+5*(.@r/3);
+bonus bMatkRate,(.@r/2);
+bonus bMatk,25*(.@r/2);
+if (.@r>=9) {
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Neutral,15;
+bonus bSMatk,7;
+if (.@r>=11) {
+bonus2 bSkillAtk,"ABC_FROM_THE_ABYSS_ATK",25;
+if (.@r>=12) {
+if (getskilllv("ABC_FROM_THE_ABYSS")>=5) {
+bonus3 bAutoSpell,"ABC_FROM_THE_ABYSS",5,80;
+}
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus2 bMagicAtkEle,Ele_Fire,10;
+bonus2 bMagicAtkEle,Ele_Neutral,10;
+bonus bSMatk,7;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"ABC_FROM_THE_ABYSS_ATK",10;
+```
+
+### 510199: Sky_Chasing_Dagger
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bPerfectHitAddRate,5;
+bonus2 bSkillAtk,"ABC_CHASING_BREAK",15+7*(.@r/4);
+bonus bNonCritAtkRate,2*(.@r/3);
+bonus bBaseAtk,30*(.@r/3);
+if (.@r>=7) {
+bonus bNonCritAtkRate,25;
+if (.@r>=9) {
+bonus bDelayrate,-10;
+bonus bPAtk,5;
+if (.@r>=11) {
+bonus2 bSkillAtk,"ABC_CHASING_BREAK",15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bAtkRate,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"ABC_CHASING_BREAK",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bSkillAtk,"ABC_CHASING_BREAK",10;
+if (.@g>=ENCHANTGRADE_A) {
+bonus bPAtk,10;
+}
+```
+
+### 530072: Frontier_IG_Spear
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bPAtk,5;
+bonus2 bSkillAtk,"IG_IMPERIAL_CROSS",5+5*(.@r/3);
+bonus bAtkRate,(.@r/2);
+bonus bBaseAtk,25*(.@r/2);
+if (.@r>=9) {
+bonus bShortAtkRate,15;
+bonus bPAtk,7;
+if (.@r>=11) {
+bonus2 bSkillAtk,"IG_IMPERIAL_CROSS",15;
+if (.@r>=12) {
+bonus2 bSkillAtk,"IG_IMPERIAL_CROSS",20;
+bonus2 bSkillAtk,"IG_OVERSLASH",25;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bShortAtkRate,10;
+bonus bPAtk,7;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"IG_IMPERIAL_CROSS",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bNonCritAtkRate,15;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 530074: Espetar
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus2 bSkillAtk,"IG_RADIANT_SPEAR",20+5*(.@r/3);
+bonus bAtkRate,(.@r/3);
+bonus bBaseAtk,25*(.@r/3);
+if (.@r>=7) {
+bonus2 bSkillAtk,"IG_RADIANT_SPEAR",25;
+if (.@r>=9) {
+bonus bCritAtkRate,15;
+bonus bCritical,15;
+if (.@r>=12) {
+bonus2 bSkillAtk,"IG_RADIANT_SPEAR",15;
+if (getskilllv("LG_CANNONSPEAR")>=5) {
+autobonus3 "{ .@r = getrefine(); bonus2 bIgnoreResRaceRate,RC_All,15; bonus2 bIgnoreResRaceRate,RC_Player_Human,-15; bonus2 bIgnoreResRaceRate,RC_Player_Doram,-15; bonus4 bAutoSpellOnSkill,\"IG_RADIANT_SPEAR\",\"LG_CANNONSPEAR\",5,1000; bonus bLongAtkRate,3*.@r; bonus bStr,7*.@r; bonus2 bSkillAtk,\"LG_CANNONSPEAR\",65*.@r; }",1000,60000,"IG_GRAND_JUDGEMENT";
+}
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bVariableCastrate,-10;
+bonus bCritical,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus bCritAtkRate,10;
+bonus bLongAtkRate,15;
+if (.@g>=ENCHANTGRADE_B) {
+```
+
+### 530076: Sky_Imperial_Spear
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bVariableCastrate,-5;
+bonus2 bSkillAtk,"IG_IMPERIAL_PRESSURE",15+7*(.@r/4);
+bonus2 bMagicAtkEle,Ele_Holy,2*(.@r/3);
+bonus2 bMagicAtkEle,Ele_Neutral,2*(.@r/3);
+bonus bMatk,30*(.@r/3);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Holy,25;
+bonus2 bMagicAtkEle,Ele_Neutral,25;
+if (.@r>=9) {
+bonus bVariableCastrate,-10;
+bonus bSMatk,5;
+if (.@r>=11) {
+bonus2 bSkillAtk,"IG_IMPERIAL_PRESSURE",15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bMatkRate,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"IG_IMPERIAL_PRESSURE",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus2 bSkillAtk,"IG_IMPERIAL_PRESSURE",10;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 540110: Frontier_EM_Book
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bSMatk,5;
+bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",100+35*(.@r/3);
+bonus2 bSkillAtk,"MG_FIREBOLT",100+35*(.@r/3);
+bonus2 bSkillAtk,"MG_COLDBOLT",100+35*(.@r/3);
+bonus bMatkRate,(.@r/2);
+bonus bMatk,25*(.@r/2);
+bonus2 bSkillFixedCast,"MG_LIGHTNINGBOLT",2500;
+bonus2 bSkillFixedCast,"MG_FIREBOLT",2500;
+bonus2 bSkillFixedCast,"MG_COLDBOLT",2500;
+if (.@r>=9) {
+bonus2 bMagicAtkEle,Ele_Ghost,15;
+bonus2 bMagicAtkEle,Ele_Fire,15;
+bonus2 bMagicAtkEle,Ele_Water,15;
+bonus2 bMagicAtkEle,Ele_Wind,15;
+bonus bSMatk,7;
+if (.@r>=11) {
+bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",30;
+bonus2 bSkillAtk,"MG_FIREBOLT",30;
+bonus2 bSkillAtk,"MG_COLDBOLT",30;
+if (.@r>=12) {
+bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",35;
+bonus2 bSkillAtk,"MG_FIREBOLT",35;
+bonus2 bSkillAtk,"MG_COLDBOLT",35;
+```
+
+### 540111: Frontier_SKE_Book
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus bCritical,5;
+bonus2 bSkillAtk,"SKE_SKY_SUN",5+5*(.@r/3);
+bonus bAtkRate,(.@r/2);
+bonus bBaseAtk,25*(.@r/2);
+if (.@r>=9) {
+bonus bCRate,5;
+bonus bCritical,15;
+if (.@r>=11) {
+bonus2 bSkillAtk,"SKE_SKY_SUN",15;
+if (.@r>=12) {
+bonus2 bSkillAtk,"SKE_SKY_SUN",20;
+bonus2 bSkillAtk,"SKE_SUNSET_BLAST",25;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bPAtk,5;
+bonus bCritical,5;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"SKE_SKY_SUN",10;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bShortAtkRate,15;
+if (.@g>=ENCHANTGRADE_A) {
+```
+
+### 540114: Elemental_Spirits
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus2 bSkillAtk,"EM_DIAMOND_STORM",20+5*(.@r/3);
+bonus2 bSkillAtk,"EM_TERRA_DRIVE",20+5*(.@r/3);
+bonus bMatkRate,(.@r/3);
+bonus bMatk,25*(.@r/3);
+if (.@r>=7) {
+bonus2 bMagicAtkEle,Ele_Water,10;
+bonus2 bMagicAtkEle,Ele_Earth,10;
+bonus2 bSkillAtk,"EM_DIAMOND_STORM",20;
+if (.@r>=9) {
+bonus bSMatk,7;
+bonus2 bSkillAtk,"EM_TERRA_DRIVE",20;
+if (.@r>=12) {
+bonus2 bSkillAtk,"EM_DIAMOND_STORM",15;
+bonus2 bSkillAtk,"EM_TERRA_DRIVE",15;
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus2 bMagicAtkEle,Ele_Water,10;
+bonus2 bMagicAtkEle,Ele_Earth,10;
+bonus bSMatk,7;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"EM_DIAMOND_STORM",15;
+```
+
+### 540115: Book_Of_Crimson_M
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+bonus2 bSkillAtk,"SKE_SKY_MOON",20+5*(.@r/3);
+bonus bAtkRate,(.@r/3);
+bonus bBaseAtk,25*(.@r/3);
+if (.@r>=7) {
+bonus bNonCritAtkRate,15;
+bonus bVariableCastrate,-10;
+if (.@r>=9) {
+bonus2 bSkillAtk,"SKE_SKY_MOON",20;
+if (.@r>=12) {
+bonus bShortAtkRate,10;
+if (getskilllv("SKE_MIDNIGHT_KICK")>=5 && getskilllv("SKE_DAWN_BREAK")>=5) {
+autobonus3 "{ .@r = getrefine(); bonus bNonCritAtkRate,15; bonus2 bSkillAtk,\"SKE_MIDNIGHT_KICK\",4*.@r; bonus2 bSkillAtk,\"SKE_DAWN_BREAK\",4*.@r; bonus4 bAutoSpellOnSkill,\"SKE_SKY_MOON\",\"SKE_DAWN_BREAK\",5,1000; bonus4 bAutoSpellOnSkill,\"SKE_DAWN_BREAK\",\"SKE_MIDNIGHT_KICK\",5,1000; }",1000,150000,"SKE_ENCHANTING_SKY";
+}
+}
+}
+}
+if (.@g>=ENCHANTGRADE_D) {
+bonus bNonCritAtkRate,10;
+if (.@g>=ENCHANTGRADE_C) {
+bonus2 bSkillAtk,"SKE_SKY_MOON",15;
+if (.@g>=ENCHANTGRADE_B) {
+bonus bShortAtkRate,15;
+bonus bVariableCastrate,-5;
+```
+
+
+*... and 84 more items in database*
+
+---
+
+<!-- RAG_CHUNK: 24_4th_Job_Equipment_Patterns -->
+## Part 24: 4th Job Equipment Script Patterns
+
+### Standard Variables
+
+```c
+.@r = getrefine();       // Refine level (0-20)
+.@g = getenchantgrade(); // Enchant grade (D/C/B/A)
+.@s = getskilllv("X");   // Skill level
+```
+
+### Frontier Rune Crown Pattern
+
+All 18 Frontier Crowns use this structure:
+
+```c
+.@g = getenchantgrade();
+.@r = getrefine();
+
+// Base scaling
+bonus bAtkRate, 4*(.@r/3);                      // +4% ATK per 3 refine
+bonus2 bSkillAtk, "CLASS_SKILL1", 5*(.@r/4);    // +5% skill dmg per 4 refine
+bonus2 bSkillAtk, "CLASS_SKILL2", 5*(.@r/4);
+
+// Refine thresholds
+if (.@r >= 7) {
+    bonus bShortAtkRate, 10;                    // or bLongAtkRate for ranged
+    if (.@r >= 9) {
+        bonus2 bAddRace, RC_All, 15;
+        bonus2 bAddRace, RC_Player_Human, -15;  // PvP penalty
+        bonus2 bAddRace, RC_Player_Doram, -15;
+        bonus bPAtk, 7;
+        if (.@r >= 12) {
+            bonus bCritAtkRate, 15;
+            bonus bCritical, 15;
+        }
+    }
+}
+
+// Grade thresholds (stack with refine)
+if (.@g >= ENCHANTGRADE_D) {
+    bonus bPAtk, 5;
+    if (.@g >= ENCHANTGRADE_C) {
+        bonus bMaxHPrate, 5;
+        bonus bMaxSPrate, 5;
+        if (.@g >= ENCHANTGRADE_B) {
+            bonus bShortAtkRate, 10;
+            if (.@g >= ENCHANTGRADE_A) {
+                bonus2 bSkillAtk, "CLASS_SKILL1", 15;
+            }
+        }
+    }
+}
+```
+
+### Class Skills Reference (for bonus2 bSkillAtk)
+
+| Class | Skill 1 | Skill 2 |
+|-------|---------|---------|
+| Dragon Knight | DK_HACKANDSLASHER | DK_SERVANTWEAPON_ATK |
+| Imperial Guard | IG_IMPERIAL_CROSS | IG_OVERSLASH |
+| Meister | MT_RUSH_STRIKE | MT_POWERFUL_SWING |
+| Biolo | BO_ACIDIFIED_ZONE_WATER | BO_ACIDIFIED_ZONE_FIRE |
+| Shadow Cross | SHC_SHADOW_STAB | SHC_SAVAGE_IMPACT |
+| Abyss Chaser | ABC_ABYSS_STRIKE | ABC_FRENZY_SHOT |
+| Arch Mage | AG_VIOLENT_QUAKE | AG_ALL_BLOOM |
+| Elemental Master | EM_DIAMOND_STORM | EM_ELEMENTAL_BUSTER |
+| Cardinal | CD_PETITIO | CD_FRAMEN |
+| Inquisitor | IQ_OLEUM_SANCTUM | IQ_MASSIVE_F_BLASTER |
+| Windhawk | WH_GALESTORM | WH_CRESCIVE_BOLT |
+| Troubadour | TR_GEF_NOCTURN | TR_ROKI_CAPRICCIO |
+| Shinkiro/Shiranui | SS_KAGEGISSEN | SS_SEKIENHOU |
+| Night Watch | NW_SPIRAL_SHOOTING | NW_MAGAZINE_FOR_ONE |
+| Sky Emperor | SKE_TWINKLING_GALAXY | SKE_STAR_BURST |
+| Soul Ascetic | SOA_SOUL_EXPLOSION | SOA_TALISMAN_OF_PROTECTION |
+| Spirit Handler | SH_HOWLING_OF_CHUL_HO | SH_HOGOGONG |
+| Hyper Novice | HN_MEGA_MAGIC_BLASTER | HN_BREAKINGLIMIT |
+
+### New Bonus Types Used
+
+```c
+bonus bPAtk, <n>;           // Physical P.ATK stat
+bonus bSMatk, <n>;          // Special M.ATK stat  
+bonus bNonCritAtkRate, <n>; // Non-critical attack damage %
+bonus bCritAtkRate, <n>;    // Critical attack damage %
+bonus bLongAtkRate, <n>;    // Ranged attack damage %
+bonus bShortAtkRate, <n>;   // Melee attack damage %
+```
+
+---
