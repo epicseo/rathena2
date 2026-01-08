@@ -3485,7 +3485,7 @@ Body:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # rAthena AT Commands - Complete Reference
-## All 287 @commands with Full Documentation
+## All 291 @commands with Full Documentation
 
 ---
 
@@ -6003,7 +6003,7 @@ Script: |
 ---
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# PART 17: MISSING MAPFLAG CONSTANTS (82 Complete)
+# PART 17: MAPFLAG CONSTANTS (79 Complete)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 <!-- RAG_CHUNK: 05_all_mapflags -->
@@ -6011,7 +6011,7 @@ Script: |
 
 > **Source:** `src/map/map.hpp` | **Docs:** `doc/mapflags.txt` (491 lines)
 
-### All 82 Mapflag Constants
+### All 79 Mapflag Constants
 
 | ID | Constant | Description |
 |----|----------|-------------|

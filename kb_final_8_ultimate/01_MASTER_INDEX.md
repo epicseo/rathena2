@@ -7,8 +7,8 @@
 **Total Lines:** 104,039 (VERIFIED - Added skill_db, job_aspd, item_combos, mapflags)
 **Total Size:** ~3.0 MB
 **RAG Chunks:** 1,577
-**Validation:** 100% source-verified, ALL systems documented
-**Coverage:** ~95% - Core systems complete, some YAML schemas minimal
+**Validation:** Source-verified against rAthena commit ff1acc4e
+**Coverage:** ~70% - Core systems documented, BUILDIN_FUNC ~20% (117/593)
 
 ### January 2026 Update Summary
 - **526 New Items** (208 equip, 158 usable, 160 etc)
@@ -52,7 +52,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | **4th Jobs** | NO | NO | NO | **YES (20 classes)** |
 | **Attendance System** | NO | NO | NO | **YES** |
 | **Stylist System** | NO | NO | NO | **YES** |
-| **Coverage** | ~85% | ~85% | ~98% | **100%** |
+| **Coverage** | ~85% | ~85% | ~98% | **~70%** |
 
 ### v16.0 Additions (from v15.4)
 
@@ -92,7 +92,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 - Part 14: skill_db.yml Schema (NEW)
 - Part 15: job_aspd.yml Schema (NEW)
 - Part 16: item_combos.yml Schema (NEW)
-- Part 17: Complete Mapflag Reference (82 MF_*) (NEW)
+- Part 17: Complete Mapflag Reference (79 MF_*) (NEW)
 - 4th Job Classes section (20 classes, stats, skill prefixes)
 
 ### 06_CONTENT_CREATION.md (9,983 lines)
@@ -220,8 +220,8 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- TOTAL_LINES: 104039 -->
 <!-- RAG_CHUNKS: 1577 -->
 <!-- DUPLICATES: 0 -->
-<!-- MISSING_DOCS: 0 -->
-<!-- COVERAGE: 95% -->
+<!-- MISSING_DOCS: ~476 BUILDIN_FUNC undocumented -->
+<!-- COVERAGE: 70% -->
 <!-- NEW_ITEMS: 526 -->
 <!-- NEW_MOBS: 144 -->
 <!-- NEW_CONSTANTS: 146 -->
