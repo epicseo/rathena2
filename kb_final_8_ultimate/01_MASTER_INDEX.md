@@ -2,12 +2,12 @@
 
 **Version:** 18.0 - FULLY COMPLETE (ALL 766 Script Commands Documented)
 **Release Date:** 2026-01-08
-**rAthena Commit:** ff1acc4e (2026-01-07)
+**rAthena Commit:** eeddb8d2e (2026-01-08)
 **Total Files:** 8 RAG-optimized knowledge base files
 **Total Lines:** 116,083 (VERIFIED - ALL 603 BUILDIN_FUNC documented)
 **Total Size:** ~3.5 MB
 **RAG Chunks:** 1,614
-**Validation:** Source-verified against rAthena commit ff1acc4e
+**Validation:** Source-verified against rAthena commit eeddb8d2e
 **Coverage:** 100% - ALL 766 script commands, ALL systems documented
 
 ### January 2026 Update Summary
@@ -227,6 +227,6 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- NEW_MOBS: 144 -->
 <!-- NEW_CONSTANTS: 146 -->
 <!-- NEW_PETS: 3 -->
-<!-- RATHENA_COMMIT: ff1acc4e -->
+<!-- RATHENA_COMMIT: eeddb8d2e -->
 <!-- LAST_UPDATED: 2026-01-08 -->
 <!-- VERIFIED: ALL 766 script commands from doc/script_commands.txt included -->
