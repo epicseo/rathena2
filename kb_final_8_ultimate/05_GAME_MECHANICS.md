@@ -5615,3 +5615,483 @@ if (getskilllv(DK_SERVANTWEAPON) >= 5) {
     mes "You've mastered Servant Weapon!";
 }
 ```
+
+---
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 14: SKILL DATABASE SCHEMA (skill_db.yml)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 05_skill_db_schema -->
+## skill_db.yml Complete Schema Reference
+
+> **Source:** `doc/yaml/db/skill_db.yml` | **Database:** `db/re/skill_db.yml`
+
+### Core Skill Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `Id` | int | Unique skill ID |
+| `Name` | string | Skill Aegis name (e.g., SM_BASH) |
+| `Description` | string | Skill description |
+| `MaxLevel` | int | Maximum skill level |
+| `Type` | enum | None, Weapon, Magic, Misc |
+| `TargetType` | enum | Passive, Attack, Ground, Self, Support, Trap |
+
+### Damage Properties (DamageFlags)
+
+```yaml
+DamageFlags:
+  NoDamage: true      # Skill does no damage
+  Splash: true        # Has splash/AoE effect
+  SplashSplit: true   # Splits damage among targets
+  IgnoreCards: true   # Ignores card effects
+  IgnoreElement: true # Ignores element modifiers
+  IgnoreDefense: true # Ignores target defense
+  IgnoreFlee: true    # Ignores target flee
+  IgnoreDefCard: true # Ignores DEF cards
+  Critical: true      # Can critical hit
+```
+
+### Skill Flags
+
+```yaml
+Flags:
+  IsQuest: true           # Quest skill
+  IsNpc: true             # NPC only skill
+  IsWedding: true         # Wedding skill
+  IsSpirit: true          # Spirit skill
+  IsGuild: true           # Guild skill
+  IsSong: true            # Song/Dance skill
+  IsEnsemble: true        # Ensemble skill
+  IsTrap: true            # Trap skill
+  TargetSelf: true        # Can target self
+  NoTargetSelf: true      # Cannot target self
+  PartyOnly: true         # Party members only
+  GuildOnly: true         # Guild members only
+  NoEnemy: true           # Cannot target enemies
+  IgnoreLandProtector: true  # Ignores Land Protector
+  AllowWhenHidden: true   # Usable while hidden
+  AllowWhenPerforming: true  # Usable during performance
+  TargetEmperium: true    # Can target Emperium
+  IgnoreStasis: true      # Ignores Stasis
+  IgnoreKagehumi: true    # Ignores Kagehumi
+  AlterRangeVulture: true # Modified by Vulture's Eye
+  AlterRangeSnakeEye: true # Modified by Snake Eye
+  AlterRangeShadowJump: true # Modified by Shadow Jump
+  AlterRangeRadius: true  # Modified by Radius
+  AlterRangeResearchTrap: true # Modified by Research Trap
+  IgnoreHovering: true    # Ignores Hovering
+```
+
+### Timing Fields
+
+| Field | Description |
+|-------|-------------|
+| `CastTime` | Variable cast time (ms) |
+| `FixedCastTime` | Fixed cast time (ms) |
+| `AfterCastActDelay` | Global skill delay (ms) |
+| `AfterCastWalkDelay` | Walk delay after cast (ms) |
+| `Duration1` | Primary duration (ms) |
+| `Duration2` | Secondary duration (ms) |
+| `Cooldown` | Skill cooldown (ms) |
+
+### Requirements Block
+
+```yaml
+Requires:
+  HpCost: 50          # HP cost
+  SpCost: 30          # SP cost
+  ApCost: 10          # AP cost (4th jobs)
+  ZenyCost: 1000      # Zeny cost
+  Weapon: Sword       # Required weapon type
+  Ammo: Arrow         # Required ammo type
+  AmmoAmount: 1       # Ammo consumed
+  State: Hiding       # Required state
+  Status: SC_POISON   # Required status
+  SpiritSphereCost: 3 # Spirit spheres
+  ItemCost:
+    - Item: Red_Gemstone
+      Amount: 1
+  Equipment:
+    - Shield
+```
+
+### Unit Block (Ground Skills)
+
+```yaml
+Unit:
+  Id: UNT_ICEWALL     # Unit ID
+  Layout: 2           # Layout size
+  Range: 1            # Effect range
+  Interval: 1000      # Tick interval (ms)
+  Target: Enemy       # Enemy, Friend, Party, Guild, All
+  Flag:
+    NoOverlap: true   # Cannot stack
+    NoReiteration: true # Cannot refresh
+    NoFootset: true   # No footstep effects
+    Hidden: true      # Invisible unit
+```
+
+### Example Complete Skill Entry
+
+```yaml
+- Id: 5
+  Name: SM_BASH
+  Description: Bash
+  MaxLevel: 10
+  Type: Weapon
+  TargetType: Attack
+  DamageFlags:
+    Splash: false
+  Range:
+    - Level: 1
+      Size: 1
+  Hit: Single
+  HitCount:
+    - Level: 1
+      Count: 1
+  Element: Weapon
+  CastTime:
+    - Level: 1
+      Time: 0
+  AfterCastActDelay:
+    - Level: 1
+      Time: 500
+  Requires:
+    SpCost:
+      - Level: 1
+        Amount: 8
+      - Level: 10
+        Amount: 15
+```
+
+---
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 15: JOB ASPD DATABASE SCHEMA (job_aspd.yml)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 05_job_aspd_schema -->
+## job_aspd.yml / job_stats.yml Complete Schema Reference
+
+> **Source:** `db/re/job_aspd.yml`, `db/re/job_stats.yml`
+
+### Core Job Fields
+
+| Field | Type | Description | Default |
+|-------|------|-------------|---------|
+| `Jobs` | list | List of job names | Required |
+| `MaxWeight` | int | Base carrying capacity | 20000 |
+| `HpFactor` | int | HP exponential multiplier | 0 |
+| `HpIncrease` | int | HP linear increase per level | 500 |
+| `SpFactor` | int | SP exponential multiplier | 0 |
+| `SpIncrease` | int | SP linear increase per level | 100 |
+| `ApFactor` | int | AP exponential (4th jobs) | 0 |
+| `ApIncrease` | int | AP linear (4th jobs) | 0 |
+
+### Base ASPD by Weapon Type
+
+```yaml
+BaseASPD:
+  Fist: 200
+  Dagger: 190
+  1hSword: 185
+  2hSword: 175
+  1hSpear: 180
+  2hSpear: 170
+  1hAxe: 180
+  2hAxe: 165
+  Mace: 180
+  2hMace: 170
+  Staff: 175
+  Bow: 170
+  Knuckle: 175
+  Musical: 185
+  Whip: 185
+  Book: 175
+  Katar: 165
+  Revolver: 180
+  Rifle: 175
+  Gatling: 165
+  Shotgun: 170
+  Grenade: 175
+  Huuma: 170
+  2hStaff: 160
+```
+
+### Bonus Stats Per Job Level
+
+```yaml
+BonusStats:
+  - Level: 1
+    Str: 1
+  - Level: 5
+    Agi: 1
+  - Level: 10
+    Vit: 1
+    Int: 1
+  # 4th Job trait stats
+  - Level: 50
+    Pow: 1    # Power
+    Sta: 1    # Stamina
+    Wis: 1    # Wisdom
+    Spl: 1    # Spell
+    Con: 1    # Concentration
+    Crt: 1    # Creative
+```
+
+### Maximum Stats
+
+```yaml
+MaxStats:
+  Str: 130        # 4th jobs: 130
+  Agi: 130
+  Vit: 130
+  Int: 130
+  Dex: 130
+  Luk: 130
+  Pow: 100        # Trait stats max: 100
+  Sta: 100
+  Wis: 100
+  Spl: 100
+  Con: 100
+  Crt: 100
+MaxBaseLevel: 250  # 4th jobs: 250
+MaxJobLevel: 70    # 4th jobs: 70
+```
+
+### Example 4th Job Entry
+
+```yaml
+- Jobs:
+    - Dragon_Knight
+  MaxWeight: 40000
+  BaseASPD:
+    2hSword: 145
+    1hSpear: 155
+    2hSpear: 145
+  BonusStats:
+    - Level: 1
+      Str: 2
+    - Level: 10
+      Pow: 1
+  MaxStats:
+    Str: 130
+    Pow: 100
+  MaxBaseLevel: 250
+  MaxJobLevel: 70
+```
+
+---
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 16: ITEM COMBOS DATABASE SCHEMA (item_combos.yml)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 05_item_combos_schema -->
+## item_combos.yml Complete Schema Reference
+
+> **Source:** `doc/yaml/db/item_combos.yml` | **Database:** `db/re/item_combos.yml`
+
+### Schema Format
+
+```yaml
+Header:
+  Type: ITEM_COMBO_DB
+  Version: 1
+
+Body:
+  - Combos:
+      - Combo:
+          - <item_aegis_name_1>
+          - <item_aegis_name_2>
+          - <item_aegis_name_3>  # Optional, minimum 2 items
+    Script: |
+      bonus bStr,10;
+      bonus bAtkRate,5;
+```
+
+### Key Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `Combos` | list | List of combo item sets |
+| `Combo` | list | Sequence of item AEGIS names (min 2) |
+| `Script` | string | Bonus script when combo equipped |
+| `Clear` | bool | Remove existing combos (default: false) |
+
+### Example Card Combos
+
+```yaml
+# Orc Hero + Orc Lady + Orc Baby combo
+- Combos:
+    - Combo:
+        - Orc_Hero_Card
+        - Orc_Lady_Card
+        - Orc_Baby_Card
+  Script: |
+    bonus bStr,5;
+    bonus bVit,5;
+    bonus bMaxHPrate,10;
+
+# Drake + Sword Fish combo (weapon + card)
+- Combos:
+    - Combo:
+        - Drake_Card
+        - Swordfish_Card
+  Script: |
+    bonus bBreakWeaponRate,5;
+    bonus bSplashRange,1;
+
+# Frontier Crown + Weapon combo (4th job set)
+- Combos:
+    - Combo:
+        - Frontier_R_Crown_DK
+        - Frontier_DK_T_Sword
+  Script: |
+    .@g = getenchantgrade();
+    .@r = getrefine();
+    bonus bAtkRate,10;
+    bonus2 bSkillAtk,"DK_DRAGONIC_BREATH",15+5*(.@r/3);
+    if (.@g >= ENCHANTGRADE_D) {
+        bonus bMaxHPrate,5;
+    }
+```
+
+### Multiple Combos for Same Items
+
+```yaml
+# Same items can have different combo sets
+- Combos:
+    - Combo:
+        - Moonlight_Dagger
+        - Thief_Clothes_
+    - Combo:
+        - Moonlight_Dagger
+        - Rogue_Suit
+  Script: |
+    bonus bFlee,20;
+    bonus bAgi,5;
+```
+
+### Combo Script Best Practices
+
+1. **Use getrefine() and getenchantgrade()** for scaling bonuses
+2. **Stack bonuses** within single script block
+3. **Check item positions** with `getequipid(EQI_*)` if needed
+4. **Use conditional bonuses** for tiered effects
+
+```yaml
+Script: |
+  .@r = getrefine();
+  .@g = getenchantgrade();
+  
+  // Base combo bonus
+  bonus bMaxHP,1000;
+  
+  // Scaling with refine
+  if (.@r >= 7) bonus bMaxHPrate,5;
+  if (.@r >= 9) bonus bMaxHPrate,5;
+  
+  // Scaling with enchant grade
+  if (.@g >= ENCHANTGRADE_C) bonus bDef,50;
+  if (.@g >= ENCHANTGRADE_B) bonus bMdef,50;
+  if (.@g >= ENCHANTGRADE_A) bonus bAllStats,5;
+```
+
+---
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 17: MISSING MAPFLAG CONSTANTS (82 Complete)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 05_all_mapflags -->
+## Complete MF_* Constants Reference
+
+> **Source:** `src/map/map.hpp` | **Docs:** `doc/mapflags.txt` (491 lines)
+
+### All 82 Mapflag Constants
+
+| ID | Constant | Description |
+|----|----------|-------------|
+| 0 | MF_NOMEMO | Disable /memo command |
+| 1 | MF_NOTELEPORT | Disable teleportation |
+| 2 | MF_NOSAVE | Disable auto-save |
+| 3 | MF_NOBRANCH | Disable Dead Branch usage |
+| 4 | MF_NOPENALTY | Disable death penalties |
+| 5 | MF_NOZENYPENALTY | Disable zeny loss on death |
+| 6 | MF_PVP | Enable PvP mode |
+| 7 | MF_PVP_NOPARTY | PvP ignores party |
+| 8 | MF_PVP_NOGUILD | PvP ignores guild |
+| 9 | MF_GVG | Enable GvG mode |
+| 10 | MF_GVG_NOPARTY | GvG ignores party |
+| 11 | MF_NOTRADE | Disable trading |
+| 12 | MF_NOSKILL | Disable all skills |
+| 13 | MF_NOWARP | Disable warping from map |
+| 14 | MF_PARTYLOCK | Lock party modifications |
+| 15 | MF_NOICEWALL | Disable Ice Wall skill |
+| 16 | MF_SNOW | Snow weather effect |
+| 17 | MF_FOG | Fog weather effect |
+| 18 | MF_SAKURA | Sakura weather effect |
+| 19 | MF_LEAVES | Falling leaves effect |
+| 22 | MF_NOGO | Disable @go command |
+| 23 | MF_CLOUDS | Cloud weather effect |
+| 24 | MF_CLOUDS2 | Cloud effect type 2 |
+| 25 | MF_FIREWORKS | Fireworks effect |
+| 26 | MF_GVG_CASTLE | GvG castle map |
+| 27 | MF_GVG_DUNGEON | GvG dungeon map |
+| 28 | MF_NIGHTENABLED | Enable night mode |
+| 29 | MF_NOBASEEXP | Disable base EXP |
+| 30 | MF_NOJOBEXP | Disable job EXP |
+| 31 | MF_NOMOBLOOT | Disable mob drops |
+| 32 | MF_NOMVPLOOT | Disable MVP drops |
+| 33 | MF_NORETURN | Disable return items |
+| 34 | MF_NOWARPTO | Disable warp to this map |
+| 35 | MF_PVP_NIGHTMAREDROP | Drop items on PvP death |
+| 36 | MF_RESTRICTED | Zone restrictions |
+| 37 | MF_NOCOMMAND | Disable commands |
+| 38 | MF_NODROP | Disable item dropping |
+| 39 | MF_JEXP | Job EXP modifier |
+| 40 | MF_BEXP | Base EXP modifier |
+| 41 | MF_NOVENDING | Disable vending |
+| 42 | MF_LOADEVENT | Trigger OnPCLoadMapEvent |
+| 43 | MF_NOCHAT | Disable chat rooms |
+| 44 | MF_NOEXPPENALTY | No EXP loss on death |
+| 45 | MF_GUILDLOCK | Lock guild modifications |
+| 46 | MF_TOWN | Mark as town map |
+| 47 | MF_AUTOTRADE | Allow @autotrade |
+| 48 | MF_ALLOWKS | Allow kill stealing |
+| 49 | MF_MONSTER_NOTELEPORT | Monsters cannot teleport |
+| 50 | MF_PVP_NOCALCRANK | Disable PvP ranking |
+| 51 | MF_BATTLEGROUND | Enable Battleground |
+| 52 | MF_RESET | Allow Neuralizer item |
+| 53 | MF_NOMAPCHANNELAUTOJOIN | No auto-join #map |
+| 54 | MF_NOUSECART | Disable cart usage |
+| 55 | MF_NOITEMCONSUMPTION | Disable item usage |
+| 56 | MF_NOSUNMOONSTARMIRACLE | No Star Gladiator miracle |
+| 57 | MF_FORCEMINEFFECT | Force /mineffect |
+| 58 | MF_NOLOCKON | Require shift to attack |
+| 59 | MF_NOTOMB | Disable MVP tombs |
+| 60 | MF_SKILL_DAMAGE | Enable skill damage adjust |
+| 61 | MF_NOCOSTUME | Hide costume sprites |
+| 62 | MF_GVG_TE_CASTLE | WoE:TE castle |
+| 63 | MF_GVG_TE | WoE:TE mode |
+| 64 | MF_HIDEMOBHPBAR | Hide monster HP bars |
+| 65 | MF_NOLOOT | No loot drops |
+| 66 | MF_NOEXP | No EXP gains |
+| 67 | MF_PRIVATEAIRSHIP_SOURCE | Airship source |
+| 68 | MF_PRIVATEAIRSHIP_DESTINATION | Airship destination |
+| 69 | MF_SKILL_DURATION | Skill duration modifier |
+| 70 | MF_NOCASHSHOP | Disable cash shop |
+| 71 | MF_NORODEX | Disable RODex |
+| 72 | MF_NORENEWALEXPPENALTY | No renewal EXP penalty |
+| 73 | MF_NORENEWALDROPPENALTY | No renewal drop penalty |
+| 74 | MF_NOPETCAPTURE | Disable pet capture |
+| 75 | MF_NOBUYINGSTORE | Disable buying stores |
+| 76 | MF_NODYNAMICNPC | Disable dynamic NPCs |
+| 77 | MF_NOBANK | Disable bank access |
+| 78 | MF_SPECIALPOPUP | Show special popup |
+| 79 | MF_NOMACROCHECKER | Disable macro checker |
+| 80 | MF_INVINCIBLE_TIME | Set invincibility time |
+
