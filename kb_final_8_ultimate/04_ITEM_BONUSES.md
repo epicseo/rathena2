@@ -5206,16 +5206,17 @@ Script: |
 <!-- RAG_CHUNK: 04_bNoMadoFuel -->
 ### bNoMadoFuel
 
-**Syntax:** `bonus bNoMadoFuel,Nullify Magic Gear Fuel requirement for skills.;`
+**Syntax:** `bonus bNoMadoFuel;`
 
-**Parameters:**
-- `Nullify Magic Gear Fuel requirement for skills.`
+**Effect:** Nullify Magic Gear Fuel requirement for skills.
+
+**Parameters:** None
 
 **Example:**
 ```yml
 # In item_db.yml Script field
 Script: |
-  bonus bNoMadoFuel,Nullify Magic Gear Fuel requirement for skills.;
+  bonus bNoMadoFuel;
 ```
 
 ---
@@ -5223,10 +5224,11 @@ Script: |
 <!-- RAG_CHUNK: 04_bNoWalkDelay -->
 ### bNoWalkDelay
 
-**Syntax:** `bonus bNoWalkDelay,Give infinite Endure.;`
+**Syntax:** `bonus bNoWalkDelay;`
 
-**Parameters:**
-- `Give infinite Endure.`
+**Effect:** Give infinite Endure (no walk delay when hit).
+
+**Parameters:** None
 
 **Example:**
 ```yml

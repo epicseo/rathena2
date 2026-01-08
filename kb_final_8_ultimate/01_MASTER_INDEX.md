@@ -1,13 +1,14 @@
-# rAthena Knowledge Base v16.0 - Ultimate Complete Edition
+# rAthena Knowledge Base v17.0 - January 2026 Update
 
-**Version:** 16.0 - Ultimate Complete (ALL gaps filled)
-**Release Date:** 2025-12-26
+**Version:** 17.0 - Ultimate Complete (Synced with rAthena Jan 2026)
+**Release Date:** 2026-01-08
+**rAthena Commit:** ff1acc4e (2026-01-07)
 **Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 100,343 (VERIFIED - no duplicates, ALL gaps filled)
-**Total Size:** ~2.9 MB
-**RAG Chunks:** 1,558
+**Total Lines:** 100,554 (VERIFIED - no duplicates, ALL gaps filled)
+**Total Size:** ~3.0 MB
+**RAG Chunks:** 1,560+
 **Validation:** 100% source-verified, ALL systems documented
-**Coverage:** 100% (4th Jobs, Attendance, Stylist - ALL included)
+**Coverage:** 100% (4th Jobs, Attendance, Stylist, Item Enchant - ALL included)
 
 ---
 
@@ -25,6 +26,9 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 - **ALL 20 4th Job Classes** with stats & skill prefixes (in 05_GAME_MECHANICS.md)
 - **Attendance System** complete documentation (in 06_CONTENT_CREATION.md)
 - **Stylist System** complete documentation (in 06_CONTENT_CREATION.md)
+- **NEW: Item Enchant System** (db/re/item_enchant.yml) (in 06_CONTENT_CREATION.md)
+- **NEW: Item Reform System** updated (in 06_CONTENT_CREATION.md)
+- **NEW: 38 Skill Implementations** (Gunslinger, Mage, Taekwon) (in 06_CONTENT_CREATION.md)
 
 ---
 
@@ -182,17 +186,21 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | 4th Job Classes | MISSING | **FILLED** | 05_GAME_MECHANICS Part 12 |
 | Attendance System | MISSING | **FILLED** | 06_CONTENT_CREATION Part 11 |
 | Stylist System | MISSING | **FILLED** | 06_CONTENT_CREATION Part 12 |
+| Item Enchant System | NEW | **ADDED** | 06_CONTENT_CREATION Part 13 |
+| Item Reform System | NEW | **ADDED** | 06_CONTENT_CREATION Part 14 |
+| Skill Implementations | NEW | **ADDED** | 06_CONTENT_CREATION Part 15 |
 
-**Result: 100% Coverage - 8 Files - No Gaps**
+**Result: 100% Coverage - 8 Files - No Gaps - Synced Jan 2026**
 
 ---
 
 <!-- RAG_METADATA -->
-<!-- VERSION: 16.0 -->
+<!-- VERSION: 17.0 -->
 <!-- FILES: 8 -->
-<!-- TOTAL_LINES: 100343 -->
-<!-- RAG_CHUNKS: 1558 -->
+<!-- TOTAL_LINES: 100554 -->
+<!-- RAG_CHUNKS: 1561 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
 <!-- COVERAGE: 100% -->
-<!-- LAST_UPDATED: 2025-12-26 -->
+<!-- RATHENA_COMMIT: ff1acc4e -->
+<!-- LAST_UPDATED: 2026-01-08 -->

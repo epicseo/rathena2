@@ -6800,3 +6800,204 @@ max_hair_style: 42
 max_hair_color: 8
 max_cloth_color: 4
 ```
+
+---
+
+<!-- RAG_CHUNK: 06_item_enchant_system -->
+# PART 13: ITEM ENCHANT SYSTEM (NEW 2026-01)
+
+## Item Enchant Overview
+
+The Item Enchant system allows players to add special enchantments to equipment. Added in rAthena January 2026 update.
+
+## Item Enchant YAML Schema
+
+```yaml
+# db/re/item_enchant.yml
+Header:
+  Type: ITEM_ENCHANT_DB
+  Version: 1
+
+Body:
+  - Id: <client_lua_index>
+    TargetItems:
+      - <item_name>
+    MinimumRefine: 0
+    MinimumEnchantgrade: 0
+    AllowRandomOptions: true
+    Reset:
+      Chance: <success_rate>
+      Price: <zeny_cost>
+      Materials:
+        - Material: <item_name>
+          Amount: 1
+    Order:
+      - Slot: 0
+      - Slot: 1
+      - Slot: 2
+      - Slot: 3
+    Slots:
+      - Slot: 0
+        Price: <zeny_cost>
+        Materials:
+          - Material: <item_name>
+            Amount: 1
+        Chance: 100000
+        EnchantgradeBonus:
+          - Enchantgrade: 1
+            Chance: 5000
+        Enchants:
+          - Enchant: <bonus_item_id>
+            Chance: <rate>
+```
+
+## Key Fields
+
+| Field | Description |
+|-------|-------------|
+| `Id` | Client-side LUA index for the enchant NPC |
+| `TargetItems` | List of items that can be enchanted |
+| `MinimumRefine` | Required refine level (default: 0) |
+| `MinimumEnchantgrade` | Required enchant grade (default: 0) |
+| `AllowRandomOptions` | Allow items with random options (default: true) |
+| `Reset.Chance` | Success rate for resetting enchants |
+| `Reset.Price` | Zeny cost for reset |
+| `Order` | Slot enchant order (0-3) |
+| `Slots` | Enchant configuration per slot |
+
+## Example: Basic Weapon Enchant
+
+```yaml
+- Id: 1
+  TargetItems:
+    - Crimson_Sword
+    - Crimson_Dagger
+  MinimumRefine: 7
+  Reset:
+    Chance: 100000
+    Price: 100000
+  Order:
+    - Slot: 3
+    - Slot: 2
+  Slots:
+    - Slot: 3
+      Price: 50000
+      Chance: 80000
+      Enchants:
+        - Enchant: 4700  # ATK +1%
+          Chance: 50000
+        - Enchant: 4701  # ATK +2%
+          Chance: 30000
+        - Enchant: 4702  # ATK +3%
+          Chance: 20000
+```
+
+---
+
+<!-- RAG_CHUNK: 06_item_reform_system -->
+# PART 14: ITEM REFORM SYSTEM (UPDATED 2026-01)
+
+## Item Reform Overview
+
+The Item Reform system allows upgrading items to higher tiers. Major updates in January 2026.
+
+## Item Reform YAML Schema
+
+```yaml
+# db/re/item_reform.yml
+Header:
+  Type: ITEM_REFORM_DB
+  Version: 1
+
+Body:
+  - Id: <reform_id>
+    SourceItems:
+      - Item: <source_item>
+        MinimumRefine: 0
+        MinimumEnchantgrade: 0
+        RandomOptions:
+          Allow: true
+    ResultItem: <result_item>
+    Materials:
+      - Material: <item_name>
+        Amount: 1
+    Costs:
+      - Type: Zeny
+        Amount: <cost>
+```
+
+---
+
+<!-- RAG_CHUNK: 06_new_skill_implementations_2026 -->
+# PART 15: NEW SKILL IMPLEMENTATIONS (2026-01)
+
+## Gunslinger Skills (13 new implementations)
+
+| Skill | File | Description |
+|-------|------|-------------|
+| GS_BULLSEYE | bullseye.cpp | Critical headshot skill |
+| GS_CRACKER | cracker.cpp | Flashbang grenade |
+| GS_DESPERADO | desperado.cpp | Rapid fire AoE |
+| GS_DISARM | disarm.cpp | Weapon disabling shot |
+| GS_DUST | dust.cpp | Ground shot |
+| GS_FLING | fling.cpp | Coin throw attack |
+| GS_FULLBUSTER | fullbuster.cpp | Full power shot |
+| GS_GATLINGFEVER | gatlingfever.cpp | Gatling gun buff |
+| GS_GLITTERING | glittering.cpp | Coin flip buff |
+| GS_GROUNDDRIFT | grounddrift.cpp | Ground grenade |
+| GS_PIERCINGSHOT | piercingshot.cpp | Armor piercing shot |
+| GS_RAPIDSHOWER | rapidshower.cpp | Quick multi-shot |
+| GS_SPREADATTACK | spreadattack.cpp | Shotgun blast |
+| GS_TRACKING | tracking.cpp | Sniper aim |
+| GS_TRIPLEACTION | tripleaction.cpp | Triple shot |
+
+## Mage Skills (13 new implementations)
+
+| Skill | File | Description |
+|-------|------|-------------|
+| MG_COLDBOLT | coldbolt.cpp | Ice bolt attack |
+| MG_ENERGYCOAT | energycoat.cpp | SP shield buff |
+| MG_FIREBALL | fireball.cpp | AoE fire attack |
+| MG_FIREBOLT | firebolt.cpp | Fire bolt attack |
+| MG_FIREWALL | firewall.cpp | Fire barrier |
+| MG_FROSTDIVER | frostdiver.cpp | Freeze attack |
+| MG_LIGHTNINGBOLT | lightningbolt.cpp | Lightning attack |
+| MG_NAPALMBEAT | napalmbeat.cpp | Ghost attack |
+| MG_SIGHT | sight.cpp | Reveal hidden |
+| MG_SOULSTRIKE | soulstrike.cpp | Ghost multi-hit |
+| MG_STONECURSE | stonecurse.cpp | Petrify attack |
+| MG_THUNDERSTORM | thunderstorm.cpp | AoE lightning |
+
+## Taekwon Skills (12 new implementations)
+
+| Skill | File | Description |
+|-------|------|-------------|
+| TK_COUNTER | counter.cpp | Counter attack |
+| TK_DOWNKICK | downkick.cpp | Knockdown kick |
+| TK_HIGHJUMP | highjump.cpp | High jump movement |
+| TK_JUMPKICK | jumpkick.cpp | Jumping kick attack |
+| TK_MISSION | mission.cpp | Taekwon mission |
+| TK_RUN | run.cpp | Sprint skill |
+| TK_SEVENWIND | sevenwind.cpp | Elemental enchant |
+| TK_STORMKICK | stormkick.cpp | Wind kick attack |
+| TK_TURNKICK | turnkick.cpp | Spinning kick |
+
+## Skill Implementation Structure
+
+```cpp
+// src/map/skills/<class>/<skillname>.cpp
+#include "skillname.hpp"
+#include "../skill_impl.hpp"
+
+class SkillName : public WeaponSkillImpl {
+public:
+    SkillName() : WeaponSkillImpl(SKILL_ID) {}
+    
+    int32 castend_damage_id(struct block_list* src, 
+                            struct block_list* bl,
+                            uint16 skill_id, 
+                            uint16 skill_lv,
+                            t_tick tick, 
+                            int flag) override;
+};
+```
