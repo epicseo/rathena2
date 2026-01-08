@@ -12,7 +12,7 @@
 
 ### January 2026 Update Summary
 - **526 New Items** (208 equip, 158 usable, 160 etc)
-- **120 New Mobs** (Training dummies for Training Zone 123)
+- **144 New Mobs** (Training dummies for Training Zone 123)
 - **146 New Script Constants** (IG_*, EAJ_*, EFST_*)
 - **38 New Skill Implementations** (Gunslinger, Mage, Taekwon)
 - **3 New Pets** (Domovoi, Orc Hero, Orc Lord)
@@ -72,8 +72,8 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 |---|------|-------|------------|---------|
 | 01 | **01_MASTER_INDEX.md** | 227 | 8 | Navigation + comparison |
 | 02 | **02_SCRIPT_COMMANDS.md** | 16,069 | 23 | 767+ commands + BUILDIN_FUNC |
-| 03 | **03_STATUS_EFFECTS.md** | 12,276 | 672 | ALL 1,038 SC_* + val1-val4 |
-| 04 | **04_ITEM_BONUSES.md** | 5,241 | 247 | All 263 bonuses + constants |
+| 03 | **03_STATUS_EFFECTS.md** | 12,276 | 672 | ALL 1,028 SC_* + val1-val4 |
+| 04 | **04_ITEM_BONUSES.md** | 5,241 | 247 | All 264 bonuses + constants |
 | 05 | **05_GAME_MECHANICS.md** | 5,617 | 72 | EAJ_*, mf_*, MD_*, @cmd, 4th Jobs |
 | 06 | **06_CONTENT_CREATION.md** | 9,983 | 72 | NPC, EF_*, Attendance, Stylist, ALL Jan 2026 Items + SCRIPTS |
 | 07 | **07_SOURCE_DEV_COMPLETE.md** | 18,803 | 68 | C++ + packets + source_doc |
@@ -172,9 +172,9 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | Content | Source File | Count | Status |
 |---------|-------------|-------|--------|
 | Script Commands | doc/script_commands.txt | 767+ | VERIFIED |
-| Status Effects | src/map/status.hpp | 1,038 SC_* | VERIFIED |
-| Item Bonuses | doc/item_bonus.txt | 263 | VERIFIED |
-| AT Commands | src/map/atcommand.cpp | 287 | VERIFIED |
+| Status Effects | src/map/status.hpp | 1,028 SC_* | VERIFIED |
+| Item Bonuses | doc/item_bonus.txt | 264 | VERIFIED |
+| AT Commands | src/map/atcommand.cpp | 291 | VERIFIED |
 | Visual Effects | doc/effect_list.md | 968 EF_* | VERIFIED |
 | Monster Modes | doc/mob_db_mode_list.txt | 26 MD_* | VERIFIED |
 | GM Permissions | doc/permissions.txt | 31 PC_PERM_* | VERIFIED |
@@ -197,7 +197,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | Item Reform System | NEW | **ADDED** | 06_CONTENT_CREATION Part 14 |
 | Skill Implementations | NEW | **ADDED** | 06_CONTENT_CREATION Part 15 |
 | 526 New Items (Jan 2026) | NEW | **ADDED** | 06_CONTENT_CREATION Part 16 |
-| 120 New Mobs (Jan 2026) | NEW | **ADDED** | 06_CONTENT_CREATION Part 17 |
+| 144 New Mobs (Jan 2026) | NEW | **ADDED** | 06_CONTENT_CREATION Part 17 |
 | 146 Script Constants (Jan 2026) | NEW | **ADDED** | 06_CONTENT_CREATION Part 18 |
 | 3 New Pets (Jan 2026) | NEW | **ADDED** | 06_CONTENT_CREATION Part 19 |
 | New Skill Flag (Jan 2026) | NEW | **ADDED** | 06_CONTENT_CREATION Part 20 |
@@ -219,7 +219,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- MISSING_DOCS: 0 -->
 <!-- COVERAGE: 100% -->
 <!-- NEW_ITEMS: 526 -->
-<!-- NEW_MOBS: 120 -->
+<!-- NEW_MOBS: 144 -->
 <!-- NEW_CONSTANTS: 146 -->
 <!-- NEW_PETS: 3 -->
 <!-- RATHENA_COMMIT: ff1acc4e -->

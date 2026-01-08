@@ -7139,7 +7139,7 @@ public:
 <!-- RAG_CHUNK: 06_jan2026_new_mobs -->
 # PART 17: NEW MOBS - JANUARY 2026 UPDATE
 
-## Summary: 120 New Training Dummies Added
+## Summary: 144 New Training Dummies Added
 
 The January 2026 update adds comprehensive Training Zone 123 with various training dummies.
 
@@ -7337,7 +7337,7 @@ IG_AEGIS_105518
 ---
 
 <!-- RAG_CHUNK: 16_Complete_Equipment_Items_Jan2026 -->
-## Part 16: Complete New Equipment Items (January 2026)
+## Part 16 Detail: Complete New Equipment Items (January 2026)
 
 **Total: 208 equipment items**
 
@@ -7553,7 +7553,7 @@ IG_AEGIS_105518
 | 1270141 | S_NW_NF_Shoes | Night Fire Shadow Shoes |
 
 <!-- RAG_CHUNK: 17_Complete_Usable_Items_Jan2026 -->
-## Part 17: Complete New Usable Items (January 2026)
+## Part 17 Detail: Complete New Usable Items (January 2026)
 
 **Total: 158 usable items**
 
@@ -7719,7 +7719,7 @@ IG_AEGIS_105518
 | 1100037 | 25_A_Ev_Cookie | Orleans' Handmade Cookies |
 
 <!-- RAG_CHUNK: 18_Complete_Etc_Items_Jan2026 -->
-## Part 18: Complete New Etc Items (January 2026)
+## Part 18 Detail: Complete New Etc Items (January 2026)
 
 **Total: 160 etc items (cards, stones, footprints)**
 
@@ -7887,9 +7887,9 @@ IG_AEGIS_105518
 | 1002482 | R_Gaebolg_Necklace | Engraved Gaebolg Necklace |
 
 <!-- RAG_CHUNK: 19_Complete_Training_Mobs_Jan2026 -->
-## Part 19: Complete Training Zone Mobs (January 2026)
+## Part 17 Detail: Complete Training Zone Mobs (January 2026)
 
-**Total: 120 training dummies for map 123**
+**Total: 144 training dummies for map 123**
 
 ### Training System
 - **Map:** 123 (Training Ground)
