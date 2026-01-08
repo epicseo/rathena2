@@ -6859,6 +6859,7 @@ BUILDIN_FUNC(countinarray)
  *------------------------------------------*/
 BUILDIN_FUNC(setlook)
 {
+	// TODO: no checks at all... [Lemongrass]
 	int32 type,val;
 	TBL_PC* sd;
 
@@ -6921,13 +6922,13 @@ BUILDIN_FUNC(changelook){
 			break;
 
 		case LOOK_BODY2:
-			if( val < MIN_BODY_STYLE ){
-				ShowError( "buildin_changelook: Invalid body style. Minimum: %d\n", MIN_BODY_STYLE );
+			if( val < JOB_NOVICE ){
+				ShowError( "buildin_changelook: Invalid body style. Minimum: %d\n", JOB_NOVICE );
 				return SCRIPT_CMD_FAILURE;
 			}
 
-			if( val > MAX_BODY_STYLE ){
-				ShowError( "buildin_changelook: Invalid body style. Maximum: %d\n", MAX_BODY_STYLE );
+			if( val >= JOB_MAX ){
+				ShowError( "buildin_changelook: Invalid body style. Maximum: %d\n", ( JOB_MAX - 1 ) );
 				return SCRIPT_CMD_FAILURE;
 			}
 			break;
@@ -12939,7 +12940,7 @@ BUILDIN_FUNC(resetskill)
 BUILDIN_FUNC(resetfeel)
 {
 	TBL_PC *sd;
-	if (!script_charid2sd(2,sd) || (sd->class_&MAPID_UPPERMASK) != MAPID_STAR_GLADIATOR)
+	if (!script_charid2sd(2,sd) || (sd->class_&MAPID_SECONDMASK) != MAPID_STAR_GLADIATOR)
 		return SCRIPT_CMD_FAILURE;
 	pc_resetfeel(sd);
 	return SCRIPT_CMD_SUCCESS;
@@ -12952,7 +12953,7 @@ BUILDIN_FUNC(resetfeel)
 BUILDIN_FUNC(resethate)
 {
 	TBL_PC *sd;
-	if (!script_charid2sd(2,sd) || (sd->class_&MAPID_UPPERMASK) != MAPID_STAR_GLADIATOR)
+	if (!script_charid2sd(2,sd) || (sd->class_&MAPID_SECONDMASK) != MAPID_STAR_GLADIATOR)
 		return SCRIPT_CMD_FAILURE;
 	pc_resethate(sd);
 	return SCRIPT_CMD_SUCCESS;
@@ -13000,7 +13001,7 @@ BUILDIN_FUNC(changebase)
 			clif_changelook(sd,LOOK_CLOTHES_COLOR,sd->vd.look[LOOK_CLOTHES_COLOR]);
 		if (sd->vd.look[LOOK_BODY2])
 			clif_changelook(sd,LOOK_BODY2,sd->vd.look[LOOK_BODY2]);
-		clif_skillinfoblock(sd);
+		clif_skillinfoblock(*sd);
 	}
 	return SCRIPT_CMD_SUCCESS;
 }
@@ -27482,7 +27483,7 @@ BUILDIN_FUNC(getfamerank) {
 	if (!script_charid2sd(2, sd))
 		return SCRIPT_CMD_FAILURE;
 
-	script_pushint(st, pc_famerank(sd->status.char_id, sd->class_ & MAPID_UPPERMASK));
+	script_pushint(st, pc_famerank(sd->status.char_id, sd->class_ & MAPID_SECONDMASK));
 
 	return SCRIPT_CMD_SUCCESS;
 }
