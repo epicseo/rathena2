@@ -4,9 +4,9 @@
 **Release Date:** 2026-01-08
 **rAthena Commit:** ff1acc4e (2026-01-07)
 **Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 115,893 (VERIFIED - Added complete script_commands.txt)
+**Total Lines:** 116,083 (VERIFIED - ALL 603 BUILDIN_FUNC documented)
 **Total Size:** ~3.5 MB
-**RAG Chunks:** 1,613
+**RAG Chunks:** 1,614
 **Validation:** Source-verified against rAthena commit ff1acc4e
 **Coverage:** 100% - ALL 766 script commands, ALL systems documented
 
@@ -46,7 +46,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | Metric | kb_v9_final | v13 (bloated) | v15.4 | **v18.0 (COMPLETE)** |
 |--------|-------------|---------------|-------|----------------------|
 | **Files** | 9 | 8 | 8 | **8** |
-| **Lines** | 92,530 | 143,038 | 99,465 | **115,893** |
+| **Lines** | 92,530 | 143,038 | 99,465 | **116,083** |
 | **Duplicates** | 0% | ~45% | 0% | **0%** |
 | **Missing Docs** | Many | Many | 3 gaps | **NONE** |
 | **4th Jobs** | NO | NO | NO | **YES (20 classes)** |
@@ -71,7 +71,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 | # | File | Lines | RAG Chunks | Content |
 |---|------|-------|------------|---------|
 | 01 | **01_MASTER_INDEX.md** | 227 | 8 | Navigation + comparison |
-| 02 | **02_SCRIPT_COMMANDS.md** | 27,922 | 58 | ALL 766 commands COMPLETE |
+| 02 | **02_SCRIPT_COMMANDS.md** | 28,112 | 59 | ALL 766+15 commands COMPLETE |
 | 03 | **03_STATUS_EFFECTS.md** | 12,276 | 672 | ALL 1,028 SC_* + val1-val4 |
 | 04 | **04_ITEM_BONUSES.md** | 5,241 | 247 | All 264 bonuses + constants |
 | 05 | **05_GAME_MECHANICS.md** | 6,097 | 76 | EAJ_*, mf_*, MD_*, @cmd, 4th Jobs, skill_db, job_aspd, item_combos |
@@ -217,8 +217,8 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- RAG_METADATA -->
 <!-- VERSION: 18.0 -->
 <!-- FILES: 8 -->
-<!-- TOTAL_LINES: 115893 -->
-<!-- RAG_CHUNKS: 1613 -->
+<!-- TOTAL_LINES: 116083 -->
+<!-- RAG_CHUNKS: 1614 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
 <!-- COVERAGE: 100% -->

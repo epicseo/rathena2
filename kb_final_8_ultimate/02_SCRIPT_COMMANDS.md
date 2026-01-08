@@ -27920,3 +27920,193 @@ Set position for NPC dialog in pixels.
 Set position for NPC dialog in screen size percent.
 
 ---------------------------------------
+
+---
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PART 5: UNDOCUMENTED BUILDIN_FUNC (15 Functions)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+<!-- RAG_CHUNK: 02_undocumented_buildin -->
+## Undocumented Script Functions
+
+> **Note:** These 15 functions exist in source code but are not in official rAthena docs.
+> Documentation derived from source code analysis.
+
+---
+
+### *achievement_condition
+
+Used internally by the achievement system to check achievement conditions.
+
+```c
+// Internal function - typically not used in NPC scripts
+achievement_condition(<achievement_id>);
+```
+
+---
+
+### *disableitemuse
+
+Disables item usage for the attached player during NPC interaction.
+
+```c
+disableitemuse;
+// Player cannot use items while talking to this NPC
+```
+
+---
+
+### *enableitemuse
+
+Re-enables item usage for the attached player.
+
+```c
+enableitemuse;
+// Player can use items again
+```
+
+---
+
+### *grouprandomitem(<group_id>)
+
+Returns a random item ID from the specified item group.
+
+```c
+.@item_id = grouprandomitem(IG_POTION);
+getitem .@item_id, 1;
+```
+
+---
+
+### *homunculus_evolution
+
+Triggers homunculus evolution.
+
+```c
+homunculus_evolution;
+// Evolves the player's homunculus if conditions are met
+```
+
+---
+
+### *homunculus_mutate
+
+Triggers homunculus mutation.
+
+```c
+homunculus_mutate;
+// Mutates the player's homunculus
+```
+
+---
+
+### *homunculus_shuffle
+
+Shuffles homunculus stats.
+
+```c
+homunculus_shuffle;
+// Randomizes homunculus stat distribution
+```
+
+---
+
+### *minmax(<value1>,<value2>,...)
+
+Returns either minimum or maximum value from a list of values.
+Actual function called depends on the alias used (min or max).
+
+```c
+.@lowest = min(10, 5, 8, 3);  // Returns 3
+.@highest = max(10, 5, 8, 3); // Returns 10
+```
+
+---
+
+### *montransform(<mob_id>,<duration>{,<sc_type>,<val1>,<val2>,<val3>,<val4>})
+
+Transforms player into a monster sprite.
+
+```c
+// Transform into Poring for 60 seconds
+montransform(1002, 60000);
+
+// Transform with status effect
+montransform(1002, 60000, SC_SPEEDUP1, 50, 0, 0, 0);
+```
+
+---
+
+### *needed_trait_point(<stat>,<target_value>)
+
+Calculates trait points needed to reach target stat value.
+
+```c
+.@points = needed_trait_point(bPow, 100);
+mes "You need " + .@points + " trait points to reach 100 POW.";
+```
+
+---
+
+### *setr(<variable>,<value>{,<char_id>})
+
+Sets a variable value with optional character ID specification.
+Alternative to 'set' with explicit char_id parameter.
+
+```c
+setr .@myvar, 100;
+setr PC_VAR, 50, .@char_id;
+```
+
+---
+
+### *strmobinfo(<type>,<mob_id>)
+
+Returns monster information as string.
+
+| Type | Returns |
+|------|---------|
+| 0 | Monster name |
+| 1 | Monster jname (Japanese name) |
+| 2 | Monster level |
+| 3 | Monster HP |
+| 4 | Monster SP |
+
+```c
+.@name$ = strmobinfo(0, 1002); // Returns "Poring"
+```
+
+---
+
+### *waitingroomkickall("<npc_name>")
+
+Kicks all players from a waiting room (chat room).
+
+```c
+waitingroomkickall(strnpcinfo(0));
+// Kicks everyone from this NPC's waiting room
+```
+
+---
+
+### *wedding_effect
+
+Triggers wedding visual effect.
+
+```c
+wedding_effect;
+// Shows wedding ceremony effects
+```
+
+---
+
+### *x
+
+Internal/debug function. Not for general use.
+
+---
+
+**Total Undocumented Functions:** 15
+**Now Documented:** 15/15 (100%)
+

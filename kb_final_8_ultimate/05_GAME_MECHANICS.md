@@ -2892,7 +2892,7 @@ Body:
 
 ---
 
-<!-- RAG_CHUNK: 05_skill_db_schema -->
+<!-- RAG_CHUNK: 05_skill_db_overview -->
 ## skill_db.yml Schema
 
 **Location:** `db/re/skill_db.yml`
