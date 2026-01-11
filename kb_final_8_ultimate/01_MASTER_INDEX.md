@@ -4,7 +4,7 @@
 **Release Date:** 2026-01-08
 **rAthena Commit:** eeddb8d2e (2026-01-08)
 **Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 116,083 (VERIFIED - ALL 603 BUILDIN_FUNC documented)
+**Total Lines:** 116,111 (VERIFIED - ALL 603 BUILDIN_FUNC + 4 new SC_* documented)
 **Total Size:** ~3.5 MB
 **RAG Chunks:** 1,614
 **Validation:** Source-verified against rAthena commit eeddb8d2e
@@ -217,7 +217,7 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- RAG_METADATA -->
 <!-- VERSION: 18.0 -->
 <!-- FILES: 8 -->
-<!-- TOTAL_LINES: 116083 -->
+<!-- TOTAL_LINES: 116111 -->
 <!-- RAG_CHUNKS: 1614 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
