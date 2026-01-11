@@ -1,9 +1,9 @@
 # rAthena Source Development Complete Guide v4.0 (8-File Edition)
 
 **Version:** 4.0.1 - 8-File Optimized Edition
-**File Size:** ~8K lines (merged from 2 files)
+**File Size:** ~19K lines (merged from 2 files + packets/source_doc)
 **Coverage:** 100% C++ development + 100% security
-**Last Updated:** 2025-11-19
+**Last Updated:** 2026-01-11
 
 ---
 
@@ -55,7 +55,7 @@
 **Version:** 4.0 - RAG-Optimized Complete Edition
 **File Size:** ~7K lines (merged from 4 files)
 **Coverage:** 100% C++ development guide
-**Last Updated:** 2025-11-19
+**Last Updated:** 2026-01-11
 
 ---
 
@@ -6148,7 +6148,7 @@ This document provides a comprehensive reference for navigating the rAthena sour
 **Version:** 4.0 - RAG-Optimized Complete Edition
 **File Size:** ~2K lines (standalone file)
 **Coverage:** 100% security exploits and prevention
-**Last Updated:** 2025-11-19
+**Last Updated:** 2026-01-11
 
 ---
 
@@ -7968,7 +7968,7 @@ if( price == 0 ) {
 **Version:** 4.0 - RAG-Optimized Complete Edition  
 **File Size:** ~7K lines (merged from 3 files)
 **Coverage:** 100% database, packets, compilation
-**Last Updated:** 2025-11-19
+**Last Updated:** 2026-01-11
 
 ---
 

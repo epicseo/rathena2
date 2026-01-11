@@ -1,9 +1,9 @@
 # rAthena Scripting Complete Reference v4.0
 
 **Version:** 4.0 - RAG-Optimized Complete Edition
-**File Size:** ~16K lines (merged from 3 files)
+**File Size:** ~28K lines (merged from 3 files + Part 4-5 additions)
 **Coverage:** 100% scripting knowledge - Syntax to Performance
-**Last Updated:** 2025-11-19
+**Last Updated:** 2026-01-11
 
 ---
 
@@ -26,7 +26,7 @@
 | **Part 1: Complete Command Reference** | script_commands_optimized_v2.md | 12,588 | All 767+ commands A-Z |
 | **Part 2: Command Creation Guide** | KB_REF_ScriptCommandCreation.md | 1,771 | BUILDIN_FUNC, C++ integration |
 | **Part 3: Performance Optimization** | KB_REF_ScriptPerformance.md | 1,567 | Freeloop, queries, benchmarks |
-| **Total** | 3 files → 1 file | **15,926** | **Complete scripting** |
+| **Total** | 3 files → 1 file + Part 4-5 | **28,112** | **Complete scripting** |
 
 ---
 
@@ -67,9 +67,9 @@ System: atcommand, bindatcmd, getarg
 ### Cross-References to Other Files
 
 **Need constants? Load these with this file:**
-- **03_GAME_MECHANICS.md** - SC_* (status effects), bonus constants, EAJ_* (jobs), mf_* (mapflags)
-- **04_CONTENT_CREATION.md** - NPC patterns, quest/item group database structures
-- **08_SCRIPT_INTERNALS.md** - Script engine internals, crash prevention
+- **05_GAME_MECHANICS.md** - SC_* (status effects), bonus constants, EAJ_* (jobs), mf_* (mapflags)
+- **06_CONTENT_CREATION.md** - NPC patterns, quest/item group database structures
+- **07_SOURCE_DEV_COMPLETE.md** - Script engine internals, crash prevention
 
 ---
 
@@ -103,8 +103,8 @@ System: atcommand, bindatcmd, getarg
 - Custom script command creation
 
 **Always combine with:**
-- **03_GAME_MECHANICS.md** when user needs constants (SC_*, bonus, etc.)
-- **04_CONTENT_CREATION.md** when user needs complete NPC patterns
+- **05_GAME_MECHANICS.md** when user needs constants (SC_*, bonus, etc.)
+- **06_CONTENT_CREATION.md** when user needs complete NPC patterns
 
 ---
 
@@ -112,7 +112,7 @@ System: atcommand, bindatcmd, getarg
 ## 📂 File Structure
 
 ```
-02_SCRIPTING_COMPLETE.md (this file)
+02_SCRIPT_COMMANDS.md (this file)
 │
 ├── Part 1: COMPLETE COMMAND REFERENCE (~12.6K lines)
 │   ├── Table of Contents (15 categories)
@@ -157,9 +157,9 @@ System: atcommand, bindatcmd, getarg
 - **100% Content:** All v3.1 scripting content preserved
 
 ### When to Load Other Files
-- **03_GAME_MECHANICS.md:** Need SC_*, bonus, EAJ_*, mf_* constants
-- **04_CONTENT_CREATION.md:** Need complete NPC patterns, quest/item structures
-- **08_SCRIPT_INTERNALS.md:** Need engine internals, crash prevention details
+- **05_GAME_MECHANICS.md:** Need SC_*, bonus, EAJ_*, mf_* constants
+- **06_CONTENT_CREATION.md:** Need complete NPC patterns, quest/item structures
+- **07_SOURCE_DEV_COMPLETE.md:** Need engine internals, crash prevention details
 
 ---
 

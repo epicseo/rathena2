@@ -12274,3 +12274,31 @@ Various status flags for specific events:
 4. **Opt1 Exclusivity**: SC_STONE, SC_FREEZE, SC_STUN, SC_SLEEP, SC_BURNING, SC_WHITEIMPRISON, SC_CRYSTALIZE cannot override each other
 5. **Mado Immunity**: Madogear is immune to increase agi, wind walk, cart boost, etc.
 6. **Berserk Types**: SC_BERSERK, SC_SATURDAYNIGHTFEVER, SC__BLOODYLUST do not overlap
+
+---
+
+<!-- RAG_CHUNK: 03_new_level275_sc -->
+## Level 275 New Skills Status Effects
+
+> **Added in latest rAthena update** - These are new status effects for Level 275 skills.
+
+### SC_FIRE_CHARM_POWER
+- **Description:** Fire Charm Power buff
+- **Type:** Buff
+- **Related Skill:** Level 275 Fire Charm skill
+
+### SC_WATER_CHARM_POWER
+- **Description:** Water Charm Power buff
+- **Type:** Buff
+- **Related Skill:** Level 275 Water Charm skill
+
+### SC_WIND_CHARM_POWER
+- **Description:** Wind Charm Power buff
+- **Type:** Buff
+- **Related Skill:** Level 275 Wind Charm skill
+
+### SC_GROUND_CHARM_POWER
+- **Description:** Ground Charm Power buff
+- **Type:** Buff
+- **Related Skill:** Level 275 Ground Charm skill
+
