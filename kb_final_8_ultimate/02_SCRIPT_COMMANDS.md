@@ -1,9 +1,9 @@
 # rAthena Scripting Complete Reference v4.0
 
 **Version:** 4.0 - RAG-Optimized Complete Edition
-**File Size:** ~16K lines (merged from 3 files)
+**File Size:** ~28K lines (merged from 3 files + Part 4-5 additions)
 **Coverage:** 100% scripting knowledge - Syntax to Performance
-**Last Updated:** 2025-11-19
+**Last Updated:** 2026-01-11
 
 ---
 
@@ -26,7 +26,7 @@
 | **Part 1: Complete Command Reference** | script_commands_optimized_v2.md | 12,588 | All 767+ commands A-Z |
 | **Part 2: Command Creation Guide** | KB_REF_ScriptCommandCreation.md | 1,771 | BUILDIN_FUNC, C++ integration |
 | **Part 3: Performance Optimization** | KB_REF_ScriptPerformance.md | 1,567 | Freeloop, queries, benchmarks |
-| **Total** | 3 files → 1 file | **15,926** | **Complete scripting** |
+| **Total** | 3 files → 1 file + Part 4-5 | **28,112** | **Complete scripting** |
 
 ---
 

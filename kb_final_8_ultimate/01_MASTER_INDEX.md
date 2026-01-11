@@ -5,9 +5,9 @@
 **Last Updated:** 2026-01-11
 **rAthena Commit:** eeddb8d2e (Latest)
 **Total Files:** 8 RAG-optimized knowledge base files
-**Total Lines:** 116,111
+**Total Lines:** 116,135
 **Total Size:** ~3.5 MB (913 KB zipped)
-**RAG Chunks:** 1,614
+**RAG Chunks:** 1,615
 **Validation:** Source-verified, brutally audited, zero gaps
 **Coverage:** 100% - ALL systems documented
 
@@ -17,7 +17,7 @@
 
 | File | Lines | Last Updated | Status |
 |------|-------|--------------|--------|
-| 01_MASTER_INDEX.md | 232 | 2026-01-11 | ✅ Updated |
+| 01_MASTER_INDEX.md | 256 | 2026-01-11 | ✅ Updated |
 | 02_SCRIPT_COMMANDS.md | 28,112 | 2026-01-11 | ✅ Updated |
 | 03_STATUS_EFFECTS.md | 12,304 | 2026-01-11 | ✅ Updated (4 new SC_*) |
 | 04_ITEM_BONUSES.md | 5,241 | 2026-01-11 | ✅ Current |
@@ -67,10 +67,10 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- RAG_CHUNK: 01_version_comparison -->
 ## VERSION COMPARISON
 
-| Metric | kb_v9_final | v13 (bloated) | v15.4 | **v18.0 (COMPLETE)** |
+| Metric | kb_v9_final | v13 (bloated) | v15.4 | **v18.1 (COMPLETE)** |
 |--------|-------------|---------------|-------|----------------------|
 | **Files** | 9 | 8 | 8 | **8** |
-| **Lines** | 92,530 | 143,038 | 99,465 | **116,083** |
+| **Lines** | 92,530 | 143,038 | 99,465 | **116,135** |
 | **Duplicates** | 0% | ~45% | 0% | **0%** |
 | **Missing Docs** | Many | Many | 3 gaps | **NONE** |
 | **4th Jobs** | NO | NO | NO | **YES (20 classes)** |
@@ -94,15 +94,15 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 
 | # | File | Lines | RAG Chunks | Content |
 |---|------|-------|------------|---------|
-| 01 | **01_MASTER_INDEX.md** | 227 | 8 | Navigation + comparison |
+| 01 | **01_MASTER_INDEX.md** | 256 | 9 | Navigation + comparison |
 | 02 | **02_SCRIPT_COMMANDS.md** | 28,112 | 59 | ALL 766+15 commands COMPLETE |
-| 03 | **03_STATUS_EFFECTS.md** | 12,276 | 672 | ALL 1,028 SC_* + val1-val4 |
+| 03 | **03_STATUS_EFFECTS.md** | 12,304 | 673 | ALL 1,028 SC_* + val1-val4 |
 | 04 | **04_ITEM_BONUSES.md** | 5,241 | 247 | All 264 bonuses + constants |
 | 05 | **05_GAME_MECHANICS.md** | 6,097 | 76 | EAJ_*, mf_*, MD_*, @cmd, 4th Jobs, skill_db, job_aspd, item_combos |
 | 06 | **06_CONTENT_CREATION.md** | 9,983 | 72 | NPC, EF_*, Attendance, Stylist, ALL Jan 2026 Items + SCRIPTS |
 | 07 | **07_SOURCE_DEV_COMPLETE.md** | 18,803 | 68 | C++ + packets + source_doc |
 | 08 | **08_SOURCE_TUTORIALS.md** | 35,339 | 411 | 420+ expert tutorials |
-| **TOTAL** | **8 files** | **104,035** | **1,577** | **~95% COVERAGE** |
+| **TOTAL** | **8 files** | **116,135** | **1,615** | **100% COVERAGE** |
 
 ---
 
@@ -239,10 +239,10 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 ---
 
 <!-- RAG_METADATA -->
-<!-- VERSION: 18.0 -->
+<!-- VERSION: 18.1 -->
 <!-- FILES: 8 -->
-<!-- TOTAL_LINES: 116111 -->
-<!-- RAG_CHUNKS: 1614 -->
+<!-- TOTAL_LINES: 116135 -->
+<!-- RAG_CHUNKS: 1615 -->
 <!-- DUPLICATES: 0 -->
 <!-- MISSING_DOCS: 0 -->
 <!-- COVERAGE: 100% -->
@@ -252,5 +252,5 @@ This is the **ULTIMATE COMPLETE** rAthena Knowledge Base with:
 <!-- NEW_CONSTANTS: 146 -->
 <!-- NEW_PETS: 3 -->
 <!-- RATHENA_COMMIT: eeddb8d2e -->
-<!-- LAST_UPDATED: 2026-01-08 -->
+<!-- LAST_UPDATED: 2026-01-11 -->
 <!-- VERIFIED: ALL 766 script commands from doc/script_commands.txt included -->
