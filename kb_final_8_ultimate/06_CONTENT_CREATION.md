@@ -78,9 +78,9 @@ NPC Patterns (12):
 ### Cross-References to Other Files
 
 **Need syntax or constants? Load these:**
-- **02_SCRIPTING_COMPLETE.md** - getgroupitem, setquest, checkquest, NPC syntax
-- **03_GAME_MECHANICS.md** - RC_* (race), Ele_* (element), Size_*, SC_*, bonus constants
-- **08_SCRIPT_INTERNALS.md** - Understanding script crashes, timer safety
+- **02_SCRIPT_COMMANDS.md** - getgroupitem, setquest, checkquest, NPC syntax
+- **05_GAME_MECHANICS.md** - RC_* (race), Ele_* (element), Size_*, SC_*, bonus constants
+- **07_SOURCE_DEV_COMPLETE.md** - Understanding script crashes, timer safety
 
 ---
 
@@ -90,15 +90,15 @@ NPC Patterns (12):
 ### For Content Creators
 1. **Creating gacha boxes** → Part 1: Item Groups
 2. **Creating quests** → Part 2: Quest System
-3. **Creating NPCs** → Part 3: NPC Patterns + **02_SCRIPTING_COMPLETE.md**
+3. **Creating NPCs** → Part 3: NPC Patterns + **02_SCRIPT_COMMANDS.md**
 4. **Complete systems** → Use all three parts together
 
 ### Workflow Example: Creating Complete Quest System
 ```
 Step 1: Design quest in quest_db.yml (Part 2: Quest System)
 Step 2: Create reward items/gacha (Part 1: Item Groups)
-Step 3: Implement quest NPC (Part 3: NPC Patterns + 02_SCRIPTING_COMPLETE)
-Step 4: Add constants if needed (03_GAME_MECHANICS)
+Step 3: Implement quest NPC (Part 3: NPC Patterns + 02_SCRIPT_COMMANDS)
+Step 4: Add constants if needed (05_GAME_MECHANICS)
 ```
 
 ### For AI/LLM Systems
@@ -109,8 +109,8 @@ Step 4: Add constants if needed (03_GAME_MECHANICS)
 - "How to create [system]"
 
 **Always combine with:**
-- **02_SCRIPTING_COMPLETE.md** for command syntax
-- **03_GAME_MECHANICS.md** for constants
+- **02_SCRIPT_COMMANDS.md** for command syntax
+- **05_GAME_MECHANICS.md** for constants
 
 ---
 
@@ -118,7 +118,7 @@ Step 4: Add constants if needed (03_GAME_MECHANICS)
 ## 📂 File Structure
 
 ```
-04_CONTENT_CREATION.md (this file)
+06_CONTENT_CREATION.md (this file)
 │
 ├── Part 1: ITEM GROUPS (~1.2K lines)
 │   ├── Database Structure (item_group_db.yml)
@@ -169,23 +169,23 @@ Step 4: Add constants if needed (03_GAME_MECHANICS)
 **Pattern 1: Gacha Box Creation**
 ```
 User: "How to create gacha with announced rare drops?"
-Load: 04_CONTENT_CREATION.md (Part 1: Algorithm + Announced field)
-Then: 02_SCRIPTING_COMPLETE.md (getgroupitem syntax)
+Load: 06_CONTENT_CREATION.md (Part 1: Algorithm + Announced field)
+Then: 02_SCRIPT_COMMANDS.md (getgroupitem syntax)
 ```
 
 **Pattern 2: Quest Creation**
 ```
 User: "How to create weekly quest that resets Monday?"
-Load: 04_CONTENT_CREATION.md (Part 2: TimeLimit absolute format)
-Then: 02_SCRIPTING_COMPLETE.md (setquest, checkquest)
-Then: 03_GAME_MECHANICS.md (if using Race/Element filters)
+Load: 06_CONTENT_CREATION.md (Part 2: TimeLimit absolute format)
+Then: 02_SCRIPT_COMMANDS.md (setquest, checkquest)
+Then: 05_GAME_MECHANICS.md (if using Race/Element filters)
 ```
 
 **Pattern 3: Complete NPC System**
 ```
 User: "Create cooldown-based event NPC"
-Load: 04_CONTENT_CREATION.md (Part 3: Cooldown pattern)
-Then: 02_SCRIPTING_COMPLETE.md (syntax reference)
+Load: 06_CONTENT_CREATION.md (Part 3: Cooldown pattern)
+Then: 02_SCRIPT_COMMANDS.md (syntax reference)
 ```
 
 ---
